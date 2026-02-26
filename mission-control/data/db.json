@@ -1,212 +1,45 @@
 {
   "tasks": [
-    {
-      "title": "Build Mission Control v0.1",
-      "description": "Initial dashboard with tasks, expenses, agents",
-      "status": "completed",
-      "priority": "high",
-      "category": "infrastructure",
-      "id": 1772072799690,
-      "created_at": "2026-02-26T02:26:39.690Z",
-      "completed_at": "2026-02-26T02:26:39.690Z"
-    },
-    {
-      "title": "Set up GitHub repo",
-      "description": "Create mohltbot/mission-control repository",
-      "status": "completed",
-      "priority": "high",
-      "category": "infrastructure",
-      "id": 1772072799702,
-      "created_at": "2026-02-26T02:26:39.702Z",
-      "completed_at": "2026-02-26T02:26:39.702Z"
-    },
-    {
-      "title": "Daily AI work session",
-      "description": "Automated nightly tasks to move mission forward",
-      "status": "completed",
-      "priority": "high",
-      "category": "automation",
-      "id": 1772072799712,
-      "created_at": "2026-02-26T02:26:39.712Z",
-      "completed_at": "2026-02-26T02:46:00.000Z"
-    },
-    {
-      "title": "Fix npm permission issues in Mission Control",
-      "description": "Fix EACCES errors when running npm install due to root-owned cache files - WORKED AROUND by removing better-sqlite3 dependency and using JSON store instead",
-      "status": "completed",
-      "priority": "high",
-      "category": "infrastructure",
-      "id": 1772072800001,
-      "created_at": "2026-02-26T02:47:00.000Z",
-      "completed_at": "2026-02-26T12:45:00.000Z",
-      "notes": "Removed better-sqlite3 dependency, adapted supermemory.ts to use JSON store, fixed TypeScript errors in TaskBoardWrapper, model-router, and expense-tracker. Build now succeeds."
-    },
-    {
-      "title": "Add memory browser to Mission Control",
-      "description": "Create UI for browsing and searching stored memories",
-      "status": "completed",
-      "priority": "medium",
-      "category": "feature",
-      "id": 1772072800002,
-      "created_at": "2026-02-26T02:47:00.000Z",
-      "completed_at": "2026-02-26T10:25:00.000Z",
-      "notes": "Enhanced MemoryBrowser with: tabbed Files/DB view, search functionality, category color coding, importance stars, loading states. Includes all core memory files."
-    },
-    {
-      "title": "Run PR #5 - Setup persistent Cloudflare tunnel",
-      "description": "Run ./scripts/setup-persistent-tunnel.sh to create permanent Mission Control URL that survives restarts. Also test ./scripts/auto-pr.sh for automated PR creation.",
-      "status": "pending",
-      "priority": "high",
-      "category": "infrastructure",
-      "id": 1772090501755,
-      "created_at": "2026-02-26T07:21:41.755Z"
-    },
-    {
-      "title": "Review SaaS Agentification Framework (PR #7)",
-      "description": "Framework for quickly agentifying Monta VC portfolio companies. Includes Narada Executive Assistant Agent implementation. Review and provide feedback on approach.",
-      "status": "completed",
-      "priority": "high",
-      "category": "review",
-      "id": 1772091170716,
-      "created_at": "2026-02-26T07:32:50.716Z",
-      "completed_at": "2026-02-26T10:15:00.000Z",
-      "notes": "Reviewed PR. Framework has solid 5-step architecture (Ingest→Process→Decide→Human Review→Execute). Narada agent implementation is well-structured with TypeScript. Ready for merge after Mohammed's final approval."
-    },
-    {
-      "title": "PR #6: Editable Tasks",
-      "description": "Made tasks clickable and editable in Mission Control",
-      "status": "completed",
-      "priority": "high",
-      "category": "feature",
-      "id": 1772107773911,
-      "created_at": "2026-02-26T12:09:33.911Z"
-    },
-    {
-      "title": "PR #7: SaaS Agentification Framework",
-      "description": "Built reusable framework for Monta VC portfolio companies",
-      "status": "completed",
-      "priority": "high",
-      "category": "feature",
-      "id": 1772107773922,
-      "created_at": "2026-02-26T12:09:33.922Z"
-    },
-    {
-      "title": "PR #8: Simplify Model Optimizer",
-      "description": "Removed manual UI, added automatic routing and savings display",
-      "status": "completed",
-      "priority": "medium",
-      "category": "feature",
-      "id": 1772107773932,
-      "created_at": "2026-02-26T12:09:33.932Z"
-    },
-    {
-      "title": "Fix Budget Tracking Accuracy",
-      "description": "Corrected $11 spent on Moonshot - improved logging for sub-agents",
-      "status": "completed",
-      "priority": "high",
-      "category": "bugfix",
-      "id": 1772107773942,
-      "created_at": "2026-02-26T12:09:33.942Z"
-    }
+    {"id": 1, "title": "Build Mission Control v0.1", "description": "Initial dashboard with tasks, expenses, agents, memories", "status": "completed", "priority": "high", "category": "infrastructure", "created_at": "2026-02-25T18:00:00Z", "completed_at": "2026-02-25T20:00:00Z"},
+    {"id": 2, "title": "Set up GitHub repo", "description": "Create mohltbot/mission-control repository", "status": "completed", "priority": "high", "category": "infrastructure", "created_at": "2026-02-25T18:00:00Z", "completed_at": "2026-02-25T19:00:00Z"},
+    {"id": 3, "title": "Daily AI work session", "description": "Automated nightly tasks to move mission forward", "status": "completed", "priority": "high", "category": "automation", "created_at": "2026-02-25T18:00:00Z", "completed_at": "2026-02-25T20:00:00Z"},
+    {"id": 4, "title": "Fix npm permission issues", "description": "Workaround by removing better-sqlite3, using JSON store", "status": "completed", "priority": "high", "category": "infrastructure", "created_at": "2026-02-25T18:00:00Z", "completed_at": "2026-02-26T02:00:00Z"},
+    {"id": 5, "title": "Add memory browser to Mission Control", "description": "Create UI for browsing and searching stored memories", "status": "completed", "priority": "medium", "category": "feature", "created_at": "2026-02-25T18:00:00Z", "completed_at": "2026-02-26T10:00:00Z"},
+    {"id": 6, "title": "PR #6: Editable Tasks", "description": "Made tasks clickable and editable in Mission Control", "status": "completed", "priority": "high", "category": "feature", "created_at": "2026-02-26T12:00:00Z", "completed_at": "2026-02-26T12:30:00Z"},
+    {"id": 7, "title": "PR #7: SaaS Agentification Framework", "description": "Built reusable framework for Monta VC portfolio companies", "status": "completed", "priority": "high", "category": "feature", "created_at": "2026-02-26T12:00:00Z", "completed_at": "2026-02-26T14:00:00Z"},
+    {"id": 8, "title": "PR #8: Simplify Model Optimizer", "description": "Removed manual UI, added automatic routing and savings display", "status": "completed", "priority": "medium", "category": "feature", "created_at": "2026-02-26T12:00:00Z", "completed_at": "2026-02-26T15:00:00Z"},
+    {"id": 9, "title": "Fix Budget Tracking Accuracy", "description": "Corrected $11 spent on Moonshot - improved logging for sub-agents", "status": "completed", "priority": "high", "category": "bugfix", "created_at": "2026-02-26T12:00:00Z", "completed_at": "2026-02-26T12:30:00Z"},
+    {"id": 10, "title": "Fix Supermemory API bug", "description": "Resolved getDb is not a function error with lazy initialization", "status": "completed", "priority": "high", "category": "bugfix", "created_at": "2026-02-26T12:30:00Z", "completed_at": "2026-02-26T13:00:00Z"},
+    {"id": 11, "title": "Activate automatic memory extraction", "description": "Set up auto-extraction from conversations with proper database storage", "status": "completed", "priority": "high", "category": "feature", "created_at": "2026-02-26T12:30:00Z", "completed_at": "2026-02-26T13:30:00Z"},
+    {"id": 12, "title": "Add Gemini and DeepSeek API keys", "description": "Stored API keys securely and activated mixed model routing", "status": "completed", "priority": "high", "category": "infrastructure", "created_at": "2026-02-26T12:30:00Z", "completed_at": "2026-02-26T14:00:00Z"},
+    {"id": 13, "title": "Correct budget tracking to $11 spent", "description": "Fixed discrepancy between tracked ($6) and actual ($11) Moonshot spend", "status": "completed", "priority": "high", "category": "bugfix", "created_at": "2026-02-26T12:30:00Z", "completed_at": "2026-02-26T13:00:00Z"},
+    {"id": 14, "title": "Update memories with correct startup info from resume", "description": "Fixed dAIcor Inc and Sumer Inc details from resume", "status": "completed", "priority": "high", "category": "bugfix", "created_at": "2026-02-26T17:00:00Z", "completed_at": "2026-02-26T18:00:00Z"},
+    {"id": 15, "title": "Run PR #5 - Setup persistent Cloudflare tunnel", "description": "Run ./scripts/setup-persistent-tunnel.sh to create permanent Mission Control URL", "status": "pending", "priority": "high", "category": "infrastructure", "created_at": "2026-02-26T07:00:00Z"},
+    {"id": 16, "title": "Configure OpenClaw mixed model routing", "description": "Set up automatic model switching: Gemini (free), DeepSeek ($0.0003), Kimi ($0.0015)", "status": "pending", "priority": "high", "category": "infrastructure", "created_at": "2026-02-26T17:00:00Z"},
+    {"id": 17, "title": "Post LinkedIn about accounting skill", "description": "LinkedIn post ready at linkedin-post-final.md. Post when ready!", "status": "pending", "priority": "high", "category": "marketing", "created_at": "2026-02-26T20:00:00Z"},
+    {"id": 18, "title": "Submit skill to ClawHub marketplace", "description": "Submit accounting-tax skill to ClawHub using clawhub.json manifest", "status": "pending", "priority": "medium", "category": "marketing", "created_at": "2026-02-26T20:00:00Z"}
   ],
   "expenses": [
-    {
-      "description": "Nightly work session - Feb 26",
-      "amount": 0.0045,
-      "category": "api_call",
-      "provider": "moonshot",
-      "model": "kimi-k2.5",
-      "tokens_in": 28000,
-      "tokens_out": 3200,
-      "id": 1772100900000,
-      "created_at": "2026-02-26T10:30:00.000Z"
-    },
-    {
-      "description": "kimi-k2.5 session (Mission Control build)",
-      "amount": 0.0021,
-      "category": "api_call",
-      "provider": "moonshot",
-      "model": "kimi-k2.5",
-      "tokens_in": 13000,
-      "tokens_out": 980,
-      "id": 1772072799765,
-      "created_at": "2026-02-26T02:26:39.765Z"
-    },
-    {
-      "description": "kimi-k2.5 session (Nightly work session)",
-      "amount": 0.0015,
-      "category": "api_call",
-      "provider": "moonshot",
-      "model": "kimi-k2.5",
-      "tokens_in": 9500,
-      "tokens_out": 750,
-      "id": 1772072800010,
-      "created_at": "2026-02-26T02:46:00.000Z"
-    },
-    {
-      "description": "Moonshot API usage (kimi-k2.5 sessions)",
-      "amount": 2.6674,
-      "category": "api_call",
-      "provider": "moonshot",
-      "model": "kimi-k2.5",
-      "tokens_in": 50000,
-      "tokens_out": 10000,
-      "id": 1772079877580,
-      "created_at": "2026-02-26T04:24:37.580Z"
-    },
-    {
-      "description": "Moonshot API correction (actual balance check)",
-      "amount": 0.82,
-      "category": "api_call",
-      "provider": "moonshot",
-      "model": "kimi-k2.5",
-      "tokens_in": 15000,
-      "tokens_out": 2000,
-      "id": 1772081652855,
-      "created_at": "2026-02-26T04:54:12.855Z"
-    },
-    {
-      "description": "Moonshot API balance correction",
-      "amount": 2.51,
-      "category": "api_call",
-      "provider": "moonshot",
-      "model": "kimi-k2.5",
-      "tokens_in": 75000,
-      "tokens_out": 8000,
-      "id": 1772089633744,
-      "created_at": "2026-02-26T07:07:13.744Z"
-    },
-    {
-      "description": "Moonshot API balance correction - unlogged sub-agent calls",
-      "amount": 4.99,
-      "category": "api_call",
-      "provider": "moonshot",
-      "model": "kimi-k2.5",
-      "tokens_in": 200000,
-      "tokens_out": 50000,
-      "id": 1772107742003,
-      "created_at": "2026-02-26T12:09:02.003Z"
-    }
+    {"id": 1, "description": "kimi-k2.5 session (Mission Control build)", "amount": 0.0021, "category": "api_call", "provider": "moonshot", "model": "kimi-k2.5", "tokens_in": 13000, "tokens_out": 980, "created_at": "2026-02-25T18:00:00Z"},
+    {"id": 2, "description": "kimi-k2.5 session (Nightly work session)", "amount": 0.0015, "category": "api_call", "provider": "moonshot", "model": "kimi-k2.5", "tokens_in": 9500, "tokens_out": 750, "created_at": "2026-02-25T20:00:00Z"},
+    {"id": 3, "description": "Moonshot API usage (kimi-k2.5 sessions)", "amount": 2.6674, "category": "api_call", "provider": "moonshot", "model": "kimi-k2.5", "tokens_in": 50000, "tokens_out": 10000, "created_at": "2026-02-26T02:00:00Z"},
+    {"id": 4, "description": "Moonshot API correction (actual balance check)", "amount": 0.82, "category": "api_call", "provider": "moonshot", "model": "kimi-k2.5", "tokens_in": 15000, "tokens_out": 2000, "created_at": "2026-02-26T05:00:00Z"},
+    {"id": 5, "description": "Moonshot API balance correction", "amount": 2.51, "category": "api_call", "provider": "moonshot", "model": "kimi-k2.5", "tokens_in": 75000, "tokens_out": 8000, "created_at": "2026-02-26T07:00:00Z"},
+    {"id": 6, "description": "Moonshot API balance correction - unlogged sub-agent calls", "amount": 4.99, "category": "api_call", "provider": "moonshot", "model": "kimi-k2.5", "tokens_in": 200000, "tokens_out": 50000, "created_at": "2026-02-26T12:00:00Z"},
+    {"id": 7, "description": "Nightly work session - Feb 26", "amount": 0.0045, "category": "api_call", "provider": "moonshot", "model": "kimi-k2.5", "tokens_in": 28000, "tokens_out": 3200, "created_at": "2026-02-26T10:30:00Z"}
   ],
-  "memories": [],
+  "memories": [
+    {"id": 1, "content": "Budget is $200/month for all API calls and infrastructure", "category": "fact", "importance": 5, "source": "initial_setup", "tags": ["budget", "constraints", "critical"], "created_at": "2026-02-26T14:00:00Z"},
+    {"id": 2, "content": "Uses mixed model routing: Gemini (free), DeepSeek (cheap), Kimi (quality)", "category": "preference", "importance": 4, "source": "user_preference", "tags": ["models", "routing", "cost_optimization"], "created_at": "2026-02-26T14:00:00Z"},
+    {"id": 3, "content": "All PRs require approval before merging - no automatic shipping", "category": "fact", "importance": 5, "source": "core_directive", "tags": ["workflow", "approval", "critical"], "created_at": "2026-02-26T14:00:00Z"},
+    {"id": 4, "content": "Mission Control should be updated every 4 hours via cron job", "category": "task", "importance": 3, "source": "user_request", "tags": ["automation", "mission_control", "sync"], "created_at": "2026-02-26T14:00:00Z"},
+    {"id": 5, "content": "Startup 1: dAIcor Inc - E-commerce platform with Stability AI and Printify APIs, 482 customers, 40% EBITDA, 90.12% monthly growth", "category": "fact", "importance": 5, "source": "resume", "tags": ["startup", "daicor", "ecommerce"], "created_at": "2026-02-26T18:00:00Z"},
+    {"id": 6, "content": "Startup 2: Sumer Inc - Website/app platform, raised $250K, $1M valuation, 2,200 customers, 72.81% quarterly growth", "category": "fact", "importance": 5, "source": "resume", "tags": ["startup", "sumer", "next36"], "created_at": "2026-02-26T18:00:00Z"},
+    {"id": 7, "content": "Mohammed Rayed Wasif, CPA - Indian heritage, San Francisco CA, University of Toronto BBA Accounting 3.7 GPA", "category": "fact", "importance": 5, "source": "resume", "tags": ["personal", "background", "education"], "created_at": "2026-02-26T18:00:00Z"},
+    {"id": 8, "content": "Current role: Senior Associate at Siegfried Group (July '25 - Present), AI automation and Workato", "category": "fact", "importance": 4, "source": "resume", "tags": ["work", "siegfried", "current"], "created_at": "2026-02-26T18:00:00Z"},
+    {"id": 9, "content": "Previous: Senior Accountant 2 at Deloitte (Sept '22 - July '25), led audits for PE/healthcare/VC clients", "category": "fact", "importance": 4, "source": "resume", "tags": ["work", "deloitte", "previous"], "created_at": "2026-02-26T18:00:00Z"}
+  ],
   "agents": [
-    {
-      "id": "subagent-nightly-001",
-      "name": "Nightly Work Session Agent",
-      "status": "completed",
-      "task": "Review Mission Control, execute HEARTBEAT checklist",
-      "started_at": "2026-02-26T02:46:00.000Z",
-      "completed_at": "2026-02-26T02:50:00.000Z",
-      "result": "Reviewed Mission Control dashboard, checked pending tasks, completed Daily AI work session task, added 2 new tasks, recorded session expense"
-    },
-    {
-      "id": "nightly-2026-02-26",
-      "name": "Nightly Work Session",
-      "status": "completed",
-      "task": "Review Mission Control, fix nightly script, enhance MemoryBrowser",
-      "started_at": "2026-02-26T10:10:00.000Z",
-      "completed_at": "2026-02-26T10:30:00.000Z",
-      "result": "Fixed nightly-work.sh to use full path to openclaw. Reviewed PR #7 (SaaS Agentification Framework). Enhanced MemoryBrowser with search, tabs, DB integration."
-    }
+    {"id": "bensbites-scanner", "name": "Ben's Bites Scanner", "status": "completed", "task": "Scan Feb 2026 Ben's Bites issues", "started_at": "2026-02-25T20:00:00Z", "completed_at": "2026-02-25T21:30:00Z", "result": "Analyzed 6 issues, created BENSBITES-BACKLOG.md"}
   ]
 }
