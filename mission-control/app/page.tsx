@@ -1,6 +1,9 @@
 import { Rocket, ArrowRight, Sparkles } from 'lucide-react';
+import { getDashboardStats } from '@/lib/store';
 
 export default function Home() {
+  const stats = getDashboardStats();
+
   return (
     <main className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background decorations */}
@@ -43,15 +46,15 @@ export default function Home() {
         {/* Features */}
         <div className="mt-12 grid grid-cols-3 gap-4 text-center">
           <div className="p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <p className="text-2xl font-bold text-white mb-1">3</p>
+            <p className="text-2xl font-bold text-white mb-1">{stats.totalTasks}</p>
             <p className="text-xs text-slate-400">Tasks</p>
           </div>
           <div className="p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <p className="text-2xl font-bold text-white mb-1">0</p>
+            <p className="text-2xl font-bold text-white mb-1">{stats.activeAgents}</p>
             <p className="text-xs text-slate-400">Agents</p>
           </div>
           <div className="p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <p className="text-2xl font-bold text-white mb-1">$0</p>
+            <p className="text-2xl font-bold text-white mb-1">${stats.monthlySpend.toFixed(2)}</p>
             <p className="text-xs text-slate-400">Spent</p>
           </div>
         </div>
