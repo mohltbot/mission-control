@@ -3,7 +3,7 @@ import { TaskBoard } from '@/components/TaskBoard';
 import { ExpenseTracker } from '@/components/ExpenseTracker';
 import { AgentStatus } from '@/components/AgentStatus';
 import { StatsCard } from '@/components/StatsCard';
-import { Activity, CheckCircle2, Bot, Wallet, Brain } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
 export default function Dashboard() {
   const stats = getDashboardStats();
@@ -13,7 +13,6 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen p-4 md:p-6 lg:p-8">
-      {/* Header */}
       <header className="mb-8 slide-in">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/25">
@@ -28,10 +27,9 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatsCard 
-          icon={CheckCircle2}
+          iconName="check"
           title="Total Tasks" 
           value={stats.totalTasks} 
           subtitle={`${stats.completedTasks} completed`}
@@ -40,7 +38,7 @@ export default function Dashboard() {
           delay={0}
         />
         <StatsCard 
-          icon={Bot}
+          iconName="bot"
           title="Active Agents" 
           value={stats.activeAgents} 
           subtitle="Currently running"
@@ -49,7 +47,7 @@ export default function Dashboard() {
           delay={100}
         />
         <StatsCard 
-          icon={Wallet}
+          iconName="wallet"
           title="Monthly Spend" 
           value={`$${stats.monthlySpend.toFixed(2)}`} 
           subtitle="API & infrastructure"
@@ -58,7 +56,7 @@ export default function Dashboard() {
           delay={200}
         />
         <StatsCard 
-          icon={Brain}
+          iconName="brain"
           title="Memories" 
           value={stats.memoryCount} 
           subtitle="Stored contexts"
@@ -68,7 +66,6 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* Main Content Grid */}
       <div className="grid lg:grid-cols-2 gap-6">
         <div className="slide-in" style={{ animationDelay: '0.1s' }}>
           <TaskBoard tasks={tasks} />
@@ -83,7 +80,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="mt-12 text-center text-slate-500 text-sm slide-in" style={{ animationDelay: '0.4s' }}>
         <p>Mission Control v0.1 • Built with Next.js & OpenClaw</p>
       </footer>

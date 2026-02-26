@@ -1,9 +1,10 @@
 'use client';
 
-import { LucideIcon } from 'lucide-react';
+import { CheckCircle2, Bot, Wallet, Brain, LucideIcon } from 'lucide-react';
+import { useMemo } from 'react';
 
 interface StatsCardProps {
-  icon: LucideIcon;
+  iconName: 'check' | 'bot' | 'wallet' | 'brain';
   title: string;
   value: string | number;
   subtitle: string;
@@ -12,7 +13,16 @@ interface StatsCardProps {
   delay: number;
 }
 
-export function StatsCard({ icon: Icon, title, value, subtitle, trend, color, delay }: StatsCardProps) {
+const iconMap: Record<string, LucideIcon> = {
+  check: CheckCircle2,
+  bot: Bot,
+  wallet: Wallet,
+  brain: Brain,
+};
+
+export function StatsCard({ iconName, title, value, subtitle, trend, color, delay }: StatsCardProps) {
+  const Icon = iconMap[iconName];
+  
   return (
     <div 
       className="glass-card p-4 md:p-5 transition-all duration-300 hover:scale-[1.02] group slide-in"
@@ -20,7 +30,7 @@ export function StatsCard({ icon: Icon, title, value, subtitle, trend, color, de
     >
       <div className="flex items-start justify-between mb-3">
         <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow`}>
-          <Icon className="w-5 h-5 text-white" />
+          {Icon && <Icon className="w-5 h-5 text-white" />}
         </div>
         {trend > 0 && (
           <div className="flex items-center gap-1 text-xs font-medium text-emerald-400">
@@ -36,7 +46,6 @@ export function StatsCard({ icon: Icon, title, value, subtitle, trend, color, de
         <p className="text-slate-500 text-xs">{subtitle}</p>
       </div>
 
-      {/* Progress bar */}
       <div className="mt-3 h-1 bg-slate-700/50 rounded-full overflow-hidden">
         <div 
           className={`h-full bg-gradient-to-r ${color} rounded-full transition-all duration-1000`}
