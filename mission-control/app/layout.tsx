@@ -1,3 +1,5 @@
+import './globals.css';
+
 export const metadata = {
   title: 'Mission Control',
   description: 'AI-powered command center',
