@@ -1,68 +1,101 @@
 import { addExpense } from './store';
+import pricingData from './pricing.json';
 
-// Pricing per 1K tokens (input, output)
-export const API_PRICING: Record<string, { input: number; output: number }> = {
-  // Moonshot (Chinese models, very cheap)
-  'kimi-k2.5': { input: 0.0005, output: 0.0015 },
-  'kimi-k1.5': { input: 0.0003, output: 0.001 },
-  'kimi-latest': { input: 0.0005, output: 0.0015 },
-  'kimi-k2': { input: 0.0003, output: 0.001 },
-  
-  // OpenAI
-  'gpt-4o': { input: 0.005, output: 0.015 },
-  'gpt-4o-mini': { input: 0.00015, output: 0.0006 },
-  'gpt-4': { input: 0.03, output: 0.06 },
-  'gpt-3.5-turbo': { input: 0.0005, output: 0.0015 },
-  
-  // Anthropic
-  'claude-3-opus': { input: 0.015, output: 0.075 },
-  'claude-3-sonnet': { input: 0.003, output: 0.015 },
-  'claude-3-haiku': { input: 0.00025, output: 0.00125 },
-  'claude-3.5-sonnet': { input: 0.003, output: 0.015 },
-  
-  // DeepSeek
-  'deepseek-chat': { input: 0.00014, output: 0.00028 },
-  'deepseek-reasoner': { input: 0.00055, output: 0.00219 },
-  'deepseek-r1': { input: 0.00055, output: 0.00219 },
-  
-  // Google/Gemini
-  'gemini-1.5-pro': { input: 0.00125, output: 0.005 },
-  'gemini-1.5-flash': { input: 0.000075, output: 0.0003 },
-  
-  // Minimax (Chinese)
-  'minimax-m2.5': { input: 0.0002, output: 0.001 },
-  'minimax-text-01': { input: 0.0002, output: 0.001 },
-  
-  // GLM (Chinese)
-  'glm-5': { input: 0.0003, output: 0.0009 },
-  'glm-4': { input: 0.0005, output: 0.0015 },
-  
-  // OpenRouter (aggregates many)
-  'openrouter': { input: 0.001, output: 0.003 }, // Approximate
-};
+// Type definitions
+interface ModelPricing {
+  input: number;
+  output: number;
+  currency: string;
+}
+
+interface ProviderPricing {
+  [model: string]: ModelPricing;
+}
+
+interface PricingData {
+  lastUpdated: string;
+  sources: { [provider: string]: string };
+  pricing: { [provider: string]: ProviderPricing };
+}
+
+// Load pricing from JSON file
+const PRICING: PricingData = pricingData;
+
+// In-memory cache with override capability
+let currentPricing: PricingData = { ...PRICING };
 
 export interface APICall {
-  provider: 'moonshot' | 'openai' | 'anthropic' | 'deepseek' | 'google' | 'minimax' | 'glm' | 'openrouter' | string;
+  provider: string;
   model: string;
   tokensIn: number;
   tokensOut: number;
   description?: string;
+  actualCost?: number; // Use this if you know the exact cost
+}
+
+// Get pricing for a model
+export function getModelPricing(provider: string, model: string): ModelPricing | null {
+  const providerPricing = currentPricing.pricing[provider.toLowerCase()];
+  if (!providerPricing) return null;
+  
+  // Try exact match first
+  let pricing = providerPricing[model.toLowerCase()];
+  
+  // Fallback to partial match
+  if (!pricing) {
+    const modelKey = Object.keys(providerPricing).find(key => 
+      model.toLowerCase().includes(key.toLowerCase()) ||
+      key.toLowerCase().includes(model.toLowerCase())
+    );
+    if (modelKey) {
+      pricing = providerPricing[modelKey];
+    }
+  }
+  
+  return pricing || null;
 }
 
 // Calculate cost for any API call
 export function calculateCost(call: APICall): number {
-  const pricing = API_PRICING[call.model.toLowerCase()];
+  // If actual cost provided, use that
+  if (call.actualCost !== undefined) {
+    return call.actualCost;
+  }
+  
+  const pricing = getModelPricing(call.provider, call.model);
   
   if (!pricing) {
-    // Unknown model - estimate based on provider
-    console.warn(`Unknown model ${call.model}, estimating cost`);
-    return (call.tokensIn + call.tokensOut) / 1000 * 0.001; // Conservative $0.001/1K tokens
+    // Unknown model - log warning and use conservative estimate
+    console.warn(`⚠️ Unknown model ${call.provider}/${call.model}, using estimate`);
+    
+    // Conservative estimate based on market average
+    const estimatedCost = (call.tokensIn + call.tokensOut) / 1000 * 0.002;
+    
+    // Add to unknown models list for later review
+    logUnknownModel(call.provider, call.model, estimatedCost);
+    
+    return estimatedCost;
   }
   
   const inputCost = (call.tokensIn / 1000) * pricing.input;
   const outputCost = (call.tokensOut / 1000) * pricing.output;
   
   return inputCost + outputCost;
+}
+
+// Track unknown models for pricing updates
+const unknownModels: Map<string, { count: number; estimatedCost: number }> = new Map();
+
+function logUnknownModel(provider: string, model: string, estimatedCost: number): void {
+  const key = `${provider}/${model}`;
+  const existing = unknownModels.get(key);
+  
+  if (existing) {
+    existing.count++;
+  } else {
+    unknownModels.set(key, { count: 1, estimatedCost });
+    console.log(`📝 New unknown model detected: ${key} (est. $${estimatedCost.toFixed(4)})`);
+  }
 }
 
 // Auto-log any API call
@@ -80,23 +113,32 @@ export function logAPICall(call: APICall): void {
       tokens_out: call.tokensOut,
     });
     
-    console.log(`💰 Logged: $${cost.toFixed(4)} for ${call.provider}/${call.model}`);
+    // Only log if cost is significant (> $0.001) or it's the first call
+    if (cost > 0.001) {
+      console.log(`💰 Logged: $${cost.toFixed(4)} for ${call.provider}/${call.model}`);
+    }
   }
 }
 
-// Log expense for non-token-based costs (subscriptions, etc)
-export function logExpense(
-  description: string,
-  amount: number,
-  category: 'api_call' | 'infrastructure' | 'tool' | 'other' = 'other',
-  provider?: string
+// Update pricing dynamically (for manual corrections or updates)
+export function updatePricing(
+  provider: string,
+  model: string,
+  inputPrice: number,
+  outputPrice: number,
+  currency: string = 'USD'
 ): void {
-  addExpense({
-    description,
-    amount,
-    category,
-    provider,
-  });
+  if (!currentPricing.pricing[provider]) {
+    currentPricing.pricing[provider] = {};
+  }
+  
+  currentPricing.pricing[provider][model] = {
+    input: inputPrice,
+    output: outputPrice,
+    currency,
+  };
+  
+  console.log(`✅ Updated pricing: ${provider}/${model} - $${inputPrice}/$${outputPrice} per 1K tokens`);
 }
 
 // Get current budget status
@@ -113,5 +155,37 @@ export function getBudgetStatus() {
     remaining,
     percentUsed,
     status: percentUsed > 90 ? 'critical' : percentUsed > 75 ? 'warning' : 'ok',
+    pricingLastUpdated: currentPricing.lastUpdated,
   };
+}
+
+// Get pricing info for display
+export function getPricingInfo(): { 
+  lastUpdated: string; 
+  sources: { [key: string]: string };
+  unknownModels: string[];
+} {
+  return {
+    lastUpdated: currentPricing.lastUpdated,
+    sources: currentPricing.sources,
+    unknownModels: Array.from(unknownModels.keys()),
+  };
+}
+
+// Validate pricing against actual bills (future enhancement)
+export function validatePricing(provider: string, model: string, actualCost: number, tokensIn: number, tokensOut: number): void {
+  const pricing = getModelPricing(provider, model);
+  if (!pricing) return;
+  
+  const expectedCost = (tokensIn / 1000) * pricing.input + (tokensOut / 1000) * pricing.output;
+  const difference = Math.abs(actualCost - expectedCost);
+  const percentDiff = (difference / expectedCost) * 100;
+  
+  // If difference > 10%, alert about pricing discrepancy
+  if (percentDiff > 10) {
+    console.warn(`⚠️ Pricing discrepancy detected for ${provider}/${model}!`);
+    console.warn(`   Expected: $${expectedCost.toFixed(4)}, Actual: $${actualCost.toFixed(4)}`);
+    console.warn(`   Difference: ${percentDiff.toFixed(1)}%`);
+    console.warn(`   Consider running: npm run update-pricing`);
+  }
 }
