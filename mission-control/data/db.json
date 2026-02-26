@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "title": "Build Mission Control v0.1",
+      "description": "Initial dashboard with tasks, expenses, agents",
+      "status": "completed",
+      "priority": "high",
+      "category": "infrastructure",
+      "id": 1772072799690,
+      "created_at": "2026-02-26T02:26:39.690Z"
+    },
+    {
+      "title": "Set up GitHub repo",
+      "description": "Create mohltbot/mission-control repository",
+      "status": "completed",
+      "priority": "high",
+      "category": "infrastructure",
+      "id": 1772072799702,
+      "created_at": "2026-02-26T02:26:39.702Z"
+    },
+    {
+      "title": "Daily AI work session",
+      "description": "Automated nightly tasks to move mission forward",
+      "status": "pending",
+      "priority": "high",
+      "category": "automation",
+      "id": 1772072799712,
+      "created_at": "2026-02-26T02:26:39.712Z"
+    }
+  ],
+  "expenses": [
+    {
+      "description": "kimi-k2.5 session (Mission Control build)",
+      "amount": 0.0021,
+      "category": "api_call",
+      "provider": "moonshot",
+      "model": "kimi-k2.5",
+      "tokens_in": 13000,
+      "tokens_out": 980,
+      "id": 1772072799765,
+      "created_at": "2026-02-26T02:26:39.765Z"
+    }
+  ],
+  "memories": [],
+  "agents": []
+}
