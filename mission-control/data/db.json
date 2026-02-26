@@ -69,6 +69,42 @@
       "created_at": "2026-02-26T07:32:50.716Z",
       "completed_at": "2026-02-26T10:15:00.000Z",
       "notes": "Reviewed PR. Framework has solid 5-step architecture (Ingest→Process→Decide→Human Review→Execute). Narada agent implementation is well-structured with TypeScript. Ready for merge after Mohammed's final approval."
+    },
+    {
+      "title": "PR #6: Editable Tasks",
+      "description": "Made tasks clickable and editable in Mission Control",
+      "status": "completed",
+      "priority": "high",
+      "category": "feature",
+      "id": 1772107773911,
+      "created_at": "2026-02-26T12:09:33.911Z"
+    },
+    {
+      "title": "PR #7: SaaS Agentification Framework",
+      "description": "Built reusable framework for Monta VC portfolio companies",
+      "status": "completed",
+      "priority": "high",
+      "category": "feature",
+      "id": 1772107773922,
+      "created_at": "2026-02-26T12:09:33.922Z"
+    },
+    {
+      "title": "PR #8: Simplify Model Optimizer",
+      "description": "Removed manual UI, added automatic routing and savings display",
+      "status": "completed",
+      "priority": "medium",
+      "category": "feature",
+      "id": 1772107773932,
+      "created_at": "2026-02-26T12:09:33.932Z"
+    },
+    {
+      "title": "Fix Budget Tracking Accuracy",
+      "description": "Corrected $11 spent on Moonshot - improved logging for sub-agents",
+      "status": "completed",
+      "priority": "high",
+      "category": "bugfix",
+      "id": 1772107773942,
+      "created_at": "2026-02-26T12:09:33.942Z"
     }
   ],
   "expenses": [
@@ -137,6 +173,17 @@
       "tokens_out": 8000,
       "id": 1772089633744,
       "created_at": "2026-02-26T07:07:13.744Z"
+    },
+    {
+      "description": "Moonshot API balance correction - unlogged sub-agent calls",
+      "amount": 4.99,
+      "category": "api_call",
+      "provider": "moonshot",
+      "model": "kimi-k2.5",
+      "tokens_in": 200000,
+      "tokens_out": 50000,
+      "id": 1772107742003,
+      "created_at": "2026-02-26T12:09:02.003Z"
     }
   ],
   "memories": [],
