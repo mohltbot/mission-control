@@ -42,8 +42,9 @@ All data is stored locally in SQLite at `data/mission-control.db`.
 
 ## Roadmap
 
-- [ ] Memory browser with search
+- [x] Memory browser with search
 - [ ] Real-time agent status updates
 - [ ] Task creation/editing UI
 - [ ] Expense breakdown charts
 - [ ] Integration with OpenClaw session data
+- [ ] Fix npm permission issues for builds

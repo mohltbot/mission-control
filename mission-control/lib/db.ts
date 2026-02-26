@@ -146,6 +146,24 @@ export function updateAgentStatus(id: string, status: Agent['status'], result?: 
   }
 }
 
+export function getMemories(): Memory[] {
+  return readDb().memories;
+}
+
+export function createMemory(memory: Omit<Memory, 'id' | 'created_at'>): Memory {
+  const db = readDb();
+  const newMemory: Memory = { ...memory, id: Date.now(), created_at: new Date().toISOString() };
+  db.memories.push(newMemory);
+  writeDb(db);
+  return newMemory;
+}
+
+export function deleteMemory(id: number): void {
+  const db = readDb();
+  db.memories = db.memories.filter(m => m.id !== id);
+  writeDb(db);
+}
+
 export function getDashboardStats() {
   const db = readDb();
   const totalTasks = db.tasks.length;
