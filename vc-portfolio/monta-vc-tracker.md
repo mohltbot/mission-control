@@ -11,10 +11,10 @@
 
 | # | Company | Description | Agent Concept | Status |
 |---|---------|-------------|---------------|--------|
-| 1 | **KlearNow.AI** | AI for customs clearance & logistics | "Customs Broker Agent" - Ingests PDF manifests → extracts data → pauses for human review on red flags → files customs entry | ✅ **COMPLETE** |
-| 2 | **Narada** | AI assistant for task management | "Executive Assistant Agent" - Specialized skills for complex multi-step approvals (travel booking with policy checks) | 🔄 **In Progress** |
-| 3 | **Newtrul** | Digital freight matching marketplace | "Freight Negotiation Agent" - Automates carrier outreach and price negotiation, pings human broker for final approval | 🔄 **In Progress** |
-| 4 | **Avaamo** | Conversational AI for enterprise ops | "IT Helpdesk Agent" - Executes tasks (reset servers, grant access) with manager's one-click approval | 🔄 **In Progress** |
+| 1 | **KlearNow.AI** | IDP for customs clearance | "Customs Broker Agent v2" - Multi-doc upload → OCR extraction → discrepancy detection → HITL review → ACE filing | ✅ **v2 COMPLETE** |
+| 2 | **Narada** | LLMCompiler + Web Redemption | "Multi-App Agent v2" - Natural language → action plan → cross-app execution without APIs → approval | ✅ **v2 COMPLETE** |
+| 3 | **Newtrul** | TMS-integrated freight matching | "Smart Matching Agent v2" - TMS webhook → smart scoring → fraud check → digital booking → TMS update | ✅ **v2 COMPLETE** |
+| 4 | **Avaamo** | Enterprise agent platform | "Multi-Domain Agent v2" - Intent routing → skill selection → HR/Workspace/Finance execution → aggregation | ✅ **v2 COMPLETE** |
 
 ---
 
