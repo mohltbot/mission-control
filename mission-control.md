@@ -1,6 +1,6 @@
 # Mission Control Board
 
-**Last Updated:** February 28, 2026 at 12:03 AM PST (Ghost Shift)  
+**Last Updated:** February 28, 2026 at 12:09 AM PST (Ghost Shift)  
 **Source:** Automated 4-hour sync + comprehensive activity audit
 
 ---
@@ -11,10 +11,10 @@
 |--------|-------|
 | **Budget** | $13.21 / $200 (6.6%) ✅ |
 | **Tasks** | 31 total — 26 done, 5 pending |
-| **Open PRs** | 4 (pending review) |
+| **Open PRs** | 1 (PR #11 - Self-Diagnostics under review) |
 | **API Spend Status** | Healthy (well under $150 alert threshold) |
-| **Last Ghost Shift** | Feb 28, 2026 12:03 AM PST |
-| **Last 4h Commits** | 5 commits — Google Calendar OAuth + cron jobs documentation |
+| **Last Ghost Shift** | Feb 28, 2026 12:09 AM PST |
+| **Last 4h Commits** | 6 commits — Ghost Shift: PR audit, PR #11 review, proactive tasks added |
 
 ---
 
@@ -22,10 +22,11 @@
 
 Tasks I can execute autonomously without manual input:
 
-- [ ] **Review & Merge PR #10** — GitAgent Integration (Git-native agent definitions)
-- [ ] **Review & Merge PR #11** — Agent Self-Diagnostics Module (proactive health monitoring)
-- [ ] **Review & Merge PR #12** — Browser Use Agent API Integration (cloud browser automation)
-- [x] **Review & Merge PR #13** — Apple On-Device LLM (FREE local inference) — *Reviewed, HIGH PRIORITY for budget*
+- [-] **Review PR #11** — Agent Self-Diagnostics Module (review complete - feedback below)
+  * **REVIEW COMPLETED Feb 28, 12:09 AM:** See detailed notes in ## 🔍 PR #11 Review section below
+- [x] **Review & Merge PR #10** — GitAgent Integration — *Already merged*
+- [x] **Review & Merge PR #12** — Browser Use Agent API — *Already merged*
+- [x] **Review & Merge PR #13** — Apple On-Device LLM — *Already merged, HIGH PRIORITY for budget*
 - [ ] **Fix Model Optimizer API endpoint** — Currently returning 404 error
 - [ ] **Wire diagnostics to actual agent execution** — Connect self-diagnostics module
 - [ ] **Set BROWSER_USE_API_KEY in .env** — If using fallback scraper for Ben's Bites
@@ -39,6 +40,45 @@ Tasks I can execute autonomously without manual input:
 - [x] **[Proactive] Add v2 workflow testing tasks** — Created tasks for validating Narada, Newtrul, Avaamo, KlearNow workflows — *Completed Feb 27, 7:40 PM*
 - [x] **[Proactive] Enable Google Calendar OAuth** — Tokens stored locally, automation ready — *Completed Feb 27, 11:30 PM*
 - [ ] **[Proactive] Test Apple On-Device LLM on Mac Mini** — Install apple-fm-sdk, download model, verify local inference — *BLOCKED: needs your approval to merge PR #13 first*
+- [x] **[Proactive] Audit & fix PR status tracking** — Mission Control shows 4 open PRs but only PR #11 is actually open; update tracking accuracy
+  * **COMPLETED:** Verified via GitHub API - only PR #11 is open. PRs #10, #12, #13 already merged. Updated Quick Stats and AI-Ready Tasks sections.
+- [ ] **[Proactive] Run dependency security audit** — npm audit to identify and document vulnerable packages
+
+---
+
+## 🔍 PR #11 Review — Agent Self-Diagnostics Module
+
+**Status:** Ready for your decision (merge/close/request changes)  
+**Branch:** `auto-update/bens-bites-self-diagnostics-2025-02-27`  
+**Files Changed:** 6 files (+516 lines)
+
+### Summary
+Well-structured implementation of Raindrop AI's self-diagnostics pattern. Adds `withDiagnostics()` wrapper, budget alerts, Discord integration, and dashboard widget.
+
+### ✅ What's Good
+- **Clean architecture:** Separated concerns (hook, rules, reporter, types, widget)
+- **Type safety:** Full TypeScript coverage with proper interfaces
+- **Budget integration:** Hooks into existing $200 budget with 70%/90% thresholds
+- **Discord alerts:** Critical errors automatically sent to webhook
+- **Documentation:** Comprehensive README with usage examples
+
+### ⚠️ Issues Found
+1. **In-memory storage only** — Diagnostics lost on restart. Suggest:
+   - Add SQLite/local file persistence option
+   - Or document this as "session-only" intentionally
+
+2. **Missing persistence wiring** — The `trackSpend()` function exists but isn't connected to actual API calls. Need to integrate with cost-tracker skill.
+
+3. **No tests included** — Should add unit tests for `checkRules()`, `reportDiagnostic()`, edge cases
+
+4. **Widget is placeholder** — Currently shows empty state always; needs API endpoint to fetch real data
+
+### 🎯 Recommendation
+**MERGE with follow-up tasks:** The foundation is solid. Create these post-merge tasks:
+- Wire `trackSpend()` to actual cost-tracker skill API calls
+- Add SQLite persistence for diagnostics
+- Create `/api/diagnostics` endpoint for widget
+- Add unit tests
 
 ---
 
@@ -188,4 +228,4 @@ Completed tasks from recent work sessions:
 
 ---
 
-*This board was automatically synced on Feb 28, 2026 at 12:03 AM PST. Last 4-hour window: 5 commits, ~26.8K tokens, $0.040 estimated spend.*
+*This board was automatically synced on Feb 28, 2026 at 12:09 AM PST. Last Ghost Shift: PR status audit complete, PR #11 reviewed, 2 proactive tasks added. 4 open tasks remain active.*
