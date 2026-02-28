@@ -10,7 +10,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [{\n  json: {\n    source: 'employee_chat',\n    employee: {\n      name: 'Sarah Chen',\n      id: 'EMP_4821',\n      department: 'Sales',\n      level: 'manager'\n    },\n    request: 'I need to schedule onboarding for our new hire starting Monday, book conference room B for the team meeting tomorrow at 2pm, and submit my expense report for the SF trip',\n    detectedIntents: ['hr_onboarding', 'room_booking', 'expense_submission'],\n    complexity: 'multi_domain'\n  }\n}];"
+        "jsCode": "return [{\n  json: {\n    source: 'employee_chat',\n    employee: {\n      name: 'Sarah Chen',\n      id: 'EMP_4821',\n      department: 'Sales',\n      level: 'manager'\n    },\n    request: 'Schedule onboarding for new hire Monday, book conference room B tomorrow 2pm, submit expense report for SF trip',\n    detectedIntents: ['hr_onboarding', 'room_booking', 'expense_submission']\n  }\n}];"
       },
       "name": "Employee Request",
       "type": "n8n-nodes-base.code",
@@ -19,26 +19,25 @@
     },
     {
       "parameters": {
-        "jsCode": "const req = $input.first().json;\n\n// Avaamo's Agentic AI routes to appropriate skill/agent\nconst skills = {\n  hr_onboarding: {\n    name: 'HR Onboarding Agent',\n    capabilities: ['create_onboarding_plan', 'schedule_orientation', 'provision_accounts', 'notify_mentor'],\n    autonomy: 'high', // Can execute without approval\n    systems: ['workday', 'active_directory', 'slack']\n  },\n  room_booking: {\n    name: 'Workspace Agent',\n    capabilities: ['check_availability', 'book_room', 'order_catering', 'send_invites'],\n    autonomy: 'high',\n    systems: ['condeco', 'outlook', 'zoom']\n  },\n  expense_submission: {\n    name: 'Finance Agent',\n    capabilities: ['parse_receipts', 'categorize_expenses', 'check_policy', 'submit_for_approval'],\n    autonomy: 'medium', // Requires manager approval if over limit\n    systems: ['expensify', 'sap', 'email']\n  },\n  it_support: {\n    name: 'IT Helpdesk Agent',\n    capabilities: ['password_reset', 'access_provisioning', 'ticket_creation', 'auto_resolution'],\n    autonomy: 'high',\n    systems: ['servicenow', 'active_directory', 'slack']\n  },\n  sales_assist: {\n    name: 'Sales Copilot',\n    capabilities: ['research_prospect', 'draft_email', 'update_crm', 'schedule_meeting'],\n    autonomy: 'low', // Requires sales rep review\n    systems: ['salesforce', 'linkedin', 'gmail', 'calendar']\n  }\n};\n\n// Route to appropriate skills\nconst activatedSkills = req.detectedIntents.map(intent => ({\n  intent,\n  skill: skills[intent],\n  confidence: 0.95\n}));\n\n// Determine if any need human approval\nconst requiresApproval = activatedSkills.some(s => s.skill.autonomy === 'low') || \n                         activatedSkills.filter(s => s.skill.autonomy === 'medium').length > 1;\n\nreturn [{\n  json: {\n    ...req,\n    activatedSkills,\n    requiresApproval,\n    canAutoExecute: !requiresApproval && activatedSkills.every(s => s.skill.autonomy === 'high'),\n    estimatedCompletion: activatedSkills.length * 2 + ' minutes'\n  }\n}];"
+        "jsCode": "const req = $input.first().json;\n\nconst skills = {\n  hr_onboarding: { name: 'HR Onboarding Agent', autonomy: 'high' },\n  room_booking: { name: 'Workspace Agent', autonomy: 'high' },\n  expense_submission: { name: 'Finance Agent', autonomy: 'medium' }\n};\n\nconst activatedSkills = req.detectedIntents.map(intent => ({\n  intent, skill: skills[intent]\n}));\n\nreturn [{\n  json: {\n    ...req,\n    activatedSkills,\n    skillsCount: activatedSkills.length\n  }\n}];"
       },
-      "name": "Intent Routing & Skill Selection",
+      "name": "Intent Routing",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [650, 300],
-      "notes": "Avaamo routes to specialized agents based on intent detection"
+      "position": [650, 300]
     },
     {
       "parameters": {
-        "jsCode": "// Execute HR Onboarding\nreturn [{\n  json: {\n    skill: 'hr_onboarding',\n    actions: [\n      { action: 'create_onboarding_plan', status: 'completed', output: '5-day plan created' },\n      { action: 'schedule_orientation', status: 'completed', output: 'Mon 9am with HR' },\n      { action: 'provision_accounts', status: 'completed', output: 'Email, Slack, Salesforce ready' },\n      { action: 'notify_mentor', status: 'completed', output: 'Mentor assigned: John Smith' }\n    ],\n    newHire: {\n      name: 'Alex Johnson',\n      startDate: '2026-03-03',\n      role: 'Sales Development Rep'\n    }\n  }\n}];"
+        "jsCode": "return [{\n  json: {\n    skill: 'hr_onboarding',\n    actionsCompleted: 4,\n    newHire: 'Alex Johnson',\n    startDate: '2026-03-03'\n  }\n}];"
       },
-      "name": "HR Onboarding Agent",
+      "name": "HR Agent",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [850, 100]
     },
     {
       "parameters": {
-        "jsCode": "// Execute Room Booking\nreturn [{\n  json: {\n    skill: 'room_booking',\n    actions: [\n      { action: 'check_availability', status: 'completed', output: 'Room B available' },\n      { action: 'book_room', status: 'completed', output: 'Thu 2pm-3pm confirmed' },\n      { action: 'order_catering', status: 'completed', output: 'Coffee & snacks ordered' },\n      { action: 'send_invites', status: 'completed', output: '12 invites sent' }\n    ],\n    booking: {\n      room: 'Conference Room B',\n      date: '2026-02-28',\n      time: '14:00-15:00',\n      attendees: 12\n    }\n  }\n}];"
+        "jsCode": "return [{\n  json: {\n    skill: 'room_booking',\n    actionsCompleted: 4,\n    room: 'Conference Room B',\n    time: '2026-02-28 14:00'\n  }\n}];"
       },
       "name": "Workspace Agent",
       "type": "n8n-nodes-base.code",
@@ -47,7 +46,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Execute Expense Submission\nconst expenses = [\n  { category: 'Travel', amount: 450, receipt: 'attached', policyCompliant: true },\n  { category: 'Meals', amount: 85, receipt: 'attached', policyCompliant: true },\n  { category: 'Lodging', amount: 320, receipt: 'attached', policyCompliant: true }\n];\nconst total = expenses.reduce((sum, e) => sum + e.amount, 0);\nconst needsManagerApproval = total > 500;\n\nreturn [{\n  json: {\n    skill: 'expense_submission',\n    actions: [\n      { action: 'parse_receipts', status: 'completed', output: '3 receipts processed' },\n      { action: 'categorize_expenses', status: 'completed', output: 'Travel, Meals, Lodging' },\n      { action: 'check_policy', status: 'completed', output: 'All compliant' },\n      { action: 'submit_for_approval', status: needsManagerApproval ? 'pending' : 'completed', output: needsManagerApproval ? 'Awaiting manager approval' : 'Auto-approved' }\n    ],\n    expenseReport: {\n      id: 'EXP-2026-' + Date.now().toString().slice(-4),\n      total: total,\n      items: expenses.length,\n      status: needsManagerApproval ? 'pending_approval' : 'approved'\n    }\n  }\n}];"
+        "jsCode": "return [{\n  json: {\n    skill: 'expense_submission',\n    actionsCompleted: 3,\n    total: 855,\n    status: 'pending_approval',\n    reportId: 'EXP-2026-8847'\n  }\n}];"
       },
       "name": "Finance Agent",
       "type": "n8n-nodes-base.code",
@@ -56,9 +55,9 @@
     },
     {
       "parameters": {
-        "jsCode": "// Aggregate results from all agents\nconst results = $input.all().map(item => item.json);\nconst mainRequest = $item(0).$node["Intent Routing & Skill Selection"].json;\n\nconst summary = {\n  request: mainRequest.request,\n  employee: mainRequest.employee.name,\n  skillsActivated: results.length,\n  completedActions: results.reduce((sum, r) => sum + r.actions.filter(a => a.status === 'completed').length, 0),\n  pendingActions: results.reduce((sum, r) => sum + r.actions.filter(a => a.status === 'pending').length, 0),\n  details: results.map(r => ({\n    skill: r.skill,\n    summary: r.actions.map(a => a.action).join(', ')\n  }))\n};\n\nreturn [{\n  json: summary\n}];"
+        "jsCode": "const results = $input.all().map(item => item.json);\nconst totalActions = results.reduce((sum, r) => sum + r.actionsCompleted, 0);\n\nreturn [{\n  json: {\n    employee: 'Sarah Chen',\n    skillsActivated: results.length,\n    totalActionsCompleted: totalActions,\n    details: results.map(r => r.skill + ': ' + r.actionsCompleted + ' actions')\n  }\n}];"
       },
-      "name": "Aggregate Results",
+      "name": "Aggregate",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [1050, 300]
@@ -66,10 +65,10 @@
     {
       "parameters": {
         "channel": "employee-help",
-        "text": "=✅ Multi-Task Completed - {{ $json.employee }}\n\nYour request: \"{{ $json.request.substring(0, 50) }}...\"\n\n🎯 {{ $json.skillsActivated }} Agents Activated:\n{{ $json.details.map(d => '• ' + d.skill + ': ' + d.summary).join('\\n') }}\n\n📊 Summary:\n• Completed: {{ $json.completedActions }} actions\n• Pending: {{ $json.pendingActions }} actions\n\nAll tasks have been processed across Workday, Outlook, and Expensify.",
+        "text": "=✅ Multi-Task Completed - {{ $json.employee }}\n\n🎯 {{ $json.skillsActivated }} Agents Activated:\n{{ $json.details.map(d => '• ' + d).join('\\n') }}\n\n📊 Total: {{ $json.totalActionsCompleted }} actions completed",
         "options": {}
       },
-      "name": "Notify Employee",
+      "name": "Notify",
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.1,
       "position": [1250, 300]
@@ -78,11 +77,11 @@
       "parameters": {
         "fromEmail": "avaamo@company.com",
         "toEmail": "manager@company.com",
-        "subject": "=Expense Report Pending Approval - Sarah Chen",
-        "text": "=An expense report requires your approval:\n\nEmployee: Sarah Chen\nTotal: $855\nReport ID: {{ $item(0).$node[\"Finance Agent\"].json.expenseReport.id }}\n\nItems:\n• Travel: $450\n• Meals: $85\n• Lodging: $320\n\nAll expenses are policy compliant.\n\nApprove: https://expensify.com/approve/{{ $item(0).$node[\"Finance Agent\"].json.expenseReport.id }}",
+        "subject": "=Expense Report Pending Approval - $855",
+        "text": "=An expense report requires your approval:\n\nEmployee: Sarah Chen\nTotal: $855\nReport ID: EXP-2026-8847\n\nApprove: https://expensify.com/approve/EXP-2026-8847",
         "options": {}
       },
-      "name": "Manager Approval Request",
+      "name": "Manager Email",
       "type": "n8n-nodes-base.sendEmail",
       "typeVersion": 2.1,
       "position": [1450, 300]
@@ -93,33 +92,33 @@
       "main": [[{"node": "Employee Request", "type": "main", "index": 0}]]
     },
     "Employee Request": {
-      "main": [[{"node": "Intent Routing & Skill Selection", "type": "main", "index": 0}]]
+      "main": [[{"node": "Intent Routing", "type": "main", "index": 0}]]
     },
-    "Intent Routing & Skill Selection": {
+    "Intent Routing": {
       "main": [
-        [{"node": "HR Onboarding Agent", "type": "main", "index": 0}],
+        [{"node": "HR Agent", "type": "main", "index": 0}],
         [{"node": "Workspace Agent", "type": "main", "index": 0}],
         [{"node": "Finance Agent", "type": "main", "index": 0}]
       ]
     },
-    "HR Onboarding Agent": {
-      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+    "HR Agent": {
+      "main": [[{"node": "Aggregate", "type": "main", "index": 0}]]
     },
     "Workspace Agent": {
-      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+      "main": [[{"node": "Aggregate", "type": "main", "index": 0}]]
     },
     "Finance Agent": {
-      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+      "main": [[{"node": "Aggregate", "type": "main", "index": 0}]]
     },
-    "Aggregate Results": {
-      "main": [[{"node": "Notify Employee", "type": "main", "index": 0}]]
+    "Aggregate": {
+      "main": [[{"node": "Notify", "type": "main", "index": 0}]]
     },
-    "Notify Employee": {
-      "main": [[{"node": "Manager Approval Request", "type": "main", "index": 0}]]
+    "Notify": {
+      "main": [[{"node": "Manager Email", "type": "main", "index": 0}]]
     }
   },
   "settings": {
     "executionOrder": "v1"
   },
-  "description": "Avaamo v2: Multi-domain enterprise agent platform - HR, Workspace, Finance, IT, Sales skills with intelligent routing"
+  "description": "Avaamo v2: Multi-domain enterprise agent - routes to HR, Workspace, Finance agents"
 }
