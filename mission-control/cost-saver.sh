@@ -7,9 +7,11 @@
 #   ./cost-saver.sh on     # Switch to local MLX primary (save $)
 #   ./cost-saver.sh off    # Switch to cloud primary (full power)
 #   ./cost-saver.sh status # Check current mode
+#   ./cost-saver.sh test   # Test MLX server directly
 
 CONFIG="$HOME/.openclaw/openclaw.json"
 MLX_SERVER="/Users/mohlt/.openclaw/workspace/mission-control/mlx-server.mjs"
+LOCAL_MODEL="local/mlx-local/llama-3.2-1b"
 
 status() {
     local primary=$(grep -A1 '"primary"' "$CONFIG" | grep -v '^--' | head -1 | sed 's/.*: "\(.*\)".*/\1/')
@@ -30,8 +32,8 @@ start_mlx_server() {
     else
         echo "🚀 Starting MLX server..."
         cd "$(dirname "$MLX_SERVER")"
-        node mlx-server.mjs &
-        sleep 2
+        node mlx-server.mjs > /tmp/mlx-server.log 2>&1 &
+        sleep 3
         if lsof -i :8787 >/dev/null 2>&1; then
             echo "✅ MLX server started"
         else
@@ -54,25 +56,33 @@ enable_cost_saver() {
     start_mlx_server
     
     # Update config to use local as primary
-    sed -i.bak 's/"primary": "moonshot\/kimi-k2.5"/"primary": "local\/mlx-local\/smollm2-360m"/' "$CONFIG"
+    sed -i.bak "s/\"primary\": \"moonshot\\/kimi-k2.5\"/\"primary\": \"$LOCAL_MODEL\"/" "$CONFIG"
     
     echo "✅ Cost Saver Mode ENABLED"
-    echo "   Primary: Local MLX (FREE)"
+    echo "   Primary: Llama-3.2-1B Local (FREE, 128K context)"
     echo "   Fallbacks: Kimi, Minimax, DeepSeek"
     echo ""
-    echo "⚠️  Note: Complex tasks may fail. Switch back with: ./cost-saver.sh off"
+    echo "⚠️  Note: Restart OpenClaw gateway to apply: openclaw gateway restart"
 }
 
 disable_cost_saver() {
     echo "☁️  Disabling Cost Saver Mode..."
     
     # Update config to use cloud as primary
-    sed -i.bak 's/"primary": "local\/mlx-local\/smollm2-360m"/"primary": "moonshot\/kimi-k2.5"/' "$CONFIG"
+    sed -i.bak "s/\"primary\": \"local\\/mlx-local\\/[^\"]*\"/\"primary\": \"moonshot\\/kimi-k2.5\"/" "$CONFIG"
     
     stop_mlx_server
     
     echo "✅ Cost Saver Mode DISABLED"
     echo "   Primary: Kimi K2.5 (Full Power)"
+}
+
+test_mlx() {
+    echo "🧪 Testing MLX Server..."
+    curl -s http://localhost:8787/v1/chat/completions \
+        -H "Content-Type: application/json" \
+        -d '{"model": "mlx-local/llama-3.2-1b", "messages": [{"role": "user", "content": "Say MLX is working"}], "max_tokens": 20}' \
+        | jq -r '.choices[0].message.content' 2>/dev/null || echo "Test failed - check server"
 }
 
 case "$1" in
@@ -85,6 +95,9 @@ case "$1" in
     status)
         status
         ;;
+    test)
+        test_mlx
+        ;;
     *)
         echo "OpenClaw Cost Saver Mode"
         echo ""
@@ -92,6 +105,7 @@ case "$1" in
         echo "  $0 on      - Enable cost saver (Local MLX primary)"
         echo "  $0 off     - Disable cost saver (Cloud primary)"
         echo "  $0 status  - Check current mode"
+        echo "  $0 test    - Test MLX server"
         echo ""
         status
         ;;

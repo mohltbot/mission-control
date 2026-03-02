@@ -92,9 +92,11 @@ const server = createServer(async (req, res) => {
     res.end(JSON.stringify({
       object: 'list',
       data: [{
-        id: 'mlx-local/smollm2-360m',
+        id: 'mlx-local/llama-3.2-1b',
         object: 'model',
         owned_by: 'local',
+        context_window: 128000,  // 128K context - OpenClaw compatible
+        max_tokens: 8192,
       }]
     }));
     return;
@@ -122,7 +124,8 @@ const server = createServer(async (req, res) => {
           id: `mlx-${Date.now()}`,
           object: 'chat.completion',
           created: Math.floor(Date.now() / 1000),
-          model: 'mlx-local/smollm2-360m',
+          model: 'mlx-local/llama-3.2-1b',
+          context_window: 128000,  // 128K context - OpenClaw compatible
           choices: [{
             index: 0,
             message: {
