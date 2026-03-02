@@ -29,7 +29,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Configuration
-DEFAULT_MODEL = "mlx-community/SmolLM2-360M-Instruct"
+DEFAULT_MODEL = "mlx-community/Llama-3.2-1B-Instruct-4bit"  # 128K context, OpenClaw compatible, ~0.5GB
 MAX_MODELS_TO_CACHE = 3  # Keep last 3 models in memory
 
 def check_system() -> Dict[str, Any]:
