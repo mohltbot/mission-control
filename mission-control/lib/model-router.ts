@@ -1,5 +1,11 @@
 import { API_PRICING, logAPICall } from './expense-tracker';
 import { 
+  checkMLXHealth, 
+  generateWithMLX, 
+  shouldUseMLX,
+  estimateMLXSavings,
+} from './mlx';
+import { 
   checkOllamaHealth, 
   generateLocal, 
   shouldUseLocalInference,
@@ -206,6 +212,7 @@ function generateReason(model: string, capabilities: any, task: TaskType): strin
 }
 
 // Auto-select and use best model
+// STRATEGY: MLX (primary) → Ollama (fallback) → Cloud (final fallback)
 export async function executeWithBestModel(
   task: TaskType,
   prompt: string,
@@ -214,7 +221,7 @@ export async function executeWithBestModel(
     maxCost?: number;
     requiredCapabilities?: string[];
     fallbackToPremium?: boolean;
-    preferLocal?: boolean; // New: prefer local inference when possible
+    preferLocal?: boolean; // Prefer local inference when possible
   } = {}
 ): Promise<{
   result: string;
@@ -225,52 +232,110 @@ export async function executeWithBestModel(
   duration: number;
 }> {
   
-  // Check if we should try local inference first
-  const localDecision = shouldUseLocalInference(task, prompt.length);
-  const preferLocal = options.preferLocal ?? true; // Default to using local when possible
+  const preferLocal = options.preferLocal ?? true;
+  const estimatedTokens = Math.ceil(prompt.length / 4);
   
-  // Try local inference for simple tasks
-  if (preferLocal && localDecision.useLocal && DEFAULT_OLLAMA_CONFIG.enabled) {
-    const health = await checkOllamaHealth();
+  // === STEP 1: Try MLX (PRIMARY local method - fastest) ===
+  if (preferLocal) {
+    const mlxDecision = shouldUseMLX({
+      type: task,
+      promptLength: prompt.length,
+      complexity: 'simple',
+    });
     
-    if (health.available) {
-      console.log(`🤖 Using LOCAL inference (${localDecision.recommendedModel})`);
-      console.log(`   Reason: ${localDecision.reason}`);
-      console.log(`   Cost: $0.00 (FREE!)`);
+    if (mlxDecision.useMLX) {
+      const mlxHealth = await checkMLXHealth();
       
-      const localResult = await generateLocal(prompt, {
-        model: localDecision.recommendedModel,
-        maxTokens: 150,
-      });
-      
-      if (!localResult.fallbackRequired && localResult.text) {
-        // Log the "savings" as a negative expense (cost avoidance)
-        const comparison = getInferenceComparison(Math.ceil(prompt.length / 4));
+      if (mlxHealth.available) {
+        console.log(`🚀 Using MLX (PRIMARY local inference)`);
+        console.log(`   Reason: ${mlxDecision.reason}`);
+        console.log(`   Expected: 100-400 tokens/sec`);
         
-        logAPICall({
-          provider: 'ollama',
-          model: localResult.model,
-          tokensIn: Math.ceil(prompt.length / 4),
-          tokensOut: localResult.tokens,
-          description: `Local inference for ${task} task (saved $${comparison.savings.toFixed(4)})`,
+        const mlxStart = Date.now();
+        const mlxResult = await generateWithMLX({
+          prompt,
+          maxTokens: 150,
+          temperature: 0.7,
         });
+        const mlxDuration = Date.now() - mlxStart;
         
-        return {
-          result: localResult.text,
-          modelUsed: `ollama/${localResult.model}`,
-          cost: 0,
-          confidence: 0.7, // Local models are good but not perfect
-          local: true,
-          duration: localResult.duration,
-        };
+        if (!mlxResult.fallback && mlxResult.text) {
+          const savings = estimateMLXSavings(mlxResult.tokensGenerated);
+          
+          logAPICall({
+            provider: 'mlx',
+            model: mlxResult.model,
+            tokensIn: estimatedTokens,
+            tokensOut: mlxResult.tokensGenerated,
+            description: `MLX inference for ${task} (${mlxResult.tokensPerSec} t/s, saved $${savings.savings.toFixed(4)})`,
+          });
+          
+          console.log(`   ✅ MLX success: ${mlxResult.tokensPerSec} tokens/sec`);
+          console.log(`   💰 Saved: $${savings.savings.toFixed(4)}`);
+          
+          return {
+            result: mlxResult.text,
+            modelUsed: `mlx/${mlxResult.model}`,
+            cost: 0,
+            confidence: 0.75,
+            local: true,
+            duration: mlxDuration,
+          };
+        }
+        
+        console.log(`   ⚠️  MLX failed: ${mlxResult.fallbackReason}, trying Ollama...`);
       }
-      
-      // Fallback required, continue to cloud
-      console.log(`   Local inference unavailable, falling back to cloud...`);
     }
   }
   
-  // Fall back to cloud models
+  // === STEP 2: Try Ollama (FALLBACK local method) ===
+  if (preferLocal && DEFAULT_OLLAMA_CONFIG.enabled) {
+    const ollamaDecision = shouldUseLocalInference(task, prompt.length);
+    
+    if (ollamaDecision.useLocal) {
+      const ollamaHealth = await checkOllamaHealth();
+      
+      if (ollamaHealth.available) {
+        console.log(`🦙 Using Ollama (FALLBACK local inference)`);
+        console.log(`   Reason: ${ollamaDecision.reason}`);
+        
+        const ollamaStart = Date.now();
+        const ollamaResult = await generateLocal(prompt, {
+          model: ollamaDecision.recommendedModel,
+          maxTokens: 150,
+        });
+        const ollamaDuration = Date.now() - ollamaStart;
+        
+        if (!ollamaResult.fallbackRequired && ollamaResult.text) {
+          const comparison = getInferenceComparison(estimatedTokens);
+          
+          logAPICall({
+            provider: 'ollama',
+            model: ollamaResult.model,
+            tokensIn: estimatedTokens,
+            tokensOut: ollamaResult.tokens,
+            description: `Ollama fallback for ${task} (saved $${comparison.savings.toFixed(4)})`,
+          });
+          
+          console.log(`   ✅ Ollama success (slower but working)`);
+          console.log(`   💰 Saved: $${comparison.savings.toFixed(4)}`);
+          
+          return {
+            result: ollamaResult.text,
+            modelUsed: `ollama/${ollamaResult.model}`,
+            cost: 0,
+            confidence: 0.7,
+            local: true,
+            duration: ollamaDuration,
+          };
+        }
+        
+        console.log(`   ⚠️  Ollama failed, falling back to cloud...`);
+      }
+    }
+  }
+  
+  // === STEP 3: Cloud models (FINAL fallback) ===
   const recommendations = recommendModel(
     task,
     options.tier || 'balanced',
@@ -289,8 +354,6 @@ export async function executeWithBestModel(
   console.log(`   Reason: ${bestModel.reason}`);
   console.log(`   Est. cost: $${bestModel.estimatedCost.toFixed(4)} per 1K tokens`);
   
-  // Simulate API call and cost logging
-  const estimatedTokens = Math.ceil(prompt.length / 4);
   const actualCost = (estimatedTokens / 1000) * bestModel.estimatedCost;
   
   logAPICall({
@@ -333,33 +396,41 @@ export function getCostComparison(
 
 // Get local inference status and savings report
 export async function getLocalInferenceReport(): Promise<{
-  available: boolean;
-  models: string[];
-  config: typeof DEFAULT_OLLAMA_CONFIG;
+  mlx: { available: boolean; model: string; speed: string };
+  ollama: { available: boolean; models: string[] };
+  strategy: string;
   estimatedMonthlySavings: number;
 }> {
-  const health = await checkOllamaHealth();
+  const [mlxHealth, ollamaHealth] = await Promise.all([
+    checkMLXHealth(),
+    checkOllamaHealth(),
+  ]);
   
   // Estimate savings: assume 60% of tasks under 150 tokens use local
-  // Average cloud task cost: $0.0015 per 1K tokens
-  // Daily tasks: ~50, monthly: ~1500
-  // Local tasks: 60% of 1500 = 900 tasks
-  // Avg tokens per task: ~500
   const monthlyLocalTasks = 900;
   const avgTokensPerTask = 500;
   const avgCloudCostPer1K = 0.0015;
   
-  const estimatedMonthlySavings = health.available 
+  const hasLocal = mlxHealth.available || ollamaHealth.available;
+  const estimatedMonthlySavings = hasLocal
     ? monthlyLocalTasks * (avgTokensPerTask / 1000) * avgCloudCostPer1K
     : 0;
   
   return {
-    available: health.available,
-    models: health.models,
-    config: DEFAULT_OLLAMA_CONFIG,
+    mlx: {
+      available: mlxHealth.available,
+      model: 'mlx-community/SmolLM2-360M-Instruct',
+      speed: '100-400 tokens/sec',
+    },
+    ollama: {
+      available: ollamaHealth.available,
+      models: ollamaHealth.models || [],
+    },
+    strategy: 'MLX (primary) → Ollama (fallback) → Cloud (final)',
     estimatedMonthlySavings,
   };
 }
 
-// Export Ollama utilities for external use
+// Export local inference utilities for external use
+export { checkMLXHealth, generateWithMLX, shouldUseMLX, estimateMLXSavings } from './mlx';
 export { checkOllamaHealth, generateLocal, shouldUseLocalInference, getInferenceComparison };
