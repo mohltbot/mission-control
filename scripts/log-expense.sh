@@ -1,39 +1,25 @@
-#!/bin/zsh
-# Universal API Expense Logger
-# Usage: log-expense.sh <provider> <amount> <description> [model] [tokens_in] [tokens_out]
-# 
-# Examples:
-#   log-expense.sh moonshot 0.002 "kimi session" kimi-k2.5 1500 800
-#   log-expense.sh openai 0.015 "GPT-4 call" gpt-4 2000 1500
-#   log-expense.sh anthropic 0.008 "Claude session" claude-3 3000 1200
+#!/bin/bash
+# Quick Expense Logger - Log API costs immediately
+# Usage: ./log-expense.sh "Description" amount provider model tokens_in tokens_out
 
-WORKSPACE="/Users/mohlt/.openclaw/workspace"
-API_ENDPOINT="http://localhost:3000/api/expenses/auto"
+DESC="${1:-API Call}"
+AMOUNT="${2:-0.01}"
+PROVIDER="${3:-moonshot}"
+MODEL="${4:-kimi-k2.5}"
+TOKENS_IN="${5:-1000}"
+TOKENS_OUT="${6:-500}"
 
-# Parse arguments
-PROVIDER="$1"
-AMOUNT="$2"
-DESCRIPTION="$3"
-MODEL="${4:-unknown}"
-TOKENS_IN="${5:-0}"
-TOKENS_OUT="${6:-0}"
-
-# Validation
-if [[ -z "$PROVIDER" || -z "$AMOUNT" || -z "$DESCRIPTION" ]]; then
-  echo "Usage: $0 <provider> <amount> <description> [model] [tokens_in] [tokens_out]"
-  echo "Example: $0 moonshot 0.002 'kimi session' kimi-k2.5 1500 800"
-  exit 1
-fi
-
-# Log the expense
-curl -s -X POST "$API_ENDPOINT" \
+curl -s http://localhost:3000/api/expenses \
+  -X POST \
   -H "Content-Type: application/json" \
   -d "{
-    \"provider\": \"$PROVIDER\",
+    \"description\": \"$DESC\",
     \"amount\": $AMOUNT,
-    \"description\": \"$DESCRIPTION\",
+    \"provider\": \"$PROVIDER\",
     \"model\": \"$MODEL\",
     \"tokens_in\": $TOKENS_IN,
     \"tokens_out\": $TOKENS_OUT,
     \"category\": \"api_call\"
-  }" | jq -r '.success // "failed"'
+  }" | jq '{id, description, amount}'
+
+echo "✅ Expense logged"
