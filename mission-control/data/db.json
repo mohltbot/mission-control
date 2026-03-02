@@ -462,6 +462,138 @@
       "tokens_out": 0,
       "id": 1772433896108,
       "created_at": "2026-03-02T06:44:56.108Z"
+    },
+    {
+      "description": "Ollama fallback for chat (saved $0.0000)",
+      "amount": 0.00009400000000000001,
+      "category": "api_call",
+      "provider": "ollama",
+      "model": "smollm2:360m",
+      "tokens_in": 3,
+      "tokens_out": 44,
+      "id": 1772457817368,
+      "created_at": "2026-03-02T13:23:37.368Z"
+    },
+    {
+      "description": "Cloud model for analysis task",
+      "amount": 0.0000045,
+      "category": "api_call",
+      "provider": "glm",
+      "model": "glm-5",
+      "tokens_in": 6,
+      "tokens_out": 3,
+      "id": 1772457817370,
+      "created_at": "2026-03-02T13:23:37.370Z"
+    },
+    {
+      "description": "Ollama fallback for chat (saved $0.0000)",
+      "amount": 0.00012,
+      "category": "api_call",
+      "provider": "ollama",
+      "model": "smollm2:360m",
+      "tokens_in": 3,
+      "tokens_out": 57,
+      "id": 1772457849209,
+      "created_at": "2026-03-02T13:24:09.209Z"
+    },
+    {
+      "description": "Cloud model for analysis task",
+      "amount": 0.0000045,
+      "category": "api_call",
+      "provider": "glm",
+      "model": "glm-5",
+      "tokens_in": 6,
+      "tokens_out": 3,
+      "id": 1772457849212,
+      "created_at": "2026-03-02T13:24:09.212Z"
+    },
+    {
+      "description": "Ollama fallback for chat (saved $0.0000)",
+      "amount": 0.000176,
+      "category": "api_call",
+      "provider": "ollama",
+      "model": "smollm2:360m",
+      "tokens_in": 3,
+      "tokens_out": 85,
+      "id": 1772457874642,
+      "created_at": "2026-03-02T13:24:34.642Z"
+    },
+    {
+      "description": "Cloud model for analysis task",
+      "amount": 0.0000045,
+      "category": "api_call",
+      "provider": "glm",
+      "model": "glm-5",
+      "tokens_in": 6,
+      "tokens_out": 3,
+      "id": 1772457874645,
+      "created_at": "2026-03-02T13:24:34.645Z"
+    },
+    {
+      "description": "Ollama fallback for chat (saved $0.0000)",
+      "amount": 0.00013600000000000003,
+      "category": "api_call",
+      "provider": "ollama",
+      "model": "smollm2:360m",
+      "tokens_in": 3,
+      "tokens_out": 65,
+      "id": 1772457905060,
+      "created_at": "2026-03-02T13:25:05.060Z"
+    },
+    {
+      "description": "Cloud model for analysis task",
+      "amount": 0.0000045,
+      "category": "api_call",
+      "provider": "glm",
+      "model": "glm-5",
+      "tokens_in": 6,
+      "tokens_out": 3,
+      "id": 1772457905064,
+      "created_at": "2026-03-02T13:25:05.064Z"
+    },
+    {
+      "description": "Ollama fallback for chat (saved $0.0000)",
+      "amount": 0.00013000000000000002,
+      "category": "api_call",
+      "provider": "ollama",
+      "model": "smollm2:360m",
+      "tokens_in": 3,
+      "tokens_out": 62,
+      "id": 1772457939837,
+      "created_at": "2026-03-02T13:25:39.837Z"
+    },
+    {
+      "description": "Cloud model for analysis task",
+      "amount": 0.0000045,
+      "category": "api_call",
+      "provider": "glm",
+      "model": "glm-5",
+      "tokens_in": 6,
+      "tokens_out": 3,
+      "id": 1772457939841,
+      "created_at": "2026-03-02T13:25:39.841Z"
+    },
+    {
+      "description": "MLX inference for chat (1105.9 t/s, saved $0.0002)",
+      "amount": 0.000306,
+      "category": "api_call",
+      "provider": "mlx",
+      "model": "mlx-community/SmolLM2-360M-Instruct",
+      "tokens_in": 3,
+      "tokens_out": 150,
+      "id": 1772457979599,
+      "created_at": "2026-03-02T13:26:19.599Z"
+    },
+    {
+      "description": "Cloud model for analysis task",
+      "amount": 0.0000045,
+      "category": "api_call",
+      "provider": "glm",
+      "model": "glm-5",
+      "tokens_in": 6,
+      "tokens_out": 3,
+      "id": 1772457979600,
+      "created_at": "2026-03-02T13:26:19.600Z"
     }
   ],
   "memories": [

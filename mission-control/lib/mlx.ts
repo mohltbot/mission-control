@@ -46,6 +46,8 @@ interface SystemInfo {
 }
 
 const PYTHON_BRIDGE = join(process.cwd(), 'python', 'mlx_bridge.py');
+// Venv is at workspace root, not inside mission-control
+const VENV_PYTHON = join(process.cwd(), '..', 'venv', 'bin', 'python3');
 const DEFAULT_MODEL = 'mlx-community/SmolLM2-360M-Instruct';
 
 /**
@@ -53,7 +55,8 @@ const DEFAULT_MODEL = 'mlx-community/SmolLM2-360M-Instruct';
  */
 export async function checkMLXHealth(): Promise<SystemInfo> {
   return new Promise((resolve) => {
-    const proc = spawn('python3', [PYTHON_BRIDGE, '--check']);
+    const pythonPath = require('fs').existsSync(VENV_PYTHON) ? VENV_PYTHON : 'python3';
+    const proc = spawn(pythonPath, [PYTHON_BRIDGE, '--check']);
     let output = '';
     
     proc.stdout.on('data', (data) => {
@@ -104,7 +107,8 @@ export async function generateWithMLX(options: MLXOptions): Promise<MLXResponse>
       '--model', options.model || DEFAULT_MODEL,
     ];
     
-    const proc = spawn('python3', args, {
+    const pythonPath = require('fs').existsSync(VENV_PYTHON) ? VENV_PYTHON : 'python3';
+    const proc = spawn(pythonPath, args, {
       env: {
         ...process.env,
         PYTHONPATH: join(process.cwd(), 'venv', 'lib', 'python3.14', 'site-packages'),
@@ -229,6 +233,7 @@ export function shouldUseMLX(task: {
     'simple_qa',
     'sentiment',
     'entity_recognition',
+    'chat',  // Simple chat/queries work well locally
   ];
   
   if (!goodTypes.includes(task.type)) {

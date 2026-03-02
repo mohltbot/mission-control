@@ -19,8 +19,14 @@ import json
 import sys
 import time
 import platform
+import os
 from pathlib import Path
 from typing import Optional, Dict, Any
+
+# Suppress transformers warnings
+os.environ['TOKENIZERS_PARALLELISM'] = 'false'
+import warnings
+warnings.filterwarnings('ignore')
 
 # Configuration
 DEFAULT_MODEL = "mlx-community/SmolLM2-360M-Instruct"
@@ -113,7 +119,6 @@ def generate(
             prompt=formatted_prompt,
             max_tokens=max_tokens,
             verbose=False,
-            temp=temperature,
         )
         gen_time = time.time() - gen_start
         
@@ -140,6 +145,9 @@ def generate(
         }
 
 def main():
+    # Suppress stderr for cleaner JSON output
+    sys.stderr = open(os.devnull, 'w')
+    
     parser = argparse.ArgumentParser(description="MLX LLM Bridge")
     parser.add_argument("--check", action="store_true", help="Check system availability")
     parser.add_argument("--prompt", type=str, help="Prompt for generation")
