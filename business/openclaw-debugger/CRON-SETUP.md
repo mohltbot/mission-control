@@ -60,52 +60,56 @@ This system runs 4x daily to proactively work on your OpenClaw debugger business
 - `business/openclaw-debugger/CONTENT-QUEUE.md` — Content calendar & performance
 - `business/openclaw-debugger/METRICS.md` — Daily stats
 
-### Scripts
-- `scripts/openclaw-debugger-cron.sh` — Cron job script
-- `~/Library/LaunchAgents/com.openclaw.debugger.shift*.plist` — macOS launch agents
+### Cron Jobs (Visible in Web UI)
+- `debugger-shift-1` — 8 AM PST (Morning Outreach)
+- `debugger-shift-2` — 12 PM PST (Content Creation)
+- `debugger-shift-3` — 4 PM PST (Follow-ups)
+- `debugger-shift-4` — 8 PM PST (Content + Planning)
 
-### Logs
-- `logs/debugger-shift*.log` — Output from each shift
-- `logs/debugger-shift*-error.log` — Error logs
-- `logs/debugger-cron.log` — Combined log
+View at: http://localhost:18789/cron
 
 ---
 
 ## Management Commands
 
-### Check Status
+### Check Status (Web UI)
+Visit: http://localhost:18789/cron
+
+Or via CLI:
 ```bash
-launchctl list | grep com.openclaw.debugger
+openclaw cron list
 ```
 
-### Stop All Shifts
+### View All Debugger Jobs
 ```bash
-launchctl unload ~/Library/LaunchAgents/com.openclaw.debugger.shift1.plist
-launchctl unload ~/Library/LaunchAgents/com.openclaw.debugger.shift2.plist
-launchctl unload ~/Library/LaunchAgents/com.openclaw.debugger.shift3.plist
-launchctl unload ~/Library/LaunchAgents/com.openclaw.debugger.shift4.plist
+openclaw cron list | grep debugger
 ```
 
-### Start All Shifts
+### Run a Shift Manually (Test)
 ```bash
-launchctl load ~/Library/LaunchAgents/com.openclaw.debugger.shift1.plist
-launchctl load ~/Library/LaunchAgents/com.openclaw.debugger.shift2.plist
-launchctl load ~/Library/LaunchAgents/com.openclaw.debugger.shift3.plist
-launchctl load ~/Library/LaunchAgents/com.openclaw.debugger.shift4.plist
+openclaw cron run debugger-shift-1
 ```
 
-### Run a Shift Manually
+### Disable/Enable a Shift
 ```bash
-/Users/mohlt/.openclaw/workspace/scripts/openclaw-debugger-cron.sh 1
+# Disable Shift 1
+openclaw cron disable debugger-shift-1
+
+# Enable Shift 1
+openclaw cron enable debugger-shift-1
 ```
 
-### View Logs
+### Remove All Shifts (if needed)
 ```bash
-# Recent activity
-tail -f ~/.openclaw/workspace/logs/debugger-cron.log
+openclaw cron rm debugger-shift-1
+openclaw cron rm debugger-shift-2
+openclaw cron rm debugger-shift-3
+openclaw cron rm debugger-shift-4
+```
 
-# Specific shift
-tail -f ~/.openclaw/workspace/logs/debugger-shift1.log
+### View Run History
+```bash
+openclaw cron runs debugger-shift-1
 ```
 
 ---
