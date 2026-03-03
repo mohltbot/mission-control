@@ -275,7 +275,18 @@ Tasks requiring manual input, approval, or interactive authentication:
 - [ ] **Test v2 workflows** — Validate n8n import for Narada, Newtrul, Avaamo, KlearNow workflows
 - [ ] **Fix budget tracking bug** — Investigate expense calculation logic, reset tracked amounts to match actual
 - [ ] **Siegfried 12 Outreach — SEND TEXTS** — Phone numbers ready in Google Sheet "MY Relationships Beaker Tracker". Send drafted messages to all 14 contacts, starting with Rahul Shah (Tier 1 priority). Execution plan: `relationships/siegfried-12-outreach-execution-plan.md`
+  * **Sub-task 1:** Extract phone numbers from Google Sheet (pending Google account recovery)
+  * **Sub-task 2:** Validate phone numbers (format check, carrier lookup)
+  * **Sub-task 3:** Queue messages for approval (Rahul Shah first)
+  * **Sub-task 4:** Send via SMS (or fallback to LinkedIn/Email)
+  * **Sub-task 5:** Log responses in Ninja CRM
 - [ ] **Configure VC Workflow Credentials** — Set up Slack API, SMTP email, Asana, and Tai Software API credentials so all 4 n8n workflows (Narada, Newtrul, Avaamo, KlearNow) can run end-to-end. Setup guide: `workflows/WORKFLOW-VALIDATION-REPORT.md`
+  * **Sub-task 1:** Create Slack app & bot token (workspace: mohltbot.slack.com)
+  * **Sub-task 2:** Configure SMTP credentials (Gmail or SendGrid)
+  * **Sub-task 3:** Set up Asana API token (for Narada/Newtrul workflows)
+  * **Sub-task 4:** Request Tai Software API access (Newtrul only)
+  * **Sub-task 5:** Import credentials into n8n (localhost:5678)
+  * **Sub-task 6:** Run end-to-end test for each workflow
 
 ---
 
