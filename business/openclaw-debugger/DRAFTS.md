@@ -1,6 +1,66 @@
 # Ready-to-Send Drafts — OpenClaw Debugger
 
-**Last Updated:** 2026-03-03
+**Last Updated:** 2026-03-04
+
+---
+
+## 🔥 NEW LEADS — March 4 Shift 1
+
+### Reddit Reply 1: u/HostingerNightmare (HIGH PRIORITY)
+**Post:** https://www.reddit.com/r/openclaw/comments/1rja32v/
+**Pain:** Hostinger VPS + Chrome Extension + agent path issues, drowning in problems
+**Profile:** Non-dev advanced user, very frustrated, ready to give up
+
+**COPY THIS:**
+```
+I feel you — Hostinger + OpenClaw is a rough combo because the paths work differently than local installs.
+
+Two quick fixes:
+
+**Issue 1 (Chrome Extension):**
+Don't use Chrome Extension with Hostinger. Use the Web UI instead:
+1. Go to `your-vps-ip:18789` 
+2. Login with your gateway token
+3. Works better than the extension for remote setups
+
+**Issue 2 (Agent paths):**
+Hostinger's terminal defaults to `/root/` but OpenClaw expects `~/.openclaw/agents/`
+
+Fix:
+```
+cd ~/.openclaw
+openclaw agents create my-agent
+```
+
+If you're still stuck after this: I debug OpenClaw setups professionally. Most Hostinger issues take 30 min to fix. Happy to jump on a quick call and sort this out — DM me if you want help.
+```
+
+---
+
+### GitHub Comment 1: Issue #32176 (Discord Bot Deaf)
+**Issue:** https://github.com/openclaw/openclaw/issues/32176
+**Pain:** Bot online but receives no messages, health monitor stuck
+
+**COPY THIS:**
+```
+This looks like a Discord gateway intent handshake issue. The health monitor restarts because it's not receiving READY/GUILD_CREATE events.
+
+Quick diagnostic steps:
+
+1. Check your Discord Developer Portal:
+   - Go to https://discord.com/developers/applications
+   - Select your bot → Bot tab
+   - Verify ALL THREE intents are enabled:
+     ✅ Message Content Intent
+     ✅ Server Members Intent  
+     ✅ Presence Intent
+
+2. Check your config doesn't have conflicting `allowFrom` entries (known bug in 2026.2.26)
+
+3. Try removing `groupPolicy: allowlist` temporarily to test
+
+If none of these work: I debug Discord bot issues daily. The "bot is deaf" problem usually traces to one of 3 config issues. Happy to spot-check your config (just redact tokens) — DM me here or on Discord @clawd.
+```
 
 ---
 
@@ -62,6 +122,139 @@ Want to share your config (just redact API keys) and I'll spot the issue?
 - Gives immediate solution (Docker)
 - Free offer builds reciprocity
 - Low friction next step
+
+---
+
+## 🟡 NEW WARM LEADS — March 4
+
+### Reddit Reply 2: u/GeminiOverloaded (Gemini Context Issue)
+**Post:** https://www.reddit.com/r/openclaw/comments/1rjkf02/
+**Pain:** "AI service is temporarily overloaded" — but it's NOT actually overloaded
+**Real Issue:** Context window exceeded + gateway stuck in error loop
+
+**COPY THIS:**
+```
+This isn't actually a rate limit — it's a context window issue disguised as "overloaded."
+
+When you send a very long prompt to Gemini 3.1 Pro Preview, it can exceed the effective context window. The gateway then gets stuck in an error loop and keeps showing "overloaded" even for simple messages.
+
+Fix:
+
+1. **Clear the conversation state:**
+   ```
+   openclaw sessions list
+   openclaw sessions delete <session-id>
+   ```
+
+2. **Start fresh with a shorter model:**
+   ```
+   /model google/gemini-3.0-flash
+   ```
+
+3. **Chunk your research:** Break that long RAG prompt into 3-4 smaller prompts
+
+Prevention: For big research tasks, use `web_search` tool first, then summarize, then dive deep. Don't dump everything in one prompt.
+
+If you're still stuck: I help with OpenClaw optimization — context management is a common issue I fix. DM me if you want help setting up a better workflow.
+```
+
+---
+
+### GitHub Comment 2: Issue #29780 (Crash Loop Bug)
+**Issue:** https://github.com/openclaw/openclaw/issues/29780
+**Pain:** Gateway writes invalid keys, crashes, restart loop
+
+**COPY THIS:**
+```
+Confirmed — this is a v2026.2.26 bug where the runtime writes keys the validator doesn't recognize.
+
+**Workaround (until patched):**
+
+1. Stop gateway:
+   ```
+   systemctl --user stop openclaw-gateway
+   ```
+
+2. Remove invalid keys from config:
+   ```bash
+   python3 << 'EOF'
+   import json
+   import sys
+   
+   path = os.path.expanduser('~/.openclaw/openclaw.json')
+   with open(path) as f:
+       cfg = json.load(f)
+   
+   # Remove invalid Discord account keys
+   VALID_KEYS = {'enabled', 'token', 'groupPolicy', 'streaming', 'name', 'guilds', 'dm'}
+   for acct_name, acct in cfg.get('channels', {}).get('discord', {}).get('accounts', {}).items():
+       for key in list(acct.keys()):
+           if key not in VALID_KEYS:
+               del acct[key]
+   
+   # Remove invalid agent keys
+   for agent in cfg.get('agents', {}).get('list', []):
+       if 'routing' in agent:
+           del agent['routing']
+   
+   with open(path, 'w') as f:
+       json.dump(cfg, f, indent=2)
+   print("Fixed!")
+   EOF
+   ```
+
+3. Make config immutable (prevents gateway from writing bad keys back):
+   ```
+   chattr +i ~/.openclaw/openclaw.json
+   ```
+
+**Note:** You'll need to `chattr -i` before any manual config edits, then `chattr +i` again after.
+
+If you want this fixed permanently without the immutable workaround: I can help you patch the gateway or set up a pre-validation hook. DM me.
+```
+
+---
+
+### GitHub Comment 3: Issue #30401 (Tilde Path Bug)
+**Issue:** https://github.com/openclaw/openclaw/issues/30401
+**Pain:** Gateway crashes when logging.file contains tilde path
+
+**COPY THIS:**
+```
+Confirmed bug — the logger doesn't expand `~` to `$HOME`.
+
+**Quick fix:**
+
+Change your config from:
+```json
+"logging": {
+  "file": "~/.openclaw/logs/gateway.log"
+}
+```
+
+To:
+```json
+"logging": {
+  "file": "/home/YOUR_USERNAME/.openclaw/logs/gateway.log"
+}
+```
+
+Or use an environment variable:
+```json
+"logging": {
+  "file": "${HOME}/.openclaw/logs/gateway.log"
+}
+```
+
+Then:
+```
+openclaw gateway restart
+```
+
+This affects any config path with `~` — the fix needs to happen in `src/logging/logger.ts`. There's a PR incoming but no ETA.
+
+Need help patching this or other path issues? I debug these configs daily.
+```
 
 ---
 

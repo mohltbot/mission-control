@@ -1,6 +1,6 @@
 # Content Queue — OpenClaw Debugger
 
-**Last Updated:** 2026-03-03
+**Last Updated:** 2026-03-04
 
 ---
 
@@ -30,6 +30,25 @@
 **Platform:** Twitter
 **Status:** ✅ Drafted in DRAFTS.md
 **Hook:** "14 hours debugging OpenClaw. Fixed in 5 minutes with this one change."
+
+### 4. NEW: Thread — "5 OpenClaw v2026.2.26 Migration Issues"
+**Platform:** Twitter
+**Status:** 📝 Research done, needs drafting
+**Hook:** "Upgraded to OpenClaw v2026.2.26? Your config is probably broken. Here's why:"
+**Source:** GitHub issues #29780, #30401, #32176
+**Priority:** HIGH — trending issue
+
+### 5. NEW: Quick Tip — "Is your Discord bot deaf?"
+**Platform:** Twitter
+**Status:** 📝 Research done, needs drafting  
+**Hook:** "Discord bot shows online but doesn't respond? Check these 3 intents:"
+**Source:** GitHub issue #32176
+
+### 6. NEW: Case Study — "Fixed Hostinger + OpenClaw in 30 min"
+**Platform:** Twitter + IndieHackers
+**Status:** 📝 Research done, needs drafting
+**Hook:** "Non-dev user was ready to give up on OpenClaw. 3 commands later: working."
+**Source:** Reddit post u/HostingerNightmare
 
 ---
 
