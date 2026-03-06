@@ -68,7 +68,8 @@
 
 | Date | Platform | Content | Impressions | Engagements | Leads Generated |
 |------|----------|---------|-------------|-------------|-----------------|
-| 2026-03-05 | Twitter | Thread: 5 OpenClaw Errors | ✅ POSTED | — | — |
+| 2026-03-05 | Twitter | Thread: 5 OpenClaw Errors | ✅ POSTED | 11 | — |
+| 2026-03-05 | Twitter | Thread: Sandbox Mode Broke My OpenClaw | ✅ POSTED | 11 | — |
 | 2026-03-05 | Twitter | Thread: 5 v2026.2.26 issues | READY | — | — |
 | 2026-03-05 | IndieHackers | Case study: Hostinger fix | READY | — | — |
 | 2026-03-05 | LinkedIn | Debugging service | READY | — | — |

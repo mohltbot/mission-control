@@ -25,6 +25,29 @@
 
 ---
 
+### Twitter Thread: "Sandbox Mode Broke My OpenClaw"
+**Status:** ✅ Posted  
+**Author:** @Mohammed__Wasif  
+**Date:** March 5, 2026  
+**Platform:** Twitter/X  
+**Views:** 11 (as of posting)
+
+**Thread Summary:**
+- **Tweet 1:** OpenClaw warned about browser-use sandbox being off → told it to fix → sandbox ON → instantly broke
+- **Tweet 2:** Root cause: Docker not installed on Mac, agent crashed on boot
+- **Tweet 3:** Framework panicked, failed over to every other model, spat out errors for DeepSeek, Minimax, even LOCAL MLX model demanding API keys
+- **Tweet 4:** Thought he'd need dummy API keys, started hunting config files
+- **Tweet 5:** .openclaw is hidden folder (Cmd+Shift+. to see it)
+- **Tweet 6:** Realized API key errors were red herrings — system was panic-failing
+- **Tweet 7:** Found sandbox setting on line 209: `"mode": "all"` → changed to `"off"`
+- **Tweet 8:** Primary model booted perfectly. 3-letter JSON edit saved the day
+
+**Key Lesson:** Sandbox mode requires Docker. Without it, the cascade failover creates misleading API key errors.
+
+**Performance:** _To be tracked in LEADS.md_
+
+---
+
 ## 📝 CONTENT IDEAS (Drafted)
 
 ### 1. Quick Tip: Config Validation
