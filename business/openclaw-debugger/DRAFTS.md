@@ -6,11 +6,32 @@
 
 ## ✅ PUBLISHED (March 5, 2026)
 
+### Twitter Thread: "5 OpenClaw v2026.2.26 Migration Issues"
+**Status:** ✅ Posted  
+**Date:** March 4, 2026  
+**Platform:** Twitter/X  
+**Hook:** "Upgraded to OpenClaw v2026.2.26? Your config is probably broken. Here's why:"
+**Source:** GitHub issues #29780, #30401, #32176
+
+**Content Summary:**
+- Tweet 1: Hook — Upgraded to v2026.2.26? Config is probably broken
+- Tweet 2: Issue #29780 — Crash loop from invalid config keys
+- Tweet 3: Issue #30401 — Tilde path bug in logging.file
+- Tweet 4: Issue #32176 — Discord bot deaf (gateway intents)
+- Tweet 5: Model routing conflicts
+- Tweet 6: Auth profile mismatches
+- Tweet 7: CTA — debugging service offer
+
+**Performance:** _To be tracked in LEADS.md_
+
+---
+
 ### Twitter Thread: "5 OpenClaw Errors That Waste Hours"
 **Status:** ✅ Posted  
 **URL:** https://x.com/i/status/2029821780068909216  
-**Date:** March 5, 2026  
+**Date:** March 3, 2026  
 **Platform:** Twitter/X  
+**Views:** 11
 
 **Content Summary:**
 - Tweet 1: Hook — 20+ hours debugging, 5 errors that waste time
@@ -89,7 +110,7 @@
 
 ### 4. Thread — "5 OpenClaw v2026.2.26 Migration Issues"
 **Platform:** Twitter  
-**Status:** ✅ Ready to post  
+**Status:** ✅ POSTED March 4, 2026  
 **Hook:** "Upgraded to OpenClaw v2026.2.26? Your config is probably broken. Here's why:"
 **Source:** GitHub issues #29780, #30401, #32176  
 **Priority:** HIGH — trending issue
