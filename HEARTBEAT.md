@@ -49,5 +49,7 @@ For each issue:
    - Cost optimization (stays under $200/mo)
    - Solo founder tools (1-person unicorn mission)
    - Mission Control enhancements
-4. **Implement** — Auto-implement HIGH priority items
-5. **Report** — Create PR for review, post summary to Discord
+4. **Check for duplicates** — Before suggesting events/tools, verify not already registered/suggested
+5. **Check calendar conflicts** — Verify event dates don't conflict with existing plans
+6. **Implement** — Auto-implement HIGH priority items
+7. **Report** — Create PR for review, post summary to Discord

@@ -18,12 +18,29 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ error: 'Email and password are required' });
     }
 
-    const employee = await Employee.findOne({ where: { email } });
+    const employee = await Employee.findOne({ 
+      where: { email }
+    });
     if (!employee) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const isValidPassword = await bcrypt.compare(password, employee.password);
+    // Debug: Log what we got
+    console.log('Employee found:', employee.email);
+    console.log('Employee data:', JSON.stringify(employee.get({ plain: true }), null, 2));
+    
+    // Get password using dataValues to bypass TypeScript class field shadowing
+    const employeeData = employee.get({ plain: true });
+    const hashedPassword = employeeData.password;
+    
+    console.log('Hashed password:', hashedPassword);
+    
+    if (!hashedPassword) {
+      console.error('Password not found for employee:', email);
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
+
+    const isValidPassword = await bcrypt.compare(password, hashedPassword);
     if (!isValidPassword) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
