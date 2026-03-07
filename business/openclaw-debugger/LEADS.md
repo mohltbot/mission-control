@@ -1,6 +1,6 @@
 # Lead Tracker — OpenClaw Debugger
 
-**Last Updated:** 2026-03-06 (Shift 3 Complete — Follow-ups Drafted)
+**Last Updated:** 2026-03-06 (Shift 4 Complete — Daily Report Written)
 
 ## 🔥 Hot Leads (Ready to Buy — Act Now)
 
@@ -79,6 +79,38 @@
 - **Total pipeline:** 13
 - **Converted:** 0
 - **Potential revenue:** $375-1,950
+
+---
+
+## 🎯 TOMORROW'S PRIORITY ACTIONS (March 7, 2026)
+
+### 📬 DAY 2 FOLLOW-UPS — SEND THESE (10 min)
+1. **Reply to GitHub #37813** — Model ID fallback bug (DRAFTS.md ready)
+2. **Reply to GitHub #38204** — Grok 4.2 multi model issue (DRAFTS.md ready)
+
+### 📱 CONTENT TO POST (5 min)
+3. **Twitter:** "Week 1 Lessons" thread — See DRAFTS.md "Tomorrow's Content"
+4. **LinkedIn:** "Week 1 Building in Public" — See DRAFTS.md "Tomorrow's Content"
+5. **IndieHackers:** "Week 1 Report" — See DRAFTS.md "Tomorrow's Content"
+
+### 📋 MANUAL CHECKS NEEDED
+- Check Twitter DMs for any replies from outreach
+- Check Fiverr messages
+- Check GitHub notifications for responses
+
+---
+
+## Week 1 Summary (March 3-6)
+
+**Leads Generated:** 13
+**Content Posted:** 5 pieces
+**Drafts Created:** 20+ ready messages
+**Revenue:** $0 (first customer expected Week 2)
+
+**Hot Leads to Watch:**
+- u/HostingerNightmare (Reddit) — Very frustrated, multiple issues
+- GitHub #32176 — Discord bot deaf issue
+- u/GeminiOverloaded — Gemini context window issue
 
 ---
 

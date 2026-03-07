@@ -35,6 +35,16 @@
 
 ## 📤 Ready to Publish (Copy-Paste)
 
+### 1. IndieHackers Post: "5 Issues I See Daily"
+**Status:** READY TO COPY-PASTE  
+**Location:** DRAFTS.md section "IndieHackers Post: I Debug OpenClaw for a Living"
+**Time:** Evening (post now)
+
+### 2. LinkedIn Post: "Hidden Cost of Open-Source AI Tools"
+**Status:** READY TO COPY-PASTE  
+**Location:** DRAFTS.md section "LinkedIn Post: The Hidden Cost of Open-Source AI Tools"
+**Time:** Evening (post now)
+
 ---
 
 ## 📝 Content Ideas (Drafted)
@@ -98,6 +108,8 @@
 | 2026-03-05 | Twitter | Quick tip: Discord bot deaf | READY | — | — |
 | 2026-03-06 | Twitter | Thread: 3 Discord Bot Mistakes | ✅ READY | — | — |
 | 2026-03-06 | Twitter | Quick tip: Hidden config file | ✅ READY | — | — |
+| 2026-03-06 | IndieHackers | 5 Issues I See Daily | ✅ READY | — | — |
+| 2026-03-06 | LinkedIn | Hidden Cost of Open-Source AI | ✅ READY | — | — |
 
 ---
 
