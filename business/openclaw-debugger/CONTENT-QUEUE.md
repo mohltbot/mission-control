@@ -35,12 +35,18 @@
 
 ## 📤 Ready to Publish (Copy-Paste)
 
-### 1. IndieHackers Post: "5 Issues I See Daily"
+### 1. Twitter Thread: "The OAuth Recovery Loop Bug Nobody Talks About" 🆕
+**Status:** READY TO COPY-PASTE  
+**Location:** DRAFTS.md section "Twitter Thread: The OAuth Recovery Loop Bug Nobody Talks About"
+**Time:** Afternoon (post now)
+**Priority:** HIGH — trending issue, high engagement potential
+
+### 2. IndieHackers Post: "5 Issues I See Daily"
 **Status:** READY TO COPY-PASTE  
 **Location:** DRAFTS.md section "IndieHackers Post: I Debug OpenClaw for a Living"
 **Time:** Evening (post now)
 
-### 2. LinkedIn Post: "Hidden Cost of Open-Source AI Tools"
+### 3. LinkedIn Post: "Hidden Cost of Open-Source AI Tools"
 **Status:** READY TO COPY-PASTE  
 **Location:** DRAFTS.md section "LinkedIn Post: The Hidden Cost of Open-Source AI Tools"
 **Time:** Evening (post now)
@@ -110,6 +116,7 @@
 | 2026-03-06 | Twitter | Quick tip: Hidden config file | ✅ READY | — | — |
 | 2026-03-06 | IndieHackers | 5 Issues I See Daily | ✅ READY | — | — |
 | 2026-03-06 | LinkedIn | Hidden Cost of Open-Source AI | ✅ READY | — | — |
+| 2026-03-07 | Twitter | Thread: OAuth Recovery Loop Bug | ✅ READY | — | — |
 
 ---
 
@@ -141,9 +148,10 @@
 - [ ] Post Quick tip: openclaw doctor --fix
 - [ ] Discord: Help 3 people in #troubleshooting
 
-### Friday (March 7)
-- [ ] Twitter: Week lessons learned
-- [ ] LinkedIn: First week retrospective
+### Friday (March 7) — Shift 2 Complete ✅
+- [x] **NEW:** Twitter thread: "OAuth Recovery Loop Bug" — READY TO POST
+- [ ] Twitter: Week lessons learned — DRAFT READY
+- [ ] LinkedIn: First week retrospective — DRAFT READY
 - [ ] Update LEADS.md with week's progress
 - [ ] Plan Week 2 content themes
 

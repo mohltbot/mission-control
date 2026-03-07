@@ -46,6 +46,7 @@
 | GitHub #32176 | Quick Tip | Twitter | March 4 | ✅ Ready to post |
 | GitHub #29780 | Thread (Issue #2) | Twitter | March 4 | ✅ Ready to post |
 | GitHub #30401 | Thread (Issue #3) | Twitter | March 4 | ✅ Ready to post |
+| GitHub #38336 | Thread (OAuth Recovery Loop) | Twitter | March 7 | ✅ Ready to post |
 
 ## ⏰ Follow-Up Schedule
 
