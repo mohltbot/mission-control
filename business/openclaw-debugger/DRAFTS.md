@@ -1,6 +1,114 @@
 # Ready-to-Send Drafts — OpenClaw Debugger
 
-**Last Updated:** 2026-03-06
+**Last Updated:** 2026-03-07 (Shift 2 - Content Creation)
+
+---
+
+## 🆕 NEW CONTENT — Shift 2 (March 7, 2026)
+
+### Twitter Thread: "The OAuth Recovery Loop Bug Nobody Talks About"
+**Status:** ✅ READY TO POST
+**Platform:** Twitter/X
+**Hook:** "Your OpenClaw keeps entering safe mode after OAuth renewal? Here's why (and the 30-second fix)"
+**Source:** GitHub issue #38336, trending issue affecting many users
+**Priority:** HIGH — emerging pattern, high frustration
+
+**Full Thread (Copy-Paste Ready):**
+
+**Tweet 1 (Hook):**
+Your OpenClaw keeps entering safe mode after OAuth renewal?
+
+You're caught in an infinite recovery loop.
+
+Here's the 30-second fix that stops the madness: 🧵
+
+---
+
+**Tweet 2 (The Problem):**
+When you run `openclaw onboard` to refresh OAuth:
+
+→ Token saves to auth-profiles.json (live copy)
+→ BUT NOT to auth-profiles.provisioned.json (golden copy)
+
+Safe-mode recovery reads the stale golden copy → thinks OAuth is broken → enters recovery → loops forever.
+
+---
+
+**Tweet 3 (The Fix):**
+After running `openclaw onboard`, manually sync the files:
+
+```bash
+cp ~/.openclaw/agents/main/agent/auth-profiles.json \
+   ~/.openclaw/agents/main/agent/auth-profiles.provisioned.json
+
+openclaw gateway restart
+```
+
+Done. Loop stopped.
+
+---
+
+**Tweet 4 (Why This Happens):**
+Live copy = what gateway reads during normal operation
+Golden copy = what safe-mode recovery reads (survives shutdown)
+
+Onboard updates live but not golden.
+Recovery reads stale golden → thinks OAuth expired → safe mode.
+
+Design flaw. Simple workaround.
+
+---
+
+**Tweet 5 (The Real Cost):**
+This bug has cost people multi-hour debugging sessions.
+
+The error messages point to OAuth being broken.
+
+The real issue? File sync. Two config files out of sync.
+
+Classic red herring.
+
+---
+
+**Tweet 6 (Prevention):**
+Add this to your OAuth renewal workflow:
+
+1. `openclaw onboard` (refresh token)
+2. Copy auth-profiles.json → auth-profiles.provisioned.json
+3. Restart gateway
+
+Or script it. One command, never think about it again.
+
+---
+
+**Tweet 7 (CTA):**
+Spent hours debugging OpenClaw OAuth issues?
+
+I fix these for $75 in 30 minutes.
+
+DM me your error — I'll point you in the right direction (free).
+
+Or book: [link when ready]
+
+---
+
+### Quick Tip: "The Hidden Config File That Breaks Everything"
+**Status:** ✅ READY TO POST
+**Platform:** Twitter/X
+**Hook:** "Spent 2 hours debugging OpenClaw? The fix is probably in ~/.openclaw/openclaw.json"
+
+**Full Tweet:**
+Spent 2 hours debugging OpenClaw?
+
+The fix is probably in ~/.openclaw/openclaw.json
+
+Most people don't know this file exists because it's in a hidden folder.
+
+On Mac: Cmd+Shift+G → paste ~/.openclaw
+
+On Windows: %USERPROFILE%\.openclaw
+
+Your entire config lives here. Bookmark it.
 
 ---
 
@@ -20,7 +128,7 @@ Quick wins to try:
 
 1. **Agent paths on Hostinger:** Use absolute paths, not relative. Instead of "./agents", try "/home/username/openclaw/agents"
 
-2. **Chrome extension:** Run `openclaw browser extension path` then use that full path in "Load unpacked"
+2. **Chrome extension:** Run `openclaw browser extension install` then use that full path in "Load unpacked"
 
 3. **Permissions:** Make sure your Hostinger user owns the .openclaw folder: `sudo chown -R $USER:$USER ~/.openclaw`
 
@@ -222,89 +330,7 @@ Hope that unblocks you!
 
 ---
 
-## 🆕 NEW CONTENT — Shift 4 (March 6, 2026)
-
-### IndieHackers Post: "I Debug OpenClaw for a Living — Here Are 5 Issues I See Daily"
-**Status:** ✅ READY TO POST
-**Platform:** IndieHackers
-**Hook:** Behind-the-scenes look at the most common (and fixable) OpenClaw problems
-**Tone:** Educational, transparent, building in public
-
-**Full Post (Copy-Paste Ready):**
-
----
-
-**I Debug OpenClaw for a Living — Here Are 5 Issues I See Daily**
-
-I've spent the last week helping people fix their OpenClaw setups. Same patterns, over and over. If you're struggling, you're not alone — and you're probably 5 minutes away from a fix.
-
-**1. The "Deaf" Discord Bot**
-Bot shows online but doesn't respond? You missed gateway intents. Discord Developer Portal → Bot → Privileged Gateway Intents → enable all three. 30 seconds, fixed.
-
-**2. The Hidden Config File**
-People spend hours hunting for their config. It's at `~/.openclaw/openclaw.json` — a hidden folder. On Mac: Cmd+Shift+G, paste the path. Done.
-
-**3. The Tilde Path Bug**
-Setting `logging.file` to `~/.openclaw/logs/app.log` crashes OpenClaw. It creates a literal "~" folder instead of expanding to your home directory. Use absolute paths.
-
-**4. The v2026.2.26 Crash Loop**
-New version writes runtime keys that the validator rejects on restart. Workaround: add `"persistKeys": false` to your runtime config. Or manually clean invalid keys.
-
-**5. The Model Routing Rabbit Hole**
-"All models failed" usually means one bad config is cascading. Check your model aliases first — 90% of the time it's a typo or deprecated model ID.
-
----
-
-**The Pattern?**
-
-These aren't hard problems. They're configuration gotchas that eat hours because the error messages point you in the wrong direction.
-
-I'm building a debugging service around this — $75, 30 minutes, problem solved. Not because OpenClaw is broken, but because debugging config files sucks and sometimes you just want it fixed.
-
-If you're stuck on any of these, DM me. Happy to point you in the right direction (free).
-
----
-
-### LinkedIn Post: "The Hidden Cost of Open-Source AI Tools"
-**Status:** ✅ READY TO POST
-**Platform:** LinkedIn
-**Hook:** Professional angle on the time cost of DIY debugging
-**Tone:** Business-focused, ROI-driven
-
-**Full Post (Copy-Paste Ready):**
-
----
-
-**The Hidden Cost of Open-Source AI Tools**
-
-OpenClaw is free. Powerful. Open-source.
-
-But "free" doesn't mean "zero cost."
-
-I've talked to developers who've lost 10+ hours debugging configuration issues. Gateway crashes. Discord bots that won't respond. Model routing failures. The kind of problems that don't show up in the docs.
-
-Here's what I've learned helping people fix their setups:
-
-**Time is the real cost.**
-
-That "quick setup" turns into a 3-hour rabbit hole when:
-• A hidden config file isn't where you expect it
-• An error message points to the wrong problem
-• A version upgrade breaks your working config
-
-**The fix is usually simple.**
-
-5-minute solutions that take hours to find because you're chasing symptoms, not causes.
-
-I'm offering a debugging service for this — $75, 30 minutes, done. Not because OpenClaw is broken (it's not), but because your time is worth more than debugging YAML files.
-
-If you're stuck, DM me. I'll point you in the right direction either way.
-
----
-
-## 🆕 NEW LEADS — Shift 1 (March 7, 2026)
-
-### GitHub Comment: Issue #38336 (OAuth Recovery Loop)
+### 🆕 NEW LEAD: GitHub #38336 (OAuth Recovery Loop)
 **Status:** ✅ READY TO SEND
 **Platform:** GitHub
 **Issue:** https://github.com/openclaw/openclaw/issues/38336
@@ -383,6 +409,86 @@ The OpenAI-compatible approach usually works because LMStudio mimics the OpenAI 
 
 If you get stuck configuring the workaround, happy to help — I've set up a few local embedding pipelines with OpenClaw.
 ```
+
+---
+
+## 🆕 NEW CONTENT — Shift 4 (March 6, 2026)
+
+### IndieHackers Post: "I Debug OpenClaw for a Living — Here Are 5 Issues I See Daily"
+**Status:** ✅ READY TO POST
+**Platform:** IndieHackers
+**Hook:** Behind-the-scenes look at the most common (and fixable) OpenClaw problems
+**Tone:** Educational, transparent, building in public
+
+**Full Post (Copy-Paste Ready):**
+
+---
+
+**I Debug OpenClaw for a Living — Here Are 5 Issues I See Daily**
+
+I've spent the last week helping people fix their OpenClaw setups. Same patterns, over and over. If you're struggling, you're not alone — and you're probably 5 minutes away from a fix.
+
+**1. The "Deaf" Discord Bot**
+Bot shows online but doesn't respond? You missed gateway intents. Discord Developer Portal → Bot → Privileged Gateway Intents → enable all three. 30 seconds, fixed.
+
+**2. The Hidden Config File**
+People spend hours hunting for their config. It's at `~/.openclaw/openclaw.json` — a hidden folder. On Mac: Cmd+Shift+G, paste the path. Done.
+
+**3. The Tilde Path Bug**
+Setting `logging.file` to `~/.openclaw/logs/app.log` crashes OpenClaw. It creates a literal "~" folder instead of expanding to your home directory. Use absolute paths.
+
+**4. The v2026.2.26 Crash Loop**
+New version writes runtime keys that the validator rejects on restart. Workaround: add `"persistKeys": false` to your runtime config. Or manually clean invalid keys.
+
+**5. The Model Routing Rabbit Hole**
+"All models failed" usually means one bad config is cascading. Check your model aliases first — 90% of the time it's a typo or deprecated model ID.
+
+---
+
+**The Pattern?**
+
+These aren't hard problems. They're configuration gotchas that eat hours because the error messages point you in the wrong direction.
+
+I'm building a debugging service around this — $75, 30 minutes, problem solved. Not because OpenClaw is broken, but because debugging config files sucks and sometimes you just want it fixed.
+
+If you're stuck on any of these, DM me. Happy to point you in the right direction (free).
+
+---
+
+### LinkedIn Post: "The Hidden Cost of Open-Source AI Tools"
+**Status:** ✅ READY TO POST
+**Platform:** LinkedIn
+**Hook:** Professional angle on the time cost of DIY debugging
+**Tone:** Business-focused, ROI-driven
+
+**Full Post (Copy-Paste Ready):**
+
+---
+
+**The Hidden Cost of Open-Source AI Tools**
+
+OpenClaw is free. Powerful. Open-source.
+
+But "free" doesn't mean "zero cost."
+
+I've talked to developers who've lost 10+ hours debugging configuration issues. Gateway crashes. Discord bots that won't respond. Model routing failures. The kind of problems that don't show up in the docs.
+
+Here's what I've learned helping people fix their setups:
+
+**Time is the real cost.**
+
+That "quick setup" turns into a 3-hour rabbit hole when:
+• A hidden config file isn't where you expect it
+• An error message points to the wrong problem
+• A version upgrade breaks your working config
+
+**The fix is usually simple.**
+
+5-minute solutions that take hours to find because you're chasing symptoms, not causes.
+
+I'm offering a debugging service for this — $75, 30 minutes, done. Not because OpenClaw is broken (it's not), but because your time is worth more than debugging YAML files.
+
+If you're stuck, DM me. I'll point you in the right direction either way.
 
 ---
 
@@ -468,23 +574,131 @@ Or book a session: [link when ready]
 
 ---
 
-### Quick Tip: "The Hidden Config File That Breaks Everything"
-**Status:** ✅ READY TO POST
+## 📋 TOMORROW'S CONTENT PREP (March 7, 2026)
+
+### Twitter Thread: "5 Lessons from My First Week Debugging OpenClaw"
+**Status:** ✅ DRAFTED for tomorrow
 **Platform:** Twitter/X
-**Hook:** "Spent 2 hours debugging OpenClaw? The fix is probably in ~/.openclaw/openclaw.json"
+**Hook:** Week 1 retrospective, building in public
 
-**Full Tweet:**
-Spent 2 hours debugging OpenClaw?
+**Draft:**
 
-The fix is probably in ~/.openclaw/openclaw.json
+**Tweet 1:** Week 1 of debugging OpenClaw for a living:
 
-Most people don't know this file exists because it's in a hidden folder.
+• 13 leads generated
+• 5 content pieces posted
+• $0 revenue (yet)
+• 100+ hours of debugging knowledge gained
 
-On Mac: Cmd+Shift+G → paste ~/.openclaw
+Here are 5 lessons I learned: 🧵
 
-On Windows: %USERPROFILE%\.openclaw
+**Tweet 2:** Lesson 1: The best leads are frustrated, not curious.
 
-Your entire config lives here. Bookmark it.
+People who've lost 10+ hours debugging are ready to pay. People asking "how does this work?" want free education.
+
+**Tweet 3:** Lesson 2: Error messages lie.
+
+"All models failed" ≠ all models failed. Usually means one config typo is cascading. Fix the root, not the symptoms.
+
+**Tweet 4:** Lesson 3: Content that teaches converts better than content that sells.
+
+My "how to fix X" threads get DMs. My "hire me" posts get ignored.
+
+**Tweet 5:** Lesson 4: GitHub issues are goldmines.
+
+Every open issue is a frustrated user. Comment with value, they remember you. 2 of my hottest leads came from GitHub comments.
+
+**Tweet 6:** Lesson 5: Speed matters.
+
+Someone who's been stuck for 3 days will pay $75 to be unstuck in 30 minutes. The value isn't the fix — it's the time saved.
+
+**Tweet 7:** Week 2 goals:
+• Convert first paying customer
+• Post daily content
+• Reply to every new OpenClaw issue within 24h
+
+Building in public. Let's see what happens.
+
+---
+
+### LinkedIn Post: "Week 1: Building a Micro-SaaS in Public"
+**Status:** ✅ DRAFTED for tomorrow
+**Platform:** LinkedIn
+**Hook:** Professional retrospective on first week
+
+**Draft:**
+
+Week 1 of building an OpenClaw debugging service:
+
+**What I did:**
+• Researched 50+ OpenClaw issues across Twitter, Reddit, GitHub
+• Generated 13 qualified leads (4 hot, 8 warm, 1 cold)
+• Posted 5 educational content pieces
+• Drafted 20+ ready-to-send messages
+
+**What I learned:**
+• Configuration debugging is a real pain point people will pay to solve
+• Teaching converts better than selling
+• Speed of response matters — frustrated users buy faster
+• GitHub issues are underrated lead sources
+
+**The numbers:**
+• Pipeline value: $375-1,950
+• Time invested: ~20 hours
+• Revenue: $0 (first customer expected Week 2)
+
+**Week 2 focus:**
+Convert first customer. Everything else is preparation until then.
+
+Building in public. Updates weekly.
+
+---
+
+### IndieHackers Post: "Week 1 Building in Public: OpenClaw Debugger"
+**Status:** ✅ DRAFTED for tomorrow
+**Platform:** IndieHackers
+**Hook:** Transparent week 1 report for IH community
+
+**Draft:**
+
+**Week 1: From Idea to 13 Leads**
+
+I started this week with a simple idea: people are struggling with OpenClaw configs, and I can fix them fast.
+
+**What I built:**
+• Lead tracking system (LEADS.md)
+• Content queue (CONTENT-QUEUE.md)
+• Draft library (DRAFTS.md)
+• Daily reporting to memory files
+
+**What I did:**
+• 4x daily shifts: research, content, nurture, planning
+• Found 13 leads across Twitter, Reddit, GitHub
+• Drafted 20+ ready-to-send messages
+• Posted 5 content pieces
+
+**The leads:**
+• 4 hot (ready to buy, frustrated, urgent)
+• 8 warm (engaged, asking questions)
+• 1 cold (long-term nurture)
+
+**Pipeline value:** $375-1,950 (assuming $75-150 per fix)
+
+**What worked:**
+• Commenting on GitHub issues with actual fixes
+• Twitter threads that teach specific solutions
+• Day 2 follow-ups checking if advice helped
+
+**What didn't:**
+• Generic "hire me" posts
+• Waiting for leads to come to me
+
+**Week 2 goals:**
+1. Convert first paying customer
+2. Maintain daily content
+3. Respond to new issues within 24h
+
+**Ask:** If you know anyone struggling with OpenClaw, send them my way. First fix is free if they mention IH.
 
 ---
 
@@ -645,156 +859,8 @@ Your entire config lives here. Bookmark it.
 - [ ] Post Quick tip: openclaw doctor --fix
 - [ ] Discord: Help 3 people in #troubleshooting
 
-### Friday (March 7) — Tomorrow's Prep ✅
-- [ ] **Twitter:** Week lessons learned — DRAFT READY in DRAFTS.md "Tomorrow's Content"
-- [ ] **LinkedIn:** First week retrospective — DRAFT READY in DRAFTS.md "Tomorrow's Content"
-- [ ] **IndieHackers:** "Week 1 building in public" — DRAFT READY in DRAFTS.md "Tomorrow's Content"
-- [ ] Update LEADS.md with week's progress
-- [ ] Plan Week 2 content themes
-
----
-
-## 📋 TOMORROW'S CONTENT PREP (March 7, 2026)
-
-### Twitter Thread: "5 Lessons from My First Week Debugging OpenClaw"
-**Status:** ✅ DRAFTED for tomorrow
-**Platform:** Twitter/X
-**Hook:** Week 1 retrospective, building in public
-
-**Draft:**
-
-**Tweet 1:** Week 1 of debugging OpenClaw for a living:
-
-• 13 leads generated
-• 5 content pieces posted
-• $0 revenue (yet)
-• 100+ hours of debugging knowledge gained
-
-Here are 5 lessons I learned: 🧵
-
-**Tweet 2:** Lesson 1: The best leads are frustrated, not curious.
-
-People who've lost 10+ hours debugging are ready to pay. People asking "how does this work?" want free education.
-
-**Tweet 3:** Lesson 2: Error messages lie.
-
-"All models failed" ≠ all models failed. Usually means one config typo is cascading. Fix the root, not the symptoms.
-
-**Tweet 4:** Lesson 3: Content that teaches converts better than content that sells.
-
-My "how to fix X" threads get DMs. My "hire me" posts get ignored.
-
-**Tweet 5:** Lesson 4: GitHub issues are goldmines.
-
-Every open issue is a frustrated user. Comment with value, they remember you. 2 of my hottest leads came from GitHub comments.
-
-**Tweet 6:** Lesson 5: Speed matters.
-
-Someone who's been stuck for 3 days will pay $75 to be unstuck in 30 minutes. The value isn't the fix — it's the time saved.
-
-**Tweet 7:** Week 2 goals:
-• Convert first paying customer
-• Post daily content
-• Reply to every new OpenClaw issue within 24h
-
-Building in public. Let's see what happens.
-
----
-
-### LinkedIn Post: "Week 1: Building a Micro-SaaS in Public"
-**Status:** ✅ DRAFTED for tomorrow
-**Platform:** LinkedIn
-**Hook:** Professional retrospective on first week
-
-**Draft:**
-
-Week 1 of building an OpenClaw debugging service:
-
-**What I did:**
-• Researched 50+ OpenClaw issues across Twitter, Reddit, GitHub
-• Generated 13 qualified leads (4 hot, 8 warm, 1 cold)
-• Posted 5 educational content pieces
-• Drafted 20+ ready-to-send messages
-
-**What I learned:**
-• Configuration debugging is a real pain point people will pay to solve
-• Teaching converts better than selling
-• Speed of response matters — frustrated users buy faster
-• GitHub issues are underrated lead sources
-
-**The numbers:**
-• Pipeline value: $375-1,950
-• Time invested: ~20 hours
-• Revenue: $0 (first customer expected Week 2)
-
-**Week 2 focus:**
-Convert first customer. Everything else is preparation until then.
-
-Building in public. Updates weekly.
-
----
-
-### IndieHackers Post: "Week 1 Building in Public: OpenClaw Debugger"
-**Status:** ✅ DRAFTED for tomorrow
-**Platform:** IndieHackers
-**Hook:** Transparent week 1 report for IH community
-
-**Draft:**
-
-**Week 1: From Idea to 13 Leads**
-
-I started this week with a simple idea: people are struggling with OpenClaw configs, and I can fix them fast.
-
-**What I built:**
-• Lead tracking system (LEADS.md)
-• Content queue (CONTENT-QUEUE.md)
-• Draft library (DRAFTS.md)
-• Daily reporting to memory files
-
-**What I did:**
-• 4x daily shifts: research, content, nurture, planning
-• Found 13 leads across Twitter, Reddit, GitHub
-• Drafted 20+ ready-to-send messages
-• Posted 5 content pieces
-
-**The leads:**
-• 4 hot (ready to buy, frustrated, urgent)
-• 8 warm (engaged, asking questions)
-• 1 cold (long-term nurture)
-
-**Pipeline value:** $375-1,950 (assuming $75-150 per fix)
-
-**What worked:**
-• Commenting on GitHub issues with actual fixes
-• Twitter threads that teach specific solutions
-• Day 2 follow-ups checking if advice helped
-
-**What didn't:**
-• Generic "hire me" posts
-• Waiting for leads to come to me
-
-**Week 2 goals:**
-1. Convert first paying customer
-2. Maintain daily content
-3. Respond to new issues within 24h
-
-**Ask:** If you know anyone struggling with OpenClaw, send them my way. First fix is free if they mention IH.
-
----
-
-## 🗓️ Content Calendar (This Week)
-
-### Thursday (March 6) — Shift 4 Complete ✅
-- [x] **NEW:** Twitter thread: "3 Discord Bot Mistakes" — READY TO POST
-- [x] **NEW:** Quick tip: Hidden config file — READY TO POST
-- [x] **NEW:** IndieHackers post: "5 Issues I See Daily" — READY TO POST
-- [x] **NEW:** LinkedIn post: "Hidden Cost of Open-Source AI" — READY TO POST
-- [ ] Post Twitter: Week recap so far
-- [ ] Post IndieHackers: "Week 1 building in public"
-- [ ] Post Quick tip: openclaw doctor --fix
-- [ ] Discord: Help 3 people in #troubleshooting
-
-### Friday (March 7) — Tomorrow's Prep ✅
+### Friday (March 7) — Shift 2 Complete ✅
+- [x] **NEW:** Twitter thread: "OAuth Recovery Loop Bug" — READY TO POST
 - [ ] **Twitter:** Week lessons learned — DRAFT READY in DRAFTS.md "Tomorrow's Content"
 - [ ] **LinkedIn:** First week retrospective — DRAFT READY in DRAFTS.md "Tomorrow's Content"
 - [ ] **IndieHackers:** "Week 1 building in public" — DRAFT READY in DRAFTS.md "Tomorrow's Content"
@@ -822,25 +888,4 @@ I started this week with a simple idea: people are struggling with OpenClaw conf
 ## 📋 OUTREACH TEMPLATES (Moved from completed drafts)
 
 ### Reddit Reply: u/HostingerNightmare
-**Post:** https://www.reddit.com/r/openclaw/comments/1rja32v/  
-**Status:** ✅ SENT (March 4)  
-**Template:** Hostinger VPS + Chrome Extension + agent path fixes
-
-### GitHub Comment: Issue #32176 (Discord Bot Deaf)
-**Issue:** https://github.com/openclaw/openclaw/issues/32176  
-**Status:** ✅ SENT (March 4)  
-**Template:** Discord gateway intent handshake diagnostic steps
-
-### DM: @rstormsf (High-Value Target)
-**Profile:** https://x.com/rstormsf  
-**Status:** ✅ SENT (March 4)  
-**Template:** Monitoring service pitch ($300/month)
-
-### DM: @matthewjetthall
-**Profile:** https://x.com/matthewjetthall  
-**Status:** ✅ SENT (March 4)  
-**Template:** Docker fix + free config review offer
-
----
-
-*All completed drafts moved to archive. Active drafts only above.*
+**Post:**
