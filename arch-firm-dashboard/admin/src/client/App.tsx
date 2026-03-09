@@ -108,7 +108,7 @@ const NavItem: React.FC<NavItemProps> = ({ label, icon, active, onClick }) => (
     }}
   >
     <span style={styles.navIcon}>{icon}</span>
-    <span>{label}</span>
+    <span style={styles.navLabel}>{label}</span>
   </button>
 );
 
@@ -169,6 +169,11 @@ const styles: { [key: string]: React.CSSProperties | any } = {
     width: '24px',
     textAlign: 'center',
     flexShrink: 0
+  },
+  navLabel: {
+    display: 'inline-block',
+    whiteSpace: 'nowrap',
+    overflow: 'visible'
   },
   connectionStatus: {
     padding: '16px 24px',
