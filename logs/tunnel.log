@@ -489,3 +489,4 @@ Sun Mar  8 00:00:21 PST 2026: Tunnel started with PID 48561
 2026-03-08T08:00:24Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.23
 2026-03-08T08:00:25Z INF Registered tunnel connection connIndex=0 connection=cae49822-66f5-4be2-8440-c7c470f38c2b event=0 ip=198.41.200.23 location=sjc11 protocol=quic
 Sun Mar  8 00:00:26 PST 2026: Tunnel URL: https://hiking-terms-motorcycles-yours.trycloudflare.com
+2026-03-09T08:00:25Z ERR update check failed error="no release found"
