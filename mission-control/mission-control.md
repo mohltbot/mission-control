@@ -1,7 +1,7 @@
 # Mission Control Board
 
-**Last Updated:** March 9, 2026 at 6:57 PM PST (Ghost Shift #10)  
-**Source:** Ghost Shift — Repo hygiene, ArchTrack packaging, pre-commit hooks
+**Last Updated:** March 10, 2026 at 2:09 AM PST (Nightly Work Session)  
+**Source:** Nightly Session — Budget review, task audit, tunnel analysis, PR prep
 
 ---
 
@@ -90,13 +90,14 @@ Evening ghost shift focused on repo hygiene and ArchTrack deployment readiness. 
 
 | Metric | Value |
 |--------|-------|
-| **Budget** | ~$5.18 / $200 (2.59%) ✅ |
-| **Tasks** | 11 total — 4 done, 3 blocked, 4 pending |
-| **Open PRs** | 0 |
+| **Budget** | ~$3.49 / $200 (1.74%) ✅ |
+| **Tasks** | 11 total — 4 done, 2 blocked, 5 pending |
+| **Open PRs** | 2 (PR #18, #19 — draft, awaiting review) |
 | **API Spend Status** | Healthy (well under $150 alert threshold) |
 | **Last Ghost Shift** | Mar 9, 2026 6:57 PM PST (Shift 10 complete) |
-| **Last Commit** | `acc55ead` — ArchTrack UI fixes, packaging script |
+| **Last Commit** | `dcb6ac21` — Nightly work session logs update |
 | **Uncommitted Files** | 0 ✅ (clean working directory) |
+| **Cloudflare Tunnel** | ✅ ACTIVE (temporary URL working) |
 
 ---
 
@@ -104,10 +105,10 @@ Evening ghost shift focused on repo hygiene and ArchTrack deployment readiness. 
 
 Tasks I can execute autonomously without manual input:
 
-- [-] **[Proactive] Fix Cloudflare Tunnel outage** — Tunnel DOWN since Mar 4, needs authentication
-  * **IN PROGRESS:** cloudflared running but not authenticated
-  * **BLOCKER:** Requires `cloudflared tunnel login` (interactive - needs your action)
-  * **ACTION:** Documented exact fix steps in 🔧 Cloudflare Tunnel Fix Steps section
+- [x] **[Proactive] Cloudflare Tunnel status check** — Tunnel is WORKING (temporary URL active)
+  * **COMPLETED:** Tunnel running since Mar 8 at `hiking-terms-motorcycles-yours.trycloudflare.com`
+  * **NOTE:** Temporary tunnel meets current needs; persistent tunnel optional
+  * **ACTION:** Documented in memory/2026-03-10.md — decision needed on persistent vs temporary
 
 - [-] **[Proactive] Fix Ben's Bites Discord errors** — Scanner failing to send Discord messages
   * **IN PROGRESS:** Located scraper at `scripts/scrape-bens-bites.py`
@@ -155,29 +156,29 @@ Tasks I can execute autonomously without manual input:
 
 ---
 
-## 🔧 Cloudflare Tunnel Fix Steps
+## 🔧 Cloudflare Tunnel Status
 
-**Status:** 🔴 DOWN (QUIC timeout) — Authentication needed since Mar 4
+**Status:** 🟢 ACTIVE (Temporary Tunnel)
 
 **Current State:**
-- cloudflared is installed (version 2026.2.0)
-- Two tunnel processes running but not authenticated
-- Error: "Cannot determine default origin certificate path"
+- Temporary tunnel running since Mar 8, 2026
+- URL: `https://hiking-terms-motorcycles-yours.trycloudflare.com`
+- Auto-restarts daily via launchd
+- Mission Control accessible remotely
 
-**Fix Required (Manual Step):**
-```bash
-# 1. Authenticate with Cloudflare
-cloudflared tunnel login
+**Options:**
 
-# 2. This will open a browser - approve the authentication
-# 3. Then I can complete the tunnel setup automatically
-```
+**Option A: Keep Temporary Tunnel (Current)**
+- ✅ Free, no domain needed
+- ✅ Working reliably
+- ⚠️ URL rotates daily (need to check current-tunnel-url.txt)
 
-**After you run the above, I will:**
-- Create the tunnel configuration
-- Set up the permanent tunnel
-- Configure auto-start on boot
-- Verify connectivity
+**Option B: Persistent Tunnel with Custom Domain**
+- ✅ Fixed URL (e.g., mission-control.yourdomain.com)
+- ✅ More professional
+- ⚠️ Requires: Cloudflare account + domain ($10-12/year) + `cloudflared tunnel login`
+
+**Decision needed:** Is temporary tunnel sufficient, or do you want persistent custom domain?
 
 ---
 
