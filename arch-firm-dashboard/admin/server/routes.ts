@@ -517,6 +517,56 @@ export function setupRoutes(app: Express): void {
     }
   });
 
+  // Browser Extension: Receive browser activity with actual tab titles
+  app.post('/api/browser-activity', async (req, res) => {
+    try {
+      const { employeeId, appName, windowTitle, url, timestamp } = req.body;
+      
+      if (!employeeId || !windowTitle) {
+        return res.status(400).json({ success: false, error: 'Missing required fields' });
+      }
+
+      // Import the classifier
+      const { classifyActivity } = await import('../../desktop/dist/classifier.js');
+      
+      // Classify the activity with the actual tab title
+      const classification = classifyActivity(appName, windowTitle, {
+        durationMinutes: 0.17, // ~10 seconds
+        hasInputActivity: true,
+        windowChangeCount: 0,
+        lastInputMinutesAgo: 0,
+        isVideoPlaying: false,
+        isFullscreen: false
+      });
+
+      // Create activity record
+      const activity: Activity = {
+        id: uuidv4(),
+        employeeId,
+        timestamp: timestamp || new Date().toISOString(),
+        appName,
+        windowTitle,
+        category: classification.category,
+        categoryName: classification.categoryName,
+        productivityScore: classification.productivityScore,
+        productivityLevel: classification.productivityLevel,
+        isSuspicious: classification.isSuspicious,
+        suspiciousReason: classification.suspiciousReason,
+        isIdle: classification.isIdle,
+        idleTimeSeconds: 0,
+        durationSeconds: 10,
+        hasInputActivity: true
+      };
+
+      await createActivity(activity);
+      
+      res.json({ success: true, data: activity });
+    } catch (error) {
+      console.error('Error processing browser activity:', error);
+      res.status(500).json({ success: false, error: String(error) });
+    }
+  });
+
   // AI Analytics routes
   app.use('/api/ai', aiRoutes);
 }

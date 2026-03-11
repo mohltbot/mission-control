@@ -155,11 +155,11 @@ export const APP_CLASSIFICATION_RULES: AppRule[] = [
     category: 'shopping_personal'
   },
 
-  // System/Browser (neutral)
+  // System apps (neutral) - NOTE: Browsers are handled separately above with work indicator detection
   {
     patterns: [
       'finder', 'explorer', 'desktop', 'system preferences', 'settings',
-      'chrome', 'safari', 'firefox', 'edge', 'new tab', 'google search',
+      'new tab', 'google search',
     ],
     category: 'other'
   }
@@ -206,13 +206,7 @@ export function classifyActivity(
   const isBrowser = browserApps.some(b => appLower.includes(b));
 
   if (isBrowser) {
-    // EMPLOYEE-SPECIFIC CONTEXT: Safari on this Mac mini is dedicated OpenClaw work
-    // Since Safari window titles show as "Untitled" due to macOS permissions,
-    // we classify all Safari as Core Work for this employee
-    if (appLower.includes('safari')) {
-      category = 'core_work';
-    } else {
-      const workIndicators = [
+    const workIndicators = [
         'openclaw', 'mission-control', 'debug', 'debugger', 'codex',
         'github', 'gitlab', 'bitbucket', 'stackoverflow',
         'docker', 'kubernetes', 'terminal', 'console',
@@ -226,23 +220,22 @@ export function classifyActivity(
         titleLower.includes(indicator)
       );
 
-      if (hasWorkIndicator) {
-        category = 'core_work';
-      } else {
-        // Check for research/learning indicators
-        const researchIndicators = [
-          'documentation', 'docs.', 'readme', 'tutorial', 'how to',
-          'wikipedia', 'confluence', 'notion', 'obsidian',
-          'stackoverflow', 'github.com', 'gitlab.com'
-        ];
+    if (hasWorkIndicator) {
+      category = 'core_work';
+    } else {
+      // Check for research/learning indicators
+      const researchIndicators = [
+        'documentation', 'docs.', 'readme', 'tutorial', 'how to',
+        'wikipedia', 'confluence', 'notion', 'obsidian',
+        'stackoverflow', 'github.com', 'gitlab.com'
+      ];
 
-        const hasResearchIndicator = researchIndicators.some(indicator =>
-          titleLower.includes(indicator)
-        );
+      const hasResearchIndicator = researchIndicators.some(indicator =>
+        titleLower.includes(indicator)
+      );
 
-        if (hasResearchIndicator) {
-          category = 'research_learning';
-        }
+      if (hasResearchIndicator) {
+        category = 'research_learning';
       }
     }
   }

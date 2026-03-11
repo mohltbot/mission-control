@@ -60,6 +60,8 @@ export const Dashboard: React.FC = () => {
   const { onlineEmployees, recentActivity: _recentActivity } = useWebSocket();
 
   useEffect(() => {
+    // Scroll to top on mount
+    window.scrollTo(0, 0);
     loadData();
     const interval = setInterval(loadData, 30000);
     return () => clearInterval(interval);
