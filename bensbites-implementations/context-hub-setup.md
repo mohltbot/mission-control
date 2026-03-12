@@ -1,14 +1,21 @@
 # Context Hub Integration
-# Up-to-date API documentation for coding agents
+# Pre-built registry tool for API documentation
 # Source: Ben's Bites March 11, 2026 - Context Hub by Andrew Ng
 
-## What It Does
-Context Hub gives your coding agents up-to-date API documentation automatically.
+## What It Actually Does
 
-## Why You Need It
-- Agents often use outdated API docs
-- Leads to broken code and wasted time
-- Context Hub keeps docs fresh
+Context Hub is a **pre-built registry tool** that fetches API documentation from a central registry, not live API syncing. It:
+
+1. **Fetches from registry** - Downloads pre-built API documentation packages from the Context Hub registry
+2. **Searches docs** - Provides fast local search across API documentation
+3. **Caches locally** - Stores docs in `.context/` directory for offline access
+4. **Updates periodically** - Refreshes from registry on configured schedules
+
+## What It Does NOT Do
+
+- ❌ Live API syncing from official docs URLs
+- ❌ Real-time scraping of API documentation websites
+- ❌ Automatic detection of API changes
 
 ## Installation
 
@@ -27,17 +34,17 @@ cat > config.json << 'EOF'
   "apis": [
     {
       "name": "openai",
-      "url": "https://platform.openai.com/docs/api-reference",
+      "registry": "openai",
       "refresh": "daily"
     },
     {
       "name": "anthropic", 
-      "url": "https://docs.anthropic.com/en/api",
+      "registry": "anthropic",
       "refresh": "daily"
     },
     {
       "name": "n8n",
-      "url": "https://docs.n8n.io/api",
+      "registry": "n8n",
       "refresh": "weekly"
     }
   ],
@@ -61,6 +68,10 @@ context:
 ```
 
 ## Benefits
-- Agents use current API specs
+- Agents use current API specs from registry
 - Fewer broken implementations
-- Faster coding
+- Faster coding with local search
+- Works offline after initial fetch
+
+## Status
+**Registry tool - working** ✅
