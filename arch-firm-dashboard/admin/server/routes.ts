@@ -526,8 +526,8 @@ export function setupRoutes(app: Express): void {
         return res.status(400).json({ success: false, error: 'Missing required fields' });
       }
 
-      // Import the classifier
-      const { classifyActivity } = await import('../../desktop/dist/classifier.js');
+      // Import the classifier from shared module
+      const { classifyActivity } = await import('@archtrack/shared');
       
       // Classify the activity with the actual tab title
       const classification = classifyActivity(appName, windowTitle, {
@@ -555,7 +555,7 @@ export function setupRoutes(app: Express): void {
         isIdle: classification.isIdle,
         idleTimeSeconds: 0,
         durationSeconds: 10,
-        hasInputActivity: true
+        createdAt: new Date().toISOString()
       };
 
       await createActivity(activity);

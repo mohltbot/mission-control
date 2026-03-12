@@ -322,12 +322,103 @@ export const Dashboard: React.FC = () => {
         )}
       </div>
 
-      {/* AI Analytics Chat */}
-      <div style={styles.section}>
-        <AIChatPanel />
-      </div>
+      {/* Genesis AI - Floating Chat Widget */}
+      <GenesisAIWidget />
     </div>
   );
+};
+
+// Floating Genesis AI Chat Widget
+const GenesisAIWidget: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div style={widgetStyles.container}>
+      {!isOpen ? (
+        <button 
+          onClick={() => setIsOpen(true)}
+          style={widgetStyles.fab}
+        >
+          <span style={widgetStyles.fabIcon}>🤖</span>
+          <span>Genesis AI</span>
+        </button>
+      ) : (
+        <div style={widgetStyles.chatContainer}>
+          <div style={widgetStyles.chatHeader}>
+            <span>Genesis AI</span>
+            <button 
+              onClick={() => setIsOpen(false)}
+              style={widgetStyles.closeButton}
+            >
+              ✕
+            </button>
+          </div>
+          <div style={widgetStyles.chatContent}>
+            <AIChatPanel />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const widgetStyles: { [key: string]: React.CSSProperties } = {
+  container: {
+    position: 'fixed',
+    bottom: '24px',
+    right: '24px',
+    zIndex: 1000,
+  },
+  fab: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    padding: '12px 20px',
+    backgroundColor: '#2563eb',
+    color: 'white',
+    border: 'none',
+    borderRadius: '50px',
+    fontSize: '14px',
+    fontWeight: 600,
+    cursor: 'pointer',
+    boxShadow: '0 4px 12px rgba(37, 99, 235, 0.4)',
+    transition: 'all 0.2s',
+  },
+  fabIcon: {
+    fontSize: '20px',
+  },
+  chatContainer: {
+    width: '400px',
+    height: '600px',
+    backgroundColor: 'white',
+    borderRadius: '16px',
+    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.2)',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  chatHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '16px 20px',
+    backgroundColor: '#2563eb',
+    color: 'white',
+    fontWeight: 600,
+  },
+  closeButton: {
+    background: 'none',
+    border: 'none',
+    color: 'white',
+    fontSize: '18px',
+    cursor: 'pointer',
+    padding: '4px 8px',
+    borderRadius: '4px',
+  },
+  chatContent: {
+    flex: 1,
+    overflow: 'hidden',
+  },
 };
 
 interface StatCardProps {

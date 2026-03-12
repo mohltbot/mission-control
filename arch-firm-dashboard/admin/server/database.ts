@@ -686,20 +686,12 @@ export async function getDashboardStats(): Promise<any> {
     other: 0
   };
 
-  // FIX: Calculate breakdown from uniqueActivities (actual time) not productivityStats
-  for (let i = 0; i < uniqueActivities.length; i++) {
-    const current = uniqueActivities[i];
-    const next = uniqueActivities[i + 1];
+  // FIX: Calculate breakdown using actual duration_seconds from database
+  for (const activity of uniqueActivities) {
+    // Use the recorded duration_seconds, convert to minutes
+    const durationMinutes = (activity.duration_seconds || 10) / 60;
     
-    // Calculate duration until next activity or cap at 10 minutes
-    let durationMinutes = 0.17; // default 10 seconds = 0.17 minutes
-    if (next) {
-      const currentTime = new Date(current.timestamp).getTime();
-      const nextTime = new Date(next.timestamp).getTime();
-      durationMinutes = Math.min((nextTime - currentTime) / 1000 / 60, 10); // cap at 10 minutes
-    }
-    
-    switch (current.category) {
+    switch (activity.category) {
       case 'core_work':
         productivityBreakdown.coreWork += durationMinutes;
         break;
@@ -735,28 +727,20 @@ export async function getDashboardStats(): Promise<any> {
   let actualUnproductiveSeconds = 0;
   let actualIdleSeconds = 0;
   
-  for (let i = 0; i < uniqueActivities.length; i++) {
-    const current = uniqueActivities[i];
-    const next = uniqueActivities[i + 1];
-    
-    // Calculate duration until next activity or cap at 10 minutes
-    let duration = 10; // default 10 seconds
-    if (next) {
-      const currentTime = new Date(current.timestamp).getTime();
-      const nextTime = new Date(next.timestamp).getTime();
-      duration = Math.min((nextTime - currentTime) / 1000, 600); // cap at 10 minutes
-    }
+  for (const activity of uniqueActivities) {
+    // Use the recorded duration_seconds
+    const duration = activity.duration_seconds || 10;
     
     actualTotalSeconds += duration;
     
-    if (current.productivity_level === 'productive' && !current.is_suspicious) {
+    if (activity.productivity_level === 'productive' && !activity.is_suspicious) {
       actualProductiveSeconds += duration;
-    } else if (current.productivity_level === 'unproductive') {
+    } else if (activity.productivity_level === 'unproductive') {
       actualUnproductiveSeconds += duration;
     }
     
     // FIX: Count idle time as wasted time (includes break_idle category)
-    if (current.is_idle || current.productivity_level === 'idle') {
+    if (activity.is_idle || activity.productivity_level === 'idle') {
       actualIdleSeconds += duration;
     }
   }
@@ -815,23 +799,15 @@ export async function getEmployeeActivityStats(): Promise<any[]> {
     let totalScore = 0;
     let suspiciousCount = 0;
     
-    for (let i = 0; i < empActivities.length; i++) {
-      const current = empActivities[i];
-      const next = empActivities[i + 1];
-      
-      // Calculate duration until next activity or cap at 10 minutes
-      let duration = 10; // default 10 seconds
-      if (next) {
-        const currentTime = new Date(current.timestamp).getTime();
-        const nextTime = new Date(next.timestamp).getTime();
-        duration = Math.min((nextTime - currentTime) / 1000, 600); // cap at 10 minutes
-      }
+    for (const activity of empActivities) {
+      // Use the recorded duration_seconds
+      const duration = activity.duration_seconds || 10;
       
       actualTotalSeconds += duration;
-      totalScore += current.productivity_score;
+      totalScore += activity.productivity_score;
       
       // FIX: Count ALL suspicious activities including idle time
-      if (current.is_suspicious) {
+      if (activity.is_suspicious) {
         suspiciousCount++;
       }
     }
