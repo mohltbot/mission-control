@@ -232,22 +232,22 @@ async function checkActivity(): Promise<void> {
       hasInputActivity
     };
 
-    // FIX: Only record activity if:
-    // 1. User has had input activity in the last 3 seconds (actively using the app)
-    // 2. OR the window/app has actually changed
-    // 3. OR it's been 60 seconds since last check
-    // This prevents tracking background apps that happen to be "active" but user isn't interacting with
-    const hasRecentInput = idleTimeSec < 3;
+    // FIX: Record activity if:
+    // 1. Window/app has changed (user switched apps)
+    // 2. OR it's been 60 seconds since last recorded activity (periodic heartbeat)
+    // 3. OR the activity is suspicious (always record these)
+    // 4. AND user is not idle for more than 30 seconds (prevents tracking when AFK)
+    // This ensures we capture all meaningful activity without spamming
     const windowChanged = !lastActivity || 
       lastActivity.appName !== activity.appName || 
       lastActivity.windowTitle !== activity.windowTitle;
-    const significantTimePassed = timeSinceLastCheck >= 60;
+    const significantTimePassed = !lastActivity || 
+      (Date.now() - new Date(lastActivity.timestamp).getTime()) >= 60000;
+    const isUserActive = idleTimeSec < 30; // User has interacted within last 30 seconds
     
-    const shouldRecord = windowChanged && hasRecentInput || 
-                         classification.isSuspicious || 
-                         significantTimePassed;
+    const shouldRecord = (windowChanged || significantTimePassed || classification.isSuspicious) && isUserActive;
 
-    if (shouldRecord && hasRecentInput) {
+    if (shouldRecord) {
       activities.push(activity);
       offlineQueue.push(activity);
       lastActivity = activity;

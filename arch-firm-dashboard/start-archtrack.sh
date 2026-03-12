@@ -80,7 +80,7 @@ start_desktop() {
     
     # Start Electron
     echo "  Starting Electron tracker..."
-    npm run electron > "$ARCH_DIR/logs/desktop.log" 2>&1 &
+    npm run start > "$ARCH_DIR/logs/desktop.log" 2>&1 &
     DESKTOP_PID=$!
     echo $DESKTOP_PID > "$ARCH_DIR/.desktop.pid"
     
