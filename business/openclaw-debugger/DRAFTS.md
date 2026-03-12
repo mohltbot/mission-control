@@ -1,15 +1,138 @@
 # DRAFTS — OpenClaw Debugger
 
-**Last Updated:** March 11, 2026 — 12:00 PM PST (Shift 2 Complete)
+**Last Updated:** March 12, 2026 — 8:00 AM PST
 
 ---
 
-## 🚀 READY TO POST (March 11, 2026) — SHIFT 2 CONTENT
+## 🚀 READY TO POST (March 13, 2026)
+
+*No content scheduled yet*
 
 ---
 
-### 📝 Twitter Thread: "5 Mistakes From 50 OpenClaw Setups"
-**Status:** ✅ Ready to post | **Platform:** Twitter | **Type:** 7-tweet educational thread
+## 📅 TOMORROW (March 13, 2026)
+
+*No content scheduled yet*
+
+---
+
+## ✅ ALREADY POSTED
+
+---
+
+### March 12, 2026 — All Posted
+
+**Twitter Threads:**
+- "5 Mistakes From 50 OpenClaw Setups" — 7-tweet educational thread
+- "PSA: OpenClaw 2026.3.2 — Tools Disabled by Default" — 5-tweet PSA thread
+
+**Quick Tips:**
+- The /new Command (Twitter)
+
+**Reddit Replies:**
+- u/debugging_veteran (50 setups post) — https://www.reddit.com/r/openclaw/comments/1rp8t9r/ive_helped_50_people_debug_their_openclaw_these_5/
+- u/GoogleAIStudio_banned — https://www.reddit.com/r/google_antigravity/comments/1rqoeou/
+- u/HostingerNightmare (Day 2 follow-up) — https://reddit.com/r/openclaw/comments/1rja32v
+
+**GitHub Comments:**
+- #41804 (Day 2 follow-up) — https://github.com/openclaw/openclaw/issues/41804
+- #40931 (Day 2 follow-up) — https://github.com/openclaw/openclaw/issues/40931
+
+**Forum Replies:**
+- Umbrel Forums (Day 2 follow-up) — https://community.umbrel.com/t/openclaw-restart-issue/24870
+
+---
+
+### March 11, 2026 — All Posted
+
+**Twitter Threads:**
+- "5 OpenClaw Config Mistakes That Cost You Hours" — 6-tweet thread
+
+**Quick Tips:**
+- "The 30-Second Config Backup"
+
+**Reddit Replies:**
+- Device token rotation fix — https://reddit.com/r/openclaw
+
+**GitHub Comments:**
+- Model migration issue — https://github.com/openclaw/openclaw/issues/17876
+
+---
+
+### March 10, 2026 — All Posted
+
+**Reddit Replies:**
+- u/HostingerNightmare — https://reddit.com/r/openclaw/comments/1rja32v
+
+**GitHub Comments:**
+- #41804 — https://github.com/openclaw/openclaw/issues/41804
+- #40931 — https://github.com/openclaw/openclaw/issues/40931
+- #40812 — https://github.com/openclaw/openclaw/issues/40812
+- #41144 — https://github.com/openclaw/openclaw/issues/41144
+
+**Forum Replies:**
+- Umbrel restart issue — https://community.umbrel.com/t/openclaw-restart-issue/24870
+
+**Content Posted:**
+- Twitter: "The macOS LaunchAgent Bug That Breaks Everything"
+- Twitter: "Why Your OpenClaw Gateway Keeps Dying on macOS"
+- GitHub: #41715 task-based model routing
+
+---
+
+### March 9, 2026 — All Posted
+
+**Reddit Replies:**
+- u/AI_Agents_frustrated — https://reddit.com/r/AI_Agents/comments/1r70lq9
+- u/hetzner_installer — https://reddit.com/r/hetzner/comments/1rdt9cu
+- u/gateway_errors — https://reddit.com/r/openclaw/comments/1rgeozb
+- u/buildinpublic_watchdog — https://reddit.com/r/buildinpublic/comments/1rana79/
+
+**GitHub Comments:**
+- #39476 — https://github.com/openclaw/openclaw/issues/39476
+- #40932 — https://github.com/openclaw/openclaw/issues/40932
+
+**Day 7 Follow-ups (all sent):**
+- @rstormsf — https://x.com/rstormsf
+- @matthewjetthall — https://x.com/matthewjetthall
+- @StMichaelsForge — https://x.com/StMichaelsForge
+- @Franzferdinan57 — https://x.com/Franzferdinan57
+- @Shpigford — https://x.com/Shpigford
+
+**Content Posted:**
+- Twitter: "5 OpenClaw Rate Limit Mistakes"
+- Twitter: Hetzner + OpenClaw Setup tip
+- Twitter: "The 6 Mac Resets Story"
+- Twitter: "OpenClaw Doctor" tip
+- Twitter: "From $30 Errors to $5/Month" case study
+
+---
+
+## 🚫 REMOVED PLATFORMS
+
+- LinkedIn (per user request)
+- IndieHackers (per user request)
+
+**Active platforms:** Reddit, GitHub, Twitter only
+
+---
+
+## 📊 NOTES
+
+**Format going forward:**
+1. READY TO POST (today's content at top)
+2. TOMORROW (scheduled content)
+3. ALREADY POSTED (archive at bottom)
+
+**Link format:** All links are clickable (not in code blocks)
+
+---
+
+## 🗄️ ARCHIVE (Full Draft Content)
+
+*Historical record of all drafted content*
+
+### Twitter Thread: "5 Mistakes From 50 OpenClaw Setups" (Posted March 12, 2026)
 
 **Tweet 1 (Hook):**
 I debugged 50+ OpenClaw setups.
@@ -84,8 +207,7 @@ DM me or check my pinned tweet.
 
 ---
 
-### 📝 Quick Tip: The /new Command
-**Status:** ✅ Ready to post | **Platform:** Twitter | **Type:** Single tweet
+### Quick Tip: The /new Command (Posted March 12, 2026)
 
 Type `/new` in OpenClaw before heavy tasks.
 
@@ -97,8 +219,9 @@ One command. 40-60% cost reduction.
 
 ---
 
-### 📝 Reddit Reply: u/debugging_veteran (50 setups post)
-**Status:** ✅ Ready to post | **Platform:** Reddit | **Type:** Engagement comment
+### Reddit Reply: u/debugging_veteran (Posted March 12, 2026)
+
+Link: https://www.reddit.com/r/openclaw/comments/1rp8t9r/ive_helped_50_people_debug_their_openclaw_these_5/
 
 This is excellent data. The Opus default issue is something I've seen destroy budgets — $47/week to $6/week is a real example from someone I helped.
 
@@ -112,20 +235,7 @@ Great post. This should be pinned.
 
 ---
 
-## 🚀 READY TO POST (March 12, 2026)
-
----
-
-## 📅 TOMORROW (March 12, 2026)
-
-**Day 2 follow-ups for March 10 leads**
-
----
-
-## 🚀 READY TO POST (March 12, 2026) — SHIFT 4 CONTENT
-
-### 📝 Twitter Thread: "PSA: OpenClaw 2026.3.2 — Tools Disabled by Default"
-**Status:** ✅ Ready to post | **Platform:** Twitter | **Type:** 5-tweet PSA thread
+### Twitter Thread: "PSA: OpenClaw 2026.3.2 — Tools Disabled by Default" (Posted March 12, 2026)
 
 **Tweet 1 (Hook):**
 🚨 PSA: Updated to OpenClaw 2026.3.2 and your agent suddenly seems "dumb"?
@@ -177,11 +287,9 @@ I fix OpenClaw issues for $75 in 30 minutes — and I've already debugged 5 of t
 
 ---
 
-## 🆕 NEW DRAFTS (March 11, 2026) — Shift 3
+### Reddit Reply: u/GoogleAIStudio_banned (Posted March 12, 2026)
 
-### 📝 Reddit Reply: u/GoogleAIStudio_banned
-**Status:** Ready to post | **Platform:** Reddit | **Type:** Engagement comment
-**Link:** https://www.reddit.com/r/google_antigravity/comments/1rqoeou/
+Link: https://www.reddit.com/r/google_antigravity/comments/1rqoeou/
 
 This is absolutely wild — $3.10 in usage and they nuked your entire GCP account? Google's risk detection is completely broken.
 
@@ -196,15 +304,9 @@ If you need help migrating your OpenClaw setup to a different provider, happy to
 
 ---
 
-## 📅 TOMORROW (March 12, 2026)
+### Day 2 Follow-up: u/HostingerNightmare (Posted March 12, 2026)
 
-**Day 2 follow-ups for March 10 leads**
-
----
-
-### 📝 Day 2 Follow-up: u/HostingerNightmare
-**Status:** Send March 12 | **Target:** Reddit DM
-**Link:** https://reddit.com/r/openclaw/comments/1rja32v
+Link: https://reddit.com/r/openclaw/comments/1rja32v
 
 Hey! Just checking in — did those quick fixes help get your Hostinger setup sorted?
 
@@ -216,15 +318,15 @@ No pressure either way — just want to make sure you're not still banging your 
 
 ---
 
-### 📝 Day 2 Follow-up: GitHub #41804
-**Status:** Send March 12 | **Target:** GitHub issue
-**Link:** https://github.com/openclaw/openclaw/issues/41804
+### Day 2 Follow-up: GitHub #41804 (Posted March 12, 2026)
+
+Link: https://github.com/openclaw/openclaw/issues/41804
 
 Hey, did the PowerShell workaround help with the orphaned processes?
 
 If you're still seeing the port conflict after using the taskkill script, there might be another process holding onto 18789.
 
-You can check with: netstat -ano | findstr :18789
+You can check with: `netstat -ano | findstr :18789`
 
 Then cross-reference the PID with Task Manager.
 
@@ -234,9 +336,9 @@ Happy to debug further if needed.
 
 ---
 
-### 📝 Day 2 Follow-up: GitHub #40931
-**Status:** Send March 12 | **Target:** GitHub issue
-**Link:** https://github.com/openclaw/openclaw/issues/40931
+### Day 2 Follow-up: GitHub #40931 (Posted March 12, 2026)
+
+Link: https://github.com/openclaw/openclaw/issues/40931
 
 Hey, did the plugin ID fix resolve the gateway responsiveness issue?
 
@@ -253,9 +355,9 @@ Let me know what you find — happy to help trace this down.
 
 ---
 
-### 📝 Day 2 Follow-up: Umbrel Forums
-**Status:** Send March 12 | **Target:** Umbrel forum
-**Link:** https://community.umbrel.com/t/openclaw-restart-issue/24870
+### Day 2 Follow-up: Umbrel Forums (Posted March 12, 2026)
+
+Link: https://community.umbrel.com/t/openclaw-restart-issue/24870
 
 Hey, just following up — were you able to get the gateway running again?
 
@@ -264,92 +366,3 @@ The `umbrel app restart openclaw` command usually does the trick for that flicke
 If you're still seeing issues, posting the output of `openclaw gateway status --deep` would help diagnose what's going on.
 
 Happy to help further if needed!
-
----
-
-## ✅ ALREADY POSTED (March 9-10, 2026)
-
-**Move this section to bottom going forward**
-
----
-
-### March 9, 2026 — All Posted
-
-**Reddit Replies:**
-- u/AI_Agents_frustrated — https://reddit.com/r/AI_Agents/comments/1r70lq9
-- u/hetzner_installer — https://reddit.com/r/hetzner/comments/1rdt9cu
-- u/gateway_errors — https://reddit.com/r/openclaw/comments/1rgeozb
-- u/buildinpublic_watchdog — https://reddit.com/r/buildinpublic/comments/1rana79/
-
-**GitHub Comments:**
-- #39476 — https://github.com/openclaw/openclaw/issues/39476
-- #40932 — https://github.com/openclaw/openclaw/issues/40932
-
-**Day 7 Follow-ups (all sent):**
-- @rstormsf — https://x.com/rstormsf
-- @matthewjetthall — https://x.com/matthewjetthall
-- @StMichaelsForge — https://x.com/StMichaelsForge
-- @Franzferdinan57 — https://x.com/Franzferdinan57
-- @Shpigford — https://x.com/Shpigford
-
-**Content Posted:**
-- Twitter: "5 OpenClaw Rate Limit Mistakes"
-- Twitter: Hetzner + OpenClaw Setup tip
-- Twitter: "The 6 Mac Resets Story"
-- Twitter: "OpenClaw Doctor" tip
-- Twitter: "From $30 Errors to $5/Month" case study
-
----
-
-### March 10, 2026 — All Posted
-
-**Reddit Replies:**
-- u/HostingerNightmare — https://reddit.com/r/openclaw/comments/1rja32v
-
-**GitHub Comments:**
-- #41804 — https://github.com/openclaw/openclaw/issues/41804
-- #40931 — https://github.com/openclaw/openclaw/issues/40931
-- #40812 — https://github.com/openclaw/openclaw/issues/40812
-- #41144 — https://github.com/openclaw/openclaw/issues/41144
-
-**Forum Replies:**
-- Umbrel restart issue — https://community.umbrel.com/t/openclaw-restart-issue/24870
-
-**Content Posted:**
-- Twitter: "The macOS LaunchAgent Bug That Breaks Everything"
-- Twitter: "Why Your OpenClaw Gateway Keeps Dying on macOS"
-- GitHub: #41715 task-based model routing
-
----
-
-### March 11, 2026 — All Posted
-
-**Twitter:**
-- "5 OpenClaw Config Mistakes That Cost You Hours" — 6-tweet thread
-- "The 30-Second Config Backup" — quick tip
-
-**Reddit:**
-- Device token rotation fix — https://reddit.com/r/openclaw
-
-**GitHub:**
-- Model migration issue — https://github.com/openclaw/openclaw/issues/17876
-
----
-
-## 🚫 REMOVED PLATFORMS
-
-- LinkedIn (per user request)
-- IndieHackers (per user request)
-
-**Active platforms:** Reddit, GitHub, Twitter only
-
----
-
-## 📊 NOTES
-
-**Format going forward:**
-1. READY TO POST (today's content at top)
-2. TOMORROW (scheduled content)
-3. ALREADY POSTED (archive at bottom)
-
-**Link format:** All links are clickable (not in code blocks)
