@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useWebSocket } from '../contexts/WebSocketContext';
+import { AIChatPanel } from '../components/AIChatPanel';
 import type { Employee } from '@archtrack/shared';
 
 interface Activity {
@@ -59,6 +60,8 @@ export const Dashboard: React.FC = () => {
   const { onlineEmployees, recentActivity: _recentActivity } = useWebSocket();
 
   useEffect(() => {
+    // Scroll to top on mount
+    window.scrollTo(0, 0);
     loadData();
     const interval = setInterval(loadData, 30000);
     return () => clearInterval(interval);
@@ -317,6 +320,11 @@ export const Dashboard: React.FC = () => {
             </div>
           </div>
         )}
+      </div>
+
+      {/* AI Analytics Chat */}
+      <div style={styles.section}>
+        <AIChatPanel />
       </div>
     </div>
   );
