@@ -3,7 +3,7 @@ import { open, Database } from 'sqlite';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
-import type { Employee, Project, Task, TimeEntry, Activity, ProductivityReport } from '@archtrack/shared';
+import type { Employee, Project, Task, TimeEntry, Activity, ProductivityReport } from '../shared-types.js';
 
 // ES module compatibility
 const __filename = fileURLToPath(import.meta.url);

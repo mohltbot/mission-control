@@ -16,6 +16,8 @@
 | Mar 13 | Reddit | Reply: Web search providers | ✅ Ready | DRAFTS.md "Reply 7" |
 | Mar 13 | GitHub | Comment: Skills not loading fix | ✅ Ready | DRAFTS.md "Reply 3" |
 | Mar 14 | Reddit | Reply: Discord flakiness | 📝 Drafting | — |
+| Mar 14 | Twitter | Thread: OpenClaw 2026.3.12 fix guide (6 tweets) | ✅ Ready | DRAFTS.md "Twitter Thread 3" |
+| Mar 14 | Twitter/LinkedIn | Case study: Gateway handshake fix | ✅ Ready | DRAFTS.md "Case Study 2" |
 
 ---
 

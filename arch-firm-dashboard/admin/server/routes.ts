@@ -28,7 +28,7 @@ import {
   getActivityStats,
   getEmployeeActivityStats
 } from './database';
-import type { Activity } from '@archtrack/shared';
+import type { Activity } from '../shared-types.js';
 
 export function setupRoutes(app: Express): void {
   // Health check
