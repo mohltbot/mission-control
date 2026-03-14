@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Content Queue
 
-**Last Updated:** March 13, 2026 (Shift 1)
+**Last Updated:** March 14, 2026 (Shift 1)
 
 ---
 
@@ -26,6 +26,9 @@
 3. **"Discord Bot Silent? Here's Why"** — Reddit post
 4. **"OpenClaw + VPS: Complete Setup Guide"** — Blog post / Reddit
 5. **"Anthropic 529 Errors: The Silent Killer"** — Twitter thread
+6. **"OpenClaw 2026.3.12: What Broke & How to Fix It"** — Twitter thread ⬅️ HIGH PRIORITY
+7. **"Surviving the 3.12 Update"** — Reddit post ⬅️ HIGH PRIORITY
+8. **"Gateway Closed (1000): The Complete Fix Guide"** — Blog post ⬅️ HIGH PRIORITY
 
 ---
 
