@@ -33,7 +33,9 @@ setupRoutes(app);
 // Serve static files from dist/client
 // Use import.meta.url to get the correct path
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
-const staticPath = path.join(currentDir, '../dist/client');
+// In production (compiled), files are at /app/dist/server/ and client is at /app/dist/client/
+// In dev, files are at /app/server/ and client is at /app/dist/client/
+const staticPath = path.join(currentDir, '../../client');
 console.log('Serving static files from:', staticPath);
 app.use(express.static(staticPath));
 
