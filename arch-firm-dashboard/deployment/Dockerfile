@@ -13,16 +13,10 @@ WORKDIR /app
 COPY admin/package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm ci --only=production
 
 # Copy application code
 COPY admin/ ./
-
-# Build the client (React app) - outputs to dist/client
-RUN npm run build
-
-# Build the server (TypeScript) - outputs to dist/server
-RUN npm run build:server
 
 # Create data directory for SQLite
 RUN mkdir -p /data && chmod 777 /data

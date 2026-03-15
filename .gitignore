@@ -35,4 +35,3 @@ Thumbs.db
 # Electron
 /dist-electron/
 /out/
-config/

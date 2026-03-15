@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Content Queue
 
-**Last Updated:** March 14, 2026 (Shift 1)
+**Last Updated:** March 13, 2026 (Shift 1)
 
 ---
 
@@ -16,8 +16,6 @@
 | Mar 13 | Reddit | Reply: Web search providers | ✅ Ready | DRAFTS.md "Reply 7" |
 | Mar 13 | GitHub | Comment: Skills not loading fix | ✅ Ready | DRAFTS.md "Reply 3" |
 | Mar 14 | Reddit | Reply: Discord flakiness | 📝 Drafting | — |
-| Mar 14 | Twitter | Thread: OpenClaw 2026.3.12 fix guide (6 tweets) | ✅ Ready | DRAFTS.md "Twitter Thread 3" |
-| Mar 14 | Twitter/LinkedIn | Case study: Gateway handshake fix | ✅ Ready | DRAFTS.md "Case Study 2" |
 
 ---
 
@@ -28,9 +26,6 @@
 3. **"Discord Bot Silent? Here's Why"** — Reddit post
 4. **"OpenClaw + VPS: Complete Setup Guide"** — Blog post / Reddit
 5. **"Anthropic 529 Errors: The Silent Killer"** — Twitter thread
-6. **"OpenClaw 2026.3.12: What Broke & How to Fix It"** — Twitter thread ⬅️ HIGH PRIORITY
-7. **"Surviving the 3.12 Update"** — Reddit post ⬅️ HIGH PRIORITY
-8. **"Gateway Closed (1000): The Complete Fix Guide"** — Blog post ⬅️ HIGH PRIORITY
 
 ---
 
