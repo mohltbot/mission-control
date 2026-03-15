@@ -1,7 +1,78 @@
 # Mission Control Board
 
-**Last Updated:** March 15, 2026 at 3:07 AM PST (4-Hour Sync)  
-**Source:** 4-Hour Sync — 0 new tasks, 1 commit reviewed, ArchTrack deployment session completed
+**Last Updated:** March 15, 2026 at 6:57 AM PST (Ghost Shift)  
+**Source:** Ghost Shift — 3 tasks completed, 3 proactive additions, Mission Control Dashboard recovery script created
+
+---
+
+## ✅ GHOST SHIFT — Mar 15, 2026 (6:57 AM)
+
+**3 Tasks Completed | 3 Proactive Additions | 2 Commits Processed**
+
+### Summary:
+Morning Ghost Shift focused on committing pending ArchTrack improvements, creating session continuity files, and addressing infrastructure gaps. Committed 13 files including ArchTrack UI improvements (App.tsx, Dashboard.tsx, Reports.tsx, WebSocketContext.tsx), new App.css styling, visualization test outputs, and daily memory file. Created .gitignore to protect sensitive config files. Built Mission Control Dashboard recovery script to automate recovery from dashboard outages. All changes pushed to main branch.
+
+### API Usage (Ghost Shift):
+- **Tokens Used:** ~15,000 (12,000 in / 3,000 out)
+- **Model:** Moonshot/kimi-k2.5
+- **Est. Cost:** ~$0.022 (at $0.0015/1K tokens)
+- **Session:** Ghost Shift autonomous execution
+
+### Commits Reviewed (Ghost Shift):
+1. `6eab2cca` — chore(mission-control): ghost shift update [March 15, 2026 - 6:57 AM PST] (+1,127 lines)
+   - Added .gitignore to exclude sensitive config files and runtime data
+   - Committed ArchTrack UI improvements (App.tsx, Dashboard.tsx, Reports.tsx, WebSocketContext.tsx)
+   - Added App.css styling for ArchTrack admin client
+   - Committed visualization test outputs (archtrack-budgets, workflow, react-doctor-report)
+   - Added daily memory file for March 15, 2026
+   - Updated JOURNEY.md with latest ArchTrack development progress
+2. `23920680` — feat(scripts): add Mission Control Dashboard recovery script (+121 lines)
+   - Automated recovery script for when dashboard is not responding
+   - Checks for server directory, kills existing processes
+   - Handles port conflicts and dependency installation
+   - Includes health check verification and logging
+
+### Tasks Completed:
+
+1. **Commit ArchTrack UI Improvements** — Committed 13 files with 1,127 additions
+   - Modified: JOURNEY.md, App.tsx, WebSocketContext.tsx, Dashboard.tsx, Reports.tsx
+   - Added: App.css styling, test-visualizations/ directory with 4 visualization outputs
+   - Impact: Preserved work, clean git status, reduced noise
+   - *Note:* Excluded sensitive config/ files (OAuth credentials) — added to .gitignore
+
+2. **Daily Memory File** — Created memory/2026-03-15.md
+   - Ghost shift summary and proactive task planning
+   - Context for next session
+   - *Impact:* Session continuity maintained
+
+3. **Mission Control Dashboard Recovery Script** — Created scripts/mc-dashboard-recovery.sh
+   - Automated recovery for dashboard outages (was NOT RESPONDING since Mar 13)
+   - Handles process cleanup, port conflicts, dependency checks
+   - Includes health check verification and logging
+   - *Impact:* Faster recovery from future dashboard outages
+
+### Key Findings:
+- **Untracked Files:** Cleaned up — excluded sensitive configs, committed safe files
+- **Mission Control Dashboard:** Still NOT RESPONDING — recovery script created for manual execution
+- **Budget Status:** ~$6.00 / $200 limit (3.0%) — healthy
+- **Working Directory:** Clean — important changes now tracked
+
+### Proactive Additions:
+
+1. **[Proactive] Commit pending ArchTrack UI improvements** — Preserve work and reduce git noise
+   - *COMPLETED:* 13 files committed (UI components, styling, visualizations, docs)
+   - *OUTPUT:* Commit 6eab2cca with 1,127 lines added
+   - *IMPACT:* Work preserved, clean git status
+
+2. **[Proactive] Create daily memory file for March 15** — Maintain session continuity
+   - *COMPLETED:* memory/2026-03-15.md with ghost shift summary
+   - *OUTPUT:* Daily notes for context preservation
+   - *IMPACT:* Session continuity for future shifts
+
+3. **[Proactive] Create Mission Control Dashboard recovery script** — Automate dashboard recovery
+   - *COMPLETED:* scripts/mc-dashboard-recovery.sh with full automation
+   - *OUTPUT:* Recovery script with health checks and logging
+   - *IMPACT:* Faster recovery from dashboard outages
 
 ---
 
@@ -607,15 +678,15 @@ Morning ghost shift focused on Ben's Bites March 12 newsletter implementation. S
 
 | Metric | Value |
 |--------|-------|
-| **Budget** | ~$5.96 / $200 (2.98%) ✅ |
-| **Tasks** | 17 total — 15 done, 3 blocked, 2 pending |
+| **Budget** | ~$6.00 / $200 (3.0%) ✅ |
+| **Tasks** | 20 total — 18 done, 3 blocked, 2 pending |
 | **Open PRs** | 0 (all merged or closed) |
 | **API Spend Status** | Healthy (well under $150 alert threshold) |
-| **Last Ghost Shift** | Mar 14, 2026 6:57 AM PST (Shift 15 complete) |
-| **Last Commit** | `d745bcf1` — 4-Hour Sync [Mar 15, 3:07 AM PST] |
-| **Uncommitted Files** | ✅ 1 untracked (ghost-shift-work marker only) |
+| **Last Ghost Shift** | Mar 15, 2026 6:57 AM PST (Shift 16 complete) |
+| **Last Commit** | `23920680` — Ghost Shift update [Mar 15, 6:57 AM PST] |
+| **Uncommitted Files** | ✅ Clean (ghost-shift-work marker only) |
 | **Cloudflare Tunnel** | ✅ RUNNING (process active) |
-| **Mission Control Dashboard** | 🔴 NOT RESPONDING (server directory not found) |
+| **Mission Control Dashboard** | 🔴 NOT RESPONDING — Recovery script ready |
 | **ArchTrack Status** | ✅ PRODUCTION READY — Local server running at :3001, deployment configs prepared |
 
 ---
@@ -747,6 +818,21 @@ Tasks I can execute autonomously without manual input:
   * **OUTPUT:** Automated script for daily config commits
   * **IMPACT:** Prevents future untracked file accumulation
 
+- [x] **[Proactive] Commit pending ArchTrack UI improvements** — Preserve work and reduce git noise
+  * **COMPLETED Mar 15, 6:57 AM:** 13 files committed (UI components, styling, visualizations, docs)
+  * **OUTPUT:** Commit 6eab2cca with 1,127 lines added
+  * **IMPACT:** Work preserved, clean git status, sensitive configs protected via .gitignore
+
+- [x] **[Proactive] Create daily memory file for March 15** — Maintain session continuity
+  * **COMPLETED Mar 15, 6:57 AM:** memory/2026-03-15.md with ghost shift summary
+  * **OUTPUT:** Daily notes for context preservation
+  * **IMPACT:** Session continuity for future shifts
+
+- [x] **[Proactive] Create Mission Control Dashboard recovery script** — Automate dashboard recovery
+  * **COMPLETED Mar 15, 6:57 AM:** scripts/mc-dashboard-recovery.sh with full automation
+  * **OUTPUT:** Recovery script with health checks and logging
+  * **IMPACT:** Faster recovery from dashboard outages — run `./scripts/mc-dashboard-recovery.sh` to restart
+
 - [ ] **[Proactive] Deploy ArchTrack server** — Set up on uncle's server or cloud instance
   * **NEW:** Production deployment of admin dashboard
   * **BLOCKER:** Needs server credentials or cloud provider selection
@@ -775,20 +861,29 @@ Tasks I can execute autonomously without manual input:
 
 ## 🔧 Mission Control Dashboard Status
 
-**Status:** 🔴 NOT RESPONDING (Since Mar 13, 6:57 AM)
+**Status:** 🔴 NOT RESPONDING (Since Mar 13, 6:57 AM) — Recovery Script Available
 
 **Current State:**
 - Dashboard not responding on http://localhost:3000
 - Cloudflare tunnel is running (can route traffic when dashboard is up)
 - Health check endpoint `/api/health` unavailable
+- Recovery script created: `scripts/mc-dashboard-recovery.sh`
 
 **Action Required:**
 ```bash
+# Automated recovery (recommended)
+./scripts/mc-dashboard-recovery.sh
+
+# Or manual restart
 cd /Users/mohlt/.openclaw/workspace/mission-control-server
 npm run dev
 ```
 
-Or restart the Mission Control server process.
+**Recovery Script Features:**
+- Checks for server directory and dependencies
+- Kills existing processes and frees port 3000
+- Starts server with health check verification
+- Logs output to `logs/mc-dashboard-YYYYMMDD-HHMM.log`
 
 ---
 
