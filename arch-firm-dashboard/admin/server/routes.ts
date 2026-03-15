@@ -27,7 +27,7 @@ import {
   getSuspiciousActivities,
   getActivityStats,
   getEmployeeActivityStats
-} from './database';
+} from './database.js';
 import type { Activity } from '../shared-types.js';
 
 export function setupRoutes(app: Express): void {

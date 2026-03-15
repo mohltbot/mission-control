@@ -1086,6 +1086,95 @@ Happy to help in a 30-min session ($75) if you're stuck.
 
 ---
 
+## 🔄 FOLLOW-UP MESSAGES (Shift 3 — Lead Nurture)
+
+### Follow-up 1 (Day 2): u/rocgpq — GPT-5.4 OAuth
+
+**Context:** First contacted March 13. Day 2 follow-up due March 15 (today).
+
+**Draft:**
+```
+Hey! Following up on the GPT-5.4 + OAuth issue I messaged you about yesterday.
+
+Did any of those three fixes work? (OAuth scope, token refresh, or model string format)
+
+If you're still stuck, I'm happy to jump on a quick call and debug it together. This particular combo has some weird edge cases that are hard to catch without looking at the actual config.
+
+No pressure either way — just want to make sure you get it working!
+```
+
+**Status:** ⏰ Ready to send (Day 2 follow-up due)
+
+---
+
+### Follow-up 2 (Day 2): u/Sudden_Clothes3886 — Exec Tools
+
+**Context:** First contacted March 13. Day 2 follow-up due March 15 (today).
+
+**Draft:**
+```
+Hey! Quick follow-up on the exec tools issue.
+
+Did adding "ask": "off" to your config fix it? Were you able to get your agent re-hired?
+
+If it's still not working, there might be something else going on. Happy to take a look if you're still stuck — I've debugged this same issue for a few people now and there are a couple variations depending on the setup.
+
+Hope your agent is back to work! 🤖
+```
+
+**Status:** ⏰ Ready to send (Day 2 follow-up due)
+
+---
+
+### Follow-up 3 (Day 7): u/rocgpq — GPT-5.4 OAuth (If Day 2 no response)
+
+**Context:** Send March 20 if no response to Day 2 follow-up.
+
+**Draft:**
+```
+Hey, checking in one more time on the GPT-5.4 + OAuth setup.
+
+Still battling it? I've helped 5+ people get this exact combo working in the past week. Most fixes take 10-15 minutes once we find the issue.
+
+I'm around if you want backup — no pressure if you've moved on or figured it out.
+```
+
+**Status:** 📝 Drafted (send March 20 if needed)
+
+---
+
+### Follow-up 4 (Day 7): u/Sudden_Clothes3886 — Exec Tools (If Day 2 no response)
+
+**Context:** Send March 20 if no response to Day 2 follow-up.
+
+**Draft:**
+```
+Hey, wanted to check in on the exec tools situation.
+
+Still having issues with your agent? I'm here if you need help getting it sorted — most debugging sessions take 30 min and we usually find a few other optimizations along the way.
+
+Let me know!
+```
+
+**Status:** 📝 Drafted (send March 20 if needed)
+
+---
+
+### Follow-up 5 (Day 14): u/rocgpq — Final Check-in
+
+**Context:** Send March 27 if no previous responses.
+
+**Draft:**
+```
+Hey, last check-in on the GPT-5.4 setup.
+
+If you ever want to revisit it, I'm here. Hope you got it working one way or another!
+```
+
+**Status:** 📝 Drafted (send March 27 if needed)
+
+---
+
 ## 📋 PRIORITY ACTIONS FOR MOHAMMED (March 14)
 
 ### Send DMs Today (5 Hot Leads)

@@ -1,5 +1,5 @@
 import { WebSocketServer, WebSocket } from 'ws';
-import { createTimeEntry, updateTimeEntry, getEmployeeById } from './database';
+import { createTimeEntry, updateTimeEntry, getEmployeeById } from './database.js';
 
 interface ConnectedClient {
   ws: WebSocket;
