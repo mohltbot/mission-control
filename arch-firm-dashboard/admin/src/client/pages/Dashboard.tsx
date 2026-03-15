@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useWebSocket } from '../contexts/WebSocketContext';
-import type { Employee } from '@archtrack/shared';
+import type { Employee } from '../../shared-types';
 
 interface Activity {
   id: string;

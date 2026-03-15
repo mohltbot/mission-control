@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import type { Employee } from '@archtrack/shared';
+import type { Employee } from '../../shared-types';
 
 export const Employees: React.FC = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
