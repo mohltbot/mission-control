@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 13, 2026 (Shift 1)
+**Last Updated:** March 15, 2026 (Shift 1)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -23,25 +23,40 @@
 | u/rmmhnv | Reddit | OpenClaw after update — sandbox issues | https://redd.it/1rmmhnv | 🔵 Cold | Monitor for follow-up | — |
 | u/rmc6kl | Reddit | Rate limits with free providers | https://redd.it/1rmc6kl | 🔵 Cold | Monitor for follow-up | — |
 | u/rnqu1h1 | Reddit | Self-hosted setup guide request | https://redd.it/1rnq1h1 | 🔵 Cold | Nurture long-term | — |
+| r/openclaw device identity OP | Reddit | Device identity required every new tab (VPS) | https://redd.it/1rrr3v8 | 🔥 Hot | Send DM — very frustrated | DRAFTS.md "DM 3" |
+| GitHub #45504 | GitHub | 2026.3.12 devices list/approve fails | https://github.com/openclaw/openclaw/issues/45504 | 🔥 Hot | Comment — regression | DRAFTS.md "Reply 8" |
+| GitHub #45173 | GitHub | Gateway closed (1000) on logs --follow | https://github.com/openclaw/openclaw/issues/45173 | 🔥 Hot | Comment — common issue | DRAFTS.md "Reply 9" |
+| GitHub #44611 | GitHub | Gateway not loading model config on restart | https://github.com/openclaw/openclaw/issues/44611 | 🟡 Warm | Comment with workaround | DRAFTS.md "Reply 10" |
+| GitHub #41871 | GitHub | Ollama models hang in 2026.3.8 | https://github.com/openclaw/openclaw/issues/41871 | 🟡 Warm | Comment with diagnostic | DRAFTS.md "Reply 11" |
+| GitHub #45882 | GitHub | MiniMax streaming not working | https://github.com/openclaw/openclaw/issues/45882 | 🟡 Warm | Monitor for fix | — |
+| GitHub #43909 | GitHub | dangerouslyDisableDeviceAuth not working | https://github.com/openclaw/openclaw/issues/43909 | 🟡 Warm | Monitor for fix | — |
 
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 2
-- 🟡 Warm leads: 5
-- 🔵 Cold leads: 3
-- **Total potential revenue:** $525 (7 leads × $75 avg)
+- 🔥 Hot leads: 5
+- 🟡 Warm leads: 9
+- 🔵 Cold leads: 5
+- **Total potential revenue:** $1,425 (19 leads × $75 avg)
 
 ---
 
 ## Priority Actions for Mohammed
 
+### 🔥 Hot (Send Today)
 1. **Send DM to u/rocgpq** — GPT-5.4 OAuth issue, very frustrated, tried everything
 2. **Send DM to u/Sudden_Clothes3886** — Fired an agent due to exec tools issue, high emotion
-3. **Reply to r/openclaw "50 setups" post** — Establish credibility, potential partnership
-4. **Reply to GitHub #43735** — Skills loading issue, good visibility
-5. **Reply to GitHub #41673** — Timeout issue, common problem
+3. **Send DM to r/openclaw device identity OP** — VPS setup, device identity every tab, very frustrated (NEW)
+4. **Comment on GitHub #45504** — 2026.3.12 regression, devices list fails, high visibility (NEW)
+5. **Comment on GitHub #45173** — Gateway closed (1000), common issue, good SEO (NEW)
+
+### 🟡 Warm (This Week)
+6. **Reply to r/openclaw "50 setups" post** — Establish credibility, potential partnership
+7. **Reply to GitHub #43735** — Skills loading issue, good visibility
+8. **Reply to GitHub #41673** — Timeout issue, common problem
+9. **Comment on GitHub #44611** — Gateway config caching on restart (NEW)
+10. **Comment on GitHub #41871** — Ollama hanging issue (NEW)
 
 ---
 

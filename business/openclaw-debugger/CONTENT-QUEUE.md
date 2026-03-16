@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Content Queue
 
-**Last Updated:** March 13, 2026 (Shift 1)
+**Last Updated:** March 15, 2026 (Shift 1)
 
 ---
 
@@ -16,6 +16,15 @@
 | Mar 13 | Reddit | Reply: Web search providers | ✅ Ready | DRAFTS.md "Reply 7" |
 | Mar 13 | GitHub | Comment: Skills not loading fix | ✅ Ready | DRAFTS.md "Reply 3" |
 | Mar 14 | Reddit | Reply: Discord flakiness | 📝 Drafting | — |
+| Mar 15 | Twitter | Thread: 2026.3.12 regression fixes | ✅ Ready | DRAFTS.md "Twitter Thread 3" |
+| Mar 15 | GitHub | Comment: Devices list fails (#45504) | ✅ Ready | DRAFTS.md "Reply 8" |
+| Mar 15 | GitHub | Comment: Gateway closed 1000 (#45173) | ✅ Ready | DRAFTS.md "Reply 9" |
+| Mar 15 | GitHub | Comment: Config caching (#44611) | ✅ Ready | DRAFTS.md "Reply 10" |
+| Mar 15 | GitHub | Comment: Ollama hanging (#41871) | ✅ Ready | DRAFTS.md "Reply 11" |
+| Mar 15 | Twitter | Thread: 3-Minute Health Check | ✅ Ready | DRAFTS.md "Twitter Thread 4" |
+| Mar 15 | Twitter/LinkedIn | Case study: $200/hour mistake | ✅ Ready | DRAFTS.md "Case Study 3" |
+| Mar 15 | Reddit | Reply: Docker 3.13 warning | ✅ Ready | DRAFTS.md "Reply 12" |
+| Mar 15 | Reddit | Reply: Selfhosted setup | ✅ Ready | DRAFTS.md "Reply 13" |
 
 ---
 
@@ -26,6 +35,8 @@
 3. **"Discord Bot Silent? Here's Why"** — Reddit post
 4. **"OpenClaw + VPS: Complete Setup Guide"** — Blog post / Reddit
 5. **"Anthropic 529 Errors: The Silent Killer"** — Twitter thread
+6. **"2026.3.12: What Breaks & How to Fix It"** — Twitter thread (NEW — addresses current regression)
+7. **"Ollama + OpenClaw: Why It Hangs & 3 Fixes"** — Technical deep dive (NEW)
 
 ---
 
