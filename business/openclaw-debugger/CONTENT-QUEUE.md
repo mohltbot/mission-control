@@ -32,6 +32,8 @@
 | Mar 16 | GitHub | Comment: Docker pairing (#45232) | ✅ Ready | DRAFTS.md "Reply 16" |
 | Mar 16 | GitHub | Comment: Diagnostics inconsistency (#46100) | ✅ Ready | DRAFTS.md "Reply 17" |
 | Mar 16 | GitHub | Comment: Scope mismatch (#46117) | ✅ Ready | DRAFTS.md "Reply 18" |
+| Mar 16 | Twitter | Thread: 2026.3.13 Auth Bug Fixes | ✅ Ready | DRAFTS.md "Twitter Thread 7" |
+| Mar 16 | Twitter | Quick Tip: Web UI Workaround | ✅ Ready | DRAFTS.md "Quick Tip" |
 
 ---
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useWebSocket } from '../contexts/WebSocketContext';
-import { AIChatPanel } from '../components/AIChatPanel';
+import { GenesisAIChat } from '../components/GenesisAIChat';
 import type { Employee } from '../../../shared-types';
 
 interface Activity {
@@ -311,11 +311,10 @@ export const Dashboard: React.FC = () => {
           </div>
         )}
 
-        {/* AI Analytics Chat */}
-        <div style={styles.section}>
-          <AIChatPanel />
-        </div>
       </div>
+      
+      {/* Genesis AI Floating Chat */}
+      <GenesisAIChat />
     </div>
   );
 };

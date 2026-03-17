@@ -13,6 +13,8 @@
 
 | Name | Source | Issue | Link | Status | Next Action | Draft Location |
 |------|--------|-------|------|--------|-------------|----------------|
+| vmkkumar | Personal/DM | Custom build project - asked for pricing | Screenshot Mar 16 | 🔥 Hot | **PRIORITY** — Follow up on pricing discussion (deposit model offered, awaiting response) | DRAFTS.md "vmkkumar follow-up" |
+|------|--------|-------|------|--------|-------------|----------------|
 | u/rocgpq (GPT-5.4 OAuth) | Reddit | Can't get OpenClaw 2026.3.7 + GPT-5.4 + OAuth working | https://redd.it/1rocgpq | 🔥 Hot | Send DM — tried everything including Claude Code | DRAFTS.md "DM 1" |
 | u/Sudden_Clothes3886 | Reddit | Exec tools not working after update, fired an agent | https://redd.it/1rl13sb | 🔥 Hot | Send DM — very frustrated | DRAFTS.md "DM 2" |
 | r/openclaw "50 setups" OP | Reddit | Helped 50+ people, sees same 5 mistakes | https://redd.it/1rp8t9r | 🟡 Warm | Reply to post — potential collaborator/competitor | DRAFTS.md "Reply 1" |
@@ -40,10 +42,30 @@
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 8
+- 🔥 Hot leads: 9 (including vmkkumar - pricing discussion active)
 - 🟡 Warm leads: 11
 - 🔵 Cold leads: 5
-- **Total potential revenue:** $1,800 (24 leads × $75 avg)
+- **Total potential revenue:** $2,500+ (vmkkumar project TBD + 24 leads × $75 avg)
+
+---
+
+## 🔥 Priority Lead: vmkkumar
+
+**Status:** Asked for pricing today (Mar 16) - HOT
+**Conversation History:**
+- Mar 11: "Exploring this option, will update you"
+- Mar 15: You followed up
+- Mar 16 (Today): "How much you charge for this one"
+
+**Your Response:**
+> "What were you thinking? I could also build it for you first after a small deposit and then we can waive or adjust final price if you don't like it!"
+
+**Next Action:** 
+- Wait for their response on pricing/deposit model
+- If they agree to deposit: Start build immediately
+- If they want fixed price first: Quote $2,000-5,000 depending on scope
+
+**Revenue Potential:** $2,000-10,000 (custom build project)
 
 ---
 

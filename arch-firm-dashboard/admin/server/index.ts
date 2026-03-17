@@ -7,6 +7,7 @@ import { WebSocketServer } from 'ws';
 import { initDatabase } from './database.js';
 import { setupRoutes } from './routes.js';
 import { setupWebSocket } from './websocket.js';
+import aiRoutes from './routes/ai-routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,6 +30,7 @@ setupWebSocket(wss);
 
 // API routes (must come before static files)
 setupRoutes(app);
+app.use('/api/ai', aiRoutes);
 
 // Serve static files from dist/client
 // Use import.meta.url to get the correct path

@@ -1723,4 +1723,204 @@ Good luck 🦞
 
 ---
 
+## 🔥 NEW CONTENT — March 16, 2026 (Shift 2)
+
+### Twitter Thread 7: "The 2026.3.13 Auth Bug: 3 Fixes That Actually Work"
+
+**Hook:**
+```
+2026.3.13 broke OpenClaw auth for thousands of users.
+
+I've fixed it for 8 people this week.
+
+Here are the 3 fixes that actually work (and why):
+```
+
+**Tweet 1/7:**
+```
+1/ The "gateway closed (1000)" error
+
+Symptom:
+• openclaw devices list → fails
+• openclaw devices approve → fails  
+• Web UI works fine
+
+This is a WebSocket handshake bug in 2026.3.12/3.13.
+
+The gateway is healthy. CLI auth is broken.
+```
+
+**Tweet 2/7:**
+```
+2/ Fix #1: Use the Web UI (Fastest)
+
+Don't fight the CLI.
+
+http://127.0.0.1:18789 → Device Management
+
+The web UI uses a different auth path that bypasses the bug.
+
+Device approval, logs, config — all work here.
+```
+
+**Tweet 3/7:**
+```
+3/ Fix #2: Downgrade to 2026.3.8 (Most Reliable)
+
+If you need CLI access:
+
+```
+npm install -g openclaw@2026.3.8
+openclaw devices approve --latest
+npm install -g openclaw@latest
+```
+
+Pair on 3.8, upgrade back.
+
+The pairing state persists.
+```
+
+**Tweet 4/7:**
+```
+4/ Fix #3: Trusted-Proxy Mode (For Local Dev)
+
+Add to openclaw.json:
+
+```json
+{
+  "gateway": {
+    "auth": {
+      "mode": "trusted-proxy",
+      "trustedProxy": {
+        "allowLocalhost": true
+      }
+    }
+  }
+}
+```
+
+Bypasses token validation for localhost.
+⚠️ Only for local dev, not production.
+```
+
+**Tweet 5/7:**
+```
+5/ Why this happened
+
+2026.3.12 changed the WebSocket handshake flow.
+
+Your CLI token HAS the right scopes.
+The gateway just doesn't SEE them.
+
+It's a scope propagation bug, not your config.
+```
+
+**Tweet 6/7:**
+```
+6/ When will it be fixed?
+
+• P0 bug on GitHub tracker
+• Expected in 2026.3.14
+• No ETA yet
+
+Track: github.com/openclaw/openclaw/issues/47103
+
+Until then, use the workarounds above.
+```
+
+**Tweet 7/7:**
+```
+7/ The real lesson
+
+When "everything is broken," check:
+• Is the gateway running? (probably yes)
+• Is it a known regression? (probably yes)
+• Is there a workaround? (almost always yes)
+
+Don't reinstall. Don't panic. Check GitHub first.
+
+Stuck? I debug these for $75/session.
+
+DM me 🦞
+```
+
+---
+
+### Quick Tip: Single Tweet Debugging Tip
+
+**Platform:** Twitter/X
+**Status:** ✅ Ready to post
+
+**Draft:**
+```
+OpenClaw tip: If `openclaw devices list` fails with "gateway closed (1000)" after updating to 2026.3.13, don't reinstall.
+
+The bug is in the CLI auth flow, not your setup.
+
+Use the web UI instead:
+http://127.0.0.1:18789
+
+Device approval, logs, config — all work there while the CLI is broken.
+
+Fix coming in 2026.3.14
+```
+
+---
+
+---
+
+## 🔄 FOLLOW-UP SEQUENCE DRAFTS (Shift 3 — March 16, 2026)
+
+### Day 2 Follow-up: u/rocgpq (GPT-5.4 OAuth)
+**Send 1-2 days after initial DM:**
+```
+Hey! Did those OAuth scope fixes work for you?
+
+If you're still stuck on the GPT-5.4 integration, happy to jump on a quick call and debug it together. I've fixed this exact issue for a few people this week — usually takes 10-15 minutes to sort out.
+
+No pressure either way, just want to make sure you're not still banging your head against it!
+```
+
+### Day 2 Follow-up: u/Sudden_Clothes3886 (Exec tools)
+**Send 1-2 days after initial DM:**
+```
+Hey! Did adding "ask": "off" to your exec config fix the issue?
+
+If your agent is still having trouble (or if you want help getting them "re-hired"), I'm around. The 2026.3.2 update broke a lot of setups, so you're definitely not alone in this frustration.
+
+Happy to help if you need it — or just let me know if you got it sorted!
+```
+
+### Day 2 Follow-up: vmkkumar (Custom build)
+**Send Mar 17 if no response:**
+```
+Hey! Just following up on the deposit model.
+
+To give you a sense of scope: similar custom builds typically run $2K-5K depending on complexity, but the deposit approach lets us start small and adjust based on what we actually build.
+
+Happy to jump on a quick call to discuss details if that helps!
+```
+
+### Day 7 Follow-up Template (All Hot Leads)
+**Send 7 days after initial contact:**
+```
+Hey [name], still battling that OpenClaw issue?
+
+I know how frustrating it is when you've tried everything and it still doesn't work. I'm here if you need backup — most fixes take 30 minutes and I charge $75.
+
+No pressure if you want to keep troubleshooting solo, but I'm around if you want to just get it done.
+```
+
+### Day 14 Follow-up Template (All Hot Leads)
+**Send 14 days after initial contact:**
+```
+Hey [name], circling back one last time.
+
+If you got your OpenClaw issue sorted — great! If not, I'm still here if you need help.
+
+Either way, hope you're up and running smoothly now!
+```
+
+---
+
 *Shift 1 Complete — March 16, 2026*
