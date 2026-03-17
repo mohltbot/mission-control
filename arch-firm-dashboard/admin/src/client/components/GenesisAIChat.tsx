@@ -16,6 +16,61 @@ interface ChatResponse {
   suggestions?: string[];
 }
 
+// Component to render formatted message with markdown-like styling
+function FormattedMessage({ content }: { content: string }) {
+  // Split by newlines and process each line
+  const lines = content.split('\n');
+  
+  return (
+    <div style={{ fontSize: 13, lineHeight: 1.6 }}>
+      {lines.map((line, index) => {
+        // Handle bold text **text**
+        const parts = line.split(/(\*\*.*?\*\*)/g);
+        
+        return (
+          <div key={index} style={{ marginBottom: line.trim() === '' ? 8 : 4 }}>
+            {parts.map((part, partIndex) => {
+              if (part.startsWith('**') && part.endsWith('**')) {
+                // Bold text
+                return (
+                  <span key={partIndex} style={{ fontWeight: 700, color: '#1f2937' }}>
+                    {part.slice(2, -2)}
+                  </span>
+                );
+              }
+              // Regular text with bullet handling
+              const trimmedPart = part.trim();
+              if (trimmedPart.startsWith('•') || trimmedPart.startsWith('-')) {
+                return (
+                  <span key={partIndex} style={{ display: 'flex', gap: 8, marginLeft: 4 }}>
+                    <span style={{ color: '#3b82f6' }}>•</span>
+                    <span>{trimmedPart.slice(1).trim()}</span>
+                  </span>
+                );
+              }
+              if (trimmedPart.match(/^\d+\./)) {
+                // Numbered list
+                const match = trimmedPart.match(/^(\d+)\.\s*(.*)/);
+                if (match) {
+                  return (
+                    <span key={partIndex} style={{ display: 'flex', gap: 8, marginLeft: 4 }}>
+                      <span style={{ color: '#3b82f6', fontWeight: 600, minWidth: 20 }}>
+                        {match[1]}.
+                      </span>
+                      <span>{match[2]}</span>
+                    </span>
+                  );
+                }
+              }
+              return <span key={partIndex}>{part}</span>;
+            })}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export function GenesisAIChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -199,14 +254,18 @@ export function GenesisAIChat() {
                   </div>
                 )}
                 
-                <div style={{ maxWidth: '75%' }}>
+                <div style={{ maxWidth: '80%' }}>
                   <div
                     style={{
                       ...styles.messageBubble,
                       ...(message.role === 'user' ? styles.userBubble : styles.assistantBubble)
                     }}
                   >
-                    <pre style={styles.messageText}>{message.content}</pre>
+                    {message.role === 'user' ? (
+                      <span style={{ fontSize: 13 }}>{message.content}</span>
+                    ) : (
+                      <FormattedMessage content={message.content} />
+                    )}
                   </div>
                   
                   {message.suggestions && message.suggestions.length > 0 && (
@@ -302,8 +361,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     position: 'fixed',
     bottom: 24,
     right: 24,
-    width: 384,
-    height: 500,
+    width: 400,
+    height: 550,
     backgroundColor: 'white',
     borderRadius: 16,
     boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
@@ -403,7 +462,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexShrink: 0
   },
   messageBubble: {
-    padding: '10px 14px',
+    padding: '12px 16px',
     borderRadius: 16,
     maxWidth: '100%'
   },
@@ -418,13 +477,6 @@ const styles: { [key: string]: React.CSSProperties } = {
     border: '1px solid #e5e7eb',
     borderBottomLeftRadius: 4,
     boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
-  },
-  messageText: {
-    margin: 0,
-    fontSize: 13,
-    lineHeight: 1.5,
-    whiteSpace: 'pre-wrap',
-    fontFamily: 'inherit'
   },
   suggestionsContainer: {
     display: 'flex',
