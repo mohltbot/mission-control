@@ -15,17 +15,17 @@
 |------|--------|-------|------|--------|-------------|----------------|
 | vmkkumar | Personal/DM | Custom build project - asked for pricing | Screenshot Mar 16 | 🔥 Hot | **PRIORITY** — Follow up on pricing discussion (deposit model offered, awaiting response) | DRAFTS.md "vmkkumar follow-up" |
 |------|--------|-------|------|--------|-------------|----------------|
-| u/rocgpq (GPT-5.4 OAuth) | Reddit | Can't get OpenClaw 2026.3.7 + GPT-5.4 + OAuth working | https://redd.it/1rocgpq | 🔥 Hot | Send DM — tried everything including Claude Code | DRAFTS.md "DM 1" |
-| u/Sudden_Clothes3886 | Reddit | Exec tools not working after update, fired an agent | https://redd.it/1rl13sb | 🔥 Hot | Send DM — very frustrated | DRAFTS.md "DM 2" |
-| r/openclaw "50 setups" OP | Reddit | Helped 50+ people, sees same 5 mistakes | https://redd.it/1rp8t9r | 🟡 Warm | Reply to post — potential collaborator/competitor | DRAFTS.md "Reply 1" |
-| u/discord_flaky | Reddit | Discord bot "super flaky" | Reddit thread | 🟡 Warm | Reply with diagnostic checklist | DRAFTS.md "Reply 2" |
-| GitHub #43735 | GitHub | Skills not loading from ~/.openclaw/workspace/skills/ | https://github.com/openclaw/openclaw/issues/43735 | 🟡 Warm | Comment with fix | DRAFTS.md "Reply 3" |
-| GitHub #41673 | GitHub | LLM request timed out, dialog box chat error | https://github.com/openclaw/openclaw/issues/41673 | 🟡 Warm | Comment with workaround | DRAFTS.md "Reply 4" |
-| GitHub #41819 | GitHub | node-llama-cpp build failure on install | https://github.com/openclaw/openclaw/issues/41819 | 🟡 Warm | Comment with fix | DRAFTS.md "Reply 5" |
+| u/rocgpq (GPT-5.4 OAuth) | Reddit | Can't get OpenClaw 2026.3.7 + GPT-5.4 + OAuth working | https://redd.it/1rocgpq | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 1" |
+| u/Sudden_Clothes3886 | Reddit | Exec tools not working after update, fired an agent | https://redd.it/1rl13sb | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 2" |
+| r/openclaw "50 setups" OP | Reddit | Helped 50+ people, sees same 5 mistakes | https://redd.it/1rp8t9r | 🟡 Warm | ✅ REPLIED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 1" |
+| u/discord_flaky | Reddit | Discord bot "super flaky" | Reddit thread | 🟡 Warm | ✅ REPLIED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 2" |
+| GitHub #43735 | GitHub | Skills not loading from ~/.openclaw/workspace/skills/ | https://github.com/openclaw/openclaw/issues/43735 | 🟡 Warm | ✅ COMMENTED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 3" |
+| GitHub #41673 | GitHub | LLM request timed out, dialog box chat error | https://github.com/openclaw/openclaw/issues/41673 | 🟡 Warm | ✅ COMMENTED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 4" |
+| GitHub #41819 | GitHub | node-llama-cpp build failure on install | https://github.com/openclaw/openclaw/issues/41819 | 🟡 Warm | ✅ COMMENTED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 5" |
 | u/rmmhnv | Reddit | OpenClaw after update — sandbox issues | https://redd.it/1rmmhnv | 🔵 Cold | Monitor for follow-up | — |
 | u/rmc6kl | Reddit | Rate limits with free providers | https://redd.it/1rmc6kl | 🔵 Cold | Monitor for follow-up | — |
 | u/rnqu1h1 | Reddit | Self-hosted setup guide request | https://redd.it/1rnq1h1 | 🔵 Cold | Nurture long-term | — |
-| r/openclaw device identity OP | Reddit | Device identity required every new tab (VPS) | https://redd.it/1rrr3v8 | 🔥 Hot | Send DM — very frustrated | DRAFTS.md "DM 3" |
+| r/openclaw device identity OP | Reddit | Device identity required every new tab (VPS) | https://redd.it/1rrr3v8 | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 3" |
 | GitHub #45504 | GitHub | 2026.3.12 devices list/approve fails | https://github.com/openclaw/openclaw/issues/45504 | 🔥 Hot | Comment — regression | DRAFTS.md "Reply 8" |
 | GitHub #47103 | GitHub | "gateway closed (1000)" — devices list/approve fails | https://github.com/openclaw/openclaw/issues/47103 | 🔥 Hot | Comment — 2026.3.13 regression | DRAFTS.md "Reply 14" |
 | GitHub #46716 | GitHub | 2026.3.13 auth/probe cascade — token + scope issues | https://github.com/openclaw/openclaw/issues/46716 | 🔥 Hot | Comment — complex auth flow | DRAFTS.md "Reply 15" |
