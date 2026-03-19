@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 17, 2026
+**Last Updated:** March 19, 2026 (Shift 1)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -26,6 +26,11 @@
 | u/rmc6kl | Reddit | Rate limits with free providers | https://redd.it/1rmc6kl | 🔵 Cold | Monitor for follow-up | — |
 | u/rnqu1h1 | Reddit | Self-hosted setup guide request | https://redd.it/1rnq1h1 | 🔵 Cold | Nurture long-term | — |
 | r/openclaw device identity OP | Reddit | Device identity required every new tab (VPS) | https://redd.it/1rrr3v8 | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 3" |
+| @lilith-the-dear | GitHub | Custom skills not loading in 2026.3.13 (regression) | https://github.com/openclaw/openclaw/issues/49873 | 🔥 Hot | Comment + DM — Fresh lead, very engaged | DRAFTS.md "DM 4" |
+| @bo-blue | GitHub | Cron sessions hallucinating fake data (trust issue) | https://github.com/openclaw/openclaw/issues/49876 | 🔥 Hot | Comment + DM — Production critical | DRAFTS.md "DM 5" |
+| @gbgeka | GitHub | Slack HTTP mode silently dropping channel events | https://github.com/openclaw/openclaw/issues/49887 | 🔥 Hot | Comment + DM — Message loss bug | DRAFTS.md "DM 6" |
+| @DerFlash | GitHub | Tool errors leaking to chat (UX regression) | https://github.com/openclaw/openclaw/issues/49882 | 🔥 Hot | Comment — High visibility, core team engaged | DRAFTS.md "Reply 19" |
+| @llzzww316 | GitHub | Windows gateway restart fails (schtasks queued) | https://github.com/openclaw/openclaw/issues/49871 | 🔥 Hot | Comment — Windows niche | DRAFTS.md "Reply 20" |
 | GitHub #45504 | GitHub | 2026.3.12 devices list/approve fails | https://github.com/openclaw/openclaw/issues/45504 | 🔥 Hot | Comment — regression | DRAFTS.md "Reply 8" |
 | GitHub #47103 | GitHub | "gateway closed (1000)" — devices list/approve fails | https://github.com/openclaw/openclaw/issues/47103 | 🔥 Hot | Comment — 2026.3.13 regression | DRAFTS.md "Reply 14" |
 | GitHub #46716 | GitHub | 2026.3.13 auth/probe cascade — token + scope issues | https://github.com/openclaw/openclaw/issues/46716 | 🔥 Hot | Comment — complex auth flow | DRAFTS.md "Reply 15" |
@@ -33,6 +38,11 @@
 | GitHub #46100 | GitHub | Local loopback diagnostics contradictory results | https://github.com/openclaw/openclaw/issues/46100 | 🟡 Warm | Comment — diagnostic help | DRAFTS.md "Reply 17" |
 | GitHub #46117 | GitHub | CLI reports missing scope despite token having it | https://github.com/openclaw/openclaw/issues/46117 | 🟡 Warm | Comment — scope debugging | DRAFTS.md "Reply 18" |
 | GitHub #45173 | GitHub | Gateway closed (1000) on logs --follow | https://github.com/openclaw/openclaw/issues/45173 | 🔥 Hot | Comment — common issue | DRAFTS.md "Reply 9" |
+| @thomasbek3 | GitHub | CLI gateway handshake fails on slow-startup hosts (challenge timeout) | https://github.com/openclaw/openclaw/issues/50504 | 🔥 **HOT — NEW** | Comment + DM — Fresh issue, detailed analysis, user patched locally | DRAFTS.md "DM 7" |
+| @porist | GitHub | openclaw-cli token auth scope operator.read missing | https://github.com/openclaw/openclaw/issues/50474 | 🔥 **HOT — NEW** | Comment + DM — Auth regression in 2026.3.13 | DRAFTS.md "DM 8" |
+| @hongliang-nemovideo | GitHub | Trashed session's message tool calls re-delivered on every restart | https://github.com/openclaw/openclaw/issues/50496 | 🔥 **HOT — NEW** | Comment — Production issue, message spam | DRAFTS.md "Reply 21" |
+| @wzkinj-git | GitHub | Telegram duplicate message bug | https://github.com/openclaw/openclaw/issues/50450 | 🟡 Warm | Monitor — Has 3 comments, active discussion | — |
+| @aaronho838 | GitHub | WhatsApp "No active listener" error | https://github.com/openclaw/openclaw/issues/50489 | 🔥 **HOT — NEW** | Comment + DM — Baileys regression | DRAFTS.md "DM 9" |
 | GitHub #44611 | GitHub | Gateway not loading model config on restart | https://github.com/openclaw/openclaw/issues/44611 | 🟡 Warm | Comment with workaround | DRAFTS.md "Reply 10" |
 | GitHub #41871 | GitHub | Ollama models hang in 2026.3.8 | https://github.com/openclaw/openclaw/issues/41871 | 🟡 Warm | Comment with diagnostic | DRAFTS.md "Reply 11" |
 | GitHub #45882 | GitHub | MiniMax streaming not working | https://github.com/openclaw/openclaw/issues/45882 | 🟡 Warm | Monitor for fix | — |
@@ -44,10 +54,10 @@
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 9 (including vmkkumar - pricing discussion active)
-- 🟡 Warm leads: 11
-- 🔵 Cold leads: 7 (added 2 from Reddit screenshots)
-- **Total potential revenue:** $2,500+ (vmkkumar project TBD + 24 leads × $75 avg)
+- 🔥 Hot leads: 18 (including vmkkumar - pricing discussion active)
+- 🟡 Warm leads: 12
+- 🔵 Cold leads: 7
+- **Total potential revenue:** $3,650+ (vmkkumar project TBD + 33 leads × $75 avg + 2 complex issues × $150)
 
 ---
 

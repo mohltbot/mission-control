@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Content Queue
 
-**Last Updated:** March 16, 2026 (Shift 1)
+**Last Updated:** March 19, 2026 (Shift 1)
 
 ---
 
@@ -34,6 +34,8 @@
 | Mar 16 | GitHub | Comment: Scope mismatch (#46117) | ✅ Ready | DRAFTS.md "Reply 18" |
 | Mar 16 | Twitter | Thread: 2026.3.13 Auth Bug Fixes | ✅ Ready | DRAFTS.md "Twitter Thread 7" |
 | Mar 16 | Twitter | Quick Tip: Web UI Workaround | ✅ Ready | DRAFTS.md "Quick Tip" |
+| Mar 18 | Twitter | Thread: 2026.3.13 Skills Regression | ✅ Ready | DRAFTS.md "Twitter Thread 8" |
+| Mar 19 | Twitter | Thread: 2026.3.13 Auth Bug Emergency Fixes | ✅ Ready | DRAFTS.md "Twitter Thread 9" |
 
 ---
 

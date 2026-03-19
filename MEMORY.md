@@ -39,6 +39,10 @@ _This file contains curated long-term memories, lessons learned, and important c
 
 ### Recent Context
 
+**March 18, 2026:**
+- vmkkumar lead: TIMELINE BLOCKER — Wants to build a voice + text AI customer service agent to sell to other businesses. High engagement (cross-platform), requested pricing, budget constraint with follow-up intent → Staying WARM
+- Lead pipeline: 9 hot, 11 warm, 5 cold leads
+
 **March 16, 2026:**
 - vmkkumar lead: Asked for pricing on custom build (HOT - $2K-10K potential)
 - ArchTrack: Fixed mobile layout, loading states, WebSocket resilience
