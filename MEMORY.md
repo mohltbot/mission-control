@@ -39,6 +39,10 @@ _This file contains curated long-term memories, lessons learned, and important c
 
 ### Recent Context
 
+**March 20, 2026:**
+- **ArchTrack Fixed:** Sync issue resolved. Problem was Express body parser limit (100kb default) too small for activity batches. Fixed by increasing to 50mb on DigitalOcean server. Lost 12,350 old queued activities due to JSON corruption, but new sync working perfectly. Dashboard now showing real-time activity (56% productivity, live feed updating)
+- **Lesson Learned:** Always set body parser limits for APIs receiving large payloads: `app.use(express.json({ limit: '50mb' }))`
+
 **March 19, 2026:**
 - First Twitter thread with engagement: OpenClaw 2026.3.13 skills issue — 1 like, 1 comment, 3 impressions. Topic: timely pain points work. dnu (@DnuLkjkjh) engaged with technical feedback — potential lead
 - Content insight: Technical how-to threads on breaking changes get engagement
