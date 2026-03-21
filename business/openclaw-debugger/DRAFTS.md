@@ -514,6 +514,38 @@ Let me know if you want to dig in!
 
 ---
 
+## 🐦 TWITTER/X RESPONSES (Pending)
+
+### Twitter dnu follow-up
+
+**Lead:** dnu (@DnuLkjkjh) — basilai.app  
+**Status:** He liked my reply, conversation warm  
+**Next Action:** Ask about his AI tools
+
+**COPY AND PASTE:**
+```
+Nice — basilai looks interesting. What kind of AI tools are you building there?
+```
+
+---
+
+### Twitter Mark Fietje response
+
+**Lead:** Mark Fietje — security-conscious, called out CORS advice  
+**Status:** He corrected my `dangerouslyAllowHostHeaderOriginFallback` suggestion  
+**Next Action:** Acknowledge he's right, ask about his use case
+
+**COPY AND PASTE:**
+```
+You're absolutely right — that flag bypasses origin validation and opens up host-header injection attacks. It's marked dangerous for a reason.
+
+I mentioned it as a last-resort workaround for the 2026.3.13 CORS issues, but the proper fix is configuring `gateway.controlUi.allowedOrigins` with your actual domain.
+
+Are you dealing with the CORS issues too, or just keeping an eye on security best practices?
+```
+
+---
+
 ## ✅ ALREADY POSTED (Archive)
 
 ### Twitter Threads 1-9 [ALL POSTED Mar 17-19]
