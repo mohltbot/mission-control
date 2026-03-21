@@ -2,6 +2,7 @@ import { powerMonitor, ipcMain } from 'electron';
 import * as fs from 'fs';
 import * as path from 'path';
 import { app } from 'electron';
+import { getServerUrl, ARCHTRACK_CONFIG } from './config.js';
 import {
   classifyActivity,
   calculateTrueProductivity,
@@ -63,9 +64,9 @@ let consecutiveIdleChecks = 0;
 
 // Store config (simple JSON file)
 let config: Config = {
-  employeeId: 'emp-001',
-  employeeName: 'Test Employee',
-  serverUrl: 'http://165.227.78.107:3001'
+  employeeId: ARCHTRACK_CONFIG.defaults.employeeId,
+  employeeName: ARCHTRACK_CONFIG.defaults.employeeName,
+  serverUrl: getServerUrl()
 };
 
 export async function startTracking(): Promise<void> {

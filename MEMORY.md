@@ -39,6 +39,18 @@ _This file contains curated long-term memories, lessons learned, and important c
 
 ### Recent Context
 
+**March 20, 2026:**
+- **ArchTrack Fixed:** Sync issue resolved. Problem was Express body parser limit (100kb default) too small for activity batches. Fixed by increasing to 50mb on DigitalOcean server. Lost 12,350 old queued activities due to JSON corruption, but new sync working perfectly. Dashboard now showing real-time activity (56% productivity, live feed updating)
+- **Lesson Learned:** Always set body parser limits for APIs receiving large payloads: `app.use(express.json({ limit: '50mb' }))`
+
+**March 19, 2026:**
+- First Twitter thread with engagement: OpenClaw 2026.3.13 skills issue — 1 like, 1 comment, 3 impressions. Topic: timely pain points work. dnu (@DnuLkjkjh) engaged with technical feedback — potential lead
+- Content insight: Technical how-to threads on breaking changes get engagement
+
+**March 18, 2026:**
+- vmkkumar lead: TIMELINE BLOCKER — Wants to build a voice + text AI customer service agent to sell to other businesses. High engagement (cross-platform), requested pricing, budget constraint with follow-up intent → Staying WARM
+- Lead pipeline: 9 hot, 11 warm, 5 cold leads
+
 **March 16, 2026:**
 - vmkkumar lead: Asked for pricing on custom build (HOT - $2K-10K potential)
 - ArchTrack: Fixed mobile layout, loading states, WebSocket resilience
@@ -62,6 +74,22 @@ _This file contains curated long-term memories, lessons learned, and important c
 - Test on actual mobile devices, not just dev tools
 - WebSocket auth needs proper challenge/response handling
 - GitHub push protection blocks commits with secrets
+- **Formatting preference:** Mohammed liked the drafts.md formatting on first attempt (March 19) — no reformatting needed
+- **Git workflow for DRAFTS.md updates:** When Mohammed says "truncate posted drafts" or "update drafts":
+  1. Edit the local file directly (workspace copy)
+  2. `git checkout main && git pull origin main` (ensure on latest main)
+  3. Re-apply the edit to the file
+  4. `git add business/openclaw-debugger/DRAFTS.md`
+  5. `git commit -m "message"`
+  6. `git push origin main`
+  7. Do NOT use feature branches or force push — causes divergence issues
+  8. Verify with raw GitHub URL if needed: `https://raw.githubusercontent.com/mohltbot/mission-control/main/business/openclaw-debugger/DRAFTS.md`
+
+### Lead Outreach Status
+
+**March 19, 2026:**
+- All outreach posted except GitHub DMs
+- GitHub DMs blocked — followed users instead (hoping this enables future DM capability)
 
 ### Running Tasks
 
@@ -79,4 +107,4 @@ _This file contains curated long-term memories, lessons learned, and important c
 
 ---
 
-_Last updated: March 16, 2026_
+_Last updated: March 19, 2026_

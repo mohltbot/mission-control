@@ -192,10 +192,10 @@ async function handleImprovementQuery(question: string, db: any): Promise<ChatRe
       COUNT(*) as total_activities
     FROM activities
     WHERE employee_id = ?
-    AND timestamp > datetime('now', '-${timeframe.days} days')
+    AND timestamp > datetime('now', ?)
   `;
 
-  const stats = await db.get(statsSql, [employee.id]);
+  const stats = await db.get(statsSql, [employee.id, `-${timeframe.days} days`]);
 
   // Get top unproductive apps
   const appsSql = `
@@ -205,14 +205,14 @@ async function handleImprovementQuery(question: string, db: any): Promise<ChatRe
       AVG(productivity_score) as avg_score
     FROM activities
     WHERE employee_id = ?
-    AND timestamp > datetime('now', '-${timeframe.days} days')
+    AND timestamp > datetime('now', ?)
     AND (productivity_level = 'unproductive' OR productivity_level = 'idle')
     GROUP BY app_name
     ORDER BY hours DESC
     LIMIT 5
   `;
 
-  const unproductiveApps = await db.all(appsSql, [employee.id]);
+  const unproductiveApps = await db.all(appsSql, [employee.id, `-${timeframe.days} days`]);
 
   // Get category breakdown
   const categorySql = `
@@ -222,12 +222,12 @@ async function handleImprovementQuery(question: string, db: any): Promise<ChatRe
       AVG(productivity_score) as avg_score
     FROM activities
     WHERE employee_id = ?
-    AND timestamp > datetime('now', '-${timeframe.days} days')
+    AND timestamp > datetime('now', ?)
     GROUP BY category_name
     ORDER BY hours DESC
   `;
 
-  const categories = await db.all(categorySql, [employee.id]);
+  const categories = await db.all(categorySql, [employee.id, `-${timeframe.days} days`]);
 
   // Build personalized advice
   let answer = `**${employee.name}'s Productivity Analysis (${timeframe.label})**\n\n`;
@@ -299,10 +299,10 @@ async function handleStatusQuery(question: string, db: any): Promise<ChatRespons
       MAX(timestamp) as last_activity
     FROM activities
     WHERE employee_id = ?
-    AND timestamp > datetime('now', '-${timeframe.days} days')
+    AND timestamp > datetime('now', ?)
   `;
 
-  const today = await db.get(todaySql, [employee.id]);
+  const today = await db.get(todaySql, [employee.id, `-${timeframe.days} days`]);
 
   // Get current activity
   const currentSql = `
@@ -389,11 +389,11 @@ async function handleSpecificAppQuery(question: string, db: any): Promise<ChatRe
       FROM activities
       WHERE employee_id = ?
       AND (LOWER(app_name) LIKE LOWER(?))
-      AND timestamp > datetime('now', '-${timeframe.days} days')
+      AND timestamp > datetime('now', ?)
       GROUP BY app_name
       ORDER BY hours DESC
     `;
-    params = [employee.id, `%${appName}%`];
+    params = [employee.id, `%${appName}%`, `-${timeframe.days} days`];
   } else {
     sql = `
       SELECT 
@@ -405,11 +405,11 @@ async function handleSpecificAppQuery(question: string, db: any): Promise<ChatRe
       FROM activities a
       JOIN employees e ON a.employee_id = e.id
       WHERE LOWER(a.app_name) LIKE LOWER(?)
-      AND a.timestamp > datetime('now', '-${timeframe.days} days')
+      AND a.timestamp > datetime('now', ?)
       GROUP BY a.employee_id, a.app_name
       ORDER BY hours DESC
     `;
-    params = [`%${appName}%`];
+    params = [`%${appName}%`, `-${timeframe.days} days`];
   }
 
   const data = await db.all(sql, params);
@@ -465,12 +465,12 @@ async function handleTimeSpentQuery(question: string, db: any): Promise<ChatResp
         COUNT(*) as sessions
       FROM activities
       WHERE employee_id = ?
-      AND timestamp > datetime('now', '-${timeframe.days} days')
+      AND timestamp > datetime('now', ?)
       GROUP BY app_name
       ORDER BY hours DESC
       LIMIT 10
     `;
-    params = [employee.id];
+    params = [employee.id, `-${timeframe.days} days`];
   } else {
     sql = `
       SELECT 
@@ -478,11 +478,11 @@ async function handleTimeSpentQuery(question: string, db: any): Promise<ChatResp
         SUM(a.duration_seconds) / 3600 as hours
       FROM activities a
       JOIN employees e ON a.employee_id = e.id
-      WHERE a.timestamp > datetime('now', '-${timeframe.days} days')
+      WHERE a.timestamp > datetime('now', ?)
       GROUP BY a.employee_id
       ORDER BY hours DESC
     `;
-    params = [];
+    params = [`-${timeframe.days} days`];
   }
 
   const data = await db.all(sql, params);
@@ -509,19 +509,19 @@ async function handleProductivityQuery(question: string, db: any): Promise<ChatR
   const timeframe = extractTimeframe(question);
 
   const sql = `
-    SELECT 
+    SELECT
       e.name as employee_name,
       AVG(a.productivity_score) as avg_score,
       SUM(CASE WHEN a.productivity_level = 'productive' THEN a.duration_seconds ELSE 0 END) / 3600 as productive_hours,
       SUM(a.duration_seconds) / 3600 as total_hours
     FROM activities a
     JOIN employees e ON a.employee_id = e.id
-    WHERE a.timestamp > datetime('now', '-${timeframe.days} days')
+    WHERE a.timestamp > datetime('now', ?)
     GROUP BY a.employee_id
     ORDER BY avg_score DESC
   `;
 
-  const data = await db.all(sql);
+  const data = await db.all(sql, [`-${timeframe.days} days`]);
 
   const answer = `Productivity rankings ${timeframe.label}:\n\n` +
     data.map((row: any, idx: number) => {
@@ -618,19 +618,19 @@ async function handleAppQuery(question: string, db: any): Promise<ChatResponse> 
   const timeframe = extractTimeframe(question);
 
   const sql = `
-    SELECT 
+    SELECT
       app_name,
       SUM(duration_seconds) / 3600 as hours,
       COUNT(DISTINCT employee_id) as users,
       AVG(productivity_score) as avg_score
     FROM activities
-    WHERE timestamp > datetime('now', '-${timeframe.days} days')
+    WHERE timestamp > datetime('now', ?)
     GROUP BY app_name
     ORDER BY hours DESC
     LIMIT 10
   `;
 
-  const data = await db.all(sql);
+  const data = await db.all(sql, [`-${timeframe.days} days`]);
 
   const answer = `**Top 10 Apps ${timeframe.label}**\n\n` +
     data.map((row: any, idx: number) => {
@@ -684,9 +684,9 @@ async function handleGeneralQuery(db: any): Promise<ChatResponse> {
 
 async function handleSlackingQuery(question: string, db: any): Promise<ChatResponse> {
   const timeframe = extractTimeframe(question);
-  
+
   const sql = `
-    SELECT 
+    SELECT
       e.name,
       e.department,
       AVG(a.productivity_score) as avg_score,
@@ -696,13 +696,13 @@ async function handleSlackingQuery(question: string, db: any): Promise<ChatRespo
       COUNT(CASE WHEN a.is_idle = 1 THEN 1 END) as idle_count
     FROM employees e
     JOIN activities a ON e.id = a.employee_id
-    WHERE a.timestamp > datetime('now', '-${timeframe.days} days')
+    WHERE a.timestamp > datetime('now', ?)
     GROUP BY e.id
     HAVING avg_score < 40 OR idle_hours > 2
     ORDER BY avg_score ASC, idle_hours DESC
   `;
 
-  const data = await db.all(sql);
+  const data = await db.all(sql, [`-${timeframe.days} days`]);
 
   if (data.length === 0) {
     return {
@@ -735,7 +735,7 @@ async function handleOvertimeQuery(question: string, db: any): Promise<ChatRespo
   const threshold = 40;
 
   const sql = `
-    SELECT 
+    SELECT
       e.name,
       e.department,
       SUM(a.duration_seconds) / 3600 as total_hours,
@@ -744,13 +744,13 @@ async function handleOvertimeQuery(question: string, db: any): Promise<ChatRespo
       MAX(a.timestamp) as last_activity
     FROM employees e
     JOIN activities a ON e.id = a.employee_id
-    WHERE a.timestamp > datetime('now', '-${timeframe.days} days')
+    WHERE a.timestamp > datetime('now', ?)
     GROUP BY e.id
-    HAVING total_hours > ${threshold}
+    HAVING total_hours > ?
     ORDER BY total_hours DESC
   `;
 
-  const data = await db.all(sql);
+  const data = await db.all(sql, [`-${timeframe.days} days`, threshold]);
 
   if (data.length === 0) {
     return {
@@ -791,7 +791,7 @@ async function handleNonWorkQuery(question: string, db: any): Promise<ChatRespon
 
   if (employee) {
     sql = `
-      SELECT 
+      SELECT
         app_name,
         category_name,
         SUM(duration_seconds) / 3600 as hours,
@@ -799,25 +799,25 @@ async function handleNonWorkQuery(question: string, db: any): Promise<ChatRespon
       FROM activities
       WHERE employee_id = ?
       AND (${categoryFilter})
-      AND timestamp > datetime('now', '-${timeframe.days} days')
+      AND timestamp > datetime('now', ?)
       GROUP BY app_name
       ORDER BY hours DESC
       LIMIT 10
     `;
-    params = [employee.id];
+    params = [employee.id, `-${timeframe.days} days`];
   } else {
     sql = `
-      SELECT 
+      SELECT
         e.name as employee_name,
         SUM(a.duration_seconds) / 3600 as hours
       FROM activities a
       JOIN employees e ON a.employee_id = e.id
       WHERE (${categoryFilter})
-      AND a.timestamp > datetime('now', '-${timeframe.days} days')
+      AND a.timestamp > datetime('now', ?)
       GROUP BY a.employee_id
       ORDER BY hours DESC
     `;
-    params = [];
+    params = [`-${timeframe.days} days`];
   }
 
   const data = await db.all(sql, params);
@@ -918,19 +918,19 @@ async function handleCapacityQuery(question: string, db: any): Promise<ChatRespo
   const standardHours = timeframe.days * 8;
 
   const sql = `
-    SELECT 
+    SELECT
       e.name,
       e.department,
       SUM(a.duration_seconds) / 3600 as hours_worked,
       AVG(a.productivity_score) as avg_score
     FROM employees e
-    LEFT JOIN activities a ON e.id = a.employee_id 
-      AND a.timestamp > datetime('now', '-${timeframe.days} days')
+    LEFT JOIN activities a ON e.id = a.employee_id
+      AND a.timestamp > datetime('now', ?)
     GROUP BY e.id
     ORDER BY hours_worked ASC
   `;
 
-  const data = await db.all(sql);
+  const data = await db.all(sql, [`-${timeframe.days} days`]);
 
   let answer = `**Employee Capacity Analysis ${timeframe.label}**\n\n`;
   answer += `Standard: **${standardHours} hours**\n\n`;
@@ -968,21 +968,21 @@ async function handleTopPerformerQuery(question: string, db: any): Promise<ChatR
   const timeframe = extractTimeframe(question);
 
   const sql = `
-    SELECT 
+    SELECT
       e.name,
       e.department,
       AVG(a.productivity_score) as avg_score,
       SUM(a.duration_seconds) / 3600 as total_hours
     FROM employees e
     JOIN activities a ON e.id = a.employee_id
-    WHERE a.timestamp > datetime('now', '-${timeframe.days} days')
+    WHERE a.timestamp > datetime('now', ?)
     GROUP BY e.id
     HAVING avg_score > 60 AND total_hours > 10
     ORDER BY avg_score DESC
     LIMIT 5
   `;
 
-  const data = await db.all(sql);
+  const data = await db.all(sql, [`-${timeframe.days} days`]);
 
   if (data.length === 0) {
     return {

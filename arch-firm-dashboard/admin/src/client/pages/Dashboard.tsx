@@ -57,6 +57,7 @@ export const Dashboard: React.FC = () => {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { onlineEmployees, recentActivity: _recentActivity } = useWebSocket();
 
   useEffect(() => {
@@ -67,18 +68,24 @@ export const Dashboard: React.FC = () => {
 
   const loadData = async () => {
     try {
+      setError(null);
       const [statsRes, employeesRes] = await Promise.all([
         fetch('/api/dashboard/stats'),
         fetch('/api/employees')
       ]);
+
+      if (!statsRes.ok || !employeesRes.ok) {
+        throw new Error('Failed to fetch dashboard data');
+      }
 
       const statsData = await statsRes.json();
       const employeesData = await employeesRes.json();
 
       if (statsData.success) setStats(statsData.data);
       if (employeesData.success) setEmployees(employeesData.data);
-    } catch (error) {
-      console.error('Error loading dashboard data:', error);
+    } catch (err) {
+      console.error('Error loading dashboard data:', err);
+      setError(err instanceof Error ? err.message : 'Failed to load dashboard data');
     } finally {
       setLoading(false);
     }
@@ -86,6 +93,21 @@ export const Dashboard: React.FC = () => {
 
   if (loading) {
     return <DashboardSkeleton />;
+  }
+
+  if (error) {
+    return (
+      <div style={styles.container}>
+        <div style={errorStyles.container}>
+          <div style={errorStyles.icon}>⚠️</div>
+          <h2 style={errorStyles.title}>Failed to Load Dashboard</h2>
+          <p style={errorStyles.message}>{error}</p>
+          <button onClick={loadData} style={errorStyles.retryButton}>
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   }
 
   const getProductivityColor = (score: number) => {
@@ -353,6 +375,42 @@ const BreakdownItem: React.FC<BreakdownItemProps> = ({ label, minutes, color }) 
       <div style={styles.breakdownValue}>{hours}h</div>
     </div>
   );
+};
+
+const errorStyles: { [key: string]: React.CSSProperties } = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '40px',
+    textAlign: 'center'
+  },
+  icon: {
+    fontSize: '48px',
+    marginBottom: '16px'
+  },
+  title: {
+    fontSize: '24px',
+    fontWeight: 600,
+    color: '#e74c3c',
+    marginBottom: '8px'
+  },
+  message: {
+    fontSize: '16px',
+    color: '#7f8c8d',
+    marginBottom: '24px'
+  },
+  retryButton: {
+    padding: '12px 24px',
+    backgroundColor: '#3498db',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '8px',
+    fontSize: '16px',
+    fontWeight: 500,
+    cursor: 'pointer'
+  }
 };
 
 const styles: { [key: string]: React.CSSProperties | any } = {
