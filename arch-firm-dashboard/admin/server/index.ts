@@ -37,11 +37,12 @@ app.use('/api/ai', aiRoutes);
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
 // Determine the correct static path based on environment
-// In production (compiled): files are at dist/server/ and client is at dist/client/
-// The compiled server is in admin/dist/server/, so client is at admin/dist/client/
+// In production (compiled): files are at admin/dist/server/ and client is at admin/dist/client/
+// The server is in admin/dist/server/, so client is at admin/dist/client/
+// In dev: server is in admin/server/, so client is at admin/dist/client/
 const staticPath = process.env.NODE_ENV === 'production'
-  ? path.join(currentDir, '../client')  // From dist/server/ to dist/client/
-  : path.join(currentDir, '../../dist/client');  // From server/ to dist/client/ (dev)
+  ? path.join(currentDir, '../client')  // From admin/dist/server/ to admin/dist/client/
+  : path.join(currentDir, '../dist/client');  // From admin/server/ to admin/dist/client/ (dev)
 
 console.log('Serving static files from:', staticPath);
 app.use(express.static(staticPath));
