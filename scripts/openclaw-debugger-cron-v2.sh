@@ -22,20 +22,12 @@ case $SHIFT_NUM in
     # Run on Mondays and Thursdays after new newsletter implementations
     DAY_OF_WEEK=$(date +%u)
     if [ "$DAY_OF_WEEK" -eq 1 ] || [ "$DAY_OF_WEEK" -eq 4 ]; then
-      BENSBITES_LOG="$LOG_DIR/bensbites-testing.log"
-      echo "[$TIMESTAMP] === Ben's Bites Testing Protocol ===" >> "$BENSBITES_LOG"
+      echo "[$TIMESTAMP] Running Ben's Bites testing protocol..." >> "$LOG_DIR/debugger-cron.log"
       
-      # Test working tools
-      echo "[$TIMESTAMP] Testing Lossless Claw..." >> "$BENSBITES_LOG"
-      sqlite3 ~/.openclaw/lcm.db "SELECT COUNT(*) FROM summaries;" >> "$BENSBITES_LOG" 2>&1
+      # Run comprehensive test and auto-document script
+      bash "$WORKSPACE/scripts/bensbites-test-and-document.sh"
       
-      echo "[$TIMESTAMP] Testing Context Hub..." >> "$BENSBITES_LOG"
-      cd ~/.openclaw/tools/context-hub && node cli/bin/chub search tavily >/dev/null 2>&1 && echo "Context Hub: OK" >> "$BENSBITES_LOG" || echo "Context Hub: FAIL" >> "$BENSBITES_LOG"
-      
-      echo "[$TIMESTAMP] Testing Autocontext..." >> "$BENSBITES_LOG"
-      cd ~/.openclaw/tools/autocontext/autocontext && source venv/bin/activate && autoctx list >/dev/null 2>&1 && echo "Autocontext: OK" >> "$BENSBITES_LOG" || echo "Autocontext: FAIL" >> "$BENSBITES_LOG"
-      
-      echo "[$TIMESTAMP] Ben's Bites testing complete" >> "$BENSBITES_LOG"
+      echo "[$TIMESTAMP] Ben's Bites testing complete" >> "$LOG_DIR/debugger-cron.log"
     fi
     
     # TODO: Trigger OpenClaw Gateway for morning shift tasks
