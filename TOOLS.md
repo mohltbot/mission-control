@@ -100,13 +100,69 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 ---
 
+## Ben's Bites Tools (Tested March 22, 2026)
+
+### Working Tools (Active)
+
+| Tool | CLI/Path | Status | Purpose |
+|------|----------|--------|---------|
+| **Lossless Claw** | OpenClaw Plugin | ✅ LIVE | DAG-based conversation compaction |
+| **Context Hub** | `chub` | ✅ LIVE | Curated API documentation |
+| **Autocontext** | `autoctx` | ✅ LIVE | Self-improving agent loops |
+
+**Lossless Claw:**
+- Location: `~/.lossless-claw/repo/`
+- Database: `~/.openclaw/lcm.db`
+- Tools: `lcm_grep`, `lcm_describe`, `lcm_expand`
+- Status: Plugin loaded, auto-compacts conversations
+
+**Context Hub:**
+- Location: `~/.openclaw/tools/context-hub/`
+- Usage: `cd ~/.openclaw/tools/context-hub && node cli/bin/chub search <topic>`
+- Coverage: DeepSeek, Tavily, OpenAI, Python, React
+- Gaps: Moonshot/Kimi not in registry
+
+**Autocontext:**
+- Location: `~/.openclaw/tools/autocontext/`
+- Usage: `~/.openclaw/scripts/autocontext-run.sh <scenario> <gens>`
+- Scenarios: grid_ctf, othello
+- Provider: Deterministic (no API costs)
+
+### Tools Needing API Keys
+
+| Tool | Script | Needs | Status |
+|------|--------|-------|--------|
+| **BrowserBase Fetch** | `scripts/browserbase-fetch.sh` | `BROWSERBASE_API_KEY` | ⚠️ Not configured |
+| **Cloudflare Crawl** | `scripts/cf-crawl.sh` | `CF_API_TOKEN`, `CF_ACCOUNT_ID` | ⚠️ Not configured |
+| **Firecrawl CLI** | `scripts/firecrawl-agent.sh` | `FIRECRAWL_API_KEY` | ⚠️ Not configured |
+
+### Broken/Down Tools
+
+| Tool | Issue | Status |
+|------|-------|--------|
+| **Context7** | Service API returns 404 | ⚠️ Down |
+| **Upstash Box** | Fake product (doesn't exist) | ❌ Broken |
+| **NemoClaw** | Needs Docker/OpenShell | ⚠️ Parked |
+
+### Documented Skills (Not Installed)
+
+From Ben's Bites March 13 — documented in AGENTS.md:
+- **Visualize** — Interactive charts/diagrams (https://github.com/bentossell/visualise)
+- **JSON Render** — Generative UI (https://skills.sh/vercel-labs/json-render)
+- **React Doctor** — React code quality (https://github.com/millionco/react-doctor)
+- **Agent Browser** — Browser automation with dogfood tag
+- **Gists.sh** — GitHub gist rendering (https://gists.sh/)
+
+---
+
 ## Notes
 
 - **Mobile-first requirement:** Everything must work on phone
 - **Testing standard:** "Test repeatedly and thoroughly"
 - **Risk tolerance:** Willing to try deposit model for client projects
 - **Budget conscious:** $200/month AI budget, optimize for efficiency
+- **Ben's Bites testing:** All implementations tested before adding to this file
 
 ---
 
-_Last updated: March 17, 2026_
+_Last updated: March 22, 2026_
