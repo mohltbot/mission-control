@@ -1,97 +1,101 @@
-# ArchTrack - Employee Time Tracking & Admin Dashboard
+# Mission Control
 
-An employee time tracking and productivity monitoring system for your uncle's manufacturing business.
+**Your personal AI-powered command center.**
 
-## Architecture
+This is your private workspace for tracking projects, managing AI agents, and orchestrating your 1-person unicorn startup.
+
+---
+
+## What This Is
+
+Mission Control is your central nervous system — a private repository where you and your AI agents (like me, Mohlt) track everything:
+
+- **Active projects** — ArchTrack, OpenClaw Debugger, side quests
+- **Lead pipeline** — Hot/warm/cold leads for your businesses
+- **Daily operations** — Ghost shifts, 4-hour syncs, heartbeat monitoring
+- **Memory & context** — Long-term memory, session logs, decisions
+- **Skills & tools** — Custom OpenClaw skills, scripts, automations
+
+---
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `AGENTS.md` | How I work, my boundaries, my memory system |
+| `SOUL.md` | Who I am — my personality, vibe, how I operate |
+| `USER.md` | Everything I know about you, Mohammed |
+| `MEMORY.md` | Long-term curated memories |
+| `TOOLS.md` | API accounts, infrastructure, active projects |
+| `mission-control.md` | Live dashboard — current status, recent activity |
+| `JOURNEY.md` | Your personal journey log |
+
+---
+
+## Directory Structure
 
 ```
-arch-firm-dashboard/
-├── admin/          # Admin dashboard (React + Express + SQLite)
-├── desktop/        # Desktop activity tracker (Electron)
-└── shared/         # Shared TypeScript types
+mission-control/
+├── AGENTS.md, SOUL.md, USER.md, MEMORY.md  # Core context
+├── business/           # Active businesses
+│   ├── openclaw-debugger/   # Lead gen business
+│   ├── side-quests/         # One-off projects
+│   └── siegfried-crm/       # Work CRM data
+├── arch-firm-dashboard/    # ArchTrack production code
+├── memory/              # Daily session logs
+├── scripts/             # Automation scripts
+├── skills/              # Custom OpenClaw skills
+├── docs/                # Documentation
+├── archive/             # Old backups & reports
+└── config/              # Configuration files
 ```
 
-## Quick Start
+---
 
-### 1. Install Dependencies
+## How We Work
+
+1. **Ghost Shifts** — I work autonomously during scheduled windows
+2. **4-Hour Syncs** — Regular check-ins on progress
+3. **Heartbeat Monitoring** — Continuous monitoring of systems
+4. **Memory System** — Daily logs + curated long-term memory
+
+---
+
+## Active Projects
+
+| Project | Status | Repo |
+|---------|--------|------|
+| **ArchTrack** | ✅ Production | [Public](https://github.com/maximizeGPT/Archtrack) |
+| **OpenClaw Debugger** | 🟡 Active | Private |
+| **Lenny's Second Brain** | ✅ Complete | [Public](https://github.com/maximizeGPT/lenny-second-brain) |
+
+---
+
+## Quick Commands
 
 ```bash
-cd arch-firm-dashboard
-npm run install:all
+# Start ArchTrack
+./scripts/start-archtrack.sh
+
+# Stop ArchTrack
+./scripts/stop-archtrack.sh
+
+# Search with Tavily
+./scripts/tavily-search.sh "your query"
 ```
 
-### 2. Start Admin Dashboard
+---
 
-```bash
-cd admin
-npm run dev
-```
+## Security
 
-This starts:
-- Server: http://localhost:3001
-- Dashboard: http://localhost:5174
+⚠️ **This is a PRIVATE repository** — contains:
+- Personal CRM data
+- Business leads and pricing
+- API tokens (in .gitignore)
+- Your personal journey and psychology
 
-### 3. Build Desktop App (Optional)
+Never make this public.
 
-```bash
-cd desktop
-npm install
-npm run build
-```
+---
 
-## Features
-
-### Admin Dashboard
-- **Employee Management**: Add/edit/delete employees
-- **Project Tracking**: Create projects, assign tasks
-- **Time Tracking**: View hours logged by employee/project
-- **Productivity Reports**: See productivity scores and suspicious activity
-- **Real-time Updates**: WebSocket connection for live activity feed
-
-### Desktop Tracker
-- Automatic activity tracking
-- App usage classification
-- Idle time detection
-- Productivity scoring
-- Suspicious activity detection (YouTube idle, rapid switching, etc.)
-
-## API Endpoints
-
-- `GET /api/employees` - List all employees
-- `POST /api/employees` - Create employee
-- `GET /api/projects` - List all projects
-- `GET /api/activities` - Get activity logs
-- `GET /api/reports/productivity` - Generate productivity report
-- `WS /ws` - WebSocket for real-time updates
-
-## Database
-
-SQLite database stored in `admin/data/admin.db`
-
-Tables:
-- `employees` - Employee records
-- `projects` - Project information
-- `tasks` - Task assignments
-- `activities` - Activity tracking data
-- `time_entries` - Legacy time entries
-
-## Development
-
-### Tech Stack
-- **Frontend**: React + TypeScript + Vite
-- **Backend**: Express + WebSocket + SQLite
-- **Desktop**: Electron + active-win (window tracking)
-
-### File Structure
-```
-admin/
-├── src/client/     # React frontend
-│   ├── pages/      # Dashboard, Employees, Projects, Tasks, Reports
-│   └── contexts/   # WebSocket context
-├── server/         # Express backend
-│   ├── index.ts    # Server entry
-│   ├── routes.ts   # API routes
-│   ├── database.ts # SQLite operations
-│   └── websocket.ts# WebSocket handler
-└── data/           # SQLite database
-```
+*Built by Mohammed + Mohlt 🐾*
