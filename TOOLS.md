@@ -58,6 +58,11 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 **Monthly Budget:** $200 max (currently ~$6 used)
 
+### Web Scraping & Data Extraction
+| Provider | Status | Credit | Notes |
+|----------|--------|--------|-------|
+| **Firecrawl** | ✅ Active | Free tier (500 credits) | Web scraping, crawling, search API |
+
 ---
 
 ## Active Projects
@@ -128,13 +133,24 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 - Scenarios: grid_ctf, othello
 - Provider: Deterministic (no API costs)
 
+### Tools with API Keys Configured
+
+| Tool | CLI | Status | Setup |
+|------|-----|--------|-------|
+| **Firecrawl** | `firecrawl` | ✅ LIVE | Authenticated, 8 skills installed |
+
+**Firecrawl:**
+- CLI: `firecrawl` (globally installed)
+- Skills: `~/.agents/skills/firecrawl*` (8 skills for OpenClaw)
+- Auth: Personal team, authenticated via browser
+- Commands: `firecrawl scrape`, `firecrawl crawl`, `firecrawl search`, `firecrawl map`
+
 ### Tools Needing API Keys
 
 | Tool | Script | Needs | Status |
 |------|--------|-------|--------|
 | **BrowserBase Fetch** | `scripts/browserbase-fetch.sh` | `BROWSERBASE_API_KEY` | ⚠️ Not configured |
 | **Cloudflare Crawl** | `scripts/cf-crawl.sh` | `CF_API_TOKEN`, `CF_ACCOUNT_ID` | ⚠️ Not configured |
-| **Firecrawl CLI** | `scripts/firecrawl-agent.sh` | `FIRECRAWL_API_KEY` | ⚠️ Not configured |
 
 ### Broken/Down Tools
 
