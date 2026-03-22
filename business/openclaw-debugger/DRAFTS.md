@@ -546,6 +546,67 @@ Are you dealing with the CORS issues too, or just keeping an eye on security bes
 
 ---
 
+## 🔄 NEW RESPONSES NEEDED (GitHub)
+
+### GitHub Reply: lilith-the-dear (#49873 - Custom Skills)
+
+**Context:** She tried the symlink workaround, it didn't work. She's still stuck and asking for help.
+
+**COPY AND PASTE:**
+```
+Sorry the symlink didn't work — the skills discovery issue is deeper than I thought.
+
+Since you're on 2026.3.13, this is likely the pi-coding-agent dependency issue Hollychou924 mentioned. Two options:
+
+1. **Quick fix:** Downgrade to 2026.3.12 (skills work there)
+2. **Proper fix:** Move skills to `~/.openclaw/skills/` instead of workspace
+
+Want me to help you debug which path the CLI is actually checking? I can walk you through it — usually takes 10-15 min to sort out.
+```
+
+---
+
+### GitHub Reply: teqian (#51056 - OpenRouter Auth)
+
+**Context:** They shared an OpenClaw ecosystem toolkit, potential networking opportunity.
+
+**COPY AND PASTE:**
+```
+Thanks for sharing the toolkit! Hadn't seen that curated list before — some solid resources in there.
+
+Are you building with OpenClaw yourself or just keeping tabs on the ecosystem? Always curious what people are working on.
+```
+
+---
+
+### GitHub Reply: papiofficial (#51116 - Discord WebSocket)
+
+**Context:** They found a critical bug — config.patch hot reload causes gateway death under load.
+
+**COPY AND PASTE:**
+```
+Great catch on the SIGUSR1/gateway death correlation — that's a nasty one. Hot reload should be safe, but clearly isn't under load.
+
+Are you running with `gateway.hotReload: true` in production? If so, I'd recommend disabling it until this is patched. The restart-on-change feature isn't worth the instability.
+
+Have you opened a separate issue for this, or should I reference this comment in a new one?
+```
+
+---
+
+### GitHub Reply: easyvaru-hue (#51012 - WhatsApp Windows)
+
+**Context:** Confirmed Windows repro of WhatsApp relink issue.
+
+**COPY AND PASTE:**
+```
+Thanks for confirming the Windows repro — rules out the bootstrap theory. This is looking like a Baileys session state bug specific to 2026.3.13.
+
+Are you seeing this consistently every time you relink, or intermittent? Trying to figure out if it's timing-related or a hard regression.
+```
+
+---
+
 ## ✅ ALREADY POSTED (Archive)
 
 ### Twitter Threads 1-9 [ALL POSTED Mar 17-19]
