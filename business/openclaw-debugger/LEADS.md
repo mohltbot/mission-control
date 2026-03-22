@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 20, 2026 (Shift 1)
+**Last Updated:** March 21, 2026 (Shift 1 - Consolidated)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -57,15 +57,30 @@
 | dnu (@DnuLkjkjh) | Twitter/X | Engaged on OpenClaw 2026.3.13 skills thread — technical feedback about SKILL.md paths. In app business/AI (basilai.app). Conversation active, responded to my reply with like. | https://x.com/DnuLkjkjh | 🟡 Warm | Networking/BD opportunity — ask about basilai tools, find overlap | DRAFTS.md "Twitter dnu follow-up" |
 | Mark Fietje | Twitter/X | Called out security issue with `dangerouslyAllowHostHeaderOriginFallback` advice. Right about the risk, wants proper fix. | https://x.com/markfietje | 🟡 Warm | Security-conscious technical lead — acknowledge he's right, ask about his use case | DRAFTS.md "Twitter Mark Fietje response" |
 | u/CooK1e | Reddit | Same issue as OP (21d ago) - may still be stuck | https://redd.it/1j8k2n2 | 🔵 Cold | Follow up to see if resolved - potential lead | — |
+| @staroscott | GitHub | Discord WebSocket disconnects every ~10 min (health-monitor restart loop) | https://github.com/openclaw/openclaw/issues/51636 | 🔥 **HOT — FRESH** | Comment + DM — Production reliability, messages lost | DRAFTS.md "DM 16" |
+| @ronin011-bot | GitHub | WhatsApp message react fails with 'No active WhatsApp Web listener' | https://github.com/openclaw/openclaw/issues/51682 | 🔥 **HOT — FRESH** | Comment + DM — React works but poll/send succeed, odd bug | DRAFTS.md "DM 17" |
+| @ngxaix | GitHub | Gateway probe WebSocket handshake timeout but HTTP works fine | https://github.com/openclaw/openclaw/issues/51698 | 🔥 **HOT — FRESH** | Comment + DM — Network-level issue, fresh (13 min ago) | DRAFTS.md "DM 18" |
+| @bxy3045134656 | GitHub | `openclaw cron run` causes gateway closed 1000 error | https://github.com/openclaw/openclaw/issues/51632 | 🔥 **HOT — FRESH** | Comment + DM — Cron execution failing, 3 comments already | DRAFTS.md "DM 19" |
+| @heavensea | GitHub | Telegram responses not sent — missing "run done" event | https://github.com/openclaw/openclaw/issues/51659 | 🔥 **HOT — FRESH** | Comment + DM — Message delivery issue, 2 comments | DRAFTS.md "DM 20" |
+| @hamzagh1998 | GitHub | OpenClaw 2026.3.13: local loopback gateway WS handshake times out | https://github.com/openclaw/openclaw/issues/51679 | 🔥 **HOT — FRESH** | Comment + DM — 2026.3.13 regression, CLI RPCs failing | DRAFTS.md "DM 21" |
+| @liorsolomon | GitHub | memory_search tool fails to load missing dist/memory-cli-*.js (2026.3.13) | https://github.com/openclaw/openclaw/issues/51676 | 🔥 **HOT — FRESH** | Comment + DM — Memory tool broken, regression | DRAFTS.md "DM 22" |
+| @rlerikse | GitHub | sessions.json caches stale model after config change | https://github.com/openclaw/openclaw/issues/51677 | 🟡 Warm | Comment — Config change doesn't reflect, session issue | DRAFTS.md "Reply 22" |
+| @tengj | GitHub | Chrome MCP (--browser-profile user) does not auto-read gateway.remote.token | https://github.com/openclaw/openclaw/issues/51661 | 🔥 **HOT — FRESH** | Comment + DM — Browser automation auth issue | DRAFTS.md "DM 23" |
+| @eventslistener | GitHub | Web chat crashes OpenClaw after sending image, corrupting session file | https://github.com/openclaw/openclaw/issues/51669 | 🔥 **HOT — FRESH** | Comment + DM — Image upload crash, data corruption | DRAFTS.md "DM 24" |
+| @liuxiao128 | GitHub | Control UI freezes with high CPU when switching sessions via dropdown | https://github.com/openclaw/openclaw/issues/51685 | 🟡 Warm | Comment — UI performance issue | DRAFTS.md "Reply 23" |
+| teqian | GitHub | Curated OpenClaw ecosystem toolkit, shared in #51056 | https://github.com/teqian | 🟡 Warm | Networking opportunity — shared resources, potential collaborator | GITHUB-RESPONSES.md |
+| sahilsatralkar | GitHub | Investigating memory leak #51097, technical contributor | https://github.com/sahilsatralkar | 🟡 Warm | Technical contributor — wait for findings, potential collaboration | GITHUB-RESPONSES.md |
+| PeterHiroshi | GitHub | Root cause analysis on message queue bug #50496 | https://github.com/PeterHiroshi | 🟡 Warm | Strong technical analysis — potential contributor | GITHUB-RESPONSES.md |
+| lishoulong | GitHub | Shared manual patch for auth scope issue #50474 | https://github.com/lishoulong | 🟡 Warm | Community workaround contributor | GITHUB-RESPONSES.md |
 
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 24 (including vmkkumar - pricing discussion active)
-- 🟡 Warm leads: 12
+- 🔥 Hot leads: 34 (including vmkkumar - pricing discussion active)
+- 🟡 Warm leads: 14
 - 🔵 Cold leads: 7
-- **Total potential revenue:** $5,100+ (vmkkumar project TBD + 39 leads × $75 avg + 4 complex issues × $150)
+- **Total potential revenue:** $6,750+ (vmkkumar project TBD + 53 leads × $75 avg + 6 complex issues × $150)
 
 ---
 
@@ -86,6 +101,64 @@
 - If they want fixed price first: Quote $2,000-5,000 depending on scope
 
 **Revenue Potential:** $2,000-10,000 (custom build project)
+
+---
+
+## 🔥 FRESH LEADS — March 21, 2026 (Shift 1 - Consolidated)
+
+### @staroscott — Discord WebSocket Disconnects (Health-Monitor Loop)
+**Issue:** Gateway disconnects every ~10 minutes, messages lost during reconnect window, health-monitor restart loop
+**Why Hot:** Production reliability issue, very detailed logs provided, actively engaged (3 comments)
+**Link:** https://github.com/openclaw/openclaw/issues/51636
+**Status:** 🔥 Hot — Fresh (posted 2 hours ago)
+
+### @ronin011-bot — WhatsApp React Fails (But Send/Poll Succeed)
+**Issue:** Message react fails with 'No active WhatsApp Web listener' while send/poll succeed — inconsistent state
+**Why Hot:** Partial WhatsApp breakage, user confused by inconsistency, 2 comments already
+**Link:** https://github.com/openclaw/openclaw/issues/51682
+**Status:** 🔥 Hot — Fresh (posted 33 min ago)
+
+### @ngxaix — Gateway WebSocket Handshake Timeout
+**Issue:** `gateway probe` WebSocket handshake timeout but HTTP works fine — network-level issue
+**Why Hot:** Fresh issue (13 min ago), clear reproduction, actively engaged
+**Link:** https://github.com/openclaw/openclaw/issues/51698
+**Status:** 🔥 Hot — Fresh (posted 13 min ago)
+
+### @bxy3045134656 — Cron Run Gateway Closed 1000
+**Issue:** `openclaw cron run` causes "gateway closed (1000)" error — cron execution completely broken
+**Why Hot:** 3 comments already, user actively debugging, core functionality affected
+**Link:** https://github.com/openclaw/openclaw/issues/51632
+**Status:** 🔥 Hot — Fresh (posted 2 hours ago)
+
+### @heavensea — Telegram Missing "Run Done" Event
+**Issue:** Telegram responses not sent — missing "run done" event in message delivery
+**Why Hot:** Message delivery completely broken for Telegram, 2 comments, actively engaged
+**Link:** https://github.com/openclaw/openclaw/issues/51659
+**Status:** 🔥 Hot — Fresh (posted 1 hour ago)
+
+### @hamzagh1998 — 2026.3.13 WS Handshake Timeout on Local Loopback
+**Issue:** Local loopback gateway WS handshake times out / closes before connect for CLI RPCs
+**Why Hot:** 2026.3.13 regression, affects core CLI functionality, 1 comment
+**Link:** https://github.com/openclaw/openclaw/issues/51679
+**Status:** 🔥 Hot — Fresh (posted 37 min ago)
+
+### @liorsolomon — Memory Search Tool Broken (2026.3.13)
+**Issue:** `memory_search` tool fails to load missing `dist/memory-cli-1jB6uC2k.js` — regression in 2026.3.13
+**Why Hot:** Core tool broken, blocking memory functionality, 1 comment
+**Link:** https://github.com/openclaw/openclaw/issues/51676
+**Status:** 🔥 Hot — Fresh (posted 42 min ago)
+
+### @tengj — Chrome MCP Auth Issue
+**Issue:** `--browser-profile user` does not auto-read `gateway.remote.token`, fails with gateway closed (1000)
+**Why Hot:** Browser automation auth broken, 2 comments, actively engaged
+**Link:** https://github.com/openclaw/openclaw/issues/51661
+**Status:** 🔥 Hot — Fresh (posted 1 hour ago)
+
+### @eventslistener — Web Chat Image Crash + Session Corruption
+**Issue:** Web chat crashes OpenClaw after sending an image, corrupting session file
+**Why Hot:** Data corruption + crash, affects file uploads, 1 comment
+**Link:** https://github.com/openclaw/openclaw/issues/51669
+**Status:** 🔥 Hot — Fresh (posted 1 hour ago)
 
 ---
 
