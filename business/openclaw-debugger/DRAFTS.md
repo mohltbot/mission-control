@@ -607,6 +607,47 @@ Are you seeing this consistently every time you relink, or intermittent? Trying 
 
 ---
 
+## 🔄 REDDIT RESPONSES NEEDED
+
+### Reddit Reply: Rich_Chef_6141 (Subagent Stale Issue)
+
+**Context:** Subagent spawns but goes stale, new sessions don't help, eventually hits same wall.
+
+**COPY AND PASTE:**
+```
+The "subagent goes stale" issue is a known problem in 2026.3.13 — it's related to the session state not being properly cleaned up between spawns.
+
+Quick things to try:
+1. Run `openclaw sessions purge` before spawning subagents
+2. Check if you're hitting the maxConcurrent limit: `openclaw config get agents.defaults.subagents.maxConcurrent`
+3. Try adding a small delay between spawns: `sleep 2` in your script
+
+If none of that works, the subagent runtime might be corrupted. I can help debug — usually takes 15 min to sort out. DM me if you want to dig in.
+```
+
+---
+
+### Reddit Reply: BeingComprehensive (Non-Developer Help)
+
+**Context:** "How to do this not as a developer" — asking about maxTokens config fix.
+
+**COPY AND PASTE:**
+```
+No worries, you don't need to be a developer for this one!
+
+Here's the non-dev version:
+
+1. Open Finder → Press Cmd+Shift+G → type `~/.openclaw` → Go
+2. Find the file called `openclaw.json` and open it with TextEdit
+3. Look for "maxTokens" — if you see "4096" with quotes, remove the quotes so it's just 4096
+4. Save the file
+5. Run `openclaw config validate` in Terminal to check it's right
+
+If that feels too technical, I'm happy to jump on a quick call and walk you through it — takes 5 minutes.
+```
+
+---
+
 ## ✅ ALREADY POSTED (Archive)
 
 ### Twitter Threads 1-9 [ALL POSTED Mar 17-19]

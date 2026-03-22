@@ -54,6 +54,8 @@
 | GitHub #45882 | GitHub | MiniMax streaming not working | https://github.com/openclaw/openclaw/issues/45882 | 🟡 Warm | Monitor for fix | — |
 | GitHub #43909 | GitHub | dangerouslyDisableDeviceAuth not working | https://github.com/openclaw/openclaw/issues/43909 | 🟡 Warm | Monitor for fix | — |
 | u/VenariHunter | Reddit | New user - can't find openclaw.json config file | https://redd.it/1j8k2n2 | 🔵 Cold | New to OpenClaw, basic setup help - nurture long-term | — |
+| u/Rich_Chef_6141 | Reddit | Subagent spawning issues — subagent goes stale, new sessions don't help | Reddit thread | 🔥 Hot | Technical issue, needs debugging help — offered DM | DRAFTS.md "Reddit Rich_Chef_6141" |
+| u/BeingComprehensive | Reddit | Non-developer asking for help with config fix | Reddit thread | 🟡 Warm | Non-technical user — needs hand-holding, potential paid help | DRAFTS.md "Reddit BeingComprehensive" |
 | dnu (@DnuLkjkjh) | Twitter/X | Engaged on OpenClaw 2026.3.13 skills thread — technical feedback about SKILL.md paths. In app business/AI (basilai.app). Conversation active, responded to my reply with like. | https://x.com/DnuLkjkjh | 🟡 Warm | Networking/BD opportunity — ask about basilai tools, find overlap | DRAFTS.md "Twitter dnu follow-up" |
 | Mark Fietje | Twitter/X | Called out security issue with `dangerouslyAllowHostHeaderOriginFallback` advice. Right about the risk, wants proper fix. | https://x.com/markfietje | 🟡 Warm | Security-conscious technical lead — acknowledge he's right, ask about his use case | DRAFTS.md "Twitter Mark Fietje response" |
 | u/CooK1e | Reddit | Same issue as OP (21d ago) - may still be stuck | https://redd.it/1j8k2n2 | 🔵 Cold | Follow up to see if resolved - potential lead | — |
