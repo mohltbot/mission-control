@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 22, 2026 (Shift 2 - 6PM)
+**Last Updated:** March 23, 2026 (Shift 1 - 9AM)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -49,6 +49,10 @@
 | @williamwi617 | GitHub | WhatsApp QR login disconnects immediately (401) | https://github.com/openclaw/openclaw/issues/51111 | 🔥 **HOT — FRESH** | Comment + DM — WSL2/WhatsApp | DRAFTS.md "DM 13" |
 | @guruk | GitHub | Gateway memory leak — sessions.json unbounded growth | https://github.com/openclaw/openclaw/issues/51097 | 🔥 **HOT — FRESH** | Comment + DM — Enterprise-scale issue | DRAFTS.md "DM 14" |
 | @kelvinfleuty | GitHub | Subagent failed to execute or produce output | https://github.com/openclaw/openclaw/issues/51062 | 🔥 **HOT — FRESH** | Comment + DM — WSL2/subagent | DRAFTS.md "DM 15" |
+| @alex-blocklab | GitHub | Message desync after long agent output — responses shifted | https://github.com/openclaw/openclaw/issues/52982 | 🔥 **HOT — FRESH** | Comment + DM — Race condition, detailed analysis | DRAFTS.md "DM 25" |
+| @Charlesmpc | GitHub | Control UI assets missing after 2026.3.22 upgrade | https://github.com/openclaw/openclaw/issues/52977 | 🔥 **HOT — FRESH** | Comment + DM — install.sh regression | DRAFTS.md "DM 26" |
+| @joesinvestments | GitHub | LLM API error: unexpected tool_use_id in tool_result blocks | https://github.com/openclaw/openclaw/issues/52421 | 🔥 **HOT — FRESH** | Comment + DM — Session disruption, high tool volume | DRAFTS.md "DM 27" |
+| @kevinheinrichs | GitHub | dist/control-ui/ missing from npm package 2026.3.22 | https://github.com/openclaw/openclaw/issues/52808 | 🔥 **HOT — FRESH** | Comment — Major visibility (21 comments) | DRAFTS.md "Reply 24" |
 | GitHub #44611 | GitHub | Gateway not loading model config on restart | https://github.com/openclaw/openclaw/issues/44611 | 🟡 Warm | Comment with workaround | DRAFTS.md "Reply 10" |
 | GitHub #41871 | GitHub | Ollama models hang in 2026.3.8 | https://github.com/openclaw/openclaw/issues/41871 | 🟡 Warm | Comment with diagnostic | DRAFTS.md "Reply 11" |
 | GitHub #45882 | GitHub | MiniMax streaming not working | https://github.com/openclaw/openclaw/issues/45882 | 🟡 Warm | Monitor for fix | — |
@@ -79,10 +83,10 @@
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 34 (including vmkkumar - pricing discussion active)
+- 🔥 Hot leads: 39 (including vmkkumar - pricing discussion active)
 - 🟡 Warm leads: 14
 - 🔵 Cold leads: 7
-- **Total potential revenue:** $6,750+ (vmkkumar project TBD + 53 leads × $75 avg + 6 complex issues × $150)
+- **Total potential revenue:** $7,125+ (vmkkumar project TBD + 58 leads × $75 avg + 6 complex issues × $150)
 
 ---
 
@@ -220,6 +224,40 @@
 8. **Reply to GitHub #41673** — Timeout issue, common problem
 9. **Comment on GitHub #44611** — Gateway config caching on restart (NEW)
 10. **Comment on GitHub #41871** — Ollama hanging issue (NEW)
+
+---
+
+## 🔥 FRESH LEADS — March 23, 2026 (Shift 1 - Cron Consolidated)
+
+### @alex-blocklab — Message Desync After Long Agent Output
+**Issue:** After long agent output, responses get shifted by one (response N delivered to message N+1). Detailed root cause analysis with 3 interacting defects in message processing pipeline.
+**Why Hot:** Production-critical race condition affecting Discord/Telegram, user provided deep technical analysis with suggested fixes
+**Link:** https://github.com/openclaw/openclaw/issues/52982
+**Status:** 🔥 **HOT — FRESH** (posted 17 min ago)
+
+### @Charlesmpc — Control UI Assets Missing (2026.3.22 Regression)
+**Issue:** After upgrading to 2026.3.22 via install.sh, Control UI shows "assets not found" error. Affects install.sh users who can't run `pnpm ui:build`.
+**Why Hot:** Regression affecting all install.sh users, 6+ comments already, multiple users confirming
+**Link:** https://github.com/openclaw/openclaw/issues/52977
+**Status:** 🔥 **HOT — FRESH** (posted 28 min ago)
+
+### @joesinvestments — LLM API Error: Unexpected tool_use_id
+**Issue:** Intermittent API error during high tool call volume sessions (10+ calls). Raw Anthropic error surfaced to Discord channel instead of graceful handling.
+**Why Hot:** Session disruption bug, affects multi-turn autonomous work, 3 comments with detailed analysis
+**Link:** https://github.com/openclaw/openclaw/issues/52421
+**Status:** 🔥 **HOT — FRESH** (posted yesterday, active today)
+
+### @davimsimplay-collab — Control UI Assets Missing from npm (v2026.3.22)
+**Issue:** Control UI assets missing from npm package in 2026.3.22 — duplicate of #52977 but confirms widespread impact
+**Why Hot:** npm packaging issue, 2 comments, regression label
+**Link:** https://github.com/openclaw/openclaw/issues/52987
+**Status:** 🔥 **HOT — FRESH** (posted 8 min ago)
+
+### @kevinheinrichs — dist/control-ui/ Missing from npm (2026.3.22)
+**Issue:** Same Control UI assets issue — 21 comments, 3 linked PRs, major visibility
+**Why Hot:** Highest engagement of the Control UI issues, PR fix in progress
+**Link:** https://github.com/openclaw/openclaw/issues/52808
+**Status:** 🔥 **HOT — FRESH** (posted 4 hours ago)
 
 ---
 
