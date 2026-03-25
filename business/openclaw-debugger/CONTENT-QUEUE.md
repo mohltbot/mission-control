@@ -39,6 +39,7 @@
 | Mar 20 | Twitter | Thread: WhatsApp Broken in 2026.3.13 — 3 Workarounds | ✅ Ready | DRAFTS.md "Twitter Thread 10" |
 | Mar 20 | Twitter | Quick Tip: Discord WebSocket Drops Every 10 Min | ✅ Ready | DRAFTS.md "Quick Tip 2" |
 | Mar 20 | LinkedIn | Case Study: Gateway Memory Leak at Scale | ✅ Ready | DRAFTS.md "Case Study 4" |
+| Mar 25 | Twitter | Thread: 2026.3.23-2 Approval System Infinite Loop Bug | ✅ Ready | DRAFTS.md "Twitter Thread 12" |
 
 ---
 
@@ -51,6 +52,7 @@
 5. **"Anthropic 529 Errors: The Silent Killer"** — Twitter thread
 6. **"2026.3.12: What Breaks & How to Fix It"** — Twitter thread (NEW — addresses current regression)
 7. **"Ollama + OpenClaw: Why It Hangs & 3 Fixes"** — Technical deep dive (NEW)
+8. **"2026.3.23-2: Approval System Infinite Loop Bug"** — Twitter thread (NEW — trending today)
 
 ---
 

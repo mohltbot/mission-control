@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 23, 2026 (Shift 1 - 9AM)
+**Last Updated:** March 25, 2026 (Shift 1 - 9AM)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -78,15 +78,28 @@
 | sahilsatralkar | GitHub | Investigating memory leak #51097, technical contributor | https://github.com/sahilsatralkar | 🟡 Warm | Technical contributor — wait for findings, potential collaboration | GITHUB-RESPONSES.md |
 | PeterHiroshi | GitHub | Root cause analysis on message queue bug #50496 | https://github.com/PeterHiroshi | 🟡 Warm | Strong technical analysis — potential contributor | GITHUB-RESPONSES.md |
 | lishoulong | GitHub | Shared manual patch for auth scope issue #50474 | https://github.com/lishoulong | 🟡 Warm | Community workaround contributor | GITHUB-RESPONSES.md |
+| @AIdenB899 | GitHub | Cron delivery to Slack failing with 'Unsupported channel: slack' — 2026.3.22 regression | https://github.com/openclaw/openclaw/issues/53769 | 🔥 **HOT — FRESH** | Comment + DM — Production cron jobs broken | DRAFTS.md "DM 28" |
+| @timwalterseh-max | GitHub | Feature Request: Custom TUI Footer for Cost/Balance — hit OpenAI rate limits | https://github.com/openclaw/openclaw/issues/53774 | 🔥 **HOT — FRESH** | DM — Cost optimization consulting opportunity | DRAFTS.md "DM 29" |
+| @justinbao19 | GitHub | WhatsApp channel fails to load after gateway restart in 2026.3.22 | https://github.com/openclaw/openclaw/issues/53767 | 🟡 Warm | Resolved in 2026.3.23-1 — pattern tracking | — |
+| @PhilosopherSphinx | GitHub | Critical: Approval system infinite loop in fresh install 2026.3.23-2 — wastes API tokens | https://github.com/openclaw/openclaw/issues/54533 | 🔥 **HOT — FRESH** | Comment + DM — Production critical, burns money | DRAFTS.md "DM 30" |
+| @malshaalan-ai | GitHub | Browser CLI crashes Chrome 146 via Playwright connectOverCDP (SIGTRAP) | https://github.com/openclaw/openclaw/issues/54535 | 🔥 **HOT — FRESH** | Comment + DM — Browser automation broken | DRAFTS.md "DM 31" |
+| u/DeryHD | Reddit | Ollama connection error in v2026.3.23-2 — network connection error, downgrade fixes | https://redd.it/1s3ev5q | 🔥 **HOT — FRESH** | Reply + DM — Ollama regression | DRAFTS.md "Reddit DeryHD" |
+| u/Far_Main1442 | Reddit | ChatGPT OAuth rate limited — capped for 5 days, needs alternatives | https://redd.it/1s3ecmh | 🔥 **HOT — FRESH** | Reply + DM — Rate limit consulting | DRAFTS.md "Reddit Far_Main1442" |
+| u/Frag_De_Muerte | Reddit | Codex 5.3 constantly drops the ball — agent sits idle, MiniMax works fine | https://redd.it/1s3d1ur | 🔥 **HOT — FRESH** | Reply + DM — Model selection consulting | DRAFTS.md "Reddit Frag_De_Muerte" |
+| u/Particular-Tie-6807 | Reddit | Wants to BUY premade OpenClaw setup — throne, email, phone, all channels | https://redd.it/1s3cwko | 🔥 **HOT — FRESH** | DM — High-intent buyer, offer setup service | DRAFTS.md "Reddit Particular-Tie-6807" |
+| u/widegroundpro | Reddit | Codex OAuth broken — billing error but billing fine, worked week ago | https://redd.it/1s39ton | 🔥 **HOT — FRESH** | Reply + DM — Auth regression | DRAFTS.md "Reddit widegroundpro" |
+| @limen96 | GitHub | Use local model for compaction to reduce costs | https://github.com/openclaw/openclaw/issues/53772 | 🟡 Warm | Cost-conscious user — content angle | — |
+| @AIdenB899 | GitHub | Cron delivery to Slack failing with 'Unsupported channel: slack' — 2026.3.22 regression | https://github.com/openclaw/openclaw/issues/53769 | 🔥 **HOT — FRESH** | Comment + DM — Production cron jobs broken | DRAFTS.md "DM 28" |
+| @timwalterseh-max | GitHub | Feature Request: Custom TUI Footer for Cost/Balance — hit OpenAI rate limits | https://github.com/openclaw/openclaw/issues/53774 | 🔥 **HOT — FRESH** | DM — Cost optimization consulting opportunity | DRAFTS.md "DM 29" |
 
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 39 (including vmkkumar - pricing discussion active)
-- 🟡 Warm leads: 14
+- 🔥 Hot leads: 49 (including vmkkumar - pricing discussion active)
+- 🟡 Warm leads: 16
 - 🔵 Cold leads: 7
-- **Total potential revenue:** $7,125+ (vmkkumar project TBD + 58 leads × $75 avg + 6 complex issues × $150)
+- **Total potential revenue:** $8,175+ (vmkkumar project TBD + 69 leads × $75 avg + 6 complex issues × $150)
 
 ---
 
