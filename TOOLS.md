@@ -48,6 +48,13 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 | Provider | Status | Credit | Notes |
 |----------|--------|--------|-------|
 | **Notion** | ✅ Active | — | Workspace integration |
+| **Browserbase** | ✅ Active | Free tier | Managed browser infrastructure |
+
+### Browser Automation
+| Tool | Status | Setup | Notes |
+|------|--------|-------|-------|
+| **Browserbase CLI** | ✅ Installed | `scripts/setup-browserbase-cli.sh` | Web scraping, screenshots |
+| **Puppeteer** | ✅ Local | `npm install puppeteer` | Local browser automation |
 | **n8n** | ⚠️ Limit hit | — | Monthly quota exceeded |
 | **DigitalOcean** | ✅ Active | — | Droplet management |
 | **Twilio** | ✅ Active | — | SMS/voice (8 calls in account) |
