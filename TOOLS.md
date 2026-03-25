@@ -37,4 +37,50 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
+## Browserbase CLI
+
+**Source:** Ben's Bites March 24, 2026 - "Agents should interview you"
+**Status:** ✅ Script Created, ⚠️ Needs API Key Configuration
+
+### What It Is
+Serverless browser automation platform with CLI for web scraping, screenshots, and automation. Ben highlighted this as a tool where you can just tell your agent: "Read browserbase.com/SKILL.md and set up Browserbase"
+
+### Installation & Setup
+```bash
+# Run the setup script
+./scripts/setup-browserbase-cli.sh all
+
+# Or manually:
+npm install -g @browserbasehq/cli
+export BROWSERBASE_API_KEY=your_api_key_here
+```
+
+### Common Commands
+```bash
+# Scrape a webpage
+browserbase scrape https://example.com
+
+# Take a screenshot
+browserbase screenshot https://example.com --output screenshot.png
+
+# List active sessions
+browserbase sessions list
+
+# Run automation script
+browserbase run automation.js
+```
+
+### Wrapper Scripts
+Located in `scripts/browserbase-wrappers/` (created by setup script):
+- `scrape.sh` - Simple URL scraping
+- `screenshot.sh` - Screenshot capture
+- `automate.sh` - Run automation scripts
+
+### API Key Setup
+1. Get API key from: https://www.browserbase.com/settings
+2. Set environment variable: `export BROWSERBASE_API_KEY=xxx`
+3. Run: `./scripts/setup-browserbase-cli.sh configure`
+
+---
+
 Add whatever helps you do your job. This is your cheat sheet.
