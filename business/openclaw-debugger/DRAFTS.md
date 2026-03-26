@@ -15,19 +15,24 @@
 **Status:** ✅ Ready to post
 **Platform:** Twitter/X
 **Topic:** WhatsApp issues trending today (3 new GitHub issues in 4 hours)
+**Link:** https://twitter.com/compose/tweet
 
-**COPY AND PASTE:**
+**COPY AND PASTE (one tweet at a time):**
 
+Tweet 1:
 ```
-1/ 🚨 WhatsApp is broken in OpenClaw 2026.3.13
+🚨 WhatsApp is broken in OpenClaw 2026.3.13
 
 If you're getting "No active listener" or 401 errors after QR login, you're not alone.
 
 3 new GitHub issues in the last 4 hours. Here's what's happening and how to fix it:
 
 🧵
+```
 
-2/ The Problem:
+Tweet 2:
+```
+The Problem:
 
 After scanning the QR code, WhatsApp shows "linked" briefly, then:
 • "No active WhatsApp Web listener"
@@ -35,57 +40,77 @@ After scanning the QR code, WhatsApp shows "linked" briefly, then:
 • Connection drops within seconds
 
 This is affecting Windows, WSL2, and Linux users.
+```
 
-3/ Workaround #1: The "Wait & Retry" Method
+Tweet 3:
+```
+Workaround #1: The "Wait & Retry" Method
 
 After linking:
 1. Wait 30 seconds before sending
-2. Check `openclaw channels status --probe`
+2. Check openclaw channels status --probe
 3. Look for "connected" not just "linked"
 
 The Baileys connection needs time to fully establish.
+```
 
-4/ Workaround #2: Clean Slate
+Tweet 4:
+```
+Workaround #2: Clean Slate
 
 If the above doesn't work:
-```bash
+
 openclaw gateway stop
 rm -rf ~/.openclaw/channels/whatsapp-auth/
 openclaw gateway start
 # Re-authenticate via QR
-```
 
 Sometimes the auth state gets corrupted.
+```
 
-5/ Workaround #3: The Delay Hack
+Tweet 5:
+```
+Workaround #3: The Delay Hack
 
 If you're automating WhatsApp sends, add a 5-second delay after the connection event before sending messages.
 
 It's ugly, but it works around the race condition.
+```
 
-6/ Root Cause:
+Tweet 6:
+```
+Root Cause:
 
 The WhatsApp provider in 2026.3.13 has a race condition between:
 • Baileys connection establishment
 • The first send attempt
 
 The connection appears ready before it actually is.
+```
 
-7/ The Real Fix:
+Tweet 7:
+```
+The Real Fix:
 
 This needs to be fixed in the OpenClaw WhatsApp provider. The connection state should properly wait for Baileys to emit "connected" before allowing sends.
 
 I've submitted detailed reports. Expect a fix in 2026.3.14.
+```
 
-8/ Need Help Now?
+Tweet 8:
+```
+Need Help Now?
 
 If your WhatsApp integration is business-critical and these workarounds aren't enough, I help people debug OpenClaw issues.
 
 $75 for 30 min — usually resolved in 15.
 
 DM me or check my GitHub: @mohlt
+```
 
-9/ Follow for more OpenClaw debugging tips
+Tweet 9:
+```
+Follow for more OpenClaw debugging tips
 
 I track every issue, regression, and workaround so you don't have to.
 
