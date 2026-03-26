@@ -643,14 +643,25 @@ Are you seeing this consistently every time you relink, or intermittent? Trying 
 
 **COPY AND PASTE:**
 ```
-The "subagent goes stale" issue is a known problem in 2026.3.13 — it's related to the session state not being properly cleaned up between spawns.
+If new sessions aren't helping and you're hitting the same wall, this is likely the subagent runtime corruption bug in 2026.3.13.
 
-Quick things to try:
-1. Run `openclaw sessions purge` before spawning subagents
-2. Check if you're hitting the maxConcurrent limit: `openclaw config get agents.defaults.subagents.maxConcurrent`
-3. Try adding a small delay between spawns: `sleep 2` in your script
+The stale subagent issue happens when the subagent process crashes but the parent doesn't detect it. Try these:
 
-If none of that works, the subagent runtime might be corrupted. I can help debug — usually takes 15 min to sort out. DM me if you want to dig in.
+1. Check subagent logs for crashes:
+   ls -la ~/.openclaw/agents/main/sessions/subagent-*
+
+2. Look for zombie processes:
+   ps aux | grep subagent
+
+3. Kill all stale subagents:
+   pkill -f subagent
+
+4. Restart gateway fresh:
+   openclaw gateway stop
+   openclaw sessions purge
+   openclaw gateway start
+
+If this keeps happening, your subagent config might have a resource leak. I can help debug the root cause — usually takes 15 min to sort out. DM me if you want to dig in.
 ```
 
 ---
@@ -1383,9 +1394,9 @@ Immediate Workaround #2: Clear the Cache
 
 Stop the bleeding manually:
 
-openclaw gateway stop
-rm -rf ~/.openclaw/cache/approvals/
-openclaw gateway start
+    openclaw gateway stop
+    rm -rf ~/.openclaw/cache/approvals/
+    openclaw gateway start
 
 This clears the stuck approval queue. You'll need to do this every time it happens.
 ```
@@ -1425,7 +1436,7 @@ How to Check If You're Affected:
 
 Run this and watch your logs:
 
-tail -f ~/.openclaw/logs/gateway.log | grep -i "approval"
+    tail -f ~/.openclaw/logs/gateway.log | grep -i "approval"
 
 If you see the same command requesting approval multiple times, you're in the loop.
 ```
