@@ -1,0 +1,8 @@
+# Deep Research CLI
+
+node_modules/
+.env
+research-*.md
+.idea/
+*.log
+.DS_Store
