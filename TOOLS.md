@@ -69,6 +69,8 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 | Provider | Status | Credit | Notes |
 |----------|--------|--------|-------|
 | **Firecrawl** | ✅ Active | Free tier (500 credits) | Web scraping, crawling, search API |
+| **dev-browser** | 🆕 Added | — | CLI browser automation via sandboxed JS (Ben's Bites 3/26) |
+| **deep-research** | 🆕 Added | — | CLI research agent using Browserbase APIs (Ben's Bites 3/26) |
 
 ---
 
@@ -112,7 +114,7 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 ---
 
-## Ben's Bites Tools (Tested March 22, 2026)
+## Ben's Bites Tools (Updated March 27, 2026)
 
 ### Working Tools (Active)
 
@@ -176,6 +178,15 @@ From Ben's Bites March 13 — documented in AGENTS.md:
 - **Agent Browser** — Browser automation with dogfood tag
 - **Gists.sh** — GitHub gist rendering (https://gists.sh/)
 
+### New Tools (March 27, 2026 - Ben's Bites)
+
+| Tool | Type | Status | Location |
+|------|------|--------|----------|
+| **dev-browser** | CLI | 📝 PR Open | `tools/dev-browser/` |
+| **deep-research** | CLI | 📝 PR Open | `tools/deep-research/` |
+| **Expect** | Testing | 🔍 Researching | Aiden Bai's QA tool |
+| **Feynman** | Research | 🔍 Researching | CLI paper research |
+
 ---
 
 ## Notes
@@ -188,4 +199,4 @@ From Ben's Bites March 13 — documented in AGENTS.md:
 
 ---
 
-_Last updated: March 22, 2026_
+_Last updated: March 27, 2026_
