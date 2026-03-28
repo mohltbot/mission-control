@@ -55,6 +55,7 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 |------|--------|-------|-------|
 | **Browserbase CLI** | ✅ Installed | `scripts/setup-browserbase-cli.sh` | Web scraping, screenshots |
 | **Puppeteer** | ✅ Local | `npm install puppeteer` | Local browser automation |
+| **Factory Missions** | 🆕 New | `scripts/setup-factory-missions.sh` | Long-running agents for large tasks (Ben's Bites 3/28) |
 | **n8n** | ⚠️ Limit hit | — | Monthly quota exceeded |
 | **DigitalOcean** | ✅ Active | — | Droplet management |
 | **Twilio** | ✅ Active | — | SMS/voice (8 calls in account) |

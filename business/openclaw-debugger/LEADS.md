@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 25, 2026 (Shift 2 - 6PM)
+**Last Updated:** March 28, 2026 (Shift 1 - Consolidated)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -13,7 +13,7 @@
 
 | Name | Source | Issue | Link | Status | Next Action | Draft Location |
 |------|--------|-------|------|--------|-------------|----------------|
-| vmkkumar | Personal/DM | Custom build: NEW AI customer service agent to sell to developers on Fiverr. You shared Intercom case study, offered to help. Message pending Discord safety scan. | Screenshot Mar 22 | 🔥 Hot | Wait for him to see message, then follow up if no response in 24h | DRAFTS.md "vmkkumar follow-up" |
+| vmkkumar | Personal/DM | Custom build: NEW AI customer service agent to sell to developers on Fiverr. You shared Intercom case study, offered to help. | Screenshot Mar 22 | 🔥 Hot | Day 7 follow-up due (10 days overdue) — DM this week | DRAFTS.md "vmkkumar follow-up" |
 |------|--------|-------|------|--------|-------------|----------------|
 | u/rocgpq (GPT-5.4 OAuth) | Reddit | Can't get OpenClaw 2026.3.7 + GPT-5.4 + OAuth working | https://redd.it/1rocgpq | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 1" |
 | u/Sudden_Clothes3886 | Reddit | Exec tools not working after update, fired an agent | https://redd.it/1rl13sb | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 2" |
@@ -91,15 +91,26 @@
 | @limen96 | GitHub | Use local model for compaction to reduce costs | https://github.com/openclaw/openclaw/issues/53772 | 🟡 Warm | Cost-conscious user — content angle | — |
 | @AIdenB899 | GitHub | Cron delivery to Slack failing with 'Unsupported channel: slack' — 2026.3.22 regression | https://github.com/openclaw/openclaw/issues/53769 | 🔥 **HOT — FRESH** | Comment + DM — Production cron jobs broken | DRAFTS.md "DM 28" |
 | @timwalterseh-max | GitHub | Feature Request: Custom TUI Footer for Cost/Balance — hit OpenAI rate limits | https://github.com/openclaw/openclaw/issues/53774 | 🔥 **HOT — FRESH** | DM — Cost optimization consulting opportunity | DRAFTS.md "DM 29" |
+| @yww325 | GitHub | Agent drops promised outputs after task switching — no durable pending queue | https://github.com/openclaw/openclaw/issues/55882 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Core reliability issue | DRAFTS.md "DM 32" |
+| @kkormesser | GitHub | macOS app crashes in WebSocketTaskBox.sendPing() — 2026.3.24 regression | https://github.com/openclaw/openclaw/issues/55878 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — macOS app broken | DRAFTS.md "DM 33" |
+| @mttconseil | GitHub | Discord health-monitor restart crash (maxAttempts=0) | https://github.com/openclaw/openclaw/issues/55873 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Production crash | DRAFTS.md "DM 34" |
+| @samrogers-com | GitHub | Auto-upgrade cron fails silently + macOS LaunchAgent not restored | https://github.com/openclaw/openclaw/issues/55880 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Silent automation failure | DRAFTS.md "DM 35" |
+| @cwil2072 | GitHub | Session model doesn't revert to primary after failover recovery | https://github.com/openclaw/openclaw/issues/55879 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Cost optimization issue | DRAFTS.md "DM 36" |
+| @mksf11e | GitHub | Telegram forum supergroup messages silently dropped (2026.3.24) | https://github.com/openclaw/openclaw/issues/55876 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Message loss bug | DRAFTS.md "DM 37" |
+| @tw3akercc | GitHub | v2026.3.24 gateway crash loop — RegExpCompiler OOM on startup | https://github.com/openclaw/openclaw/issues/55842 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Complete gateway failure | DRAFTS.md "DM 38" |
+| @coywolffuturist | GitHub | Gateway stuck in retry loop after provider outage — no self-recovery | https://github.com/openclaw/openclaw/issues/55862 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Resilience issue | DRAFTS.md "DM 39" |
+| @rjwang1982 | GitHub | Webchat Control UI approve button broken (2 duplicate issues) | https://github.com/openclaw/openclaw/issues/55852 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Control UI broken | DRAFTS.md "DM 40" |
+| @jlwestsr | GitHub | OAuth token injection broken after refactor — "No API key for provider" | https://github.com/openclaw/openclaw/issues/55857 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Auth regression | DRAFTS.md "DM 41" |
+| @atlasnummus-droid | GitHub | Custom providers lose auth-profile token resolution | https://github.com/openclaw/openclaw/issues/55860 | 🔥 **HOT — FRESH (Mar 27)** | Comment + DM — Custom provider auth broken | DRAFTS.md "DM 42" |
 
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 49 (including vmkkumar - pricing discussion active)
-- 🟡 Warm leads: 16
+- 🔥 Hot leads: 68 (including vmkkumar - pricing discussion active)
+- 🟡 Warm leads: 17 (+1 Lethe plugin creator)
 - 🔵 Cold leads: 7
-- **Total potential revenue:** $8,175+ (vmkkumar project TBD + 69 leads × $75 avg + 6 complex issues × $150)
+- **Total potential revenue:** $9,600+ (vmkkumar project TBD + 92 leads × $75 avg + 8 complex issues × $150)
 
 ---
 
@@ -271,6 +282,126 @@
 **Why Hot:** Highest engagement of the Control UI issues, PR fix in progress
 **Link:** https://github.com/openclaw/openclaw/issues/52808
 **Status:** 🔥 **HOT — FRESH** (posted 4 hours ago)
+
+---
+
+## 🔥 FRESH LEADS — March 26, 2026 (Shift 1 - Consolidated)
+
+### @Paul-le-cimanova — Discord Health-Monitor Crash
+**Issue:** Discord health-monitor stale-socket restart triggers uncaught exception, crashes gateway process completely
+**Why Hot:** Production crash — gateway dies, affects all Discord users, posted 4 min ago
+**Link:** https://github.com/openclaw/openclaw/issues/55260
+**Status:** 🔥 **HOT — FRESH** (posted Mar 26, 8:56 AM)
+
+### @rcritz — Node Exec Approval/Execution Mismatch
+**Issue:** Node-targeted exec can approve on Mac app but executes on gateway host instead — security/UX confusion
+**Why Hot:** Security issue + confusing UX, node targeting broken, posted 6 min ago
+**Link:** https://github.com/openclaw/openclaw/issues/55258
+**Status:** 🔥 **HOT — FRESH** (posted Mar 26, 8:54 AM)
+
+### @330789468-jasmine — /new Creates Duplicate Session Hijacking Feishu
+**Issue:** v2026.3.24 bug: `/new` creates duplicate "agent:main:main" session that hijacks Feishu message routing
+**Why Hot:** Message routing completely broken for Feishu users, regression in latest version
+**Link:** https://github.com/openclaw/openclaw/issues/55254
+**Status:** 🔥 **HOT — FRESH** (posted Mar 26, 8:50 AM)
+
+### @aiHeNingMengCha — Control UI Approval Modal Broken
+**Issue:** Control UI approval modal closes on "Allow once" but does not actually submit approval — users can't approve commands
+**Why Hot:** Core approval functionality broken, blocking all safeBin usage via Control UI
+**Link:** https://github.com/openclaw/openclaw/issues/55251
+**Status:** 🔥 **HOT — FRESH** (posted Mar 26, 8:39 AM)
+
+### @shiftymix — Discord Slash Commands Timeout
+**Issue:** Discord slash commands return "Done" with no content — InteractionEventListener exceeds 3s deadline
+**Why Hot:** Discord slash commands completely broken, 3-second timeout too aggressive
+**Link:** https://github.com/openclaw/openclaw/issues/55240
+**Status:** 🔥 **HOT — FRESH** (posted Mar 26, 8:12 AM)
+
+### @skwny — Agent Task Execution Failure
+**Issue:** Agent won't do assigned task — says it will but does nothing, task stalls completely
+**Why Hot:** Core agent functionality broken, blocking basic usage
+**Link:** https://github.com/openclaw/openclaw/issues/55243
+**Status:** 🔥 **HOT — FRESH** (posted Mar 26, 8:18 AM)
+
+---
+
+## 🔥 FRESH LEADS — March 27, 2026 (Shift 1 - Consolidated)
+
+### @yww325 — Agent Drops Promised Outputs After Task Switching
+**Issue:** When agent is mid-work and attention switches to higher-priority task (e.g., autonomy-guard confirmations), promised output may never be delivered. Agent lacks durable "pending work" queue.
+**Why Hot:** Core reliability issue — degrades trust, "I'll send this when ready" but follow-up never sent. Detailed analysis with proposed fixes.
+**Link:** https://github.com/openclaw/openclaw/issues/55882
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:54 AM)
+
+### @kkormesser — macOS App Crashes in WebSocketTaskBox.sendPing()
+**Issue:** macOS app (2026.3.24) crashes with EXC_BREAKPOINT in WebSocket ping handling. No stable menu bar icon appears. Process dies shortly after start.
+**Why Hot:** macOS app completely broken for this user, Swift concurrency bug in WebSocket handling, regression
+**Link:** https://github.com/openclaw/openclaw/issues/55878
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:51 AM)
+
+### @mttconseil — Discord Health-Monitor Restart Crash (maxAttempts=0)
+**Issue:** Discord health-monitor restart creates gateway with maxAttempts=0, causing immediate crash on next disconnect. Root cause identified: reconnect options not propagated on restart.
+**Why Hot:** Production crash — gateway dies completely, detailed root cause analysis with workaround provided
+**Link:** https://github.com/openclaw/openclaw/issues/55873
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:44 AM)
+
+### @samrogers-com — Auto-Upgrade Cron Fails Silently + macOS LaunchAgent Not Restored
+**Issue:** Scheduled auto-upgrade cron fails without visible notification. Gateway recovery does not restore macOS LaunchAgent gateway. User has to manually restart.
+**Why Hot:** Silent failures are worst kind — user doesn't know upgrade failed, production automation broken
+**Link:** https://github.com/openclaw/openclaw/issues/55880
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:53 AM)
+
+### @cwil2072 — Session Model Doesn't Revert to Primary After Failover Recovery
+**Issue:** When failover model recovers, session doesn't revert to primary model. Stays on fallback indefinitely.
+**Why Hot:** Cost optimization issue — users stuck on expensive fallback models, 2 issues from same user today
+**Link:** https://github.com/openclaw/openclaw/issues/55879
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:52 AM)
+
+### @mksf11e — Telegram Forum Supergroup Messages Silently Dropped
+**Issue:** Telegram forum supergroup messages silently dropped in webhook mode (2026.3.24). No session created for forum topics.
+**Why Hot:** Message loss bug — users think bot is ignoring them, regression in 2026.3.24
+**Link:** https://github.com/openclaw/openclaw/issues/55876
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:46 AM)
+
+### @tw3akercc — v2026.3.24 Gateway Crash Loop (RegExpCompiler OOM)
+**Issue:** Gateway crash loop on startup after upgrading from v2026.3.13. RegExpCompiler runs out of memory during startup.
+**Why Hot:** Complete gateway failure — can't start at all, OOM on startup
+**Link:** https://github.com/openclaw/openclaw/issues/55842
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 7:41 AM)
+
+### @coywolffuturist — Gateway Stuck in Retry Loop After Provider Outage
+**Issue:** After provider outage (OpenAI 503s), gateway gets stuck in retry loop and never self-recovers. Required manual restart.
+**Why Hot:** Production resilience issue — should self-heal after provider outage
+**Link:** https://github.com/openclaw/openclaw/issues/55862
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:23 AM)
+
+### @rjwang1982 — Webchat Control UI Approve Button Broken (2 duplicate issues)
+**Issue:** Control UI approve button does not consume pending exec approval. Clicking approve generates new approval ID instead of approving original.
+**Why Hot:** Control UI approval completely broken — users can't approve commands via web UI, 2 duplicate issues filed
+**Link:** https://github.com/openclaw/openclaw/issues/55852 & #55853
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:05 AM)
+
+### @jlwestsr — OAuth Token Injection Broken After Refactor
+**Issue:** OAuth token injection broken after "split embedded run auth controller" refactor (commit 18dc98b). Causes "No API key for provider: anthropic" even with valid OAuth.
+**Why Hot:** Auth completely broken for OAuth users, regression from refactor
+**Link:** https://github.com/openclaw/openclaw/issues/55857
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:16 AM)
+
+### @atlasnummus-droid — Custom Providers Lose Auth-Profile Token Resolution
+**Issue:** Custom providers in models.json lose auth-profile token resolution after provider-runtime extension refactor.
+**Why Hot:** Custom provider auth broken, affects advanced users with custom model configs
+**Link:** https://github.com/openclaw/openclaw/issues/55860
+**Status:** 🔥 **HOT — FRESH** (posted Mar 27, 8:22 AM)
+
+---
+
+## 🔥 FRESH LEADS — March 28, 2026 (Shift 1)
+
+### u/clawhub — Lethe Memory Plugin Creator
+**Issue:** New plugin "Lethe" solves agent memory loss across sessions using SQLite + dashboard
+**Why Warm:** Community innovation, high engagement, potential collaboration/networking opportunity
+**Link:** https://redd.it/1s63fzy
+**Status:** 🟡 **Warm — NEW** (posted Mar 27, ~4 PM)
 
 ---
 
