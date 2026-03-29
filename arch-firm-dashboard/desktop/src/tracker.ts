@@ -150,11 +150,26 @@ async function checkActivity(): Promise<void> {
       return; // Skip recording this cycle
     }
 
-    // FIX: Skip recording if user has been idle for more than 2 minutes
+    // FIX: Skip system processes that shouldn't be tracked as employee activity
+    const systemProcesses = [
+      'loginwindow', 'window server', 'kernel', 'system', 'login window',
+      'screen saver', 'screensaver', 'lockscreen', 'lock screen'
+    ];
+    const isSystemProcess = systemProcesses.some(proc => 
+      appName.toLowerCase().includes(proc) || windowTitle.toLowerCase().includes(proc)
+    );
+    
+    if (isSystemProcess) {
+      // Don't record system processes at all - they're not employee activity
+      return;
+    }
+
+    // FIX: Skip recording if user has been idle for more than 5 minutes
     // This prevents tracking background apps when user is away
-    if (idleTimeSec > 120) {
-      // Only record an idle entry if we haven't already
-      if (!lastActivity || !lastActivity.isIdle) {
+    // Changed from 2 minutes to 5 minutes to avoid excessive idle entries
+    if (idleTimeSec > 300) {
+      // Only record an idle entry once per idle session (not every 10 seconds)
+      if (!lastActivity || !lastActivity.isIdle || lastActivity.appName !== 'Idle') {
         const idleActivity: TrackedActivity = {
           id: generateId(),
           timestamp: new Date().toISOString(),

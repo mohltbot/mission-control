@@ -68,7 +68,24 @@ interface AppRule {
   exceptions?: string[];
 }
 
+// FIX: System processes that should NEVER be tracked as suspicious
+export const SYSTEM_PROCESSES_TO_IGNORE = [
+  'loginwindow', 'window server', 'kernel', 'system', 'login window',
+  'screen saver', 'screensaver', 'lockscreen', 'lock screen',
+  'securityagent', 'authorizationhost'
+];
+
 export const APP_CLASSIFICATION_RULES: AppRule[] = [
+  // System/Break - Always mark as idle, never suspicious
+  {
+    patterns: [
+      'loginwindow', 'window server', 'kernel', 'system', 'login window',
+      'screen saver', 'screensaver', 'lockscreen', 'lock screen',
+      'securityagent', 'authorizationhost'
+    ],
+    category: 'break_idle'
+  },
+
   // Core Work Tools (generic - covers many professions)
   {
     patterns: [
@@ -176,8 +193,8 @@ export const SUSPICIOUS_THRESHOLDS = {
   videoIdleMinutes: 15,
   communicationGhostMinutes: 10,
   rapidSwitchSeconds: 3,
-  idleThresholdMinutes: 5,
-  sameWindowMinutes: 30,
+  idleThresholdMinutes: 15,  // Changed from 5 to 15 minutes - more reasonable for focused work
+  sameWindowMinutes: 60,     // Changed from 30 to 60 minutes - reading docs/videos can take time
 };
 
 // Main classification function
@@ -286,7 +303,12 @@ export function classifyActivity(
   let isSuspicious = false;
   let suspiciousReason: string | undefined;
 
-  if (context) {
+  // FIX: Never mark system processes as suspicious
+  const isSystemProcess = SYSTEM_PROCESSES_TO_IGNORE.some(proc => 
+    appLower.includes(proc) || titleLower.includes(proc)
+  );
+
+  if (context && !isSystemProcess) {
     // Video Idle Trick
     if (category === 'entertainment' && context.isVideoPlaying) {
       if (!context.hasInputActivity || (context.lastInputMinutesAgo && context.lastInputMinutesAgo > 5)) {

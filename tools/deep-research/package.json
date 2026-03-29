@@ -7,10 +7,17 @@
     "research": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["research", "browserbase", "cli", "agent", "ai"],
+  "keywords": [
+    "research",
+    "browserbase",
+    "cli",
+    "agent",
+    "ai"
+  ],
   "author": "Based on Aaron Francis' implementation",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^17.3.1",
     "openai": "^4.0.0"
   }
 }

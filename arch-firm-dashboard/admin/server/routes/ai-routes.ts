@@ -466,6 +466,12 @@ async function handleTimeSpentQuery(question: string, db: any): Promise<ChatResp
       FROM activities
       WHERE employee_id = ?
       AND timestamp > datetime('now', ?)
+      AND LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                  'lockscreen', 'screensaver', 'securityagent', 
+                                  'usernotificationcenter', 'finder', 'dock', 'launchd')
+      AND LOWER(app_name) NOT LIKE '%loginwindow%'
+      AND LOWER(app_name) NOT LIKE '%lockscreen%'
+      AND LOWER(app_name) NOT LIKE '%screensaver%'
       GROUP BY app_name
       ORDER BY hours DESC
       LIMIT 10
@@ -475,7 +481,14 @@ async function handleTimeSpentQuery(question: string, db: any): Promise<ChatResp
     sql = `
       SELECT 
         e.name as employee_name,
-        SUM(a.duration_seconds) / 3600 as hours
+        SUM(CASE 
+          WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                         'lockscreen', 'screensaver', 'securityagent', 
+                                         'usernotificationcenter', 'finder', 'dock', 'launchd')
+          AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+          THEN a.duration_seconds 
+          ELSE 0 
+        END) / 3600 as hours
       FROM activities a
       JOIN employees e ON a.employee_id = e.id
       WHERE a.timestamp > datetime('now', ?)
@@ -508,12 +521,35 @@ async function handleTimeSpentQuery(question: string, db: any): Promise<ChatResp
 async function handleProductivityQuery(question: string, db: any): Promise<ChatResponse> {
   const timeframe = extractTimeframe(question);
 
+  // FIX: Filter out system apps from productivity calculations
   const sql = `
     SELECT
       e.name as employee_name,
-      AVG(a.productivity_score) as avg_score,
-      SUM(CASE WHEN a.productivity_level = 'productive' THEN a.duration_seconds ELSE 0 END) / 3600 as productive_hours,
-      SUM(a.duration_seconds) / 3600 as total_hours
+      AVG(CASE 
+        WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                       'lockscreen', 'screensaver', 'securityagent', 
+                                       'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+        THEN a.productivity_score 
+        ELSE NULL 
+      END) as avg_score,
+      SUM(CASE 
+        WHEN a.productivity_level = 'productive' 
+        AND LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                     'lockscreen', 'screensaver', 'securityagent', 
+                                     'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+        THEN a.duration_seconds 
+        ELSE 0 
+      END) / 3600 as productive_hours,
+      SUM(CASE 
+        WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                       'lockscreen', 'screensaver', 'securityagent', 
+                                       'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+        THEN a.duration_seconds 
+        ELSE 0 
+      END) / 3600 as total_hours
     FROM activities a
     JOIN employees e ON a.employee_id = e.id
     WHERE a.timestamp > datetime('now', ?)
@@ -581,14 +617,37 @@ async function handleRepetitiveTasksQuery(db: any): Promise<ChatResponse> {
 }
 
 async function handleEmployeeQuery(question: string, db: any): Promise<ChatResponse> {
+  // FIX: Filter out system apps from employee productivity calculations
   const sql = `
     SELECT 
       e.name,
       e.department,
       COUNT(DISTINCT DATE(a.timestamp)) as days_active,
-      SUM(a.duration_seconds) / 3600 as total_hours,
-      AVG(a.productivity_score) as avg_productivity,
-      SUM(CASE WHEN a.is_suspicious = 1 THEN 1 ELSE 0 END) as suspicious_count
+      SUM(CASE 
+        WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                       'lockscreen', 'screensaver', 'securityagent', 
+                                       'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+        THEN a.duration_seconds 
+        ELSE 0 
+      END) / 3600 as total_hours,
+      AVG(CASE 
+        WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                       'lockscreen', 'screensaver', 'securityagent', 
+                                       'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+        THEN a.productivity_score 
+        ELSE NULL 
+      END) as avg_productivity,
+      SUM(CASE 
+        WHEN a.is_suspicious = 1 
+        AND LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                     'lockscreen', 'screensaver', 'securityagent', 
+                                     'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+        THEN 1 
+        ELSE 0 
+      END) as suspicious_count
     FROM employees e
     LEFT JOIN activities a ON e.id = a.employee_id
     WHERE a.timestamp > datetime('now', '-7 days')
@@ -617,6 +676,7 @@ async function handleEmployeeQuery(question: string, db: any): Promise<ChatRespo
 async function handleAppQuery(question: string, db: any): Promise<ChatResponse> {
   const timeframe = extractTimeframe(question);
 
+  // FIX: Filter out system apps from top apps query
   const sql = `
     SELECT
       app_name,
@@ -625,6 +685,12 @@ async function handleAppQuery(question: string, db: any): Promise<ChatResponse> 
       AVG(productivity_score) as avg_score
     FROM activities
     WHERE timestamp > datetime('now', ?)
+    AND LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                'lockscreen', 'screensaver', 'securityagent', 
+                                'usernotificationcenter', 'finder', 'dock', 'launchd')
+    AND LOWER(app_name) NOT LIKE '%loginwindow%'
+    AND LOWER(app_name) NOT LIKE '%lockscreen%'
+    AND LOWER(app_name) NOT LIKE '%screensaver%'
     GROUP BY app_name
     ORDER BY hours DESC
     LIMIT 10
@@ -648,12 +714,35 @@ async function handleAppQuery(question: string, db: any): Promise<ChatResponse> 
 }
 
 async function handleGeneralQuery(db: any): Promise<ChatResponse> {
+  // FIX: Filter out system apps and system-induced suspicious activities
   const sql = `
     SELECT 
       COUNT(DISTINCT employee_id) as active_employees,
-      SUM(duration_seconds) / 3600 as total_hours,
-      AVG(productivity_score) as avg_productivity,
-      SUM(CASE WHEN is_suspicious = 1 THEN 1 ELSE 0 END) as suspicious_activities
+      SUM(CASE 
+        WHEN LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                     'lockscreen', 'screensaver', 'securityagent', 
+                                     'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(app_name) NOT LIKE '%loginwindow%'
+        THEN duration_seconds 
+        ELSE 0 
+      END) / 3600 as total_hours,
+      AVG(CASE 
+        WHEN LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                     'lockscreen', 'screensaver', 'securityagent', 
+                                     'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(app_name) NOT LIKE '%loginwindow%'
+        THEN productivity_score 
+        ELSE NULL 
+      END) as avg_productivity,
+      SUM(CASE 
+        WHEN is_suspicious = 1 
+        AND LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+                                   'lockscreen', 'screensaver', 'securityagent', 
+                                   'usernotificationcenter', 'finder', 'dock', 'launchd')
+        AND LOWER(app_name) NOT LIKE '%loginwindow%'
+        THEN 1 
+        ELSE 0 
+      END) as suspicious_activities
     FROM activities
     WHERE timestamp > datetime('now', '-7 days')
   `;

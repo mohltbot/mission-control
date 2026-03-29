@@ -69,8 +69,8 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 | Provider | Status | Credit | Notes |
 |----------|--------|--------|-------|
 | **Firecrawl** | ✅ Active | Free tier (500 credits) | Web scraping, crawling, search API |
-| **dev-browser** | 🆕 Added | — | CLI browser automation via sandboxed JS (Ben's Bites 3/26) |
-| **deep-research** | 🆕 Added | — | CLI research agent using Browserbase APIs (Ben's Bites 3/26) |
+| **dev-browser** | ✅ **LIVE** | — | CLI browser automation via sandboxed JS |
+| **browse CLI** | ✅ **LIVE** | — | Local Chrome automation (Stagehand-based) |
 
 ---
 
@@ -158,7 +158,7 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 | Tool | Script | Needs | Status |
 |------|--------|-------|--------|
-| **BrowserBase Fetch** | `scripts/browserbase-fetch.sh` | `BROWSERBASE_API_KEY` | ⚠️ Not configured |
+| **BrowserBase Remote** | browse CLI | API key format fix | ⚠️ Local mode works, remote has key issue |
 | **Cloudflare Crawl** | `scripts/cf-crawl.sh` | `CF_API_TOKEN`, `CF_ACCOUNT_ID` | ⚠️ Not configured |
 
 ### Broken/Down Tools
@@ -178,14 +178,53 @@ From Ben's Bites March 13 — documented in AGENTS.md:
 - **Agent Browser** — Browser automation with dogfood tag
 - **Gists.sh** — GitHub gist rendering (https://gists.sh/)
 
-### New Tools (March 27, 2026 - Ben's Bites)
+### New Tools (March 28, 2026 - Ben's Bites) — ✅ COMPLETE
 
-| Tool | Type | Status | Location |
-|------|------|--------|----------|
-| **dev-browser** | CLI | 📝 PR Open | `tools/dev-browser/` |
-| **deep-research** | CLI | 📝 PR Open | `tools/deep-research/` |
-| **Expect** | Testing | 🔍 Researching | Aiden Bai's QA tool |
-| **Feynman** | Research | 🔍 Researching | CLI paper research |
+| Tool | Type | Status | How to Use |
+|------|------|--------|------------|
+| **dev-browser** | CLI | ✅ **LIVE** | `dev-browser --headless <<'EOF' ... EOF` |
+| **browse CLI** | CLI | ✅ **LIVE** | `browse env local && browse open <url>` |
+| **browserbase skills** | Skills | ✅ **SYNCED** | 6 skills in `~/.openclaw/skills/` |
+| **deep-research** | CLI | 🔍 **NOT FOUND** | Still searching for this tool |
+| **Expect** | Testing | 🔍 **RESEARCHING** | Aiden Bai's QA tool |
+| **Feynman** | Research | 🔍 **RESEARCHING** | CLI paper research |
+
+**dev-browser:**
+- Status: ✅ Installed and tested
+- Install: `npm install -g dev-browser && dev-browser install`
+- Features: Sandboxed JS execution (QuickJS WASM), Playwright API, persistent pages
+- Security: No host filesystem/network access
+- Example:
+  ```bash
+  dev-browser --headless <<'EOF'
+  const page = await browser.getPage("main");
+  await page.goto("https://example.com");
+  console.log(await page.title());
+  EOF
+  ```
+
+**browse CLI:**
+- Status: ✅ Built from Stagehand monorepo, local mode working
+- Path: `/usr/local/bin/browse`
+- Source: `/tmp/stagehand/packages/cli/`
+- Local mode: ✅ Uses local Chrome (no API keys needed)
+- Remote mode: ⚠️ Has API key format issue — local mode covers most use cases
+- Commands:
+  ```bash
+  browse env local                    # Switch to local Chrome
+  browse open https://example.com     # Navigate to URL
+  browse snapshot                     # Get accessibility tree with element refs
+  browse click @0-5                   # Click element by ref
+  browse fill "input#search" "query"  # Fill form
+  browse stop                         # Stop browser daemon
+  ```
+
+**browserbase OpenClaw Plugin:**
+- Plugin: `@browserbasehq/openclaw-browserbase`
+- API Key: `bb_live_wcf_hifEpOOIlJL2KfqQ4Y3hCGM`
+- Project ID: `9ae2bf1c-45a4-4222-abb4-5b3074b55d39`
+- Skills synced: `browser`, `functions`, `fetch`, `search`, `cookie-sync`, `browserbase-cli`
+- Location: `~/.openclaw/skills/`
 
 ---
 
@@ -199,4 +238,4 @@ From Ben's Bites March 13 — documented in AGENTS.md:
 
 ---
 
-_Last updated: March 27, 2026_
+_Last updated: March 28, 2026_
