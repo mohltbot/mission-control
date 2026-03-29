@@ -337,6 +337,62 @@
   table {
     min-width: 600px;
   }
+
+  /* Dashboard mobile fixes */
+  .main-content > div {
+    padding: 0 !important;
+  }
+
+  .main-content h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .main-content h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  /* Override Dashboard inline styles on mobile */
+  [style*="padding: 32px"] {
+    padding: 16px !important;
+  }
+
+  [style*="padding: 24px"] {
+    padding: 16px !important;
+  }
+
+  [style*="gap: 24px"] {
+    gap: 12px !important;
+  }
+
+  [style*="gap: 16px"] {
+    gap: 12px !important;
+  }
+
+  [style*="margin-bottom: 24px"] {
+    margin-bottom: 16px !important;
+  }
+
+  /* Stats grid on mobile */
+  [style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Employee grid on mobile */
+  [style*="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Breakdown grid on mobile */
+  [style*="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Activity feed on mobile */
+  [style*="max-height: 400px"] {
+    max-height: 300px !important;
+  }
 }
 
 /* Loading States */
