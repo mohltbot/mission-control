@@ -470,7 +470,11 @@ export async function getAllActivities(startDate?: string, endDate?: string): Pr
 
 export async function getSuspiciousActivities(employeeId?: string, limit: number = 50): Promise<Activity[]> {
   const db = getDatabase();
-  let query = 'SELECT * FROM activities WHERE is_suspicious = 1';
+  // Filter out system/idle apps that shouldn't be marked as suspicious
+  const systemApps = ['loginwindow', 'lockscreen', 'screensaver', 'window server', 'idle'];
+  const appExclusions = systemApps.map(app => `LOWER(app_name) != '${app}'`).join(' AND ');
+  
+  let query = `SELECT * FROM activities WHERE is_suspicious = 1 AND ${appExclusions}`;
   const params: any[] = [];
   
   if (employeeId) {

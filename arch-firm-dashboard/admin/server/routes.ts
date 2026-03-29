@@ -502,7 +502,12 @@ export function setupRoutes(app: Express): void {
             focusScore: trueProductivityScore // Alias for consistency
           },
           categoryBreakdown,
-          suspiciousActivities: activities.filter(a => a.isSuspicious).slice(0, 50), // Limit to 50
+          suspiciousActivities: activities.filter(a => {
+            // Filter out system/idle apps from suspicious list
+            const appName = a.appName.toLowerCase();
+            const isSystemApp = ['loginwindow', 'lockscreen', 'screensaver', 'window server', 'idle'].includes(appName);
+            return a.isSuspicious && !isSystemApp;
+          }).slice(0, 50), // Limit to 50
           dailyTrend
         }
       });
