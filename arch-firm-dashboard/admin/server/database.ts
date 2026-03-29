@@ -661,7 +661,7 @@ function mapTimeEntry(row: any): TimeEntry {
   };
 }
 
-// Dashboard stats
+// Dashboard stats with timeout protection
 export async function getDashboardStats(): Promise<any> {
   const db = getDatabase();
   
@@ -677,20 +677,33 @@ export async function getDashboardStats(): Promise<any> {
   monthAgo.setMonth(monthAgo.getMonth() - 1);
   const monthAgoStr = monthAgo.toISOString();
 
+  // Helper to add timeout to promises
+  const withTimeout = <T>(promise: Promise<T>, ms: number, defaultValue: T): Promise<T> => {
+    return Promise.race([
+      promise,
+      new Promise<T>((_, reject) => 
+        setTimeout(() => reject(new Error(`Query timeout after ${ms}ms`)), ms)
+      )
+    ]).catch(err => {
+      console.warn('Dashboard stats query failed:', err.message);
+      return defaultValue;
+    });
+  };
+
   const [totalEmployees, activeProjects, todayHours, weekHours, monthHours, recentActivities, suspiciousCount, productivityStats] = await Promise.all([
-    db.get('SELECT COUNT(*) as count FROM employees WHERE is_active = 1'),
-    db.get('SELECT COUNT(*) as count FROM projects WHERE status = "active"'),
-    db.get('SELECT COALESCE(SUM(duration_seconds), 0) as total FROM activities WHERE timestamp >= ?', todayStr),
-    db.get('SELECT COALESCE(SUM(duration_seconds), 0) as total FROM activities WHERE timestamp >= ?', weekAgoStr),
-    db.get('SELECT COALESCE(SUM(duration_seconds), 0) as total FROM activities WHERE timestamp >= ?', monthAgoStr),
-    db.all('SELECT * FROM activities ORDER BY timestamp DESC LIMIT 20'),
-    db.get('SELECT COUNT(*) as count FROM activities WHERE timestamp >= ? AND is_suspicious = 1', todayStr),
-    db.all(`
+    withTimeout(db.get('SELECT COUNT(*) as count FROM employees WHERE is_active = 1'), 5000, { count: 0 }),
+    withTimeout(db.get('SELECT COUNT(*) as count FROM projects WHERE status = "active"'), 5000, { count: 0 }),
+    withTimeout(db.get('SELECT COALESCE(SUM(duration_seconds), 0) as total FROM activities WHERE timestamp >= ?', todayStr), 5000, { total: 0 }),
+    withTimeout(db.get('SELECT COALESCE(SUM(duration_seconds), 0) as total FROM activities WHERE timestamp >= ?', weekAgoStr), 5000, { total: 0 }),
+    withTimeout(db.get('SELECT COALESCE(SUM(duration_seconds), 0) as total FROM activities WHERE timestamp >= ?', monthAgoStr), 5000, { total: 0 }),
+    withTimeout(db.all('SELECT * FROM activities ORDER BY timestamp DESC LIMIT 20'), 5000, []),
+    withTimeout(db.get('SELECT COUNT(*) as count FROM activities WHERE timestamp >= ? AND is_suspicious = 1', todayStr), 5000, { count: 0 }),
+    withTimeout(db.all(`
       SELECT category, SUM(duration_seconds) as total_seconds 
       FROM activities 
       WHERE timestamp >= ? 
       GROUP BY category
-    `, todayStr)
+    `, todayStr), 5000, [])
   ]);
 
   // Build productivity breakdown with new universal categories
@@ -738,29 +751,36 @@ export async function getDashboardStats(): Promise<any> {
     }
   }
 
-  // Calculate average productivity score
-  const avgScore = await db.get(
-    'SELECT AVG(productivity_score) as score FROM activities WHERE timestamp >= ?',
-    todayStr
+  // Calculate average productivity score (with timeout)
+  const avgScore = await withTimeout(
+    db.get('SELECT AVG(productivity_score) as score FROM activities WHERE timestamp >= ?', todayStr),
+    5000,
+    { score: 0 }
   );
 
-  // Calculate focus vs distracted time
-  const focusTime = await db.get(
-    `SELECT COALESCE(SUM(duration_seconds), 0) as total 
+  // Calculate focus vs distracted time (with timeout)
+  const focusTime = await withTimeout(
+    db.get(`SELECT COALESCE(SUM(duration_seconds), 0) as total 
      FROM activities 
-     WHERE timestamp >= ? AND productivity_level = 'productive' AND is_suspicious = 0`,
-    todayStr
+     WHERE timestamp >= ? AND productivity_level = 'productive' AND is_suspicious = 0`, todayStr),
+    5000,
+    { total: 0 }
   );
 
-  const distractedTime = await db.get(
-    `SELECT COALESCE(SUM(duration_seconds), 0) as total 
+  const distractedTime = await withTimeout(
+    db.get(`SELECT COALESCE(SUM(duration_seconds), 0) as total 
      FROM activities 
-     WHERE timestamp >= ? AND (productivity_level = 'unproductive' OR is_suspicious = 1)`,
-    todayStr
+     WHERE timestamp >= ? AND (productivity_level = 'unproductive' OR is_suspicious = 1)`, todayStr),
+    5000,
+    { total: 0 }
   );
 
-  // Get employee activity stats
-  const employeeActivity = await getEmployeeActivityStats();
+  // Get employee activity stats (with timeout)
+  const employeeActivity = await withTimeout(
+    getEmployeeActivityStats(),
+    5000,
+    []
+  );
 
   return {
     totalEmployees: totalEmployees.count,
