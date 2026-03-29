@@ -466,12 +466,14 @@ async function handleTimeSpentQuery(question: string, db: any): Promise<ChatResp
       FROM activities
       WHERE employee_id = ?
       AND timestamp > datetime('now', ?)
-      AND LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+      AND app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                   'lockscreen', 'screensaver', 'securityagent', 
-                                  'usernotificationcenter', 'finder', 'dock', 'launchd')
-      AND LOWER(app_name) NOT LIKE '%loginwindow%'
-      AND LOWER(app_name) NOT LIKE '%lockscreen%'
-      AND LOWER(app_name) NOT LIKE '%screensaver%'
+                                  'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+      AND app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+      AND app_name COLLATE NOCASE NOT LIKE '%lock screen%'
+      AND app_name COLLATE NOCASE NOT LIKE '%screensaver%'
+      AND category != 'break_idle'
+      AND is_idle = 0
       GROUP BY app_name
       ORDER BY hours DESC
       LIMIT 10
@@ -482,10 +484,12 @@ async function handleTimeSpentQuery(question: string, db: any): Promise<ChatResp
       SELECT 
         e.name as employee_name,
         SUM(CASE 
-          WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+          WHEN a.app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                          'lockscreen', 'screensaver', 'securityagent', 
-                                         'usernotificationcenter', 'finder', 'dock', 'launchd')
-          AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+                                         'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+          AND a.app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+          AND a.category != 'break_idle'
+          AND a.is_idle = 0
           THEN a.duration_seconds 
           ELSE 0 
         END) / 3600 as hours
@@ -526,27 +530,33 @@ async function handleProductivityQuery(question: string, db: any): Promise<ChatR
     SELECT
       e.name as employee_name,
       AVG(CASE 
-        WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        WHEN a.app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                        'lockscreen', 'screensaver', 'securityagent', 
-                                       'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+                                       'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND a.app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND a.category != 'break_idle'
+        AND a.is_idle = 0
         THEN a.productivity_score 
         ELSE NULL 
       END) as avg_score,
       SUM(CASE 
         WHEN a.productivity_level = 'productive' 
-        AND LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        AND a.app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                      'lockscreen', 'screensaver', 'securityagent', 
-                                     'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+                                     'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND a.app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND a.category != 'break_idle'
+        AND a.is_idle = 0
         THEN a.duration_seconds 
         ELSE 0 
       END) / 3600 as productive_hours,
       SUM(CASE 
-        WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        WHEN a.app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                        'lockscreen', 'screensaver', 'securityagent', 
-                                       'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+                                       'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND a.app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND a.category != 'break_idle'
+        AND a.is_idle = 0
         THEN a.duration_seconds 
         ELSE 0 
       END) / 3600 as total_hours
@@ -624,27 +634,33 @@ async function handleEmployeeQuery(question: string, db: any): Promise<ChatRespo
       e.department,
       COUNT(DISTINCT DATE(a.timestamp)) as days_active,
       SUM(CASE 
-        WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        WHEN a.app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                        'lockscreen', 'screensaver', 'securityagent', 
-                                       'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+                                       'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND a.app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND a.category != 'break_idle'
+        AND a.is_idle = 0
         THEN a.duration_seconds 
         ELSE 0 
       END) / 3600 as total_hours,
       AVG(CASE 
-        WHEN LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        WHEN a.app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                        'lockscreen', 'screensaver', 'securityagent', 
-                                       'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+                                       'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND a.app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND a.category != 'break_idle'
+        AND a.is_idle = 0
         THEN a.productivity_score 
         ELSE NULL 
       END) as avg_productivity,
       SUM(CASE 
         WHEN a.is_suspicious = 1 
-        AND LOWER(a.app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        AND a.app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                      'lockscreen', 'screensaver', 'securityagent', 
-                                     'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(a.app_name) NOT LIKE '%loginwindow%'
+                                     'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND a.app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND a.category != 'break_idle'
+        AND a.is_idle = 0
         THEN 1 
         ELSE 0 
       END) as suspicious_count
@@ -677,6 +693,7 @@ async function handleAppQuery(question: string, db: any): Promise<ChatResponse> 
   const timeframe = extractTimeframe(question);
 
   // FIX: Filter out system apps from top apps query
+  // Using COLLATE NOCASE for case-insensitive comparison
   const sql = `
     SELECT
       app_name,
@@ -685,12 +702,16 @@ async function handleAppQuery(question: string, db: any): Promise<ChatResponse> 
       AVG(productivity_score) as avg_score
     FROM activities
     WHERE timestamp > datetime('now', ?)
-    AND LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+    AND app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                 'lockscreen', 'screensaver', 'securityagent', 
-                                'usernotificationcenter', 'finder', 'dock', 'launchd')
-    AND LOWER(app_name) NOT LIKE '%loginwindow%'
-    AND LOWER(app_name) NOT LIKE '%lockscreen%'
-    AND LOWER(app_name) NOT LIKE '%screensaver%'
+                                'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+    AND app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+    AND app_name COLLATE NOCASE NOT LIKE '%lock screen%'
+    AND app_name COLLATE NOCASE NOT LIKE '%screensaver%'
+    AND app_name COLLATE NOCASE NOT LIKE '%securityagent%'
+    AND app_name COLLATE NOCASE NOT LIKE '%usernotification%'
+    AND category != 'break_idle'
+    AND is_idle = 0
     GROUP BY app_name
     ORDER BY hours DESC
     LIMIT 10
@@ -715,31 +736,38 @@ async function handleAppQuery(question: string, db: any): Promise<ChatResponse> 
 
 async function handleGeneralQuery(db: any): Promise<ChatResponse> {
   // FIX: Filter out system apps and system-induced suspicious activities
+  // Using COLLATE NOCASE for case-insensitive comparison
   const sql = `
     SELECT 
       COUNT(DISTINCT employee_id) as active_employees,
       SUM(CASE 
-        WHEN LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        WHEN app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                      'lockscreen', 'screensaver', 'securityagent', 
-                                     'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(app_name) NOT LIKE '%loginwindow%'
+                                     'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND category != 'break_idle'
+        AND is_idle = 0
         THEN duration_seconds 
         ELSE 0 
       END) / 3600 as total_hours,
       AVG(CASE 
-        WHEN LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        WHEN app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                      'lockscreen', 'screensaver', 'securityagent', 
-                                     'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(app_name) NOT LIKE '%loginwindow%'
+                                     'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND category != 'break_idle'
+        AND is_idle = 0
         THEN productivity_score 
         ELSE NULL 
       END) as avg_productivity,
       SUM(CASE 
         WHEN is_suspicious = 1 
-        AND LOWER(app_name) NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
+        AND app_name COLLATE NOCASE NOT IN ('loginwindow', 'window server', 'kernel', 'system', 
                                    'lockscreen', 'screensaver', 'securityagent', 
-                                   'usernotificationcenter', 'finder', 'dock', 'launchd')
-        AND LOWER(app_name) NOT LIKE '%loginwindow%'
+                                   'usernotificationcenter', 'finder', 'dock', 'launchd', 'idle')
+        AND app_name COLLATE NOCASE NOT LIKE '%loginwindow%'
+        AND category != 'break_idle'
+        AND is_idle = 0
         THEN 1 
         ELSE 0 
       END) as suspicious_activities
