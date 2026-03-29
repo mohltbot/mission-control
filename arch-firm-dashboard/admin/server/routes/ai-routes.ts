@@ -597,8 +597,43 @@ async function handleRepetitiveTasksQuery(db: any): Promise<ChatResponse> {
   });
   
   if (validPatterns.length === 0) {
+    // Check data quality to give better guidance
+    const dataCheck = await db.get(`
+      SELECT 
+        COUNT(DISTINCT employee_id) as employee_count,
+        COUNT(*) as activity_count,
+        COUNT(DISTINCT DATE(timestamp)) as days_tracked
+      FROM activities 
+      WHERE timestamp > datetime('now', '-14 days')
+    `);
+    
+    let answer = "**No Automation Patterns Detected Yet** 🤖\n\n";
+    
+    if (dataCheck.employee_count < 2) {
+      answer += "**Why:** I only see data from 1 employee. Automation patterns emerge when comparing workflows across multiple team members.\n\n";
+      answer += "**Next Steps:**\n";
+      answer += "• Add more employees to the tracker\n";
+      answer += "• Ensure all team members have the desktop tracker running\n";
+    } else if (dataCheck.days_tracked < 3) {
+      answer += `**Why:** Only ${dataCheck.days_tracked} days of data tracked. I need at least 3-5 days to identify repetitive workflows.\n\n`;
+      answer += "**Next Steps:**\n";
+      answer += "• Keep the tracker running for a few more days\n";
+      answer += "• Check back after a full work week\n";
+    } else {
+      answer += "**Why:** Your team's workflows are either highly varied (good!) or the tracker needs more diverse activity data.\n\n";
+      answer += "**Next Steps:**\n";
+      answer += "• Continue tracking — patterns may emerge over time\n";
+      answer += "• Focus on standardizing repetitive processes first\n";
+    }
+    
+    answer += "\n**What I Look For:**\n";
+    answer += "• Same sequence of apps used multiple times per day\n";
+    answer += "• Manual data entry across multiple systems\n";
+    answer += "• Copy-paste workflows between apps\n";
+    answer += "• Repetitive file management tasks";
+    
     return {
-      answer: "I haven't detected any clear repetitive patterns yet. I need at least a few days of data to identify automation opportunities. Check back after your team has been using the tracker for a while.",
+      answer,
       suggestions: ['Show productivity summary', 'What apps are used most?', 'Employee time breakdown']
     };
   }
@@ -778,6 +813,34 @@ async function handleGeneralQuery(db: any): Promise<ChatResponse> {
   const data = await db.all(sql);
   const row = data[0];
 
+  // Get employee list for personalized suggestions
+  const employees = await db.all('SELECT name FROM employees WHERE is_active = 1 ORDER BY name');
+  const employeeNames = employees.map((e: any) => e.name);
+
+  // Build dynamic suggestions based on data
+  const suggestions: string[] = [];
+  
+  // Add employee-specific suggestions if we have employees
+  if (employeeNames.length > 0) {
+    const randomEmployee = employeeNames[Math.floor(Math.random() * employeeNames.length)];
+    suggestions.push(`How is ${randomEmployee} doing?`);
+  }
+  
+  // Add data-appropriate suggestions
+  if (row.active_employees < 2) {
+    suggestions.push('Show employee setup guide');
+  }
+  
+  if (row.total_hours < 10) {
+    suggestions.push('Why is tracked time low?');
+  } else {
+    suggestions.push('Who worked the most hours?');
+  }
+  
+  // Always add these diverse options
+  suggestions.push('Show productivity rankings');
+  suggestions.push('What apps are used most?');
+
   const answer = `**📊 Weekly Team Summary**\n\n` +
     `• **${row.active_employees}** employees actively tracked\n` +
     `• **${Math.round(row.total_hours * 10) / 10}** total hours logged\n` +
@@ -793,7 +856,7 @@ async function handleGeneralQuery(db: any): Promise<ChatResponse> {
     answer,
     sql,
     data,
-    suggestions: ['Show repetitive tasks', 'Who is most productive?', 'Time breakdown by app']
+    suggestions: suggestions.slice(0, 3) // Only return top 3
   };
 }
 
