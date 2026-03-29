@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 
 // Initialize database
 initDatabase();
@@ -33,16 +33,13 @@ setupRoutes(app);
 app.use('/api/ai', aiRoutes);
 
 // Serve static files from dist/client
-// Use import.meta.url to get the correct path
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
-// Determine the correct static path based on environment
-// In production (compiled): files are at admin/dist/server/ and client is at admin/dist/client/
-// The server is in admin/dist/server/, so client is at admin/dist/client/
-// In dev: server is in admin/server/, so client is at admin/dist/client/
-const staticPath = process.env.NODE_ENV === 'production'
-  ? path.join(currentDir, '../client')  // From admin/dist/server/ to admin/dist/client/
-  : path.join(currentDir, '../dist/client');  // From admin/server/ to admin/dist/client/ (dev)
+// FIX: Always use ../client relative to server location
+// Server is at: admin/dist/server/index.js
+// Client is at: admin/dist/client/
+// So we go: from server/ up one level (to dist/) then into client/
+const staticPath = path.join(currentDir, '../client');
 
 console.log('Serving static files from:', staticPath);
 app.use(express.static(staticPath));
