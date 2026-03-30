@@ -84,13 +84,59 @@ async function generateSystemPrompt(db: any): Promise<string> {
     SELECT 
       e.name,
       COUNT(*) as activities,
-      AVG(a.productivity_score) as avg_score
+      AVG(a.productivity_score) as avg_score,
+      SUM(a.duration_seconds) / 3600 as hours
     FROM activities a
     JOIN employees e ON a.employee_id = e.id
     WHERE a.timestamp > datetime('now', '-1 day')
     GROUP BY e.id
     ORDER BY activities DESC
     LIMIT 5
+  `);
+
+  // Get top apps by time spent
+  const topApps = await db.all(`
+    SELECT 
+      app_name,
+      SUM(duration_seconds) / 3600 as hours,
+      AVG(productivity_score) as avg_score,
+      COUNT(*) as usage_count
+    FROM activities
+    WHERE timestamp > datetime('now', '-7 days')
+      AND app_name NOT IN ('loginwindow', 'Window Server', 'kernel', 'system', 'Finder', 'Dock')
+    GROUP BY app_name
+    ORDER BY hours DESC
+    LIMIT 10
+  `);
+
+  // Get productivity breakdown by category
+  const categoryBreakdown = await db.all(`
+    SELECT 
+      category,
+      SUM(duration_seconds) / 3600 as hours,
+      COUNT(*) as activities
+    FROM activities
+    WHERE timestamp > datetime('now', '-7 days')
+    GROUP BY category
+    ORDER BY hours DESC
+  `);
+
+  // Get employee app usage patterns for repetitive task detection
+  const employeePatterns = await db.all(`
+    SELECT 
+      e.name,
+      a.app_name,
+      COUNT(*) as times_used,
+      SUM(a.duration_seconds) / 3600 as total_hours,
+      AVG(a.productivity_score) as avg_productivity
+    FROM activities a
+    JOIN employees e ON a.employee_id = e.id
+    WHERE a.timestamp > datetime('now', '-7 days')
+      AND a.app_name NOT IN ('loginwindow', 'Window Server', 'kernel', 'system', 'Finder', 'Dock')
+    GROUP BY e.id, a.app_name
+    HAVING times_used > 10
+    ORDER BY times_used DESC
+    LIMIT 15
   `);
 
   return `You are Genesis, an AI analytics assistant for ArchTrack - an employee productivity tracking system for an architecture firm.
@@ -105,7 +151,16 @@ TEAM MEMBERS:
 ${employees.map((e: any) => `- ${e.name} (${e.department}, $${e.hourly_rate}/hr)`).join('\n')}
 
 RECENT ACTIVITY (Last 24h):
-${recentActivity.map((a: any) => `- ${a.name}: ${a.activities} activities, ${Math.round(a.avg_score)}% productivity`).join('\n')}
+${recentActivity.map((a: any) => `- ${a.name}: ${a.activities} activities, ${Math.round(a.avg_score)}% productivity, ${Math.round(a.hours * 10) / 10}h`).join('\n')}
+
+TOP APPS BY TIME (Last 7 days):
+${topApps.map((a: any) => `- ${a.app_name}: ${Math.round(a.hours * 10) / 10}h, ${Math.round(a.avg_score)}% productivity, used ${a.usage_count} times`).join('\n')}
+
+TIME BREAKDOWN BY CATEGORY (Last 7 days):
+${categoryBreakdown.map((c: any) => `- ${c.category}: ${Math.round(c.hours * 10) / 10}h (${c.activities} activities)`).join('\n')}
+
+FREQUENT APP USAGE PATTERNS (Potential repetitive tasks):
+${employeePatterns.map((p: any) => `- ${p.name} → ${p.app_name}: ${p.times_used} times, ${Math.round(p.total_hours * 10) / 10}h total`).join('\n')}
 
 YOUR CAPABILITIES:
 1. Answer questions about employee productivity, time tracking, and app usage
