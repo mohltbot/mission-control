@@ -302,59 +302,64 @@ async function generateSuggestions(question: string, answer: string, db: any): P
  */
 function enhanceResponseWithActions(answer: string, question: string): string {
   const lowerQuestion = question.toLowerCase();
+  const lowerAnswer = answer.toLowerCase();
   
-  // If response already has actionable steps, don't duplicate
-  if (answer.includes('Step 1:') || answer.includes('Action:') || answer.includes('How to fix:')) {
-    return answer;
-  }
-  
-  // Add specific actions based on question type
+  // Add specific actions based on question type (always add, don't check for existing)
   if (lowerQuestion.includes('repetitive') || lowerQuestion.includes('automate')) {
-    return answer + '\n\n**Quick Wins (Do These Today):**\n' +
-      '1. **Chrome users**: Install Toby extension (toby.tab) — organize tabs in 5 minutes\n' +
-      '2. **Terminal users**: Add `alias deploy="ssh server && ./deploy.sh"` to ~/.bashrc\n' +
-      '3. **VS Code users**: Press Cmd+Shift+P → "Snippets: Configure User Snippets" → create templates\n\n' +
-      '**This Week:**\n' +
-      '- Document your 3 most common commands in a text file\n' +
-      '- Set up 1 GitHub Action for automatic deployment\n' +
-      '- Use VS Code Remote-SSH to edit server files directly';
+    // Don't add if already has Quick Wins section
+    if (!lowerAnswer.includes('quick wins') && !lowerAnswer.includes('do these today')) {
+      return answer + '\n\n**Quick Wins (Do These Today):**\n' +
+        '1. **Chrome users**: Install Toby extension (toby.tab) — organize tabs in 5 minutes\n' +
+        '2. **Terminal users**: Add `alias deploy="ssh server && ./deploy.sh"` to ~/.bashrc\n' +
+        '3. **VS Code users**: Press Cmd+Shift+P → "Snippets: Configure User Snippets" → create templates\n\n' +
+        '**This Week:**\n' +
+        '- Document your 3 most common commands in a text file\n' +
+        '- Set up 1 GitHub Action for automatic deployment\n' +
+        '- Use VS Code Remote-SSH to edit server files directly';
+    }
   }
   
-  if (lowerQuestion.includes('productive') || lowerQuestion.includes('focus')) {
-    return answer + '\n\n**Immediate Actions:**\n' +
-      '1. **Block distractions**: Use Cold Turkey (Windows) or SelfControl (Mac) during work hours\n' +
-      '2. **Time blocking**: Schedule 2-hour "deep work" blocks in calendar, turn off notifications\n' +
-      '3. **Environment**: Close Slack/Teams, put phone in another room\n\n' +
-      '**Track Progress:**\n' +
-      '- Check ArchTrack dashboard daily at 5pm\n' +
-      '- Aim for 3+ hours of "core work" daily\n' +
-      '- Review weekly: Is productive time increasing?';
+  if (lowerQuestion.includes('productive') || lowerQuestion.includes('focus') || lowerQuestion.includes('distraction')) {
+    if (!lowerAnswer.includes('immediate actions') && !lowerAnswer.includes('cold turkey')) {
+      return answer + '\n\n**Immediate Actions:**\n' +
+        '1. **Block distractions**: Use Cold Turkey (Windows) or SelfControl (Mac) during work hours\n' +
+        '2. **Time blocking**: Schedule 2-hour "deep work" blocks in calendar, turn off notifications\n' +
+        '3. **Environment**: Close Slack/Teams, put phone in another room\n\n' +
+        '**Track Progress:**\n' +
+        '- Check ArchTrack dashboard daily at 5pm\n' +
+        '- Aim for 3+ hours of "core work" daily\n' +
+        '- Review weekly: Is productive time increasing?';
+    }
   }
   
   if (lowerQuestion.includes('burnout') || lowerQuestion.includes('overtime') || lowerQuestion.includes('stress')) {
-    return answer + '\n\n**Immediate Actions:**\n' +
-      '1. **Check hours**: Anyone working >50 hours/week needs workload review\n' +
-      '2. **Conversation**: Schedule 1-on-1 with high-hours employees this week\n' +
-      '3. **Redistribute**: Move tasks from overloaded employees to those with capacity\n\n' +
-      '**Long-term:**\n' +
-      '- Set "core hours" policy (e.g., 10am-4pm in office, rest flexible)\n' +
-      '- Review project deadlines — are they realistic?\n' +
-      '- Consider hiring if team is consistently overloaded';
+    if (!lowerAnswer.includes('immediate actions')) {
+      return answer + '\n\n**Immediate Actions:**\n' +
+        '1. **Check hours**: Anyone working >50 hours/week needs workload review\n' +
+        '2. **Conversation**: Schedule 1-on-1 with high-hours employees this week\n' +
+        '3. **Redistribute**: Move tasks from overloaded employees to those with capacity\n\n' +
+        '**Long-term:**\n' +
+        '- Set "core hours" policy (e.g., 10am-4pm in office, rest flexible)\n' +
+        '- Review project deadlines — are they realistic?\n' +
+        '- Consider hiring if team is consistently overloaded';
+    }
   }
   
-  if (lowerQuestion.includes('slack') || lowerQuestion.includes('email') || lowerQuestion.includes('meeting')) {
-    return answer + '\n\n**Reduce Communication Overhead:**\n' +
-      '1. **Async updates**: Replace daily standups with written updates in Slack\n' +
-      '2. **Email batching**: Check email 2x daily (11am, 4pm), not constantly\n' +
-      '3. **Meeting audit**: Cancel recurring meetings with no agenda\n\n' +
-      '**Tools:**\n' +
-      '- Slack: Use /remind for follow-ups instead of mental notes\n' +
-      '- Email: Create filters to auto-sort newsletters to folder\n' +
-      '- Calendar: Block "focus time" so others can\'t book meetings';
+  if (lowerQuestion.includes('slack') || lowerQuestion.includes('email') || lowerQuestion.includes('meeting') || lowerQuestion.includes('communication')) {
+    if (!lowerAnswer.includes('reduce communication overhead')) {
+      return answer + '\n\n**Reduce Communication Overhead:**\n' +
+        '1. **Async updates**: Replace daily standups with written updates in Slack\n' +
+        '2. **Email batching**: Check email 2x daily (11am, 4pm), not constantly\n' +
+        '3. **Meeting audit**: Cancel recurring meetings with no agenda\n\n' +
+        '**Tools:**\n' +
+        '- Slack: Use /remind for follow-ups instead of mental notes\n' +
+        '- Email: Create filters to auto-sort newsletters to folder\n' +
+        '- Calendar: Block "focus time" so others can\'t book meetings';
+    }
   }
   
   // Default enhancement for other queries
-  if (!answer.includes('**') && answer.length > 200) {
+  if (!answer.includes('**') && answer.length > 200 && !lowerAnswer.includes('next steps')) {
     return answer + '\n\n**Next Steps:**\n' +
       '1. Check this data again in 1 week to see trends\n' +
       '2. Share insights with the employee (transparency builds trust)\n' +
