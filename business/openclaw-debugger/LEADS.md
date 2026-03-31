@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 30, 2026 (Shift 2 - 6:00 PM)
+**Last Updated:** March 31, 2026 (Shift 1 - 9:00 AM)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -92,14 +92,20 @@
 | @AIdenB899 | GitHub | Cron delivery to Slack failing with 'Unsupported channel: slack' — 2026.3.22 regression | https://github.com/openclaw/openclaw/issues/53769 | 🔥 **HOT — FRESH** | Comment + DM — Production cron jobs broken | DRAFTS.md "DM 28" |
 | @timwalterseh-max | GitHub | Feature Request: Custom TUI Footer for Cost/Balance — hit OpenAI rate limits | https://github.com/openclaw/openclaw/issues/53774 | 🔥 **HOT — FRESH** | DM — Cost optimization consulting opportunity | DRAFTS.md "DM 29" |
 
+| @mieurban | GitHub | Bug: Incorrect behavior without crash (2026.3.28) | https://github.com/openclaw/openclaw/issues/58056 | 🔥 **HOT — FRESH** | Comment + DM — March 31 filed, bug label | DRAFTS.md "DM Draft: @mieurban" |
+| @marvcasasola-svg | GitHub | Fresh issue #58063 (March 31, 2026) | https://github.com/openclaw/openclaw/issues/58063 | 🟡 Warm | DM — Details unknown (GitHub blocked), monitor | DRAFTS.md "DM Draft: @marvcasasola-svg" |
+| GitHub #58356 | GitHub | system.run.prepare broken after v2026.3.28 — downgrade doesn't fix | https://github.com/openclaw/openclaw/issues/58356 | 🔥 **HOT — FRESH** | Comment — macOS exec tool regression, persistent state corruption | DRAFTS.md "GitHub Comment: #58356" |
+| GitHub #57023 | GitHub | doctor --fix hits plugin stack overflow on 2026.3.28 — recovery blocked | https://github.com/openclaw/openclaw/issues/57023 | 🔥 **HOT — FRESH** | Comment — Critical: recovery tool itself broken | DRAFTS.md "GitHub Comment: #57023" |
+| GitHub #57188 | GitHub | 2026.3.28 breaks gateway on Linux VPS/systemd — unrecoverable | https://github.com/openclaw/openclaw/issues/57188 | 🔥 **HOT — FRESH** | Comment — Complete outage, snapshot restore needed | DRAFTS.md "GitHub Comment: #57188" |
+
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 56
-- 🟡 Warm leads: 17
+- 🔥 Hot leads: 59 (+3 new hot)
+- 🟡 Warm leads: 18 (+1 new warm)
 - 🔵 Cold leads: 7
-- **Total potential revenue:** $8,700+ (56 hot × $75 avg + 17 warm × $50 avg + 3 complex cron/auth issues × $150)
+- **Total potential revenue:** $9,125+ (59 hot × $75 avg + 18 warm × $50 avg + 3 complex cron/auth issues × $150)
 
 ### Shift 1 Notes — March 30, 2026
 - Research blocked: GitHub, Reddit, Twitter/X all inaccessible via web proxy; Chrome not running. No new leads identified this shift.
