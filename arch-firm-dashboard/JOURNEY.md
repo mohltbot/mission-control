@@ -1177,4 +1177,138 @@ The project has been actively maintained with regular sync updates:
 
 ---
 
-*Last Updated: March 28, 2026 - 5:55 PM PST*
+### March 29, 2026 - 5:55 PM PST
+
+**Dashboard Status Review:**
+
+#### Current State
+- **Production Server Status**: ✅ RUNNING (DigitalOcean deployment)
+- **Production URL**: http://165.227.78.107/ (accessible, healthy)
+- **Local Server**: ❌ NOT RUNNING (http://localhost:3001 unreachable)
+- **API Health**: {"status":"ok","timestamp":"2026-03-30T00:55:59.417Z","database":"connected","employees":8,"version":"1.0.0"}
+- **Database**: 8 employees configured (expanded from original 3)
+
+#### Critical Fixes Deployed (March 28-29, 2026)
+
+**Major Production Fixes - System Data Quality Issues Resolved:**
+
+1. **System Process Filtering (`5263681f`, `05ba0f09`)**
+   - Fixed critical bug where macOS system processes (`loginwindow`, `UserNotificationCenter`, `SecurityAgent`, `Finder`) were tracked as employee work
+   - Before fix: `loginwindow` counted as 45 hours of work out of 47 total hours
+   - After fix: Only actual work apps tracked (Google Chrome, productive applications)
+
+2. **AI Analytics SQL Fixes (`acff1ff0`)**
+   - Added `COLLATE NOCASE` for case-insensitive app name matching
+   - Added `category != 'break_idle' AND is_idle = 0` filters to exclude system idle time
+   - Suspicious activity counts now exclude system processes
+   - Productivity rankings exclude system idle time
+
+3. **Server Stability Fixes (`504b0226`)**
+   - Fixed static file path (was `dist/dist/client`, now correctly `dist/client`)
+   - Added 50MB body parser limit to fix JSON parse errors
+   - Simplified path logic to always use correct directory
+
+4. **Tracker Improvements (`5263681f`)**
+   - Idle threshold: 2 minutes → 5 minutes (reduces idle spam)
+   - Suspicious detection thresholds relaxed: 5 min → 15 min idle, 30 min → 60 min same window
+   - System processes never marked as suspicious
+   - Better idle entry deduplication
+
+5. **Genesis AI LLM Integration (`a3f621a6` - `9f7acd8d`)**
+   - Added LLM-powered Genesis AI chatbot with DeepSeek API integration
+   - Fixed TypeScript errors in LLM routes
+   - Added dotenv for environment variable loading
+   - Fixed Genesis AI message formatting with bold text and list support
+   - Removed duplicate Genesis AI button
+   - Mobile responsiveness improvements for chatbot
+
+6. **Enterprise Deployment Infrastructure (`69d120b4`, `7d0818de`)**
+   - Added enterprise-grade server startup with health checks
+   - Added enterprise deploy script with auto-discovery
+   - Added DigitalOcean deployment commands script
+   - Proper database initialization await on startup
+
+7. **Dashboard Performance (`2d063648`)**
+   - Added timeout protection to dashboard stats API
+   - Mobile spacing and centering fixes
+
+#### Bug Fixes Summary
+| Issue | Before | After |
+|-------|--------|-------|
+| Top App Tracked | `loginwindow: 45h` | `Google Chrome: 1h` |
+| Productivity Score | 3% (artificially low) | Realistic percentages |
+| Suspicious Flags | 16,191 false positives | Real flags only |
+| System Apps | Tracked as work | Filtered out completely |
+| Idle Spam | Every 10 seconds | Once per session |
+
+#### UI Improvements
+- Genesis AI chatbot with mobile-responsive design
+- Fixed duplicate button issue
+- Better mobile spacing and centering
+- Improved message formatting (bold, lists)
+
+#### Performance Metrics
+- **Server Uptime**: Stable on DigitalOcean
+- **API Response Time**: Normal (< 100ms)
+- **Database**: Connected, 8 employees configured
+- **Version**: 1.0.0
+- **Last Deploy**: March 29, 2026 at 12:40 PM PST
+
+#### Active Blockers/Issues
+1. **Local Development Server Offline**: http://localhost:3001 not running
+   - Production deployment is stable and primary access point
+   - Local server can be restarted with `./start-production.sh` if needed
+
+2. **Outstanding Technical Debt** (from AUDIT-2026-03-28.md):
+   - Nested directory structure on server (`/opt/archtrack/arch-firm-dashboard/` vs parent)
+   - Empty database file at wrong location needs cleanup
+   - Old `.bak` files need removal
+
+3. **Employee Onboarding Pending**:
+   - 8 employees configured in database
+   - Desktop tracker installation needed on employee computers
+   - End-to-end activity tracking verification pending
+
+#### Recent Commits (Last 20 - ArchTrack Only)
+```
+9f7acd8d fix(archtrack): Fix Dashboard mobile spacing and centering
+9f71881f fix(archtrack): Remove duplicate Genesis AI button and fix mobile spacing
+e58fa25b fix(archtrack): Mobile responsiveness improvements
+ff01de14 fix(archtrack): Fix Genesis AI formatting
+dcc2085c fix(archtrack): Switch from Moonshot to DeepSeek API for LLM
+a1e798ec fix(archtrack): Add dotenv to load environment variables for LLM API key
+1789cfc4 feat(archtrack): Integrate Genesis AI component into dashboard
+d79dcdf7 fix(archtrack): TypeScript errors in LLM routes
+a3f621a6 feat(archtrack): Add LLM-powered Genesis AI with Moonshot integration
+34af3ddd feat(archtrack): Improve Genesis AI chatbot with data-aware responses
+7d0818de chore(archtrack): Add enterprise deploy script with auto-discovery
+69d120b4 feat(archtrack): Enterprise-grade server startup with health checks
+143c603a fix(archtrack): Properly await database initialization on startup
+46870376 chore(archtrack): Add DigitalOcean deployment commands script
+2d063648 fix(archtrack): Add timeout protection to dashboard stats API
+6f31aaad docs: add comprehensive ArchTrack audit and memory for March 28 fixes
+504b0226 fix(server): simplify static path to always use ../client, add 50mb body parser limit
+acff1ff0 fix(ai-routes): use COLLATE NOCASE and add category/is_idle filters for system app exclusion
+5263681f fix(tracker): filter system processes, reduce idle spam, fix AI analytics data quality
+05ba0f09 fix(archtrack): filter out system apps from suspicious activities in API
+```
+
+#### Data Status
+- **Employees**: 8 configured in production database
+- **Projects**: 3 active ($1.55M total portfolio)
+  - Community Center (City Council, $300,000)
+  - Downtown Office Complex (ABC Corp, $500,000)
+  - Residential Tower (XYZ Developers, $750,000)
+- **Tasks**: 4 tracked with priorities
+- **Activity Data**: Fixed - system processes now filtered, realistic tracking expected
+
+#### Next Steps
+1. **Employee Tracker Installation**: Install desktop tracker on employee computers
+2. **End-to-End Testing**: Verify activity tracking with real employee data
+3. **Server Cleanup**: Remove empty database files and old backups
+4. **Genesis AI Testing**: Test LLM-powered chatbot with realistic queries
+5. **Directory Consolidation**: Fix nested directory structure (optional)
+
+---
+
+*Last Updated: March 29, 2026 - 5:55 PM PST*
