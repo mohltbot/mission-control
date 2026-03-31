@@ -1311,4 +1311,37 @@ acff1ff0 fix(ai-routes): use COLLATE NOCASE and add category/is_idle filters for
 
 ---
 
-*Last Updated: March 29, 2026 - 5:55 PM PST*
+## March 30, 2026 — Maintenance & Privacy Hardening
+
+### Dashboard Status
+- **Production**: http://165.227.78.107/ — Status check unavailable from automated agent (network egress proxy blocks outbound check); **last known state: ONLINE** as of March 29, 2026 deployment
+- **Local Dev**: Not running (not required — production is primary access point)
+
+### Commits Today (ArchTrack — March 30)
+| Hash | Type | Description |
+|------|------|-------------|
+| `eb0a4b79` | chore | Remove USER.md from git tracking — added to .gitignore to keep sensitive personal data local only |
+
+### Summary
+Minimal-change day focused on privacy hygiene. USER.md (containing sensitive personal/configuration data) was removed from git history tracking and added to `.gitignore`. No new features or ArchTrack-specific bug fixes landed today. The major work from March 29 (Genesis AI LLM integration, DeepSeek API, mobile responsiveness, enterprise deployment) remains live in production.
+
+### Features / Fixes
+- None (chore-only day)
+
+### Blockers
+1. **Employee Onboarding Pending** — Desktop tracker not yet installed on employee computers; end-to-end tracking verification still needed
+2. **Technical Debt** — Nested directory structure on server, empty DB file, old `.bak` files still need cleanup (carry-over from March 28 audit)
+
+### Deployment Status
+- **Production Server**: Stable on DigitalOcean (last deploy March 29, 2026 at 12:40 PM PST)
+- **Version**: 1.0.0
+- **Database**: 8 employees, 3 active projects ($1.55M portfolio)
+
+### Next Priorities
+1. **Employee Onboarding Flow** — Build guided onboarding for tracker installation
+2. **Proactive Genesis AI Alerts** — Push notifications / threshold-based alerts from Genesis AI
+3. **Weekly Email Reports** — Auto-generated summaries sent to uncle/management
+
+---
+
+*Last Updated: March 30, 2026 - Mohlt (automated)*

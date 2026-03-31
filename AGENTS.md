@@ -207,6 +207,18 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## 🎤 Interview Mode Before Complex Tasks (Ben's Bites - March 2026)
+
+Before starting any complex or ambiguous task, run an interview first:
+
+> "Interview me and get all the information you need to [task]. Ask everything at once before starting."
+
+The agent asks 10-20 targeted questions (goal, constraints, integrations, edge cases, priority). Answering once upfront beats 10 mid-task interruptions. Full pattern: `skills/interview-mode/SKILL.md`.
+
+**When to trigger:** New missions, new features, any request where requirements feel fuzzy.
+
+---
+
 ## 🛠️ Build Loop (Ben's Bites Newsletter - March 13, 2026)
 
 This is the build loop that every agent should follow when building features:
@@ -267,6 +279,26 @@ For teaching while building:
 3. End result: Deployed site + learned concepts
 
 **Example cookbook:** https://gists.sh/bentossell/a4e5e7048e8a355ec56cf3db86169ae2
+
+## 🔗 Cross-Platform Agent Compatibility (Ben's Bites - March 2026)
+
+This workspace uses both `AGENTS.md` (this file, the source of truth) and `CLAUDE.md` (lightweight pointer for Claude-specific tools).
+
+**Key insight from Ben's Bites:** Less is more in agent instruction files. Agents can figure out tech stacks and key files on their own — they're good at it. What they can't know: your **preferences and nudges**.
+
+Do include in AGENTS.md:
+- Specific workflow preferences ("use Exa for web search, not Brave")
+- Behavioral nudges that correct recurring mistakes
+- Your standards and red lines
+
+Don't include:
+- Tech stack documentation (agents infer this from the codebase)
+- Architecture overviews (agents build mental maps naturally)
+- Long lists of files (wastes tokens, agents can ls/grep)
+
+When you update instructions, **edit AGENTS.md**. CLAUDE.md auto-references it.
+
+---
 
 ## Make It Yours
 
