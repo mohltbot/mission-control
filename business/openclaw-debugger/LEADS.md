@@ -13,7 +13,7 @@
 
 | Name | Source | Issue | Link | Status | Next Action | Draft Location |
 |------|--------|-------|------|--------|-------------|----------------|
-| gianni_e1dkyat5 | Fiverr | **NEW INBOUND Mar 31, 11:19 AM.** Sent greeting + shared external project brief link (royalweston.com/view/makes). New Fiverr account (Mar 2026), US-based, no prior orders. Project nature unknown — external link not clicked per security policy. | Fiverr inbox Mar 31 | 🔥 **HOT — NEW INBOUND** | Reply asking them to paste project details directly in chat. Respond within 24h to protect response rate. | DRAFTS.md "FIVERR DRAFT [2026-03-31 11:19]" |
+| gianni_e1dkyat5 | Fiverr | ⚠️ **SPAM/FRAUD — CONFIRMED.** Joined Mar 2026 (new account). Message: "Project details are live! check it out at the link: https://royalweston.com/view/makes". royalweston.com is a **known scam domain** per fraud rules. Fiverr caution banner shown. Generic opener + external link = textbook scam pattern. Previous 11:19 run draft VOIDED by 11:57 monitor. | Fiverr inbox Mar 31 | 🚫 **FRAUD — DO NOT REPLY** | None — report on Fiverr if prompted. | DRAFTS.md (fraud log, no draft) |
 |------|--------|-------|------|--------|-------------|----------------|
 | vmkkumar | Personal/DM | **RE-ENGAGED Mar 31.** Custom hosting build — "I need something to built custom hosting in my control." High-value project ($2K–10K). Previously discussing Fiverr AI customer service agent. Last contacted: **March 31, 2026** | Screenshot Mar 22 | 🔥 **HOT — RE-ENGAGED** | Follow up and scope the custom hosting build. Quote $2K–10K. | DRAFTS.md "vmkkumar follow-up" |
 |------|--------|-------|------|--------|-------------|----------------|
@@ -106,7 +106,7 @@
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 62 (+1 new: gianni_e1dkyat5 — Fiverr inbound, project brief shared, awaiting details)
+- 🔥 Hot leads: 61 (gianni_e1dkyat5 removed — confirmed SPAM/FRAUD, royalweston.com scam domain)
 - 🟡 Warm leads: 19 (+1 new: @Artyomkun — direct @mention on #51056, agent orchestration debugging pain, invited DMs)
 - 🔵 Cold leads: 7
 - **Total potential revenue:** $9,550+ (62 hot × $75 avg + 19 warm × $50 avg + 3 complex cron/auth issues × $150 + vmkkumar custom build $2K–10K)
@@ -124,10 +124,12 @@
 - New lead khadari197: Inbound DM — personal use setup (productivity, finances, personal growth, organization). Mohammed recommended Mac Mini + separate account. Added as 🔥 HOT — NEW. Target: $75–150 setup/customization session.
 - Draft reply for khadari197 added to DRAFTS.md.
 
-### Fiverr Monitor — March 31, 2026 (Mohlt)
-- **NEW INBOUND: @gianni_e1dkyat5** — First-ever message, 11:19 AM. Sent greeting + external project brief link (royalweston.com). New US account (Mar 2026), no prior orders. Project nature unknown. Draft reply saved to DRAFTS.md — asks them to paste details in chat. ⚠️ Respond within 24h to protect 100% response rate.
-- **Orders:** No active orders.
-- **Unread count:** 0 (gianni thread was unread, now read).
+### Fiverr Monitor — March 31, 2026 (Mohlt — 11:57 AM, corrected run)
+- **🚨 FRAUD FLAGGED: @gianni_e1dkyat5** — Confirmed scam. royalweston.com is a known scam domain (explicitly listed in fraud rules). Account joined Mar 2026 (< 3 months). Generic opener + external link. Fiverr caution banner displayed. Previous 11:19 run draft VOIDED — no reply sent or drafted. Logged as SPAM/FRAUD.
+- **Orders:** No active orders (confirmed via seller dashboard).
+- **Unread messages:** 0 (seller dashboard shows 0 unread; gianni thread was already read).
+- **Response rate:** 100% (unaffected — no reply required for fraud).
+- **Earned in March:** $0.
 
 ### Inbox Monitor — March 31, 2026 (18:30 UTC)
 - **GitHub: @Artyomkun @mentioned maximizeGPT on #51056** — Building x86-64 assembly compiler, taking inspiration from OpenClaw architecture. Described agent orchestration pain (models stuck in loops, context loss). Explicitly asked about Mohammed's debugging work. Invited DMs. Added as 🟡 WARM — NEW. Draft reply + DM in DRAFTS.md.
