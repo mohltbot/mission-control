@@ -1,6 +1,6 @@
 # OpenClaw Debugger - Post Drafts (Copy-Paste Ready)
 
-**Last Updated:** March 31, 2026 (Shift 1 - 9:00 AM)
+**Last Updated:** March 31, 2026 (Shift 1 Update)
 
 ---
 
@@ -57,6 +57,19 @@
 
 **DM Follow-Up: @clawoneloke (WhatsApp Cascading Reconnects)**
 > Hey @clawoneloke — following up on the WhatsApp cascading reconnect issue. The fact it's still reproducible in 2026.3.28 is genuinely frustrating — the idle counter not resetting after reconnect is a persistent bug. If you're still dealing with it in production, I have a custom heartbeat patch that's been stabilizing setups for other users. Happy to share.
+
+---
+
+## 🚀 READY TO POST — March 31, 2026 (Shift 1 Update)
+
+---
+
+### DM Draft: khadari197 (Personal Use Setup — HOT NEW LEAD)
+> Hey! Yes, absolutely — personal use is actually a great fit for this. Setting it up on local hardware like a Mac Mini with its own account and email keeps everything clean and under your control.
+>
+> For productivity, finances, and personal organization, I'd recommend starting with a focused setup session where we configure everything for your specific workflows. I typically do $75 for a standard session or $150 if it's more complex/multi-system.
+>
+> Want to get started? I can walk you through the whole setup end-to-end.
 
 ---
 

@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 31, 2026 (Shift 1 - 9:00 AM)
+**Last Updated:** March 31, 2026 (Shift 1 Update)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -13,7 +13,7 @@
 
 | Name | Source | Issue | Link | Status | Next Action | Draft Location |
 |------|--------|-------|------|--------|-------------|----------------|
-| vmkkumar | Personal/DM | Custom build: NEW AI customer service agent to sell to developers on Fiverr. You shared Intercom case study, offered to help. Message pending Discord safety scan. | Screenshot Mar 22 | 🔥 Hot | Wait for him to see message, then follow up if no response in 24h | DRAFTS.md "vmkkumar follow-up" |
+| vmkkumar | Personal/DM | **RE-ENGAGED Mar 31.** Custom hosting build — "I need something to built custom hosting in my control." High-value project ($2K–10K). Previously discussing Fiverr AI customer service agent. Last contacted: **March 31, 2026** | Screenshot Mar 22 | 🔥 **HOT — RE-ENGAGED** | Follow up and scope the custom hosting build. Quote $2K–10K. | DRAFTS.md "vmkkumar follow-up" |
 |------|--------|-------|------|--------|-------------|----------------|
 | u/rocgpq (GPT-5.4 OAuth) | Reddit | Can't get OpenClaw 2026.3.7 + GPT-5.4 + OAuth working | https://redd.it/1rocgpq | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 1" |
 | u/Sudden_Clothes3886 | Reddit | Exec tools not working after update, fired an agent | https://redd.it/1rl13sb | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 2" |
@@ -97,15 +97,16 @@
 | GitHub #58356 | GitHub | system.run.prepare broken after v2026.3.28 — downgrade doesn't fix | https://github.com/openclaw/openclaw/issues/58356 | 🔥 **HOT — FRESH** | Comment — macOS exec tool regression, persistent state corruption | DRAFTS.md "GitHub Comment: #58356" |
 | GitHub #57023 | GitHub | doctor --fix hits plugin stack overflow on 2026.3.28 — recovery blocked | https://github.com/openclaw/openclaw/issues/57023 | 🔥 **HOT — FRESH** | Comment — Critical: recovery tool itself broken | DRAFTS.md "GitHub Comment: #57023" |
 | GitHub #57188 | GitHub | 2026.3.28 breaks gateway on Linux VPS/systemd — unrecoverable | https://github.com/openclaw/openclaw/issues/57188 | 🔥 **HOT — FRESH** | Comment — Complete outage, snapshot restore needed | DRAFTS.md "GitHub Comment: #57188" |
+| khadari197 | Personal/DM | Personal use setup — productivity, finances, personal growth, organization. Asked "do you specialize in this?" Mohammed recommended local hardware (Mac Mini) with separate account/email. Last contacted: **March 31, 2026** | DM Mar 31 | 🔥 **HOT — NEW** | Send follow-up draft, offer setup & customization session. Quote $75–150 session fee. | DRAFTS.md "DM Draft: khadari197" |
 
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 59 (+3 new hot)
-- 🟡 Warm leads: 18 (+1 new warm)
+- 🔥 Hot leads: 61 (+2 new hot: vmkkumar re-engaged, khadari197 new)
+- 🟡 Warm leads: 18
 - 🔵 Cold leads: 7
-- **Total potential revenue:** $9,125+ (59 hot × $75 avg + 18 warm × $50 avg + 3 complex cron/auth issues × $150)
+- **Total potential revenue:** $9,425+ (61 hot × $75 avg + 18 warm × $50 avg + 3 complex cron/auth issues × $150 + vmkkumar custom build $2K–10K)
 
 ### Shift 1 Notes — March 30, 2026
 - Research blocked: GitHub, Reddit, Twitter/X all inaccessible via web proxy; Chrome not running. No new leads identified this shift.
@@ -114,6 +115,11 @@
 - Day-7 overdue batch (Mar 21): @staroscott, @ronin011-bot, @ngxaix, @bxy3045134656, @heavensea, @hamzagh1998, @liorsolomon, @tengj, @eventslistener — all follow-ups drafted
 - Day-2 batch (Mar 28): @bennybuoy, @Kaiji-Z, @Mu-cream, @clawoneloke — all follow-ups drafted
 - ⚠️ ACTION REQUIRED: Mohammed to manually send drafted DMs above and check Fiverr inbox
+
+### Shift 1 Notes — March 31, 2026
+- vmkkumar RE-ENGAGED: Mohammed sent follow-up, vmkkumar responded ("I need something to built custom hosting in my control"). Mohammed replied positively. Status upgraded to 🔥 HOT — RE-ENGAGED. New focus: custom hosting build ($2K–10K).
+- New lead khadari197: Inbound DM — personal use setup (productivity, finances, personal growth, organization). Mohammed recommended Mac Mini + separate account. Added as 🔥 HOT — NEW. Target: $75–150 setup/customization session.
+- Draft reply for khadari197 added to DRAFTS.md.
 
 ### Shift 2 Notes — March 30, 2026 (6:00 PM)
 - Fiverr: inaccessible (bot protection) — ⚠️ Mohammed to check https://www.fiverr.com/inbox manually
@@ -128,21 +134,23 @@
 
 ## 🔥 Priority Lead: vmkkumar
 
-**Status:** Asked for pricing today (Mar 16) - HOT
+**Status:** 🔥 HOT — RE-ENGAGED (March 31, 2026)
 **Conversation History:**
 - Mar 11: "Exploring this option, will update you"
 - Mar 15: You followed up
-- Mar 16 (Today): "How much you charge for this one"
+- Mar 16: "How much you charge for this one"
+- Mar 22: Mohammed sent follow-up (Discord safety scan delay)
+- Mar 31: Mohammed sent follow-up → vmkkumar responded: "I need something to built custom hosting in my control"
+- Mar 31: Mohammed replied: "I see! That should definitely be possible. Let me know when you're ready to move forward ( happy to help"
 
-**Your Response:**
-> "What were you thinking? I could also build it for you first after a small deposit and then we can waive or adjust final price if you don't like it!"
+**Current Interest:** Custom hosting build — wants full control over his own hosting infrastructure. High-value scoping opportunity.
 
-**Next Action:** 
-- Wait for their response on pricing/deposit model
-- If they agree to deposit: Start build immediately
-- If they want fixed price first: Quote $2,000-5,000 depending on scope
+**Next Action:**
+- Scope the custom hosting build — ask about stack, scale, timeline
+- Quote $2,000–10,000 depending on complexity
+- If they want fixed price: anchor at $5,000 and negotiate down
 
-**Revenue Potential:** $2,000-10,000 (custom build project)
+**Revenue Potential:** $2,000–10,000 (custom build project)
 
 ---
 
