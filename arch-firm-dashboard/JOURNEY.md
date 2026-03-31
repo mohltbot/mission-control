@@ -4,6 +4,19 @@ _A chronological log of ArchTrack development, milestones, and progress._
 
 ---
 
+## [2026-03-31]
+**Status:** 🟡 DEGRADED
+**Commits:** `8a0806e9` chore(auto): sync workspace changes [11:36]; `88ee8d02` chore(auto): sync [11:30]; `8119daa8` chore(auto): sync [09:24]; `de9d8c7b` chore(auto): sync [09:09]; `435ed95f` chore(auto): sync [Mar 30 21:49]; `a099c6f5` chore(auto): sync [Mar 30 20:40]; `25dab585` chore(debugger): Shift 1+2 updates — 14 DMs drafted, pipeline maintained; `eb0a4b79` chore: remove USER.md from tracking — keep local only (sensitive personal data)
+**Open Issues:** 0 open — no P1 flags
+**Suggested fixes:**
+- **`start-production.sh` / nginx config** — Production server at `165.227.78.107` is responding but returning **HTTP 403 Forbidden**. nginx is alive but the Node.js app (port 3001) appears down or the proxy is misconfigured. Mohammed to action: SSH in → run `./status.sh` → if app is down, run `./start-production.sh`. If it keeps crashing, check `logs/server.log` for crash reason. The cron auto-restart (every 5 min) should have caught this — if it didn't, the process may be exiting cleanly (misconfiguration, not crash). Watch-out: verify nginx `proxy_pass` is pointing to `http://localhost:3001`.
+
+**PRs:** none
+**Blockers:** Production URL returning 403 Forbidden — ArchTrack dashboard not publicly accessible
+**Next:** 1) SSH to 165.227.78.107 and diagnose + restart app process; 2) Confirm nginx proxy_pass config targets port 3001
+
+---
+
 ## Overview
 
 ArchTrack is an architectural firm productivity monitoring dashboard that provides real-time team activity tracking, project management, and AI-powered analytics.

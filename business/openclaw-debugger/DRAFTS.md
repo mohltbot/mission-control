@@ -215,4 +215,83 @@ If that config doesn't exist in your version, run with `OPENCLAW_DEBUG=1` and lo
 ### GitHub Replies 1-39 [ALL POSTED Mar 17-28]
 
 ---
+
+## 🚀 SHIFT 2 DRAFTS — March 31, 2026
+
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: vmkkumar | Platform: Personal/DM | Day: RE-ENGAGED
+Their original ask: "I need something to built custom hosting in my control" — wants full ownership of own hosting infrastructure. Previously exploring Fiverr AI customer service agent. High-value ($2K–$10K).
+Draft:
+That makes a lot of sense — having your own hosting stack means you're not at the mercy of shared infrastructure or unpredictable costs.
+
+To scope this accurately: are you looking to self-host the OpenClaw gateway + agents on your own server, or is this a broader hosting platform (e.g., something you'd offer to others or use to run multiple services)? And what does your current setup look like — VPS, dedicated server, or something else?
+
+Once I know the scale and what you want to control, I can give you a clear breakdown and a solid quote. Projects like this typically run $2K–$10K depending on complexity. Happy to jump on a quick call too if that's easier — just say the word.
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @staroscott | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: Discord WebSocket disconnects every ~10 min, health-monitor restart loop, messages lost during reconnect window.
+Draft:
+Hey @staroscott — still following up on the Discord gateway disconnect loop. At the 10-day mark I want to make sure this isn't still costing you messages in production. The health-monitor + WS keep-alive interaction has a clean fix — takes about 20 minutes to implement properly. If you're still hitting it, I can walk you through it today.
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @ronin011-bot | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: WhatsApp message react fails with 'No active WhatsApp Web listener' — send and poll succeed fine, only react breaks.
+Draft:
+Hey @ronin011-bot — circling back on the WhatsApp listener inconsistency. If react is still failing while send/poll succeed, that's a session state mismatch that tends to get worse over time rather than resolve on its own. I've debugged this exact pattern before — usually fixable in one session. Still seeing it?
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @ngxaix | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: Gateway probe WebSocket handshake timeout — HTTP works fine, WS fails.
+Draft:
+Hey @ngxaix — any movement on the gateway WS handshake timeout? HTTP working while WS fails points to something stripping the Upgrade header — load balancer, reverse proxy, or firewall. If you're still blocked I can help trace exactly where the WS connection is dying. Usually one look at the proxy config isolates it.
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @bxy3045134656 | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: `openclaw cron run` causes gateway closed 1000 — cron execution completely broken.
+Draft:
+Hey — still following up on the cron run gateway closed 1000 issue. If this is still blocking your scheduled jobs, the connection is closing before the cron session can fully initialize — a timing/sequencing issue with a reliable workaround. Happy to help if it's still causing problems.
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @heavensea | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: Telegram responses not sent — missing "run done" event in message delivery.
+Draft:
+Hey @heavensea — checking back in on the Telegram delivery issue. Still missing the 'run done' event? When the response completes but the delivery hook never fires, it's usually a session teardown race condition. I've patched this for a few users — can pinpoint the exact drop point from your session logs if you're still dealing with it.
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @hamzagh1998 | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: 2026.3.13 local loopback WS handshake times out / closes before connect for CLI RPCs.
+Draft:
+Hey @hamzagh1998 — following back up on the 2026.3.13 WS handshake timeout on local loopback. Has a newer version resolved this for you, or still stuck? This regression hit several users on .13 — happy to confirm whether upgrading to a stable release cleans up the CLI RPC failures.
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @liorsolomon | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: memory_search tool fails — missing dist/memory-cli-*.js in 2026.3.13, memory functionality broken.
+Draft:
+Hey @liorsolomon — any update on the memory_search packaging regression? The missing dist/memory-cli file is a .13 build issue. If you're still waiting on the official patch or need your memory tooling working today, I can walk you through a manual restore — takes about 10 minutes.
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @tengj | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: Chrome MCP --browser-profile user does not auto-read gateway.remote.token, fails with gateway closed 1000.
+Draft:
+Hey @tengj — still following up on the Chrome MCP auth issue. Using OPENCLAW_GATEWAY_TOKEN as an explicit env var override works cleanly for the --browser-profile user case. If you haven't tried that yet or are hitting a different failure, happy to walk through it — 5-minute fix to confirm.
+---
+
+--- FOLLOW-UP DRAFT [2026-03-31] ---
+Lead: @eventslistener | Platform: GitHub | Day: 10 (Day 7 overdue — SEND TODAY)
+Their original ask: Web chat crashes OpenClaw after sending image, corrupting session file — data loss.
+Draft:
+Hey @eventslistener — checking back in on the web chat image crash + session corruption. Data corruption on image upload is serious — if you're still on a workaround or haven't fully recovered your sessions, I can help you restore the corrupted session file and set up a safer upload flow. Still dealing with it?
+---
+
 *End of DRAFTS.md*

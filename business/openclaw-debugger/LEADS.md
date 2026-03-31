@@ -17,17 +17,17 @@
 |------|--------|-------|------|--------|-------------|----------------|
 | vmkkumar | Personal/DM | **RE-ENGAGED Mar 31.** Custom hosting build — "I need something to built custom hosting in my control." High-value project ($2K–10K). Previously discussing Fiverr AI customer service agent. Last contacted: **March 31, 2026** | Screenshot Mar 22 | 🔥 **HOT — RE-ENGAGED** | Follow up and scope the custom hosting build. Quote $2K–10K. | DRAFTS.md "vmkkumar follow-up" |
 |------|--------|-------|------|--------|-------------|----------------|
-| u/rocgpq (GPT-5.4 OAuth) | Reddit | Can't get OpenClaw 2026.3.7 + GPT-5.4 + OAuth working | https://redd.it/1rocgpq | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 1" |
-| u/Sudden_Clothes3886 | Reddit | Exec tools not working after update, fired an agent | https://redd.it/1rl13sb | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 2" |
-| r/openclaw "50 setups" OP | Reddit | Helped 50+ people, sees same 5 mistakes | https://redd.it/1rp8t9r | 🟡 Warm | ✅ REPLIED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 1" |
-| u/discord_flaky | Reddit | Discord bot "super flaky" | Reddit thread | 🟡 Warm | ✅ REPLIED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 2" |
-| GitHub #43735 | GitHub | Skills not loading from ~/.openclaw/workspace/skills/ | https://github.com/openclaw/openclaw/issues/43735 | 🟡 Warm | ✅ COMMENTED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 3" |
-| GitHub #41673 | GitHub | LLM request timed out, dialog box chat error | https://github.com/openclaw/openclaw/issues/41673 | 🟡 Warm | ✅ COMMENTED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 4" |
-| GitHub #41819 | GitHub | node-llama-cpp build failure on install | https://github.com/openclaw/openclaw/issues/41819 | 🟡 Warm | ✅ COMMENTED Mar 17 — Awaiting engagement | DRAFTS.md "Reply 5" |
+| u/rocgpq (GPT-5.4 OAuth) | Reddit | Can't get OpenClaw 2026.3.7 + GPT-5.4 + OAuth working | https://redd.it/1rocgpq | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "DM 1" |
+| u/Sudden_Clothes3886 | Reddit | Exec tools not working after update, fired an agent | https://redd.it/1rl13sb | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "DM 2" |
+| r/openclaw "50 setups" OP | Reddit | Helped 50+ people, sees same 5 mistakes | https://redd.it/1rp8t9r | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "Reply 1" |
+| u/discord_flaky | Reddit | Discord bot "super flaky" | Reddit thread | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "Reply 2" |
+| GitHub #43735 | GitHub | Skills not loading from ~/.openclaw/workspace/skills/ | https://github.com/openclaw/openclaw/issues/43735 | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "Reply 3" |
+| GitHub #41673 | GitHub | LLM request timed out, dialog box chat error | https://github.com/openclaw/openclaw/issues/41673 | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "Reply 4" |
+| GitHub #41819 | GitHub | node-llama-cpp build failure on install | https://github.com/openclaw/openclaw/issues/41819 | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "Reply 5" |
 | u/rmmhnv | Reddit | OpenClaw after update — sandbox issues | https://redd.it/1rmmhnv | 🔵 Cold | Monitor for follow-up | — |
 | u/rmc6kl | Reddit | Rate limits with free providers | https://redd.it/1rmc6kl | 🔵 Cold | Monitor for follow-up | — |
 | u/rnqu1h1 | Reddit | Self-hosted setup guide request | https://redd.it/1rnq1h1 | 🔵 Cold | Nurture long-term | — |
-| r/openclaw device identity OP | Reddit | Device identity required every new tab (VPS) | https://redd.it/1rrr3v8 | 🟡 Warm | ✅ DM SENT Mar 17 — Awaiting response | DRAFTS.md "DM 3" |
+| r/openclaw device identity OP | Reddit | Device identity required every new tab (VPS) | https://redd.it/1rrr3v8 | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "DM 3" |
 | @lilith-the-dear | GitHub | Custom skills not loading in 2026.3.13 (regression) | https://github.com/openclaw/openclaw/issues/49873 | 🔥 Hot | Comment + DM — Fresh lead, very engaged | DRAFTS.md "DM 4" |
 | @bo-blue | GitHub | Cron sessions hallucinating fake data (trust issue) | https://github.com/openclaw/openclaw/issues/49876 | 🔥 Hot | Comment + DM — Production critical | DRAFTS.md "DM 5" |
 | @gbgeka | GitHub | Slack HTTP mode silently dropping channel events | https://github.com/openclaw/openclaw/issues/49887 | 🔥 Hot | Comment + DM — Message loss bug | DRAFTS.md "DM 6" |
@@ -106,10 +106,11 @@
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 61 (gianni_e1dkyat5 removed — confirmed SPAM/FRAUD, royalweston.com scam domain)
-- 🟡 Warm leads: 19 (+1 new: @Artyomkun — direct @mention on #51056, agent orchestration debugging pain, invited DMs)
-- 🔵 Cold leads: 7
-- **Total potential revenue:** $9,550+ (62 hot × $75 avg + 19 warm × $50 avg + 3 complex cron/auth issues × $150 + vmkkumar custom build $2K–10K)
+- 🔥 Hot leads: 61
+- 🟡 Warm leads: 11 (8 moved to Cold — March 17 batch, 14d no response)
+- 🔵 Cold leads: 15 (+8 from March 17 batch — Mar 31 Shift 2 cleanup)
+- **Total potential revenue:** $8,650+ (61 hot × $75 avg + 11 warm × $50 avg + 3 complex cron/auth issues × $150 + vmkkumar custom build $2K–10K)
+- **Last updated:** March 31, 2026 — Shift 2
 
 ### Shift 1 Notes — March 30, 2026
 - Research blocked: GitHub, Reddit, Twitter/X all inaccessible via web proxy; Chrome not running. No new leads identified this shift.
@@ -138,6 +139,14 @@
 - **Reddit (mohltbot10@gmail.com): No Reddit responses found this cycle.** Note: mohltbot10 may require separate Gmail account access — MCP returned rayedwasif@gmail.com results. ⚠️ Mohammed to verify mohltbot10 inbox manually.
 - **GitHub: @GMTekAI on #52421, @DiscoQA on #57139** — Technical community contributions, not directed at Mohammed, no action required.
 - ⚠️ ACTION REQUIRED: Send drafted @Artyomkun reply + DM. Send @Mu-cream GitHub comment. Check mohltbot10@gmail.com inbox manually.
+
+### Shift 2 Notes — March 31, 2026 (Mohlt)
+- **Pipeline cleanup:** March 17 batch (14d no response) moved to 🔵 Cold: u/rocgpq, u/Sudden_Clothes3886, r/openclaw "50 setups" OP, u/discord_flaky, GitHub #43735, #41673, #41819, r/openclaw device identity OP — 8 leads archived
+- **Follow-up queue built:** 10 leads drafted — 1 new (vmkkumar scoping) + 9 Day-10 carry-forwards for March 21 batch
+- **vmkkumar:** RE-ENGAGED today with custom hosting build ask. Scoping draft written — lead with value + invite call. Quote range $2K–10K. Priority: send today.
+- **March 21 batch (Day 10, overdue Day 7):** All 9 follow-up drafts in DRAFTS.md — SEND TODAY. @staroscott, @ronin011-bot, @ngxaix, @bxy3045134656, @heavensea, @hamzagh1998, @liorsolomon, @tengj, @eventslistener
+- **Pipeline stats updated:** 61 hot / 11 warm / 15 cold
+- ⚠️ ACTION REQUIRED: Mohammed to send all drafts from DRAFTS.md "SHIFT 2 DRAFTS — March 31, 2026" section
 
 ### Shift 2 Notes — March 30, 2026 (6:00 PM)
 - Fiverr: inaccessible (bot protection) — ⚠️ Mohammed to check https://www.fiverr.com/inbox manually
