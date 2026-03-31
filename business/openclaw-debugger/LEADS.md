@@ -1,6 +1,6 @@
 # OpenClaw Debugger — Lead Tracking
 
-**Last Updated:** March 31, 2026 (Shift 1 Update)
+**Last Updated:** March 31, 2026 (Mohlt Fiverr Monitor)
 
 ## Lead Status Legend
 - 🔥 **Hot** — Frustrated, urgent, ready to buy. DM within 24 hours.
@@ -98,15 +98,16 @@
 | GitHub #57023 | GitHub | doctor --fix hits plugin stack overflow on 2026.3.28 — recovery blocked | https://github.com/openclaw/openclaw/issues/57023 | 🔥 **HOT — FRESH** | Comment — Critical: recovery tool itself broken | DRAFTS.md "GitHub Comment: #57023" |
 | GitHub #57188 | GitHub | 2026.3.28 breaks gateway on Linux VPS/systemd — unrecoverable | https://github.com/openclaw/openclaw/issues/57188 | 🔥 **HOT — FRESH** | Comment — Complete outage, snapshot restore needed | DRAFTS.md "GitHub Comment: #57188" |
 | khadari197 | Personal/DM | Personal use setup — productivity, finances, personal growth, organization. Asked "do you specialize in this?" Mohammed recommended local hardware (Mac Mini) with separate account/email. Last contacted: **March 31, 2026** | DM Mar 31 | 🔥 **HOT — NEW** | Send follow-up draft, offer setup & customization session. Quote $75–150 session fee. | DRAFTS.md "DM Draft: khadari197" |
+| @Artyomkun | GitHub | **@MENTIONED maximizeGPT** on #51056 (OpenRouter 401 thread). Introduced his x86-64 assembly compiler project (full compiler from scratch — not a transpiler). Inspired by OpenClaw architecture. Mentioned models getting stuck in loops and losing context during agent orchestration. Explicitly asked what kinds of production config issues Mohammed runs into. **Invited DMs.** | https://github.com/openclaw/openclaw/issues/51056#issuecomment-4153262396 | 🟡 **WARM — NEW @MENTION** | Draft GitHub reply + DM — he has agent orchestration debugging pain and directly engaged | DRAFTS.md "GitHub Reply + DM: @Artyomkun" |
 
 ---
 
 ## Pipeline Stats
 
 - 🔥 Hot leads: 61 (+2 new hot: vmkkumar re-engaged, khadari197 new)
-- 🟡 Warm leads: 18
+- 🟡 Warm leads: 19 (+1 new: @Artyomkun — direct @mention on #51056, agent orchestration debugging pain, invited DMs)
 - 🔵 Cold leads: 7
-- **Total potential revenue:** $9,425+ (61 hot × $75 avg + 18 warm × $50 avg + 3 complex cron/auth issues × $150 + vmkkumar custom build $2K–10K)
+- **Total potential revenue:** $9,475+ (61 hot × $75 avg + 19 warm × $50 avg + 3 complex cron/auth issues × $150 + vmkkumar custom build $2K–10K)
 
 ### Shift 1 Notes — March 30, 2026
 - Research blocked: GitHub, Reddit, Twitter/X all inaccessible via web proxy; Chrome not running. No new leads identified this shift.
@@ -120,6 +121,14 @@
 - vmkkumar RE-ENGAGED: Mohammed sent follow-up, vmkkumar responded ("I need something to built custom hosting in my control"). Mohammed replied positively. Status upgraded to 🔥 HOT — RE-ENGAGED. New focus: custom hosting build ($2K–10K).
 - New lead khadari197: Inbound DM — personal use setup (productivity, finances, personal growth, organization). Mohammed recommended Mac Mini + separate account. Added as 🔥 HOT — NEW. Target: $75–150 setup/customization session.
 - Draft reply for khadari197 added to DRAFTS.md.
+
+### Inbox Monitor — March 31, 2026 (18:30 UTC)
+- **GitHub: @Artyomkun @mentioned maximizeGPT on #51056** — Building x86-64 assembly compiler, taking inspiration from OpenClaw architecture. Described agent orchestration pain (models stuck in loops, context loss). Explicitly asked about Mohammed's debugging work. Invited DMs. Added as 🟡 WARM — NEW. Draft reply + DM in DRAFTS.md.
+- **GitHub: @Mu-cream RESPONDED on #56738** — Cloned latest source, set `idleTimeoutSeconds=0` in source code — still getting `terminated` while model is actively generating. Config workaround confirmed ineffective. Status updated in fresh leads section. Draft GitHub comment in DRAFTS.md.
+- **GitHub: #57134 (@beto-sudo) closed** — @obviyus closed as duplicate of #57972. Lead record updated.
+- **Reddit (mohltbot10@gmail.com): No Reddit responses found this cycle.** Note: mohltbot10 may require separate Gmail account access — MCP returned rayedwasif@gmail.com results. ⚠️ Mohammed to verify mohltbot10 inbox manually.
+- **GitHub: @GMTekAI on #52421, @DiscoQA on #57139** — Technical community contributions, not directed at Mohammed, no action required.
+- ⚠️ ACTION REQUIRED: Send drafted @Artyomkun reply + DM. Send @Mu-cream GitHub comment. Check mohltbot10@gmail.com inbox manually.
 
 ### Shift 2 Notes — March 30, 2026 (6:00 PM)
 - Fiverr: inaccessible (bot protection) — ⚠️ Mohammed to check https://www.fiverr.com/inbox manually
@@ -284,8 +293,9 @@
 **Issue:** All isolated cron jobs fail with LiveSessionModelSwitchError on 2026.3.28. Error references anthropic/claude-opus-4-6 even when cron configured with different model.
 **Why Hot:** Production-critical, affects multiple cron jobs (morning-briefing, weekly-summary, usage-sync-supabase), user tried multiple workarounds
 **Link:** https://github.com/openclaw/openclaw/issues/57134
-**Status:** 🔥 **HOT — FRESH** (posted today)
+**Status:** ~~🔥 **HOT — FRESH**~~ ⚫ **CLOSED — Duplicate of #57972** (closed Mar 30 by @obviyus — fixed in #57972)
 **Draft Location:** DRAFTS.md "DM Draft: @beto-sudo"
+**Note:** Issue closed as duplicate. Check if @beto-sudo is still blocked or has already moved to fix.
 
 ### @dragoneptech — sglang Docker Setup Failure
 **Issue:** Docker setup fails with "Maximum call stack size exceeded" on sglang extension load. Fresh install on Ubuntu via docker-setup.sh.
@@ -321,7 +331,9 @@
 **Issue:** Session terminated (Force timeout) on first bootstrap with local model, timeoutSeconds config has no effect, ~60s hard limit
 **Why Hot:** Windows 11 user, local model deployment issue, blocking basic functionality
 **Link:** https://github.com/openclaw/openclaw/issues/56738
-**Status:** 🔥 **HOT — FRESH** (posted 39 minutes ago)
+**Status:** 🔥 **HOT — RESPONDED Mar 30** (cloned source, set idleTimeoutSeconds=0 — still terminated mid-generation. Config workaround confirmed ineffective. Still fully blocked.)
+**Response Date:** March 30, 2026
+**Response Summary:** Cloned latest source, manually set `agents.defaults.llm.idleTimeoutSeconds=0` in `llm-idle-timeout.ts`, rebuilt and ran — session still terminates with `rawError=terminated` while model is still actively generating output (qwen3.5-27b). Config fix did nothing.
 
 ### @clawoneloke — WhatsApp Cascading Reconnects (STILL BROKEN in 2026.3.28)
 **Issue:** WhatsApp aggressive 30-minute heartbeat causes cascading reconnects every ~60 seconds, idle counter not resetting after reconnect
