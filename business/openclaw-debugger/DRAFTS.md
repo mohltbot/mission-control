@@ -16,6 +16,34 @@ To keep things secure and on-platform (Fiverr's guidelines recommend we avoid ex
 Once I have the overview, I can let you know right away if it's something I can help with and what the turnaround would look like. Looking forward to hearing more!
 ---
 
+## 🚀 INBOX MONITOR DRAFTS — March 31, 2026 (18:30 UTC)
+
+---
+
+--- [GITHUB] DRAFT [2026-03-31 18:30] ---
+To: @Artyomkun
+Context: Commented on openclaw/openclaw#51056 @mentioning maximizeGPT. Described his from-scratch x86-64 assembly compiler project (not a transpiler — full compiler with lexer, parser, AST, codegen; handles functions, if/else, do/while, try/catch, basic types). Inspired by OpenClaw CLI architecture. Mentioned models getting stuck in loops and losing context during agent orchestration. Explicitly asked what kinds of production config issues Mohammed runs into. Invited DMs to continue the conversation.
+Draft:
+Hey @Artyomkun — that's a genuinely impressive project. Writing a full compiler from scratch in pure asm with your own lexer/parser/AST/codegen pipeline — and already handling try/catch and a real type system — puts it well past hobby territory.
+
+On your question about production config issues: the most common things I debug are model context loss in long tool-call chains, and agents silently looping when a tool result is ambiguous or empty. The stuck-in-loops problem you mentioned usually comes down to one of three root causes: no clear stopping signal reaching the agent, tool_use_id mismatches corrupting the message history (especially under high tool-call volume), or compaction stripping too much context so the agent re-evaluates the same state on every turn.
+
+Happy to continue in DMs — if you're hitting those loop or context-loss issues in your orchestration work, I debug these cases professionally. Just say the word.
+---
+
+--- [GITHUB] DRAFT [2026-03-31 18:30] ---
+To: @Mu-cream (openclaw/openclaw#56738)
+Context: Replied Mar 30 with new update — cloned latest source, manually set `agents.defaults.llm.idleTimeoutSeconds=0` in `src/agents/pi-embedded-runner/run/llm-idle-timeout.ts`, rebuilt and ran. Session still terminates with `isError=true rawError=terminated` while model (qwen3.5-27b via fallingcreams provider) is actively generating output. idleTimeoutSeconds config workaround confirmed ineffective.
+Draft:
+Thanks for testing that — and for digging into the source. The fact that setting `idleTimeoutSeconds=0` has no effect is actually useful signal: it confirms the termination is coming from a different code path than the LLM idle watcher.
+
+Your log (`isError=true rawError=terminated` while the model is still actively outputting) points to a hard session run-duration timeout being triggered upstream — most likely the run-attempt max duration logic, not the idle timeout. The `idleTimeoutSeconds` config only controls the LLM *response idle window* (the gap between tokens), not the total allowed session duration.
+
+Worth checking your config for `maxRunSeconds` or `runTimeoutMs` under `agents.defaults` — that's the more likely culprit for a hard cutoff mid-generation, especially with a local model that responds slower than cloud providers.
+
+If that config doesn't exist in your version, run with `OPENCLAW_DEBUG=1` and look for a `runTimeout` or `maxRunDuration` log line — it should tell you exactly which timer fired.
+---
+
 ## 🚀 READY TO POST — March 30, 2026 (Shift 1)
 
 ---
