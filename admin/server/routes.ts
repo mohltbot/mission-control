@@ -27,8 +27,8 @@ import {
   getSuspiciousActivities,
   getActivityStats,
   getEmployeeActivityStats
-} from './database';
-import type { Activity } from '@archtrack/shared';
+} from './database.js';
+import type { Activity } from '../shared-types.js';
 
 export function setupRoutes(app: Express): void {
   // Health check
@@ -417,70 +417,57 @@ export function setupRoutes(app: Express): void {
 
       const employee = await getEmployeeById(employeeId as string);
 
-      // FIX: Sort activities by timestamp ASCENDING (oldest first) for correct duration calculation
-      const sortedActivities = [...activities].sort((a, b) => 
-        new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
-      );
-
-      // FIX: Calculate actual time between activities, not summed durationSeconds
+      // Calculate category breakdown
       const categoryBreakdown: Record<string, number> = {};
       let productiveSeconds = 0;
       let unproductiveSeconds = 0;
       let neutralSeconds = 0;
+      let idleSeconds = 0;
       let totalScore = 0;
+      let scoreCount = 0;
 
-      for (let i = 0; i < sortedActivities.length; i++) {
-        const current = sortedActivities[i];
-        const next = sortedActivities[i + 1];
-        
-        // Calculate duration until next activity or cap at 10 minutes
-        let durationSeconds = 10; // default 10 seconds
-        if (next) {
-          const currentTime = new Date(current.timestamp).getTime();
-          const nextTime = new Date(next.timestamp).getTime();
-          durationSeconds = Math.min((nextTime - currentTime) / 1000, 600); // cap at 10 minutes
-        }
-        
-        const minutes = durationSeconds / 60;
-        categoryBreakdown[current.categoryName] = (categoryBreakdown[current.categoryName] || 0) + minutes;
+      for (const activity of activities) {
+        const minutes = activity.durationSeconds / 60;
+        categoryBreakdown[activity.categoryName] = (categoryBreakdown[activity.categoryName] || 0) + minutes;
 
-        if (current.productivityLevel === 'productive') {
-          productiveSeconds += durationSeconds;
-        } else if (current.productivityLevel === 'unproductive') {
-          unproductiveSeconds += durationSeconds;
+        if (activity.isIdle || activity.productivityLevel === 'idle') {
+          idleSeconds += activity.durationSeconds;
+        } else if (activity.productivityLevel === 'productive') {
+          productiveSeconds += activity.durationSeconds;
+        } else if (activity.productivityLevel === 'unproductive') {
+          unproductiveSeconds += activity.durationSeconds;
         } else {
-          neutralSeconds += durationSeconds;
+          neutralSeconds += activity.durationSeconds;
         }
 
-        totalScore += current.productivityScore;
+        // Only count non-idle activities for productivity score
+        if (!activity.isIdle && activity.productivityLevel !== 'idle') {
+          totalScore += activity.productivityScore;
+          scoreCount++;
+        }
       }
 
-      const avgScore = sortedActivities.length > 0 ? Math.round(totalScore / sortedActivities.length) : 0;
+      const avgScore = scoreCount > 0 ? Math.round(totalScore / scoreCount) : 0;
 
       // Group by day for trend
-      const dailyMap = new Map<string, { productive: number; unproductive: number; totalScore: number; count: number }>();
+      const dailyMap = new Map<string, { productive: number; unproductive: number; idle: number; totalScore: number; count: number }>();
       
-      for (let i = 0; i < sortedActivities.length; i++) {
-        const current = sortedActivities[i];
-        const next = sortedActivities[i + 1];
-        const date = current.timestamp.split('T')[0];
-        const existing = dailyMap.get(date) || { productive: 0, unproductive: 0, totalScore: 0, count: 0 };
+      for (const activity of activities) {
+        const date = activity.timestamp.split('T')[0];
+        const existing = dailyMap.get(date) || { productive: 0, unproductive: 0, idle: 0, totalScore: 0, count: 0 };
         
-        // Calculate duration until next activity or cap at 10 minutes
-        let durationSeconds = 10; // default 10 seconds
-        if (next) {
-          const currentTime = new Date(current.timestamp).getTime();
-          const nextTime = new Date(next.timestamp).getTime();
-          durationSeconds = Math.min((nextTime - currentTime) / 1000, 600); // cap at 10 minutes
+        if (activity.isIdle || activity.productivityLevel === 'idle') {
+          existing.idle += activity.durationSeconds;
+        } else if (activity.productivityLevel === 'productive') {
+          existing.productive += activity.durationSeconds;
+        } else if (activity.productivityLevel === 'unproductive') {
+          existing.unproductive += activity.durationSeconds;
         }
-        
-        if (current.productivityLevel === 'productive') {
-          existing.productive += durationSeconds;
-        } else if (current.productivityLevel === 'unproductive') {
-          existing.unproductive += durationSeconds;
+        // Only count non-idle activities for score
+        if (!activity.isIdle && activity.productivityLevel !== 'idle') {
+          existing.totalScore += activity.productivityScore;
+          existing.count++;
         }
-        existing.totalScore += current.productivityScore;
-        existing.count++;
         
         dailyMap.set(date, existing);
       }
@@ -489,8 +476,15 @@ export function setupRoutes(app: Express): void {
         date,
         productivityScore: data.count > 0 ? Math.round(data.totalScore / data.count) : 0,
         productiveMinutes: Math.round(data.productive / 60),
-        unproductiveMinutes: Math.round(data.unproductive / 60)
+        unproductiveMinutes: Math.round(data.unproductive / 60),
+        idleMinutes: Math.round(data.idle / 60)
       })).sort((a, b) => a.date.localeCompare(b.date));
+
+      // Calculate true productivity (excluding idle time)
+      const activeSeconds = productiveSeconds + unproductiveSeconds + neutralSeconds;
+      const trueProductivityScore = activeSeconds > 0 
+        ? Math.round((productiveSeconds / activeSeconds) * 100)
+        : 0;
 
       res.json({
         success: true,
@@ -499,15 +493,21 @@ export function setupRoutes(app: Express): void {
           employeeName: employee?.name || 'Unknown',
           dateRange: { start: startDate, end: endDate },
           summary: {
-            totalHours: Math.round((productiveSeconds + unproductiveSeconds + neutralSeconds) / 3600 * 10) / 10,
+            totalHours: Math.round((productiveSeconds + unproductiveSeconds + neutralSeconds + idleSeconds) / 3600 * 10) / 10,
             productiveHours: Math.round(productiveSeconds / 3600 * 10) / 10,
             unproductiveHours: Math.round(unproductiveSeconds / 3600 * 10) / 10,
             neutralHours: Math.round(neutralSeconds / 3600 * 10) / 10,
-            averageProductivityScore: avgScore,
-            focusScore: avgScore // Alias for consistency
+            idleHours: Math.round(idleSeconds / 3600 * 10) / 10,
+            averageProductivityScore: trueProductivityScore,
+            focusScore: trueProductivityScore // Alias for consistency
           },
           categoryBreakdown,
-          suspiciousActivities: sortedActivities.filter(a => a.isSuspicious),
+          suspiciousActivities: activities.filter(a => {
+            // Filter out system/idle apps from suspicious list
+            const appName = a.appName.toLowerCase();
+            const isSystemApp = ['loginwindow', 'lockscreen', 'screensaver', 'window server', 'idle'].includes(appName);
+            return a.isSuspicious && !isSystemApp;
+          }).slice(0, 50), // Limit to 50
           dailyTrend
         }
       });

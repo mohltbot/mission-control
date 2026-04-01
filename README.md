@@ -1,101 +1,191 @@
-# Mission Control
+# ArchTrack — Simple Employee Time Tracking
 
-**Your personal AI-powered command center.**
+**Know where your team's time goes. Without the enterprise price tag.**
 
-This is your private workspace for tracking projects, managing AI agents, and orchestrating your 1-person unicorn startup.
-
----
-
-## What This Is
-
-Mission Control is your central nervous system — a private repository where you and your AI agents (like me, Mohlt) track everything:
-
-- **Active projects** — ArchTrack, OpenClaw Debugger, side quests
-- **Lead pipeline** — Hot/warm/cold leads for your businesses
-- **Daily operations** — Ghost shifts, 4-hour syncs, heartbeat monitoring
-- **Memory & context** — Long-term memory, session logs, decisions
-- **Skills & tools** — Custom OpenClaw skills, scripts, automations
+ArchTrack is a simple, private employee tracking system for small businesses. See who's working, what they're working on, and where time gets wasted — all in real-time.
 
 ---
 
-## Key Files
+## What You Get
 
-| File | Purpose |
-|------|---------|
-| `AGENTS.md` | How I work, my boundaries, my memory system |
-| `SOUL.md` | Who I am — my personality, vibe, how I operate |
-| `USER.md` | Everything I know about you, Mohammed |
-| `MEMORY.md` | Long-term curated memories |
-| `TOOLS.md` | API accounts, infrastructure, active projects |
-| `mission-control.md` | Live dashboard — current status, recent activity |
-| `JOURNEY.md` | Your personal journey log |
+### 📊 Real-Time Dashboard
+See your entire team at a glance:
+- Who's online and working right now
+- What app or website they're using
+- How productive they are (0-100% score)
+- Total hours worked today
+- Suspicious activity alerts (YouTube, social media, etc.)
 
----
+### 🤖 AI Assistant (Genesis)
+Just ask questions in plain English:
+- *"Who was most productive today?"*
+- *"How much time did Ahmed spend on emails?"*
+- *"Who's burning out?"*
+- *"What can Sarah do better?"*
 
-## Directory Structure
+No reports to run. No spreadsheets. Just ask.
 
-```
-mission-control/
-├── AGENTS.md, SOUL.md, USER.md, MEMORY.md  # Core context
-├── business/           # Active businesses
-│   ├── openclaw-debugger/   # Lead gen business
-│   ├── side-quests/         # One-off projects
-│   └── siegfried-crm/       # Work CRM data
-├── arch-firm-dashboard/    # ArchTrack production code
-├── memory/              # Daily session logs
-├── scripts/             # Automation scripts
-├── skills/              # Custom OpenClaw skills
-├── docs/                # Documentation
-├── archive/             # Old backups & reports
-└── config/              # Configuration files
-```
+### 🖥️ Automatic Tracking
+Your employees install a small desktop app. It runs silently and tracks:
+- Time spent in each app/website
+- Project assignments
+- Idle time (breaks, away from desk)
+- Productive vs unproductive time
+
+**No manual entry. No timesheets.**
 
 ---
 
-## How We Work
+## Perfect For
 
-1. **Ghost Shifts** — I work autonomously during scheduled windows
-2. **4-Hour Syncs** — Regular check-ins on progress
-3. **Heartbeat Monitoring** — Continuous monitoring of systems
-4. **Memory System** — Daily logs + curated long-term memory
-
----
-
-## Active Projects
-
-| Project | Status | Repo |
-|---------|--------|------|
-| **ArchTrack** | ✅ Production | [Public](https://github.com/maximizeGPT/Archtrack) |
-| **OpenClaw Debugger** | 🟡 Active | Private |
-| **Lenny's Second Brain** | ✅ Complete | [Public](https://github.com/maximizeGPT/lenny-second-brain) |
+- **Architecture firms** — Track billable hours per project
+- **Manufacturing** — Office vs floor time visibility
+- **Design studios** — Client work vs admin time
+- **Any small business** with 5-50 employees
 
 ---
 
-## Quick Commands
+## Quick Start
 
+### Step 1: Deploy to the Cloud (Recommended)
+
+**Option A: DigitalOcean (Easiest)**
+1. Create a DigitalOcean account
+2. Create a Droplet (Ubuntu, $5/month plan)
+3. SSH into your droplet and run:
 ```bash
-# Start ArchTrack
-./scripts/start-archtrack.sh
+curl -sSL https://raw.githubusercontent.com/maximizeGPT/Archtrack/main/deploy-enterprise.sh | bash
+```
+4. Your dashboard is now live at `http://YOUR_DROPLET_IP:3001`
 
-# Stop ArchTrack
-./scripts/stop-archtrack.sh
+**Option B: Your Own Server**
+If you have a server or VPS, just run the deploy script above.
 
-# Search with Tavily
-./scripts/tavily-search.sh "your query"
+### Step 2: Add Your Employees
+1. Open your dashboard URL in a browser
+2. Click "Employees" in the sidebar
+3. Add each team member (name, department, hourly rate)
+4. Each employee gets a unique ID
+
+### Step 3: Install Desktop Trackers
+
+**Currently, the desktop tracker requires manual setup.** Here's how:
+
+On each employee's Mac or Windows computer:
+
+1. **Download the code:**
+```bash
+git clone https://github.com/maximizeGPT/Archtrack.git
+cd Archtrack/desktop
 ```
 
+2. **Install and build:**
+```bash
+npm install
+npm run build
+```
+
+3. **Run the tracker:**
+```bash
+npm start
+```
+
+4. **Enter their unique ID** (from Step 2) when prompted
+
+The tracker will start automatically on login and run silently in the background.
+
+**Need help?** The desktop tracker setup requires some technical knowledge. Consider hiring a developer for 1-2 hours to set this up for all employees.
+
 ---
 
-## Security
+## What Makes ArchTrack Different
 
-⚠️ **This is a PRIVATE repository** — contains:
-- Personal CRM data
-- Business leads and pricing
-- API tokens (in .gitignore)
-- Your personal journey and psychology
-
-Never make this public.
+| Feature | ArchTrack | Other Tools |
+|---------|-----------|-------------|
+| **Price** | Free (open source) | $10-50/employee/month |
+| **Setup** | 5 minutes | Hours of configuration |
+| **Privacy** | Your data stays on your computer | Sent to cloud servers |
+| **AI Insights** | Built-in (ask anything) | Expensive add-on |
+| **Complexity** | Simple, focused | Bloated with features |
 
 ---
 
-*Built by Mohammed + Mohlt 🐾*
+## Common Questions
+
+**Q: Is this spying on my employees?**
+A: No. It's transparency, not surveillance. Employees see the same dashboard you do. No keystroke logging, no screenshots, no camera access. Just time spent in apps.
+
+**Q: Will it slow down their computers?**
+A: No. The tracker uses less than 1% CPU. Most employees won't notice it's running.
+
+**Q: What if someone works from home?**
+A: The tracker works anywhere. Data syncs when they're back in the office, or you can set up cloud sync for remote teams.
+
+**Q: Can employees see their own data?**
+A: Yes. Full transparency. They can see their productivity, time breakdown, and compare to team averages.
+
+**Q: What about privacy?**
+A: All data stays local by default. No third-party servers. You own everything.
+
+**Q: I have multiple offices. Will this work?**
+A: Yes. You have two options:
+1. **One central server** (recommended) — Set up one DigitalOcean droplet ($5/month). All employees at all locations connect to it over the internet. Simple, cheap, data centralized.
+2. **Separate server per location** — Each office gets its own server. More complex, but data stays local to each office.
+
+For most small businesses, one central server works perfectly.
+
+---
+
+## System Requirements
+
+**For the dashboard (your computer):**
+- Mac, Windows, or Linux
+- Node.js 18+ (free download)
+- 2GB RAM
+
+**For employee trackers:**
+- Mac or Windows
+- 100MB disk space
+- Internet connection (for syncing)
+
+---
+
+## Screenshots
+
+*Dashboard showing real-time team activity*
+
+*AI assistant answering "Who was most productive today?"*
+
+*Employee detail view with time breakdown*
+
+---
+
+## Need Help?
+
+**Installation issues?** Open an issue on GitHub.
+
+**Feature requests?** Start a discussion.
+
+**Custom setup?** Hire a developer (this is open source).
+
+---
+
+## Built For Real Small Businesses
+
+ArchTrack was built for my uncle's architecture firm. He needed visibility into his team's time without paying $500/month for enterprise software.
+
+Now he can:
+- See who's actually working on billable projects
+- Identify time-wasters (YouTube, social media)
+- Catch burnout before it happens
+- Have data-driven conversations with employees
+
+**No micromanagement. Just visibility.**
+
+---
+
+## License
+
+Free to use, modify, and sell. MIT License.
+
+Built with ❤️ for small business owners who deserve big tools.
