@@ -1,0 +1,15 @@
+{
+  "name": "mc-skills",
+  "version": "0.1.0",
+  "description": "Mission Control skills bundled as a Claude Code / Codex plugin. Scaffold from Ben's Bites Apr 2 2026 (Codex plugins) and Apr 7 2026 (leaked CC plugin format).",
+  "author": "Mohlt",
+  "skills": [
+    {
+      "name": "scheduled-tasks",
+      "description": "Run Mission Control scheduled tasks (ghost shifts, 4-hour syncs, heartbeat).",
+      "path": "../../skills/scheduled-tasks"
+    }
+  ],
+  "mcpServers": {},
+  "commands": []
+}
