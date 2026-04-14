@@ -65,16 +65,16 @@
 | dnu (@DnuLkjkjh) | Twitter/X | Engaged on OpenClaw 2026.3.13 skills thread — technical feedback about SKILL.md paths. In app business/AI (basilai.app). Conversation active, responded to my reply with like. | https://x.com/DnuLkjkjh | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Networking/BD opportunity — ask about basilai tools, find overlap | DRAFTS.md "Twitter dnu follow-up" |
 | Mark Fietje | Twitter/X | Called out security issue with `dangerouslyAllowHostHeaderOriginFallback` advice. Right about the risk, wants proper fix. | https://x.com/markfietje | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Security-conscious technical lead — acknowledge he's right, ask about his use case | DRAFTS.md "Twitter Mark Fietje response" |
 | u/CooK1e | Reddit | Same issue as OP (21d ago) - may still be stuck | https://redd.it/1j8k2n2 | 🔵 Cold | Follow up to see if resolved - potential lead | — |
-| @staroscott | GitHub | Discord WebSocket disconnects every ~10 min (health-monitor restart loop) | https://github.com/openclaw/openclaw/issues/51636 | 🔥 **HOT — FRESH** | Comment + DM — Production reliability, messages lost | DRAFTS.md "DM 16" |
-| @ronin011-bot | GitHub | WhatsApp message react fails with 'No active WhatsApp Web listener' | https://github.com/openclaw/openclaw/issues/51682 | 🔥 **HOT — FRESH** | Comment + DM — React works but poll/send succeed, odd bug | DRAFTS.md "DM 17" |
-| @ngxaix | GitHub | Gateway probe WebSocket handshake timeout but HTTP works fine | https://github.com/openclaw/openclaw/issues/51698 | 🔥 **HOT — FRESH** | Comment + DM — Network-level issue, fresh (13 min ago) | DRAFTS.md "DM 18" |
-| @bxy3045134656 | GitHub | `openclaw cron run` causes gateway closed 1000 error | https://github.com/openclaw/openclaw/issues/51632 | 🔥 **HOT — FRESH** | Comment + DM — Cron execution failing, 3 comments already | DRAFTS.md "DM 19" |
-| @heavensea | GitHub | Telegram responses not sent — missing "run done" event | https://github.com/openclaw/openclaw/issues/51659 | 🔥 **HOT — FRESH** | Comment + DM — Message delivery issue, 2 comments | DRAFTS.md "DM 20" |
-| @hamzagh1998 | GitHub | OpenClaw 2026.3.13: local loopback gateway WS handshake times out | https://github.com/openclaw/openclaw/issues/51679 | 🔥 **HOT — FRESH** | Comment + DM — 2026.3.13 regression, CLI RPCs failing | DRAFTS.md "DM 21" |
-| @liorsolomon | GitHub | memory_search tool fails to load missing dist/memory-cli-*.js (2026.3.13) | https://github.com/openclaw/openclaw/issues/51676 | 🔥 **HOT — FRESH** | Comment + DM — Memory tool broken, regression | DRAFTS.md "DM 22" |
+| @staroscott | GitHub | Discord WebSocket disconnects every ~10 min (health-monitor restart loop) | https://github.com/openclaw/openclaw/issues/51636 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Production reliability, messages lost | DRAFTS.md "DM 16" |
+| @ronin011-bot | GitHub | WhatsApp message react fails with 'No active WhatsApp Web listener' | https://github.com/openclaw/openclaw/issues/51682 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — React works but poll/send succeed, odd bug | DRAFTS.md "DM 17" |
+| @ngxaix | GitHub | Gateway probe WebSocket handshake timeout but HTTP works fine | https://github.com/openclaw/openclaw/issues/51698 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Network-level issue, fresh (13 min ago) | DRAFTS.md "DM 18" |
+| @bxy3045134656 | GitHub | `openclaw cron run` causes gateway closed 1000 error | https://github.com/openclaw/openclaw/issues/51632 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Cron execution failing, 3 comments already | DRAFTS.md "DM 19" |
+| @heavensea | GitHub | Telegram responses not sent — missing "run done" event | https://github.com/openclaw/openclaw/issues/51659 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Message delivery issue, 2 comments | DRAFTS.md "DM 20" |
+| @hamzagh1998 | GitHub | OpenClaw 2026.3.13: local loopback gateway WS handshake times out | https://github.com/openclaw/openclaw/issues/51679 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — 2026.3.13 regression, CLI RPCs failing | DRAFTS.md "DM 21" |
+| @liorsolomon | GitHub | memory_search tool fails to load missing dist/memory-cli-*.js (2026.3.13) | https://github.com/openclaw/openclaw/issues/51676 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Memory tool broken, regression | DRAFTS.md "DM 22" |
 | @rlerikse | GitHub | sessions.json caches stale model after config change | https://github.com/openclaw/openclaw/issues/51677 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment — Config change doesn't reflect, session issue | DRAFTS.md "Reply 22" |
-| @tengj | GitHub | Chrome MCP (--browser-profile user) does not auto-read gateway.remote.token | https://github.com/openclaw/openclaw/issues/51661 | 🔥 **HOT — FRESH** | Comment + DM — Browser automation auth issue | DRAFTS.md "DM 23" |
-| @eventslistener | GitHub | Web chat crashes OpenClaw after sending image, corrupting session file | https://github.com/openclaw/openclaw/issues/51669 | 🔥 **HOT — FRESH** | Comment + DM — Image upload crash, data corruption | DRAFTS.md "DM 24" |
+| @tengj | GitHub | Chrome MCP (--browser-profile user) does not auto-read gateway.remote.token | https://github.com/openclaw/openclaw/issues/51661 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Browser automation auth issue | DRAFTS.md "DM 23" |
+| @eventslistener | GitHub | Web chat crashes OpenClaw after sending image, corrupting session file | https://github.com/openclaw/openclaw/issues/51669 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Image upload crash, data corruption | DRAFTS.md "DM 24" |
 | @liuxiao128 | GitHub | Control UI freezes with high CPU when switching sessions via dropdown | https://github.com/openclaw/openclaw/issues/51685 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment — UI performance issue | DRAFTS.md "Reply 23" |
 | teqian | GitHub | Curated OpenClaw ecosystem toolkit, shared in #51056 | https://github.com/teqian | 🟡 Warm | Networking opportunity — shared resources, potential collaborator | GITHUB-RESPONSES.md |
 | sahilsatralkar | GitHub | Investigating memory leak #51097, technical contributor | https://github.com/sahilsatralkar | 🟡 Warm | Technical contributor — wait for findings, potential collaboration | GITHUB-RESPONSES.md |
@@ -94,23 +94,72 @@
 | @AIdenB899 | GitHub | Cron delivery to Slack failing with 'Unsupported channel: slack' — 2026.3.22 regression | https://github.com/openclaw/openclaw/issues/53769 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Production cron jobs broken | DRAFTS.md "DM 28" |
 | @timwalterseh-max | GitHub | Feature Request: Custom TUI Footer for Cost/Balance — hit OpenAI rate limits | https://github.com/openclaw/openclaw/issues/53774 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | DM — Cost optimization consulting opportunity | DRAFTS.md "DM 29" |
 
-| @mieurban | GitHub | Bug: Incorrect behavior without crash (2026.3.28) | https://github.com/openclaw/openclaw/issues/58056 | 🔥 **HOT — FRESH** | Comment + DM — March 31 filed, bug label | DRAFTS.md "DM Draft: @mieurban" |
+| @mieurban | GitHub | Bug: Incorrect behavior without crash (2026.3.28) | https://github.com/openclaw/openclaw/issues/58056 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — March 31 filed, bug label | DRAFTS.md "DM Draft: @mieurban" |
 | @marvcasasola-svg | GitHub | Fresh issue #58063 (March 31, 2026) | https://github.com/openclaw/openclaw/issues/58063 | 🟡 Warm | DM — Details unknown (GitHub blocked), monitor | DRAFTS.md "DM Draft: @marvcasasola-svg" |
-| GitHub #58356 | GitHub | system.run.prepare broken after v2026.3.28 — downgrade doesn't fix | https://github.com/openclaw/openclaw/issues/58356 | 🔥 **HOT — FRESH** | Comment — macOS exec tool regression, persistent state corruption | DRAFTS.md "GitHub Comment: #58356" |
-| GitHub #57023 | GitHub | doctor --fix hits plugin stack overflow on 2026.3.28 — recovery blocked | https://github.com/openclaw/openclaw/issues/57023 | 🔥 **HOT — FRESH** | Comment — Critical: recovery tool itself broken | DRAFTS.md "GitHub Comment: #57023" |
-| GitHub #57188 | GitHub | 2026.3.28 breaks gateway on Linux VPS/systemd — unrecoverable | https://github.com/openclaw/openclaw/issues/57188 | 🔥 **HOT — FRESH** | Comment — Complete outage, snapshot restore needed | DRAFTS.md "GitHub Comment: #57188" |
+| GitHub #58356 | GitHub | system.run.prepare broken after v2026.3.28 — downgrade doesn't fix | https://github.com/openclaw/openclaw/issues/58356 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment — macOS exec tool regression, persistent state corruption | DRAFTS.md "GitHub Comment: #58356" |
+| GitHub #57023 | GitHub | doctor --fix hits plugin stack overflow on 2026.3.28 — recovery blocked | https://github.com/openclaw/openclaw/issues/57023 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment — Critical: recovery tool itself broken | DRAFTS.md "GitHub Comment: #57023" |
+| GitHub #57188 | GitHub | 2026.3.28 breaks gateway on Linux VPS/systemd — unrecoverable | https://github.com/openclaw/openclaw/issues/57188 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment — Complete outage, snapshot restore needed | DRAFTS.md "GitHub Comment: #57188" |
 | khadari197 | Personal/DM | Personal use setup — productivity, finances, personal growth, organization. Asked "do you specialize in this?" Mohammed recommended local hardware (Mac Mini) with separate account/email. Last contacted: **March 31, 2026** | DM Mar 31 | 🔥 **HOT — NEW** | Send follow-up draft, offer setup & customization session. Quote $75–150 session fee. | DRAFTS.md "DM Draft: khadari197" |
 | @Artyomkun | GitHub | **@MENTIONED maximizeGPT** on #51056 (OpenRouter 401 thread). Introduced his x86-64 assembly compiler project (full compiler from scratch — not a transpiler). Inspired by OpenClaw architecture. Mentioned models getting stuck in loops and losing context during agent orchestration. Explicitly asked what kinds of production config issues Mohammed runs into. **Invited DMs.** | https://github.com/openclaw/openclaw/issues/51056#issuecomment-4153262396 | 🟡 **WARM — NEW @MENTION** | Draft GitHub reply + DM — he has agent orchestration debugging pain and directly engaged | DRAFTS.md "GitHub Reply + DM: @Artyomkun" |
+| @harleymdsavage | GitHub | openai-codex fails with Cloudflare 403 on every request after upgrade from 2026.4.12 → 2026.4.14. Every agent turn broken. | https://github.com/openclaw/openclaw/issues/66633 | 🔥 **HOT — FRESH** | Comment + DM — Production broken, filed Apr 14 | DRAFTS.md "DM Shift1 Apr14: @harleymdsavage" |
+| @Pavel-Durov | GitHub | Telegram setup crashes with TypeError: Cannot read properties of undefined (reading 'trim') — 2026.4.14 installer regression. 2 comments, actively engaged. | https://github.com/openclaw/openclaw/issues/66619 | 🔥 **HOT — FRESH** | Comment + DM — Can't set up Telegram at all | DRAFTS.md "DM Shift1 Apr14: @Pavel-Durov" |
+| @Hiro674 | GitHub | Installer always crashes after "Select channel (QuickStart)" — same TypeError trim regression as Pavel-Durov on 2026.4.14. | https://github.com/openclaw/openclaw/issues/66641 | 🟡 Warm | Comment — fresh install blocker, 1c | DRAFTS.md "DM Shift1 Apr14: @Hiro674" |
+| @seemebreakthis | GitHub | google-vertex 401 UNAUTHENTICATED on 2026.4.12 — explicitly tested: works on 2026.3.28, broken on all 2026.4.x. Production Vertex setup dead. | https://github.com/openclaw/openclaw/issues/66046 | 🔥 **HOT — FRESH** | Comment + DM — Production critical, version-confirmed regression | DRAFTS.md "DM Shift1 Apr14: @seemebreakthis" |
+| @gunnartschoepke | GitHub | Background exec exit doesn't wake session; cron --at jobs silently disappear; Claude CLI --print truncated — regression since 2026.4.10. Detailed analysis, 2 comments, filed Apr 13. | https://github.com/openclaw/openclaw/issues/66135 | 🔥 **HOT — FRESH** | Comment + DM — Production cron/exec broken, solid technical lead | DRAFTS.md "DM Shift1 Apr14: @gunnartschoepke" |
+| @hi-o-id | GitHub | Telegram: Binary file content injected into prompt via msg.caption causes token explosion — 2026.4.14 bug+regression label. | https://github.com/openclaw/openclaw/issues/66647 | 🔥 **HOT — FRESH** | Comment + DM — Token cost spike, Telegram regression | DRAFTS.md "DM Shift1 Apr14: @hi-o-id" |
+| @Mohamed-HAMMANE | GitHub | WhatsApp auto-reply inline MEDIA:/absolute/path fails on v2026.4.14 — regression (manual --media same file works fine). | https://github.com/openclaw/openclaw/issues/66635 | 🔥 **HOT — FRESH** | Comment + DM — WhatsApp media auto-reply broken | DRAFTS.md "DM Shift1 Apr14: @Mohamed-HAMMANE" |
+| @lamkan0210 | GitHub | OpenClaw v2026.4.14 causes repeated context engine errors and breaks usability. 1 comment, active. | https://github.com/openclaw/openclaw/issues/66601 | 🔥 **HOT — FRESH** | Comment + DM — Usability-breaking regression | DRAFTS.md "DM Shift1 Apr14: @lamkan0210" |
+| @Valkster70 | GitHub | System-level "Exec completed" notifications leak into unrelated webchat sessions — 2026.4.14 bug. 1 comment. | https://github.com/openclaw/openclaw/issues/66648 | 🟡 Warm | Comment — notification regression, 1c | — |
+| @jkoopmann | GitHub | openai-codex SSE stream begins but embedded run aborts locally, surfaces as 408 timeout — 2026.4.14. Related to Cloudflare 403 cluster. | https://github.com/openclaw/openclaw/issues/66561 | 🟡 Warm | Comment — openai-codex cluster, 1c | — |
 
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 61
-- 🟡 Warm leads: 11 (8 moved to Cold — March 17 batch, 14d no response)
-- 🔵 Cold leads: 15 (+8 from March 17 batch — Mar 31 Shift 2 cleanup)
-- **Total potential revenue:** $8,650+ (61 hot × $75 avg + 11 warm × $50 avg + 3 complex cron/auth issues × $150 + vmkkumar custom build $2K–10K)
-- **Last updated:** March 31, 2026 — Shift 2
+- 🔥 Hot leads: 14 (-39 cold archived Apr 14 Shift 2 cleanup — pre-March 31 leads with no response)
+- 🟡 Warm leads: 14 (stable — 9 warm archived to cold Apr 14 Shift 2; teqian/collab leads retained)
+- 🔵 Cold leads: 65 (+35 from Shift 2 Apr 14 pipeline cleanup — Mar 17–31 batches, 14d+ no response)
+- **Total potential revenue:** $4,750+ (14 hot × $75 + 14 warm × $50 + vmkkumar $2K–10K custom build)
+- **Last updated:** April 14, 2026 — Shift 2
+
+### Shift 2 Notes — April 14, 2026 (Mohlt — 6 PM PST)
+- **Pipeline cleanup:** 39 leads archived to 🔵 Cold — all pre-March 31 contacts with 14+ days no response, plus March 21 batch (Day 24, table entries updated to match Shift 1 stats).
+  - Pre-March-21 leads (DMs 4-9, Replies 8-9, 14-16, 17-21, 19-20): @lilith-the-dear, @bo-blue, @gbgeka, @DerFlash, @llzzww316, GitHub #45504, #47103, #46716, #45232, #45173, @thomasbek3, @porist, @hongliang-nemovideo, @aaronho838
+  - March 20 batch (DMs 10-15, Day 25): @papiofficial, @easyvaru-hue, @jasonpsimon, @williamwi617, @guruk, @kelvinfleuty
+  - March 21 batch (DMs 16-24, Day 24 — table update): @staroscott, @ronin011-bot, @ngxaix, @bxy3045134656, @heavensea, @hamzagh1998, @liorsolomon, @tengj, @eventslistener
+  - March 23 batch (DMs 25-27, Reply 24, Day 22): @alex-blocklab, @Charlesmpc, @joesinvestments, @kevinheinrichs
+  - DMs 28-31 (Day 22): @AIdenB899, @timwalterseh-max, @PhilosopherSphinx, @malshaalan-ai
+  - March 31 batch (Day 14): @mieurban, GitHub #58356, #57023, #57188
+  - Warm → Cold (Day 14+): GitHub #44611, #41871, #46100, #46117, @rlerikse, @liuxiao128, u/BeingComprehensive, dnu, Mark Fietje
+  - Reddit/Twitter: u/Rich_Chef_6141
+- **Follow-up drafts written:** 20 final Day-14 nudges appended to DRAFTS.md
+  - vmkkumar (Day 14 — custom hosting scoping, soft close + call invite)
+  - khadari197 (Day 14 — personal setup, $75 session reminder)
+  - March 21 batch Day-14 finals: @staroscott, @ronin011-bot, @ngxaix, @bxy3045134656, @heavensea, @hamzagh1998, @liorsolomon, @tengj, @eventslistener
+  - March 31 batch Day-14: @mieurban, @stemkat100, @dragoneptech, @Artyomkun
+  - Reddit Day-14: u/Particular-Tie-6807, u/DeryHD, u/Far_Main1442, u/Frag_De_Muerte, u/widegroundpro
+- **Pipeline totals (post-cleanup):** 14 hot / 14 warm / 65 cold
+- **Top priority for tomorrow:** vmkkumar (custom hosting $2K-10K) + new April 14 leads (@harleymdsavage Cloudflare 403, @Pavel-Durov installer crash, @seemebreakthis Vertex 401)
+- ⚠️ ACTION REQUIRED: Mohammed to review and send Day-14 drafts from DRAFTS.md "SHIFT 2 DRAFTS — April 14, 2026"
+
+### Shift 1 Notes — April 14, 2026 (Mohlt)
+- **14-day gap since last shift** (March 31 → April 14). Big version jump: 2026.3.28 → 2026.4.14 in the field. Major regression cluster emerging.
+- **GitHub research:** 20+ fresh bug reports filed today on 2026.4.14. Three clear trending clusters identified:
+  - (A) openai-codex/GPT-5.4 Cloudflare 403 on every request post-upgrade (#66633, #66561, #66424 — 3 issues)
+  - (B) Installer crashes TypeError 'trim' in channel setup on 2026.4.14 (#66641, #66619 — 2 issues, same bug)
+  - (C) WhatsApp media/hooks regressions 2026.4.14 (#66635, #66579, #66090 — 3 issues)
+  - Bonus: google-vertex 401 since 2026.4.12 (#66046), background exec/cron silent failures since 2026.4.10 (#66135)
+- **New leads added:** 7 hot, 3 warm (see table above)
+- **Reddit:** r/openclaw not indexed by search engines this cycle. No Reddit leads sourced this shift.
+- **Twitter/X:** No 2026.4.14 complaint tweets found. OpenClaw official account active with release notes. No new Twitter leads.
+- **Content created:** Twitter Thread 17 — "v2026.4.12→2026.4.14 Broke Three Critical Things" (see DRAFTS.md)
+- **Pipeline cleanup — moved to 🔵 Cold (14+ days no response):**
+  - March 21 batch (Day 24): @staroscott, @ronin011-bot, @ngxaix, @bxy3045134656, @heavensea, @hamzagh1998, @liorsolomon, @tengj, @eventslistener (9 leads)
+  - March 28 batch (Day 17): @bennybuoy, @Kaiji-Z, @clawoneloke (3 leads — @Mu-cream had GitHub reply, keep in Warm)
+  - March 29 batch (Day 16): @stemkat100, @beto-sudo, @dragoneptech (3 leads)
+- **vmkkumar:** 14 days silent since March 31 re-engagement. Day-14 follow-up draft written (DRAFTS.md). Still HOT — highest value lead in pipeline ($2K–10K).
+- **DM drafts written this shift:** 8 total (7 new hot leads + vmkkumar Day-14 follow-up)
+- ⚠️ ACTION REQUIRED: Mohammed to send all 8 DM drafts from DRAFTS.md "SHIFT 1 DRAFTS — April 14, 2026" section. vmkkumar is highest priority.
 
 ### Shift 1 Notes — March 30, 2026
 - Research blocked: GitHub, Reddit, Twitter/X all inaccessible via web proxy; Chrome not running. No new leads identified this shift.
