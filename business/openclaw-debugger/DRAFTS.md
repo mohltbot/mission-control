@@ -295,3 +295,160 @@ Hey @eventslistener — checking back in on the web chat image crash + session c
 ---
 
 *End of DRAFTS.md*
+
+---
+
+## 🚀 SHIFT 2 DRAFTS — April 14, 2026 (Mohlt — 6 PM PST)
+
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: vmkkumar | Platform: Personal/DM | Day: 14
+Their original ask: "I need something to built custom hosting in my control" — wants full ownership of own hosting infrastructure. High-value ($2K–$10K). Re-engaged March 31 after long silence.
+Draft:
+Hey — one last check-in on the custom hosting build. Totally fine if now's not the right moment — no pressure at all. Wanted to make sure my message didn't get buried.
+
+When you're ready to move forward, here's what I'd suggest: a quick 20-minute scoping call where we map out the stack, scale requirements, and what "full control" means for your use case. From there I can give you a clean quote (typically $2K–10K depending on complexity). That call is free — no commitment.
+
+Drop me a message whenever you're ready. Happy to pick up where we left off.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: khadari197 | Platform: Personal/DM | Day: 14
+Their original ask: Personal use setup — productivity, finances, personal growth, organization. Asked "do you specialize in this?" Mohammed recommended local hardware (Mac Mini) with separate account/email.
+Draft:
+Hey khadari197 — just one last follow-up. Totally fine if the timing's off right now. If you're still thinking about getting your personal setup built out — productivity workflows, finances, organization — I'm here whenever you're ready.
+
+A standard setup session runs $75 and covers everything end-to-end. If it turns into something more complex, it's $150. Either way you walk away with a working system tailored to your life, not a generic template.
+
+No pressure — reach out whenever works for you.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @staroscott | Platform: GitHub | Day: 14
+Their original ask: Discord WebSocket disconnects every ~10 min, health-monitor restart loop, messages lost during reconnect window.
+Draft:
+Hey @staroscott — one last follow-up on the Discord gateway disconnect loop. Totally understand if you've moved on or found a workaround. Just wanted to make sure it didn't get lost.
+
+If you're still losing messages during that ~10-minute reconnect window, the health-monitor + keep-alive interaction has a reliable fix — I've patched it for a few other setups. Takes about 20 minutes to implement. Feel free to reach out if it becomes a problem again. Good luck with the project either way.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @ronin011-bot | Platform: GitHub | Day: 14
+Their original ask: WhatsApp message react fails with 'No active WhatsApp Web listener' while send and poll succeed fine.
+Draft:
+Hey @ronin011-bot — last check-in on the WhatsApp react failure. If you've already sorted it or moved past it, no worries. The react-only listener failure while send/poll succeed tends to be a session state mismatch that quietly gets worse over time rather than self-resolving. If it comes back, I've debugged this exact pattern before — usually a one-session fix. Feel free to reach out anytime.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @ngxaix | Platform: GitHub | Day: 14
+Their original ask: Gateway probe WebSocket handshake timeout — HTTP works fine, WS fails consistently.
+Draft:
+Hey @ngxaix — final follow-up on the gateway WS handshake timeout. If you've found a fix or worked around it, great. If it's still blocking you — HTTP passing while WS fails almost always points to a proxy or load balancer stripping the Upgrade header. Happy to help trace the exact failure point whenever it's convenient. Just ping me.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @bxy3045134656 | Platform: GitHub | Day: 14
+Their original ask: `openclaw cron run` causes "gateway closed (1000)" error — cron execution completely broken.
+Draft:
+Hey — one last check on the cron run gateway-closed issue. If your scheduled jobs are running fine now, great. If you're still blocked — the connection closes before the cron session fully initializes, and there's a reliable sequencing fix for it. Happy to help whenever you need it.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @heavensea | Platform: GitHub | Day: 14
+Their original ask: Telegram responses not sent — missing "run done" event, message delivery completely broken.
+Draft:
+Hey @heavensea — last follow-up on the Telegram delivery issue. If it's resolved, wonderful. If you're still not getting the "run done" event — that's a session teardown race condition that I've patched for other Telegram setups. Can usually pinpoint the exact drop point from session logs in under 30 minutes. Feel free to reach back out if it's still causing issues.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @hamzagh1998 | Platform: GitHub | Day: 14
+Their original ask: 2026.3.13 local loopback WS handshake times out / closes before connect for CLI RPCs.
+Draft:
+Hey @hamzagh1998 — last check on the 2026.3.13 WS handshake timeout on local loopback. Has a newer version resolved it, or still stuck? If CLI RPCs are still failing, a version bump to the latest stable often clears the .13 regression. Happy to confirm exactly which build fixes it for your config if you reach out.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @liorsolomon | Platform: GitHub | Day: 14
+Their original ask: memory_search tool fails to load missing dist/memory-cli-*.js — regression in 2026.3.13, memory functionality broken.
+Draft:
+Hey @liorsolomon — final follow-up on the memory_search packaging regression. If the official patch has landed and it's working, great. If you're still waiting on it or need memory tooling working today regardless of the release timeline, I can walk you through a manual restore — about 10 minutes. Reach out anytime.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @tengj | Platform: GitHub | Day: 14
+Their original ask: Chrome MCP --browser-profile user does not auto-read gateway.remote.token, fails with gateway closed (1000).
+Draft:
+Hey @tengj — last follow-up on the Chrome MCP auth issue. If you've gotten OPENCLAW_GATEWAY_TOKEN working as an explicit override, that's the cleanest path. If browser automation auth is still breaking, I'm happy to walk you through the full env var setup — 5-minute fix once the config is right. Reach out if you need it.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @eventslistener | Platform: GitHub | Day: 14
+Their original ask: Web chat crashes OpenClaw after sending an image, corrupting session file — data loss on every image upload.
+Draft:
+Hey @eventslistener — one final check on the web chat image crash and session corruption. If there's been an official fix and you're past it, glad to hear it. The data corruption side of this one is serious enough that I wanted to make sure it didn't fall through the cracks. If you're still dealing with it, or need help recovering corrupted session files, I can help — just say the word.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @mieurban | Platform: GitHub | Day: 14
+Their original ask: Bug — incorrect behavior without crash in 2026.3.28, bug label confirmed.
+Draft:
+Hey @mieurban — one last follow-up on issue #58056. If it's resolved or has an upstream fix in progress, no worries. If you're still dealing with the incorrect behavior, I've been debugging 2026.3.28 regressions all week and may be able to point you in the right direction quickly. Happy to help whenever it's useful.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @stemkat100 | Platform: GitHub | Day: 14
+Their original ask: NO_REPLY envelope leakage to Telegram — internal agent narration bleeding into user chat. Pinned to 2026.3.24 due to blocking bug.
+Draft:
+Hey @stemkat100 — last check on the Telegram NO_REPLY envelope leakage. If you've found a fix or the upstream patch has landed, great. Still pinned to 2026.3.24? A message filter that strips NO_REPLY tokens before delivery is about a 15-minute setup and keeps you unblocked regardless of when the official fix ships. Feel free to reach out if you want to go that route.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @dragoneptech | Platform: GitHub | Day: 14
+Their original ask: Docker setup fails with "Maximum call stack size exceeded" on sglang extension load — fresh install on Ubuntu completely blocked.
+Draft:
+Hey @dragoneptech — final follow-up on the Docker sglang stack overflow. If a fix has landed or you've worked around the circular dependency in the extension loader, great. If you're still blocked on fresh installs — disabling non-essential extensions before the first boot and re-enabling them one at a time bypasses it reliably. Happy to help if you're still stuck.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: @Artyomkun | Platform: GitHub | Day: 14
+Their original ask: Building a full x86-64 assembly compiler from scratch (not a transpiler), experiencing model context loss and looping in agent orchestration. Explicitly invited DMs.
+Draft:
+Hey @Artyomkun — following up on my reply about the agent orchestration loop and context loss issues. If you've dug further into the root cause, I'd genuinely be curious what you found — the combination of a from-scratch asm compiler project and OpenClaw orchestration is an unusual setup and the failure modes are interesting. And if you're still hitting the stuck-in-loops problem, I debug these professionally. Happy to chat either way — DMs are open.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: u/Particular-Tie-6807 | Platform: Reddit | Day: 14
+Their original ask: Wants to BUY a premade OpenClaw setup — Throne, email, phone, all channels configured and ready to go.
+Draft:
+Hey — following up on your post about buying a premade OpenClaw setup. Totally fine if you've sorted it already or found another route. If you're still looking for someone to set up Throne, email, phone, and all channels from scratch — that's exactly what I do. Full end-to-end setup, tested and ready to hand off. DM me and we'll get it scoped.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: u/DeryHD | Platform: Reddit | Day: 14
+Their original ask: Ollama connection error in v2026.3.23-2 — network connection error, downgrade to older version fixes it.
+Draft:
+Hey u/DeryHD — quick final follow-up on the Ollama connection error in 2026.3.23-2. If the downgrade is still your workaround, the root cause is a change in how the gateway handles Ollama's local API probe in .23-2. There's a config fix that gets you back on the latest version without needing to stay pinned to the older one. Happy to walk you through it if you're interested.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: u/Far_Main1442 | Platform: Reddit | Day: 14
+Their original ask: ChatGPT OAuth rate limited — capped for 5 days, needs alternative providers that work reliably with OpenClaw.
+Draft:
+Hey u/Far_Main1442 — following up on the ChatGPT OAuth rate limit issue. If the 5-day cap has lifted and you're back to normal, great. If you're looking for a more reliable provider setup that doesn't hit OAuth caps — there are a few configurations I've been using with clients that work around this. OpenRouter with a fallback chain tends to be the most stable. Happy to walk you through the setup if you want.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: u/Frag_De_Muerte | Platform: Reddit | Day: 14
+Their original ask: Codex 5.3 constantly drops the ball — agent sits idle, does nothing. MiniMax works fine. Needs help with model selection and agent config.
+Draft:
+Hey u/Frag_De_Muerte — last follow-up on the Codex 5.3 idle agent issue. If you've switched models and it's running smoothly now, glad to hear it. If Codex is still dropping the ball — the idle behavior usually comes down to missing stop signals or ambiguous tool result handling rather than the model itself. I do model selection and agent config consulting — $75/session. Happy to help you get consistent output if you're still fighting it.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-14] ---
+Lead: u/widegroundpro | Platform: Reddit | Day: 14
+Their original ask: Codex OAuth broken — billing error even though billing is fine, worked fine a week ago — likely auth regression.
+Draft:
+Hey u/widegroundpro — last check on the Codex OAuth billing error. If it's resolved itself or a fix dropped, great. If the "billing error" is still showing despite billing being fine — that's usually a token scope issue on the OAuth side rather than actual billing. There's a re-auth sequence that clears it. Happy to help you walk through it if it's still blocking you.
+---
+

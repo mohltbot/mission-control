@@ -1,7 +1,83 @@
 # Mission Control Board
 
-**Last Updated:** March 31, 2026 at 12:01 PM PST (48-Hour Sync)
-**Source:** 48-Hour Audit — vmkkumar RE-ENGAGED, Fiverr inbound (gianni), khadari197 new DM, 33 new commits, Day-14 leads moved to cold
+**Last Updated:** April 14, 2026 at 09:00 AM PST (48-Hour Sync)
+**Source:** 48-Hour Audit — ArchTrack desktop app packaging (7 commits), autopush rescue, clawoneloke re-engaged, Ben's Bites 3 PRs logged
+
+---
+
+## ✅ 48-HOUR SYNC — 2026-04-14 09:00 PST
+
+### What Happened
+- **ArchTrack desktop app packaging sprint (Apr 12):** 7 commits building Mac/Windows installer pipeline — Electron-builder packaging, GitHub Actions CI/CD for cross-platform builds, /download page + employee download button added to admin. Major milestone toward distributable desktop tracker.
+- **mohltbot/mission-control rescued (Apr 14):** 2-week autopush gap addressed — `chore(rescue): 2-week autopush backlog + scoped autopush script` committed at 08:27 AM. Scoped autopush script deployed; system running clean.
+- **clawoneloke re-engaged (Apr 14):** Left a status update on GitHub #55030 — still experiencing WhatsApp cascading reconnects on v2026.4.11. Was a Mar 28 batch lead (Day-3 follow-up was drafted). Now actively reporting. **ACTION REQUIRED — comment + DM.**
+- **badmutt new activity (Apr 12):** Left comment on #56733 — active-memory plugin timeout on 2026.4.11 (blocking sub-agent memory recall). New participant on a known issue thread.
+- **Ben's Bites run (Apr 14):** 2 issues scanned, 3 items KEPT — Claude Code Monitor Tool + /ultraplan (PR #38), Claude Managed Agents (PR #39), OpenRouter Spawn (PR #40). Docs committed to bensbites-implementations/.
+- **ArchTrack daily summaries sending:** Apr 12, 13, 14 confirmed delivered to rayedwasif@gmail.com — 0% productivity tracked all 3 days (desktop tracker not running/connected). The admin dashboard itself is live and healthy.
+- **No new Fiverr activity** — gianni_e1dkyat5 correctly flagged as fraud last cycle. 0 active orders. 100% response rate maintained.
+- **vmkkumar + March 21 batch follow-ups:** Still pending send. Carryover from Mar 31. These are now 14 days overdue.
+- **Calendar unavailable:** GCal MCP tool repeatedly errored — could not pull events this cycle.
+
+### GitHub Activity
+- **maximizeGPT/Archtrack:** 7 commits (Apr 12) | 0 open issues | 0 open PRs
+  - `add /download page, employee download button, fix duration calculation`
+  - `ci: fix artifact upload path and commit 1024x1024 icon`
+  - `ci: use workspace-relative build dir (fixes Windows /tmp, Mac hdiutil)`
+  - `ci: fix Mac codesign depth and Windows rollup native module issue`
+  - `ci: fix workspace hoisting issue in desktop build`
+  - `ci: add GitHub Actions workflow to build Mac + Windows installers`
+  - `desktop: package tracker as ArchTrack.app with electron-builder`
+- **mohltbot/mission-control:** 2 commits (Apr 14)
+  - `chore(auto): sync workspace changes [2026-04-14 08:32:13]`
+  - `chore(rescue): 2-week autopush backlog + scoped autopush script`
+- **PRs:** None open on either repo
+
+### Pipeline (OpenClaw Debugger)
+- 🔥 Hot: 61 | 🟡 Warm: 11 | 🔵 Cold: 15 | **Total potential: $8,650+**
+- **Last updated:** March 31, 2026 (no new shift run this cycle)
+- **clawoneloke:** 🔥 RE-ACTIVE — Apr 14 status update on #55030. WhatsApp cascading reconnects v2026.4.11. Comment + DM needed.
+- **vmkkumar:** 🔥 HOT — Custom hosting build, $2K–10K. Follow-ups now 14 days overdue.
+- **March 21 batch (Day 24!):** 9 overdue leads — send drafts from DRAFTS.md immediately.
+- **Note:** No new Debugger shift run since Mar 31. Next shift should scan Apr 1–14 GitHub issues for new leads.
+
+### Comms
+- **GitHub #55030** (clawoneloke, Apr 14) — WhatsApp cascading reconnects on v2026.4.11 — **ACTION REQUIRED**
+- **GitHub #56733** (badmutt, Apr 12) — active-memory plugin timeout on embedded sub-agent run
+- **ArchTrack Daily Summaries** (Apr 12–14): 0% productivity tracked all 3 days — desktop tracker not sending data
+- **No Fiverr emails** — Correct. gianni flagged fraud, no active orders.
+- **Sarah (Messenger, Apr 13):** Unread message via Facebook Messenger
+
+### Calendar (next 7 days)
+- ⚠️ Calendar MCP unavailable this cycle — tool execution failed repeatedly. Check Google Calendar manually.
+
+### ArchTrack
+- Status: ✅ **ONLINE** at https://archtrack.live
+- Dashboard: "100% Team Productivity, 95% Util" showing
+- Daily summaries emailing correctly (Apr 12–14 confirmed)
+- **Desktop installer:** Mac/Windows build pipeline now in GitHub Actions — ready for first packaged release
+- **0% tracked daily:** Desktop tracker not running/connected. Mohammed should verify the desktop app is installed and running.
+
+### Budget Tracker
+- Estimated this cycle: +~$0.12 (claude-sonnet-4-6 Cowork run)
+- Running total: ~**$6.67** / $200 (3.3%) — healthy
+
+### Autopush Health
+- Last log entry: `[2026-04-14 08:23:36] ✅ Pushed successfully` + commit at 08:32 (bensbites summary)
+- Subsequent entries: `(no changes)` through 08:57 — running on schedule every 5 min
+- **Note:** 2-week gap (Mar 31 → Apr 14) was resolved by today's rescue commit
+- Verdict: **HEALTHY** (recovered)
+
+### Blockers & Decisions Needed
+- ⚠️ **clawoneloke re-engaged (#55030)** — comment + DM needed. WhatsApp v2026.4.11 reconnect bug.
+- ⚠️ **vmkkumar scoping** — custom hosting build follow-up now 14 days overdue. Quote $2K–10K.
+- ⚠️ **March 21 batch (Day 24)** — 9 lead follow-up drafts in DRAFTS.md still unsent. Send immediately.
+- ⚠️ **khadari197** — personal setup follow-up ($75–150) still pending send
+- ⚠️ **@Artyomkun + @Mu-cream** — GitHub reply + DM drafts still pending from Mar 31
+- ⚠️ **0% tracked in ArchTrack** — desktop tracker not running. Verify installation.
+- ⚠️ **No Debugger shift since Mar 31** — 14 days of GitHub/Reddit activity unscanned. Fresh leads likely.
+- ⚠️ **Calendar unavailable** — check Google Calendar manually
+- 🔒 **Ben's Bites Discord token** — still blocked (needs Discord token)
+- 🔒 **Mission Control Dashboard** — still needs restart verification (`./scripts/mc-dashboard-recovery.sh`)
 
 ---
 
@@ -1488,10 +1564,9 @@ Tasks I can execute autonomously without manual input:
   * **OUTPUT:** Reduced untracked files from 9 to 4
   * **IMPACT:** Cleaner git status, important work preserved
 
-- [ ] **[Proactive] Deploy ArchTrack server** — Set up on uncle's server or cloud instance
-  * **NEW:** Production deployment of admin dashboard
-  * **BLOCKER:** Needs server credentials or cloud provider selection
-  * **NOTE:** Deployment package ready — just need target server
+- [x] **[Proactive] Deploy ArchTrack server** ✅ DONE — Live at https://archtrack.live (confirmed Apr 2026)
+  * Admin dashboard deployed and sending daily email summaries
+  * Desktop installer pipeline added Apr 12 — Mac/Windows builds via GitHub Actions
 
 - [-] **[Proactive] Fix Ben's Bites Discord errors** — Scanner failing to send Discord messages
   * **IN PROGRESS:** Located scraper at `scripts/scrape-bens-bites.py`
@@ -1676,15 +1751,13 @@ All skills referenced and documented. Test visualizations created for ArchTrack 
 
 Tasks requiring manual input, approval, or interactive authentication:
 
-- [ ] **ArchTrack Server Deployment** — Choose deployment option for uncle's employee tracking system
-  * **Option A:** Uncle's local server (needs server details)
-  * **Option B:** Cloud VPS (DigitalOcean, AWS, etc.) — ~$5-10/month
-  * **Option C:** Continue local development on Mac mini for now
-  * **BLOCKER:** Needs decision on hosting approach
+- [x] **ArchTrack Server Deployment** ✅ DONE — Live at https://archtrack.live (Apr 12, 2026)
+  * Mac/Windows desktop installer pipeline now also added via GitHub Actions + Electron-builder
+  * Desktop tracker not currently sending data (0% tracked). Install on uncle's computers.
 
 - [ ] **Persistent Cloudflare Tunnel** — Run `cloudflared tunnel login` manually, then I can complete setup
-  * **STATUS:** Still DOWN since Mar 4 — QUIC timeout errors
-  * **ACTION REQUIRED:** Execute `cloudflared tunnel login` in terminal
+  * **STATUS:** archtrack.live is live via its own domain — this may be resolved
+  * **ACTION REQUIRED:** Verify if Cloudflare tunnel is still needed for Mission Control
 
 - [ ] **Review SaaS Agentification Framework** — Built for Monta VC portfolio, needs your config input
 - [ ] **Domain decision** — Permanent Cloudflare tunnel requires domain setup (optional)
@@ -1693,11 +1766,12 @@ Tasks requiring manual input, approval, or interactive authentication:
 - [ ] **ArchTrack Employee Onboarding** — Install desktop tracker on uncle's employee computers
   * **BLOCKER:** Needs physical access to work computers or remote install method
 
-- [ ] **Send OpenClaw Debugger DMs** — 42 drafted DMs ready to send to hot leads
-  * **PRIORITY:** Send 5-10 DMs daily to fresh hot leads (DM 32-42 for March 27 bug storm)
-  * **DAY 14 FOLLOW-UPS:** u/rocgpq, u/Sudden_Clothes3886, r/openclaw device identity OP — overdue
-  * **HIGH-INTENT:** u/Particular-Tie-6807 wants premade setup — $500-5,000 potential
-  * **WHALE:** vmkkumar custom project — 11 days stalled, needs gentle re-engagement
+- [ ] **Send OpenClaw Debugger DMs** — Drafts ready in DRAFTS.md (URGENT — many overdue)
+  * **CRITICAL:** vmkkumar follow-up 14+ days overdue (custom hosting $2K–10K) — send TODAY
+  * **CRITICAL:** March 21 batch (Day 24) — 9 follow-up drafts in DRAFTS.md — send immediately
+  * **NEW (Apr 14):** clawoneloke re-engaged on #55030 — WhatsApp reconnect v2026.4.11 — comment + DM
+  * **PENDING:** khadari197 personal setup ($75–150), @Artyomkun reply + DM, @Mu-cream comment
+  * **Next Debugger shift needed:** 14 days of GitHub/Reddit unscanned (Apr 1–14)
 
 ---
 
@@ -1705,6 +1779,8 @@ Tasks requiring manual input, approval, or interactive authentication:
 
 Completed tasks from recent work sessions:
 
+- [x] **48-Hour Sync — Apr 14, 9:00 AM** — 9 commits processed (7 ArchTrack desktop packaging Apr 12 + 2 mission-control Apr 14), autopush 2-week gap rescued, clawoneloke re-engaged on #55030, Ben's Bites 3 PRs logged; ArchTrack ONLINE at archtrack.live; pipeline 61 hot / 11 warm / 15 cold ($8,650+)
+- [x] **48-Hour Sync — Mar 31, 12:01 PM** — vmkkumar RE-ENGAGED ($2K–10K custom hosting build), gianni Fiverr fraud flagged, khadari197 new inbound ($75–150), 33 commits processed, Day-14 leads moved to cold; pipeline 61/11/15
 - [x] **48-Hour Sync — Mar 27, 11:07 PM** — 11 commits processed, Ben's Bites March 26-27 tools integrated (dev-browser, deep-research), OpenClaw Debugger Shift 3 completed; lead pipeline at 91 leads ($9,600+ potential), 19 fresh hot leads identified (11 from March 27 bug storm), u/Particular-Tie-6807 high-intent buyer, vmkkumar needs re-engagement
 - [x] **48-Hour Sync — Mar 25, 11:07 PM** — 4 commits processed (a97c1f40, 576a0351, 209b8f7e, 0180b3ac), Browserbase CLI integrated, prompt-guard-cli published, OpenClaw Debugger Shift 2 completed; lead pipeline at 72 leads ($8,175+ potential), 8 fresh hot leads identified, u/Particular-Tie-6807 high-intent buyer found
 - [x] **4-Hour Sync — Mar 23, 11:07 PM** — 1 commit processed (0180b3ac), 5 fresh hot leads identified from GitHub issues, OpenClaw Debugger Shift 1 active, 398 lines committed, 96% cache efficiency; lead pipeline at 60 leads ($7,125+ potential revenue)
@@ -1780,11 +1856,11 @@ Completed tasks from recent work sessions:
 **Features:** Task board, budget tracker, agent monitor, mobile-optimized, **NEW:** Diagnostics API, expense automation
 
 ### OpenClaw Debugger Lead Generation
-**Status:** Active ✅ (91 Leads, $9,600+ Potential)  
-**Pipeline:** 68 hot, 16 warm, 7 cold leads  
-**High-Intent Leads:** u/Particular-Tie-6807 (premade setup buyer), vmkkumar (custom project)  
-**Content:** 17+ pieces ready to post, 42 DMs drafted with GitHub links  
-**Last Update:** Mar 27, 2026 — Shift 3 completed, 11 fresh hot leads from March 27 bug storm
+**Status:** Active ✅ (87 Leads, $8,650+ Potential)  
+**Pipeline:** 61 hot, 11 warm, 15 cold leads  
+**High-Intent Leads:** vmkkumar (custom hosting build $2K–10K), clawoneloke (re-active Apr 14), khadari197 (personal setup $75–150)  
+**Content:** Twitter Thread 16 ready to post (v2026.3.28 regressions), DMs awaiting send  
+**Last Update:** Mar 31, 2026 — Shift 2 completed, pipeline cleaned (8 leads moved to cold)
 
 ### Monta VC Portfolio Agentification
 **Status:** Complete ✅ (Testing Phase)  
@@ -1801,7 +1877,7 @@ Completed tasks from recent work sessions:
 ### Ben's Bites Intelligence
 **Status:** Automated ✅  
 **Schedule:** Wednesday 6 AM, Friday 6 PM  
-**Last Scan:** Mar 12, 2026 — 5 new tools implemented (Firecrawl, BrowserBase, Cloudflare /crawl, Upstash Box, Context Hub)
+**Last Scan:** Apr 14, 2026 — 3 items KEPT: Claude Code Monitor Tool + /ultraplan (PR #38), Claude Managed Agents (PR #39), OpenRouter Spawn (PR #40)
 
 ### Nightly Work Sessions
 **Status:** Running ✅  
@@ -1855,10 +1931,10 @@ Completed tasks from recent work sessions:
 **Last Update:** Mar 2, 2026 4:17 AM
 
 ### ArchTrack Employee Tracking
-**Status:** PRODUCTION READY ✅  
-**Features:** Admin dashboard, desktop tracker, smart classification (9 categories), suspicious activity detection  
-**Location:** `arch-firm-dashboard/`  
-**Last Update:** Mar 12, 2026 3:07 PM — Repository fully restored (44 files recovered)
+**Status:** LIVE + DESKTOP PACKAGING ✅  
+**Features:** Admin dashboard, desktop tracker, smart classification (9 categories), Genesis AI, CI/CD for Mac/Windows installers  
+**Location:** `arch-firm-dashboard/` | **Live:** https://archtrack.live  
+**Last Update:** Apr 12, 2026 — Mac/Windows installer pipeline added (Electron-builder + GitHub Actions, /download page)
 
 ### Ben's Bites March 12 Tools
 **Status:** DEPLOYED ✅  
