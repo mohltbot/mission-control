@@ -556,3 +556,28 @@ Draft:
 Hey u/widegroundpro — last check on the Codex OAuth billing error. If it's resolved itself or a fix dropped, great. If the "billing error" is still showing despite billing being fine — that's usually a token scope issue on the OAuth side rather than actual billing. There's a re-auth sequence that clears it. Happy to help you walk through it if it's still blocking you.
 ---
 
+
+---
+
+## SHIFT 2 DRAFTS — April 15, 2026 (Mohlt, 6 PM PST)
+
+**Status: NO NEW DRAFTS NEEDED THIS SHIFT.**
+
+Rationale:
+- Yesterday's Shift 2 (Apr 14) wrote 20 Day-14 final nudges covering vmkkumar, khadari197, the March 21 GitHub batch, the March 29–31 Reddit batch, @Artyomkun, and the March 31 GitHub leads. Those drafts are all still in this file awaiting Mohammed's manual review and send.
+- Today's Day-2 window = April 13 contacts → no leads match
+- Today's Day-7 window = April 8 contacts → no leads match
+- Today's Day-14 window = April 1 contacts → no leads match
+- April 14 fresh HOT leads (@harleymdsavage, @Pavel-Durov, @Hiro674, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210) are at Day 1 today — too early for a follow-up nudge.
+
+⚠️ **CRITICAL ACTION FOR MOHAMMED — Send yesterday's drafts today.**
+Every Day-14 draft from Apr 14 is now effectively Day-15 in calendar terms. If these sit unsent for another 24–48 hours, the "final nudge" loses its freshness and we'll have wasted the window. Highest-priority sends (in order):
+1. **vmkkumar** (Apr 14 Shift 2 draft — custom hosting scoping, call invite) — $2K–10K
+2. **u/Particular-Tie-6807** — high-intent buyer, wants premade full-channel setup
+3. **khadari197** — $75–150 session, warm personal DM
+4. **@Artyomkun** — active conversation, he invited DMs
+5. **March 21 GitHub batch** (9 leads) — final nudge window closing
+
+No pipeline cleanup executed this shift: the drafts haven't been sent yet, so moving these leads to COLD would be premature. If drafts remain unsent by Apr 16 Shift 2, next shift should move vmkkumar, khadari197, and the Reddit Mar 31 batch to COLD regardless.
+
+---
