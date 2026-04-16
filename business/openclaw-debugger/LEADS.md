@@ -111,16 +111,38 @@
 | @lamkan0210 | GitHub | OpenClaw v2026.4.14 causes repeated context engine errors and breaks usability. 1 comment, active. | https://github.com/openclaw/openclaw/issues/66601 | 🔥 **HOT — FRESH** | Comment + DM — Usability-breaking regression | DRAFTS.md "DM Shift1 Apr14: @lamkan0210" |
 | @Valkster70 | GitHub | System-level "Exec completed" notifications leak into unrelated webchat sessions — 2026.4.14 bug. 1 comment. | https://github.com/openclaw/openclaw/issues/66648 | 🟡 Warm | Comment — notification regression, 1c | — |
 | @jkoopmann | GitHub | openai-codex SSE stream begins but embedded run aborts locally, surfaces as 408 timeout — 2026.4.14. Related to Cloudflare 403 cluster. | https://github.com/openclaw/openclaw/issues/66561 | 🟡 Warm | Comment — openai-codex cluster, 1c | — |
+| @Lairdd | GitHub | Codex/GPT-5.4: Cloudflare WAF blocks token-only API requests — OpenClaw 2026.4.14, Mac mini. Cascading Cloudflare challenges + rate limit. | https://github.com/openclaw/openclaw/issues/67732 | 🔥 **HOT — FRESH** | Comment + DM — Production Codex broken, Cloudflare cluster | DRAFTS.md "DM Shift1 Apr16: @Lairdd" |
+| @Countjump | GitHub | [Bug+Regression]: Dreaming/session-memory creates sessions but never cleans them up — 2026.4.11, Linux/WSL2. Gateway perf degradation. | https://github.com/openclaw/openclaw/issues/67730 | 🔥 **HOT — FRESH** | Comment + DM — Session leak, production impact | DRAFTS.md "DM Shift1 Apr16: @Countjump" |
+| @robin-crow | GitHub | [Bug+Regression]: interactiveReplies button clicks not waking agent session — 2026.4.14, macOS. Slack buttons 100% broken. | https://github.com/openclaw/openclaw/issues/67724 | 🔥 **HOT — FRESH** | Comment + DM — Slack workflow completely blocked | DRAFTS.md "DM Shift1 Apr16: @robin-crow" |
+| @sanchezm86 | GitHub | Security: Per-agent models.json embeds plaintext OAuth credentials — flagged by security audit. | https://github.com/openclaw/openclaw/issues/67719 | 🔥 **HOT — FRESH** | Comment + DM — Security issue, enterprise concern | DRAFTS.md "DM Shift1 Apr16: @sanchezm86" |
+| @clawdieclawdita | GitHub | Cron sessions with deleteAfterRun: true not being deleted — causes context overflow. | https://github.com/openclaw/openclaw/issues/67718 | 🔥 **HOT — FRESH** | Comment + DM — Cron reliability, context overflow | DRAFTS.md "DM Shift1 Apr16: @clawdieclawdita" |
+| @znhe | GitHub | TTS auto mode not triggering despite correct config (messages.tts.auto: always/inbound). | https://github.com/openclaw/openclaw/issues/67726 | 🟡 Warm | Comment — config issue, monitor | — |
+| @KouJun01 | GitHub | Browser: Remote CDP WebSocket needs auto-reconnect. | https://github.com/openclaw/openclaw/issues/67728 | 🟡 Warm | Comment — feature request adjacent | — |
 
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 14 (-39 cold archived Apr 14 Shift 2 cleanup — pre-March 31 leads with no response)
-- 🟡 Warm leads: 14 (stable — 9 warm archived to cold Apr 14 Shift 2; teqian/collab leads retained)
-- 🔵 Cold leads: 65 (+35 from Shift 2 Apr 14 pipeline cleanup — Mar 17–31 batches, 14d+ no response)
-- **Total potential revenue:** $4,750+ (14 hot × $75 + 14 warm × $50 + vmkkumar $2K–10K custom build)
-- **Last updated:** April 14, 2026 — Shift 2
+- 🔥 Hot leads: 19 (+5 from Apr 16 Shift 1: @Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita)
+- 🟡 Warm leads: 16 (+2 from Apr 16 Shift 1: @znhe, @KouJun01)
+- 🔵 Cold leads: 65 (unchanged)
+- **Total potential revenue:** $5,225+ (19 hot × $75 + 16 warm × $50 + vmkkumar $2K–10K custom build)
+- **Last updated:** April 16, 2026 — Shift 1
+
+### Shift 1 Notes — April 16, 2026 (Mohlt — 9 AM PST)
+- **GitHub research:** 20+ fresh issues filed today on 2026.4.14. Three trending clusters:
+  - (A) **Codex/Cloudflare WAF cluster (4+ issues):** #67732 (@Lairdd), #67713, #67693 — token-only requests blocked by Cloudflare. Extends existing #66633 cluster from Apr 14.
+  - (B) **Session/memory leak cluster (3+ issues):** #67730 (@Countjump, dreaming sessions never cleaned), #67718 (@clawdieclawdita, cron deleteAfterRun broken), existing #51097 (sessions.json growth).
+  - (C) **Agent event dispatch bugs:** #67724 (@robin-crow, Slack interactiveReplies 100% broken), #67726 (@znhe, TTS auto not triggering).
+  - Bonus: #67719 (@sanchezm86) security issue — plaintext OAuth credentials in generated models.json.
+- **Reddit:** Blocked by safety restrictions this shift. No Reddit leads.
+- **Twitter/X:** Requires login, inaccessible. No Twitter leads.
+- **New leads added:** 5 hot (@Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita), 2 warm (@znhe, @KouJun01)
+- **Content:** Twitter thread 18 drafted — "Codex/GPT-5.4 Cloudflare WAF: Why Your Token-Only Requests Are Failing" (see DRAFTS.md)
+- **DM drafts written:** 5 (all new hot leads)
+- **Pipeline:** 19 hot / 16 warm / 65 cold — $5,225+ potential
+- **Top priority:** vmkkumar ($2K–10K, 16 days silent) + send 20 queued Day-14 drafts from Apr 14 Shift 2. Per Apr 15 Shift 2 note: cold-move if still unsent.
+- ⚠️ ACTION REQUIRED: Mohammed to send all DM drafts. vmkkumar + u/Particular-Tie-6807 are highest priority.
 
 ### Shift 2 Notes — April 15, 2026 (Mohlt — 6 PM PST)
 - **No new follow-up drafts needed this shift.** Day-2, Day-7, and Day-14 buckets (April 13, 8, and 1 respectively) are all empty — no leads have those contact dates. Yesterday's Shift 2 already drafted the full Day-14 batch for vmkkumar + March 21/29/31 cohort.
