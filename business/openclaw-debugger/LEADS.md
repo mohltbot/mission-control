@@ -15,7 +15,7 @@
 |------|--------|-------|------|--------|-------------|----------------|
 | gianni_e1dkyat5 | Fiverr | ⚠️ **SPAM/FRAUD — CONFIRMED.** Joined Mar 2026 (new account). Message: "Project details are live! check it out at the link: https://royalweston.com/view/makes". royalweston.com is a **known scam domain** per fraud rules. Fiverr caution banner shown. Generic opener + external link = textbook scam pattern. Previous 11:19 run draft VOIDED by 11:57 monitor. | Fiverr inbox Mar 31 | 🚫 **FRAUD — DO NOT REPLY** | None — report on Fiverr if prompted. | DRAFTS.md (fraud log, no draft) |
 |------|--------|-------|------|--------|-------------|----------------|
-| vmkkumar | Personal/DM | **RE-ENGAGED Mar 31.** Custom hosting build — "I need something to built custom hosting in my control." High-value project ($2K–10K). Previously discussing Fiverr AI customer service agent. Last contacted: **March 31, 2026** | Screenshot Mar 22 | 🔥 **HOT — RE-ENGAGED** | Follow up and scope the custom hosting build. Quote $2K–10K. | DRAFTS.md "vmkkumar follow-up" |
+| vmkkumar | Personal/DM | **RE-ENGAGED Mar 31.** Custom hosting build — "I need something to built custom hosting in my control." High-value project ($2K–10K). Previously discussing Fiverr AI customer service agent. Last contacted: **March 31, 2026** | Screenshot Mar 22 | 🔵 **Cold** (16d no response — moved Apr 16 Shift 2) | Day-14 draft written Apr 14, unsent. Door left open. | DRAFTS.md "vmkkumar follow-up" |
 |------|--------|-------|------|--------|-------------|----------------|
 | u/rocgpq (GPT-5.4 OAuth) | Reddit | Can't get OpenClaw 2026.3.7 + GPT-5.4 + OAuth working | https://redd.it/1rocgpq | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "DM 1" |
 | u/Sudden_Clothes3886 | Reddit | Exec tools not working after update, fired an agent | https://redd.it/1rl13sb | 🔵 **Cold** (14d — moved Mar 31 Shift 2) | No further action | DRAFTS.md "DM 2" |
@@ -85,11 +85,11 @@
 | @justinbao19 | GitHub | WhatsApp channel fails to load after gateway restart in 2026.3.22 | https://github.com/openclaw/openclaw/issues/53767 | 🟡 Warm | Resolved in 2026.3.23-1 — pattern tracking | — |
 | @PhilosopherSphinx | GitHub | Critical: Approval system infinite loop in fresh install 2026.3.23-2 — wastes API tokens | https://github.com/openclaw/openclaw/issues/54533 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Production critical, burns money | DRAFTS.md "DM 30" |
 | @malshaalan-ai | GitHub | Browser CLI crashes Chrome 146 via Playwright connectOverCDP (SIGTRAP) | https://github.com/openclaw/openclaw/issues/54535 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Browser automation broken | DRAFTS.md "DM 31" |
-| u/DeryHD | Reddit | Ollama connection error in v2026.3.23-2 — network connection error, downgrade fixes | https://redd.it/1s3ev5q | 🔥 **HOT — FRESH** | Reply + DM — Ollama regression | DRAFTS.md "Reddit DeryHD" |
-| u/Far_Main1442 | Reddit | ChatGPT OAuth rate limited — capped for 5 days, needs alternatives | https://redd.it/1s3ecmh | 🔥 **HOT — FRESH** | Reply + DM — Rate limit consulting | DRAFTS.md "Reddit Far_Main1442" |
-| u/Frag_De_Muerte | Reddit | Codex 5.3 constantly drops the ball — agent sits idle, MiniMax works fine | https://redd.it/1s3d1ur | 🔥 **HOT — FRESH** | Reply + DM — Model selection consulting | DRAFTS.md "Reddit Frag_De_Muerte" |
-| u/Particular-Tie-6807 | Reddit | Wants to BUY premade OpenClaw setup — throne, email, phone, all channels | https://redd.it/1s3cwko | 🔥 **HOT — FRESH** | DM — High-intent buyer, offer setup service | DRAFTS.md "Reddit Particular-Tie-6807" |
-| u/widegroundpro | Reddit | Codex OAuth broken — billing error but billing fine, worked week ago | https://redd.it/1s39ton | 🔥 **HOT — FRESH** | Reply + DM — Auth regression | DRAFTS.md "Reddit widegroundpro" |
+| u/DeryHD | Reddit | Ollama connection error in v2026.3.23-2 — network connection error, downgrade fixes | https://redd.it/1s3ev5q | 🔵 **Cold** (16d — moved Apr 16 Shift 2) | Day-14 draft written Apr 14, unsent | DRAFTS.md "Reddit DeryHD" |
+| u/Far_Main1442 | Reddit | ChatGPT OAuth rate limited — capped for 5 days, needs alternatives | https://redd.it/1s3ecmh | 🔵 **Cold** (16d — moved Apr 16 Shift 2) | Day-14 draft written Apr 14, unsent | DRAFTS.md "Reddit Far_Main1442" |
+| u/Frag_De_Muerte | Reddit | Codex 5.3 constantly drops the ball — agent sits idle, MiniMax works fine | https://redd.it/1s3d1ur | 🔵 **Cold** (16d — moved Apr 16 Shift 2) | Day-14 draft written Apr 14, unsent | DRAFTS.md "Reddit Frag_De_Muerte" |
+| u/Particular-Tie-6807 | Reddit | Wants to BUY premade OpenClaw setup — throne, email, phone, all channels | https://redd.it/1s3cwko | 🔵 **Cold** (16d — moved Apr 16 Shift 2) | Day-14 draft written Apr 14, unsent. High-intent buyer — revive if he posts again. | DRAFTS.md "Reddit Particular-Tie-6807" |
+| u/widegroundpro | Reddit | Codex OAuth broken — billing error but billing fine, worked week ago | https://redd.it/1s39ton | 🔵 **Cold** (16d — moved Apr 16 Shift 2) | Day-14 draft written Apr 14, unsent | DRAFTS.md "Reddit widegroundpro" |
 | @limen96 | GitHub | Use local model for compaction to reduce costs | https://github.com/openclaw/openclaw/issues/53772 | 🟡 Warm | Cost-conscious user — content angle | — |
 | @AIdenB899 | GitHub | Cron delivery to Slack failing with 'Unsupported channel: slack' — 2026.3.22 regression | https://github.com/openclaw/openclaw/issues/53769 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment + DM — Production cron jobs broken | DRAFTS.md "DM 28" |
 | @timwalterseh-max | GitHub | Feature Request: Custom TUI Footer for Cost/Balance — hit OpenAI rate limits | https://github.com/openclaw/openclaw/issues/53774 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | DM — Cost optimization consulting opportunity | DRAFTS.md "DM 29" |
@@ -99,7 +99,7 @@
 | GitHub #58356 | GitHub | system.run.prepare broken after v2026.3.28 — downgrade doesn't fix | https://github.com/openclaw/openclaw/issues/58356 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment — macOS exec tool regression, persistent state corruption | DRAFTS.md "GitHub Comment: #58356" |
 | GitHub #57023 | GitHub | doctor --fix hits plugin stack overflow on 2026.3.28 — recovery blocked | https://github.com/openclaw/openclaw/issues/57023 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment — Critical: recovery tool itself broken | DRAFTS.md "GitHub Comment: #57023" |
 | GitHub #57188 | GitHub | 2026.3.28 breaks gateway on Linux VPS/systemd — unrecoverable | https://github.com/openclaw/openclaw/issues/57188 | 🔵 **Cold** (14d+ — moved Apr 14 Shift 2) | Comment — Complete outage, snapshot restore needed | DRAFTS.md "GitHub Comment: #57188" |
-| khadari197 | Personal/DM | Personal use setup — productivity, finances, personal growth, organization. Asked "do you specialize in this?" Mohammed recommended local hardware (Mac Mini) with separate account/email. Last contacted: **March 31, 2026** | DM Mar 31 | 🔥 **HOT — NEW** | Send follow-up draft, offer setup & customization session. Quote $75–150 session fee. | DRAFTS.md "DM Draft: khadari197" |
+| khadari197 | Personal/DM | Personal use setup — productivity, finances, personal growth, organization. Asked "do you specialize in this?" Mohammed recommended local hardware (Mac Mini) with separate account/email. Last contacted: **March 31, 2026** | DM Mar 31 | 🔵 **Cold** (16d no response — moved Apr 16 Shift 2) | Day-14 draft written Apr 14, unsent. Door left open. | DRAFTS.md "DM Draft: khadari197" |
 | @Artyomkun | GitHub | **@MENTIONED maximizeGPT** on #51056 (OpenRouter 401 thread). Introduced his x86-64 assembly compiler project (full compiler from scratch — not a transpiler). Inspired by OpenClaw architecture. Mentioned models getting stuck in loops and losing context during agent orchestration. Explicitly asked what kinds of production config issues Mohammed runs into. **Invited DMs.** | https://github.com/openclaw/openclaw/issues/51056#issuecomment-4153262396 | 🟡 **WARM — NEW @MENTION** | Draft GitHub reply + DM — he has agent orchestration debugging pain and directly engaged | DRAFTS.md "GitHub Reply + DM: @Artyomkun" |
 | @harleymdsavage | GitHub | openai-codex fails with Cloudflare 403 on every request after upgrade from 2026.4.12 → 2026.4.14. Every agent turn broken. | https://github.com/openclaw/openclaw/issues/66633 | 🔥 **HOT — FRESH** | Comment + DM — Production broken, filed Apr 14 | DRAFTS.md "DM Shift1 Apr14: @harleymdsavage" |
 | @Pavel-Durov | GitHub | Telegram setup crashes with TypeError: Cannot read properties of undefined (reading 'trim') — 2026.4.14 installer regression. 2 comments, actively engaged. | https://github.com/openclaw/openclaw/issues/66619 | 🔥 **HOT — FRESH** | Comment + DM — Can't set up Telegram at all | DRAFTS.md "DM Shift1 Apr14: @Pavel-Durov" |
@@ -123,11 +123,23 @@
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 19 (+5 from Apr 16 Shift 1: @Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita)
-- 🟡 Warm leads: 16 (+2 from Apr 16 Shift 1: @znhe, @KouJun01)
-- 🔵 Cold leads: 65 (unchanged)
-- **Total potential revenue:** $5,225+ (19 hot × $75 + 16 warm × $50 + vmkkumar $2K–10K custom build)
-- **Last updated:** April 16, 2026 — Shift 1
+- 🔥 Hot leads: 12 (−7 from Apr 16 Shift 2: vmkkumar, khadari197, u/DeryHD, u/Far_Main1442, u/Frag_De_Muerte, u/Particular-Tie-6807, u/widegroundpro → COLD)
+- 🟡 Warm leads: 16 (unchanged)
+- 🔵 Cold leads: 72 (+7 from Apr 16 Shift 2)
+- **Total potential revenue:** $1,700+ (12 hot × $75 + 16 warm × $50) — vmkkumar $2K–10K now cold, not counted as active
+- **Last updated:** April 16, 2026 — Shift 2
+
+### Shift 2 Notes — April 16, 2026 (Mohlt — 6 PM PST)
+- **Pipeline cleanup:** 7 leads moved from 🔥 HOT to 🔵 COLD (16+ days no response, Day-14 drafts from Apr 14 confirmed unsent per multiple shift warnings):
+  - vmkkumar (Mar 31 re-engagement, $2K–10K custom hosting — 16d silent)
+  - khadari197 (Mar 31 DM, $75–150 session — 16d silent)
+  - Reddit Mar 31 batch: u/DeryHD, u/Far_Main1442, u/Frag_De_Muerte, u/Particular-Tie-6807, u/widegroundpro
+- **Follow-up drafts written:** 7 Day-2 check-ins for April 14 batch: @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210
+- **No Day-7 or Day-14 leads due this shift** (no contacts match Apr 9 or Apr 2 windows)
+- **Pipeline totals (post-cleanup):** 12 hot / 16 warm / 72 cold — $1,700+ active potential
+- **Top priority for tomorrow:** Send Shift 1 Apr 16 DM drafts (@Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita) + Day 2 check-ins for Apr 14 batch. Post Twitter Thread 18 (Codex/Cloudflare WAF).
+- ⚠️ **vmkkumar note:** Highest historical value lead ($2K–10K). Now COLD but if he resurfaces, immediately re-escalate to HOT. Day-14 soft-close draft (Apr 14) was never sent — Mohammed may still choose to send it as a Hail Mary.
+- ⚠️ ACTION REQUIRED: Mohammed to send all queued DM drafts. 5 fresh Shift 1 drafts + 7 Day-2 follow-ups + unsent Apr 14 batch = 30+ messages waiting.
 
 ### Shift 1 Notes — April 16, 2026 (Mohlt — 9 AM PST)
 - **GitHub research:** 20+ fresh issues filed today on 2026.4.14. Three trending clusters:

@@ -698,3 +698,77 @@ DM me — I can usually get you back up and running in 30 minutes.
 ⚠️ COLD-MOVE CHECK: vmkkumar, khadari197, and Reddit Mar 31 batch have now exceeded 16 days. Per Apr 15 Shift 2 note, if Day-14 drafts from Apr 14 are still unsent, Shift 2 today should cold-move them.
 
 ---
+
+## 🚀 SHIFT 2 DRAFTS — April 16, 2026 (Mohlt — 6 PM PST)
+
+---
+
+### COLD-MOVE NOTES
+
+vmkkumar, khadari197, and the Reddit March 31 batch (u/DeryHD, u/Far_Main1442, u/Frag_De_Muerte, u/Particular-Tie-6807, u/widegroundpro) have exceeded 16 days with no response. Day-14 drafts from Apr 14 remain unsent per multiple shift warnings. All 7 leads moved to 🔵 COLD as directed by Apr 15 Shift 2 note.
+
+---
+
+### Day 2 Follow-Ups — April 14 Batch (Contacted 2 Days Ago)
+
+--- FOLLOW-UP DRAFT [2026-04-16] ---
+Lead: @harleymdsavage | Platform: GitHub | Day: 2
+Their original ask: openai-codex fails with Cloudflare 403 on every request after upgrade from 2026.4.12 → 2026.4.14. Every agent turn broken.
+Draft:
+Hey @harleymdsavage — just checking in on the Cloudflare 403 issue. Did pinning back to 2026.4.12 or routing through OpenRouter get you back up and running? Let me know if you're still blocked — happy to jump on a quick call and sort it out.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-16] ---
+Lead: @Pavel-Durov | Platform: GitHub | Day: 2
+Their original ask: Telegram setup crashes with TypeError: Cannot read properties of undefined (reading 'trim') — 2026.4.14 installer regression.
+Draft:
+Hey @Pavel-Durov — following up on the Telegram setup crash. Were you able to get past it using `openclaw setup --channel telegram` directly instead of QuickStart? Let me know if you're still stuck — I can walk you through the full setup.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-16] ---
+Lead: @seemebreakthis | Platform: GitHub | Day: 2
+Their original ask: google-vertex 401 UNAUTHENTICATED on 2026.4.12 — works on 2026.3.28, broken on all 2026.4.x. Production Vertex dead.
+Draft:
+Hey @seemebreakthis — checking in on the Vertex 401. Did the explicit `GOOGLE_APPLICATION_CREDENTIALS` re-export before gateway start resolve it? If you're seeing a different failure pattern after trying that, happy to dig deeper.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-16] ---
+Lead: @gunnartschoepke | Platform: GitHub | Day: 2
+Their original ask: Background exec exit doesn't wake session; cron --at jobs silently disappear; Claude CLI --print truncated — regression since 2026.4.10. Detailed analysis.
+Draft:
+Hey @gunnartschoepke — just checking if you saw my earlier message about the exec/cron scheduler issue. Still blocked on the wake-up bug? I've got an external cron + CLI trigger workaround that's been reliable for other production setups — happy to walk you through it whenever.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-16] ---
+Lead: @hi-o-id | Platform: GitHub | Day: 2
+Their original ask: Telegram binary file content injected into prompt via msg.caption causes token explosion — 2026.4.14 regression.
+Draft:
+Hey @hi-o-id — following up on the Telegram token explosion from binary captions. Were you able to add a mime type check before processing captions? Quick filter to stop the cost bleed — let me know if you need a hand implementing it.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-16] ---
+Lead: @Mohamed-HAMMANE | Platform: GitHub | Day: 2
+Their original ask: WhatsApp auto-reply inline MEDIA:/absolute/path fails on v2026.4.14 — manual --media with same file works fine.
+Draft:
+Hey @Mohamed-HAMMANE — checking in on the WhatsApp MEDIA: path regression. Did switching to a relative path or `file://` URI scheme in the auto-reply payload help? Still happy to dig into the delivery path handler if you're blocked.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-16] ---
+Lead: @lamkan0210 | Platform: GitHub | Day: 2
+Their original ask: OpenClaw v2026.4.14 causes repeated context engine errors breaking usability. 1 comment, active.
+Draft:
+Hey @lamkan0210 — following up on the context engine errors. Did the gateway restart or pinning back to 2026.4.12 stabilize things for you? Let me know how it's going — happy to help troubleshoot if it's still flaky.
+---
+
+### SHIFT 2 SEND PRIORITY — April 16, 2026
+
+1. **@Lairdd** (Day 0 — fresh Codex/Cloudflare, production broken) — send Shift 1 draft
+2. **@robin-crow** (Day 0 — Slack interactiveReplies 100% broken) — send Shift 1 draft
+3. **@Countjump** (Day 0 — session leak, gateway degradation) — send Shift 1 draft
+4. **@sanchezm86** (Day 0 — security audit finding) — send Shift 1 draft
+5. **@clawdieclawdita** (Day 0 — cron deleteAfterRun broken) — send Shift 1 draft
+6. **Day 2 check-ins** (7 leads above) — light touch, confirm initial advice landed
+
+⚠️ ACTION REQUIRED: Mohammed to send Shift 1 Apr 16 DM drafts (@Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita) AND Day 2 follow-ups for Apr 14 batch. Twitter Thread 18 ready to post.
+
+---
