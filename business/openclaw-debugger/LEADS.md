@@ -118,16 +118,45 @@
 | @clawdieclawdita | GitHub | Cron sessions with deleteAfterRun: true not being deleted — causes context overflow. | https://github.com/openclaw/openclaw/issues/67718 | 🔥 **HOT — FRESH** | Comment + DM — Cron reliability, context overflow | DRAFTS.md "DM Shift1 Apr16: @clawdieclawdita" |
 | @znhe | GitHub | TTS auto mode not triggering despite correct config (messages.tts.auto: always/inbound). | https://github.com/openclaw/openclaw/issues/67726 | 🟡 Warm | Comment — config issue, monitor | — |
 | @KouJun01 | GitHub | Browser: Remote CDP WebSocket needs auto-reconnect. | https://github.com/openclaw/openclaw/issues/67728 | 🟡 Warm | Comment — feature request adjacent | — |
+| @MarkLiddle | GitHub | Windows + Docker Desktop 4.x: sandbox fails — bundled CLI 1.41 vs Engine API 1.44. Can't run local Ollama models. | https://github.com/openclaw/openclaw/issues/68183 | 🔥 **HOT — FRESH** | Comment + DM — Docker regression, Windows prod blocked | DRAFTS.md "DM Shift1 Apr17: @MarkLiddle" |
+| @yzh3533 | GitHub | Heartbeat events preempt active user-facing reply lane — HEARTBEAT_OK appears in conversation, v2026.4.15. | https://github.com/openclaw/openclaw/issues/68182 | 🔥 **HOT — FRESH** | Comment + DM — UX regression, replies clobbered | DRAFTS.md "DM Shift1 Apr17: @yzh3533" |
+| @entrehuihui | GitHub | Matrix messages received and logged but never appear in webchat UI and no Matrix session created. v2026.4.15 + Synapse. | https://github.com/openclaw/openclaw/issues/68188 | 🔥 **HOT — FRESH** | Comment + DM — Matrix delivery silently broken, no comments yet | DRAFTS.md "DM Shift1 Apr17: @entrehuihui" |
+| @GigaSwarm | GitHub | OpenRouter won't work after 2026.4.14 update — "agent couldn't generate a response", Ollama fine. Bug+regression. 1 confirming comment. | https://github.com/openclaw/openclaw/issues/68118 | 🔥 **HOT — FRESH** | Comment + DM — OpenRouter regression, Telegram dead | DRAFTS.md "DM Shift1 Apr17: @GigaSwarm" |
+| @Kasun1Don | GitHub | OpenRouter chat completions return empty messages (payloads=0). Root cause: processOpenAICompletionsStream() drops delta.content. Beta blocker. | https://github.com/openclaw/openclaw/issues/68120 | 🔥 **HOT — FRESH** | Comment + DM — Detailed analysis, beta blocker, production blocked | DRAFTS.md "DM Shift1 Apr17: @Kasun1Don" |
+| @Lewis-404 | GitHub | Discord DM inbound sets ctx.To to channel:<id> instead of user:<id> — causes "Unknown Channel" errors in mirror/delivery-recovery. | https://github.com/openclaw/openclaw/issues/68126 | 🔥 **HOT — FRESH** | Comment + DM — Discord DM routing broken, has proposed fix | DRAFTS.md "DM Shift1 Apr17: @Lewis-404" |
+| @ngakalden | GitHub | f.toLowerCase is not a function in agent:bootstrap hook v2026.4.14 — 20 agents setup, fires on every bootstrap. PR #68127 in progress. | https://github.com/openclaw/openclaw/issues/68124 | 🟡 Warm | Monitor PR #68127 — fix coming, flag if blocker | — |
+| @vibecodesth | GitHub | session_status rejects codex/gpt-5.4 after enabling codex plugin and applying config. | https://github.com/openclaw/openclaw/issues/68122 | 🟡 Warm | Comment — config issue, monitor | — |
+| @zote | GitHub | memory-core: managed dreaming cron stuck with lastError="disabled", not surfaced in logs. | https://github.com/openclaw/openclaw/issues/68134 | 🟡 Warm | Comment — dreaming cron regression, monitor | — |
+| @neo19482 | GitHub | openrouter/free model returns payloads=0 / incomplete turn. Direct curl works fine — OpenClaw integration layer issue. Contributor investigating. | https://github.com/openclaw/openclaw/issues/68185 | 🟡 Warm | Monitor — contributor (Shreyously) on it; reach out if stalled | — |
 
 ---
 
 ## Pipeline Stats
 
-- 🔥 Hot leads: 12 (−7 from Apr 16 Shift 2: vmkkumar, khadari197, u/DeryHD, u/Far_Main1442, u/Frag_De_Muerte, u/Particular-Tie-6807, u/widegroundpro → COLD)
-- 🟡 Warm leads: 16 (unchanged)
-- 🔵 Cold leads: 72 (+7 from Apr 16 Shift 2)
-- **Total potential revenue:** $1,700+ (12 hot × $75 + 16 warm × $50) — vmkkumar $2K–10K now cold, not counted as active
-- **Last updated:** April 16, 2026 — Shift 2
+- 🔥 Hot leads: 18 (+6 from Apr 17 Shift 1: @MarkLiddle, @yzh3533, @entrehuihui, @GigaSwarm, @Kasun1Don, @Lewis-404)
+- 🟡 Warm leads: 20 (+4 from Apr 17 Shift 1: @ngakalden, @vibecodesth, @zote, @neo19482)
+- 🔵 Cold leads: 72 (unchanged)
+- **Total potential revenue:** $2,350+ (18 hot × $75 + 20 warm × $50)
+- **Last updated:** April 17, 2026 — Shift 1
+
+### Shift 1 Notes — April 17, 2026 (Mohlt — 9 AM PST)
+- **GitHub research:** 20+ fresh issues filed today on 2026.4.14/4.15. One clear trending cluster, two strong individual bugs:
+  - **OpenRouter streaming regression (4 issues):** #68185 (@neo19482), #68120 (@Kasun1Don), #68118 (@GigaSwarm) — processOpenAICompletionsStream() drops delta.content, payloads=0. Beta blocker, contributor (Shreyously) investigating. Also #68122 (@vibecodesth) codex/gpt-5.4 session rejection may be related.
+  - **Docker Desktop API version mismatch:** #68183 (@MarkLiddle) — bundled CLI 1.41 vs Engine 1.44 regression, Windows prod blocked.
+  - **Heartbeat lane preemption:** #68182 (@yzh3533) — heartbeat overwrites active reply, HEARTBEAT_OK visible to user.
+  - **Matrix delivery broken:** #68188 (@entrehuihui) — messages arrive in logs, never surface in webchat or create sessions.
+  - **Discord DM ctx.To bug:** #68126 (@Lewis-404) — DMs misrouted as channels, "Unknown Channel" errors. Has proposed fix.
+  - Other notable: #68124 (@ngakalden) f.toLowerCase crash (PR in progress), #68134 (@zote) dreaming cron stuck, #68171/#68170/#68169 (@richard-scott) doctor command bugs.
+- **Reddit:** Blocked by safety restrictions. No Reddit leads.
+- **Twitter/X:** Requires login, inaccessible. No Twitter leads.
+- **New hot leads added:** 6 (@MarkLiddle, @yzh3533, @entrehuihui, @GigaSwarm, @Kasun1Don, @Lewis-404)
+- **New warm leads added:** 4 (@ngakalden, @vibecodesth, @zote, @neo19482)
+- **Content:** Twitter Thread 19 drafted — "OpenRouter 2026.4.14 Streaming Regression + Workarounds" (see DRAFTS.md). 4-issue cluster qualifies as trending.
+- **DM drafts written:** 6 (all new hot leads)
+- **Pipeline totals:** 18 hot / 20 warm / 72 cold — $2,350+ potential
+- **Day-1 check-ins due:** Apr 16 batch (@Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita) — Shift 2 today should draft Day-1 follow-ups
+- **Day-3 check-ins due:** Apr 14 batch — Shift 2 should assess response rates on those 7 leads
+- ⚠️ ACTION REQUIRED: Mohammed to send 6 fresh DM drafts from this shift + post Twitter Thread 19 + send Apr 16 Day-1 DMs. Sending backlog is now 11+ fresh drafts from last 2 days.
 
 ### Shift 2 Notes — April 16, 2026 (Mohlt — 6 PM PST)
 - **Pipeline cleanup:** 7 leads moved from 🔥 HOT to 🔵 COLD (16+ days no response, Day-14 drafts from Apr 14 confirmed unsent per multiple shift warnings):
@@ -482,6 +511,52 @@
 **Why Hot:** Highest engagement of the Control UI issues, PR fix in progress
 **Link:** https://github.com/openclaw/openclaw/issues/52808
 **Status:** 🔥 **HOT — FRESH** (posted 4 hours ago)
+
+---
+
+## 🔥 FRESH LEADS — April 17, 2026 (Shift 1)
+
+### @MarkLiddle — Windows Docker Desktop API Version Mismatch
+**Issue:** OpenClaw sandbox fails on Windows + Docker Desktop 4.x — bundled Docker CLI (API 1.41) incompatible with Engine 29.x (min API 1.44). Blocks all local model sandbox execution.
+**Why Hot:** Regression label, production-blocking on Windows, no workaround in issue, user explicitly can't run local Ollama with tools
+**Link:** https://github.com/openclaw/openclaw/issues/68183
+**Status:** 🔥 **HOT — FRESH** (posted today)
+**Draft Location:** DRAFTS.md "DM Shift1 Apr17: @MarkLiddle"
+
+### @yzh3533 — Heartbeat Events Preempt Active Reply Lane
+**Issue:** Internal heartbeat events interrupt active assistant replies in v2026.4.15 — "HEARTBEAT_OK" text appears in conversation, users see assistant as broken.
+**Why Hot:** UX regression affecting all live conversations, users perceive assistant as unreliable, relates to #67178
+**Link:** https://github.com/openclaw/openclaw/issues/68182
+**Status:** 🔥 **HOT — FRESH** (posted today)
+**Draft Location:** DRAFTS.md "DM Shift1 Apr17: @yzh3533"
+
+### @entrehuihui — Matrix Messages Not Delivered to Session
+**Issue:** Matrix messages arrive and are logged (bot-storage.json, inbound-dedupe.json) but never appear in webchat UI and no Matrix session is created. v2026.4.15 + self-hosted Synapse.
+**Why Hot:** Completely broken Matrix channel, zero workaround, no comments yet — early DM opportunity
+**Link:** https://github.com/openclaw/openclaw/issues/68188
+**Status:** 🔥 **HOT — FRESH** (posted today)
+**Draft Location:** DRAFTS.md "DM Shift1 Apr17: @entrehuihui"
+
+### @GigaSwarm — OpenRouter Broken After 2026.4.14 (Regression)
+**Issue:** OpenRouter provider completely broken after 2026.4.14 — "agent couldn't generate a response" on Telegram. Ollama still works. 1 confirming comment from another user.
+**Why Hot:** Regression label, production Telegram dead, bug+regression label, confirmed by multiple users
+**Link:** https://github.com/openclaw/openclaw/issues/68118
+**Status:** 🔥 **HOT — FRESH** (posted today)
+**Draft Location:** DRAFTS.md "DM Shift1 Apr17: @GigaSwarm"
+
+### @Kasun1Don — OpenRouter Empty Messages (Beta Blocker)
+**Issue:** OpenRouter chat completions return empty assistant messages (payloads=0). Root cause identified: processOpenAICompletionsStream() drops delta.content chunks. Affects openrouter/auto, claude-sonnet variants. Beta-blocker label.
+**Why Hot:** Self-diagnosed root cause (high technical credibility), beta blocker for production release, contributor already investigating (#68120)
+**Link:** https://github.com/openclaw/openclaw/issues/68120
+**Status:** 🔥 **HOT — FRESH** (posted today)
+**Draft Location:** DRAFTS.md "DM Shift1 Apr17: @Kasun1Don"
+
+### @Lewis-404 — Discord DM ctx.To Routing Bug
+**Issue:** Discord DMs misrouted — ctx.To set to channel:<id> instead of user:<id>, causing "Unknown Channel" API errors in mirror and delivery-recovery. Has detailed root cause analysis and proposed one-line fix.
+**Why Hot:** Discord DMs completely broken, detailed analysis shows clear fix path, likely to engage on technical approach
+**Link:** https://github.com/openclaw/openclaw/issues/68126
+**Status:** 🔥 **HOT — FRESH** (posted today)
+**Draft Location:** DRAFTS.md "DM Shift1 Apr17: @Lewis-404"
 
 ---
 

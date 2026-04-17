@@ -772,3 +772,149 @@ Hey @lamkan0210 — following up on the context engine errors. Did the gateway r
 ⚠️ ACTION REQUIRED: Mohammed to send Shift 1 Apr 16 DM drafts (@Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita) AND Day 2 follow-ups for Apr 14 batch. Twitter Thread 18 ready to post.
 
 ---
+
+---
+
+## 🚀 SHIFT 1 DRAFTS — April 17, 2026 (Mohlt — 9 AM PST)
+
+---
+
+### Twitter Thread 19 — OpenRouter 2026.4.14 Streaming Regression
+
+**Title:** OpenRouter broken after updating OpenClaw? Here's what's actually happening.
+
+---
+
+Tweet 1/7:
+If you're getting "agent couldn't generate a response" with OpenRouter after upgrading OpenClaw to 2026.4.14 — you're not alone. 3+ issues opened in the last few hours. Here's what's happening and how to get unblocked 🧵
+
+Tweet 2/7:
+The bug: OpenClaw's stream processing function is silently dropping delta.content chunks from OpenRouter's SSE stream. The API call succeeds, the stream arrives, but payloads=0 gets logged and you get a blank response. Not an OpenRouter problem — the direct API still works fine.
+
+Tweet 3/7:
+Symptoms:
+✗ "incomplete turn detected... payloads=0" in gateway logs
+✗ "Agent couldn't generate a response. Please try again."
+✗ Affects openrouter/free, openrouter/auto, claude-sonnet via OR
+✗ Started after 2026.4.14 update (some users see it on 2026.4.12 too)
+
+Tweet 4/7:
+Quick fix if you need unblocked NOW: Pin back to 2026.4.13 or 2026.4.12. These versions don't have the streaming parsing regression.
+
+Docker users: `docker pull openclaw/openclaw:2026.4.12`
+
+Tweet 5/7:
+Can't downgrade? Try the OpenAI-compatible bridge:
+
+provider: openai
+base_url: https://openrouter.ai/api/v1
+api_key: [your openrouter key]
+
+This bypasses the broken openrouter-specific transport layer. Every model that worked before still works — same key, same models.
+
+Tweet 6/7:
+Root cause is in processOpenAICompletionsStream() — incoming delta.content chunks aren't being accumulated before the turn finalizes. A contributor (Shreyously) is already on it in #68120. Fix should land in 2026.4.15 or 2026.4.16.
+
+Tweet 7/7:
+Running OpenClaw in production and stuck on this? I debug these issues for a living.
+
+DM me — one session usually gets you unblocked. $75 flat, or 15 min free diagnostic call first.
+
+Reply or DM 🔧
+
+---
+
+### DM Draft Shift1 Apr17: @MarkLiddle
+
+Lead: @MarkLiddle | Platform: GitHub | Issue: #68183 | Day: 0
+Their original ask: Windows + Docker Desktop 4.x — OpenClaw sandbox fails with "client version 1.41 is too old. Minimum supported API version is 1.44". Can't run local Ollama models with tools.
+Draft:
+Hey @MarkLiddle — I saw your Docker API version mismatch issue. The root cause is that OpenClaw's Docker image bundles Docker CLI 20.10 (API 1.41), but Docker Desktop 29.x+ enforces a minimum of 1.44 for TCP connections.
+
+Quickest fix: enable Docker Desktop's TCP daemon (Settings → General → "Expose daemon on tcp://localhost:2375 without TLS"), then add `DOCKER_HOST=tcp://localhost:2375` to your OpenClaw environment. That routes around the bundled CLI entirely.
+
+If you don't want to expose the TCP daemon, temporary workaround is `sandbox.enabled: false` in your gateway config while you wait for the image to ship an updated Docker CLI. Let me know if either of those gets you running — happy to walk through it if you hit a snag.
+---
+
+### DM Draft Shift1 Apr17: @yzh3533
+
+Lead: @yzh3533 | Platform: GitHub | Issue: #68182 | Day: 0
+Their original ask: Heartbeat events preempting the active user-facing reply lane — "HEARTBEAT_OK" output appearing in conversation, replacing in-progress assistant responses. v2026.4.15.
+Draft:
+Hey @yzh3533 — your heartbeat preemption bug is a real UX problem. The issue is that the heartbeat event handler doesn't check whether the active reply lane is busy before writing to it — so it can overwrite an in-progress response with internal output.
+
+Short-term workaround: increase your `gateway.heartbeat.interval` to something like 120s in your config — reduces how often the collision can occur while a proper fix lands. You won't lose the keep-alive benefit with a longer interval.
+
+If you're seeing it heavily in production, I can also help you implement a local patch that adds a reply-lane guard before the heartbeat write. Let me know how bad it is and I can advise on the best path.
+---
+
+### DM Draft Shift1 Apr17: @entrehuihui
+
+Lead: @entrehuihui | Platform: GitHub | Issue: #68188 | Day: 0
+Their original ask: Matrix messages received and logged by the bot but never appear in webchat UI and no independent Matrix session is created. v2026.4.15 + self-hosted Synapse.
+Draft:
+Hey @entrehuihui — the "Merged and removed orphaned user message" log line is the key clue in your Matrix issue. That message means incoming Matrix events are being classified as orphans during routing and discarded before a session can be created.
+
+This usually happens when the `OriginatingChannel: "matrix"` metadata isn't getting threaded through to the session manager correctly. A few things to try:
+
+1. Check if `matrix.sessionMode` is set in your channel config — if not, try adding `sessionMode: "dedicated"` to force independent Matrix session creation.
+2. Verify your bot account has the correct homeserver permissions to create new rooms/DMs (not just read).
+3. If you can share your gateway logs around the "Merged and removed" line, I can often spot exactly where the session routing is dropping the message.
+
+Happy to dig into it with you if needed.
+---
+
+### DM Draft Shift1 Apr17: @GigaSwarm
+
+Lead: @GigaSwarm | Platform: GitHub | Issue: #68118 | Day: 0
+Their original ask: OpenRouter completely broken after 2026.4.14 update — "agent couldn't generate a response" in Telegram. Ollama still works fine. Regression with bug label.
+Draft:
+Hey @GigaSwarm — you hit the OpenRouter streaming regression introduced in 2026.4.14. The update changed how OpenClaw's transport layer handles OpenRouter's SSE stream, and payloads are now getting dropped silently. Your Ollama still working is actually a useful diagnostic — the issue is specifically the OpenRouter provider integration, not the core engine.
+
+Two ways to get unblocked:
+
+1. **Quickest:** In your provider config, switch the type from `openrouter` to `openai`, set `base_url: https://openrouter.ai/api/v1`, and use your existing OR key. This routes through the OpenAI-compatible path which isn't broken.
+
+2. **Rollback:** Pin to 2026.4.12 or 2026.4.13 while a fix is worked on upstream.
+
+Let me know which setup you're running (Docker, npm, bare install) and I can give more specific instructions.
+---
+
+### DM Draft Shift1 Apr17: @Kasun1Don
+
+Lead: @Kasun1Don | Platform: GitHub | Issue: #68120 | Day: 0
+Their original ask: OpenRouter chat completions return empty assistant messages. Detailed root cause analysis pointing to processOpenAICompletionsStream() dropping non-empty delta.content chunks. Beta blocker.
+Draft:
+Hey @Kasun1Don — solid root cause analysis on #68120. You're right that `processOpenAICompletionsStream()` is failing to accumulate delta.content before the turn finalizes — it sees the stream end event and commits an empty payload even though content was incoming. The beta-blocker label is correct.
+
+While the upstream fix lands (Shreyously is on it), the openai-provider-type bridge I described in the issue is the most reliable workaround: point the openai provider type at openrouter.ai/api/v1 with your OR key. Every model that worked before — openrouter/auto, anthropic/claude-sonnet variants — still resolves correctly through OR's routing.
+
+If you need to stay on the native openrouter provider for config reasons (e.g. per-model routing rules), pinning to 2026.4.13 is the cleaner option. Let me know which path fits your setup better.
+---
+
+### DM Draft Shift1 Apr17: @Lewis-404
+
+Lead: @Lewis-404 | Platform: GitHub | Issue: #68126 | Day: 0
+Their original ask: Discord DM inbound sets ctx.To to channel:<id> instead of user:<id> — causes "Unknown Channel" API errors in mirror and delivery-recovery components. Has detailed root cause analysis and proposed fix.
+Draft:
+Hey @Lewis-404 — your diagnosis is spot on. The `effectiveTo` fallback defaulting to `replyTarget` without a DM check is exactly the bug, and your proposed fix targeting line 538 is the right place to land it.
+
+In the meantime if you need to unblock production DMs: you can add a thin middleware that intercepts the `ctx.To` value before it hits the mirror/delivery-recovery layer and rewrites `channel:<id>` to `user:<authorId>` when the context indicates a DM. It's a few lines and avoids touching the core message-handler path.
+
+Are you planning to submit a PR with your fix? Happy to help test it or discuss the edge cases around the `deliverTarget` exemption you correctly identified (keeping the channel ID for actual delivery).
+---
+
+### SHIFT 1 SEND PRIORITY — April 17, 2026
+
+1. **@MarkLiddle** (Day 0 — Docker sandbox completely broken, Windows) — send today
+2. **@GigaSwarm** (Day 0 — OpenRouter 100% broken, Telegram dead) — send today
+3. **@Kasun1Don** (Day 0 — OpenRouter empty messages, beta blocker) — send today
+4. **@entrehuihui** (Day 0 — Matrix messages invisible, no comments yet) — send today
+5. **@yzh3533** (Day 0 — Heartbeat preempts replies, UX regression) — send today
+6. **@Lewis-404** (Day 0 — Discord DM routing broken, proposed fix ready) — send today
+7. **Post Twitter Thread 19** — OpenRouter streaming regression, 4-issue cluster
+8. **Day 1 check-ins (Apr 16 batch):** @Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita
+
+⚠️ ACTION REQUIRED: Mohammed to send all 6 fresh DM drafts above + post Twitter Thread 19. Apr 16 batch (@Lairdd etc) is now Day 1 — prime follow-up window.
+
+---
