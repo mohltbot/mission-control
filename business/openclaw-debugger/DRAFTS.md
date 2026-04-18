@@ -918,3 +918,57 @@ Are you planning to submit a PR with your fix? Happy to help test it or discuss 
 ⚠️ ACTION REQUIRED: Mohammed to send all 6 fresh DM drafts above + post Twitter Thread 19. Apr 16 batch (@Lairdd etc) is now Day 1 — prime follow-up window.
 
 ---
+
+## 🚀 SHIFT 2 DRAFTS — April 17, 2026 (Mohlt — 6 PM PST)
+
+---
+
+### Day 1 Check-Ins — April 16 Batch (Contacted Yesterday)
+
+--- FOLLOW-UP DRAFT [2026-04-17] ---
+Lead: @Lairdd | Platform: GitHub | Day: 1
+Their original ask: Codex/GPT-5.4 Cloudflare WAF blocks token-only API requests on 2026.4.14 — cascading 403s and rate limit errors on Mac mini, production Codex completely dead.
+Draft:
+Hey @Lairdd — just checking in on the Cloudflare WAF issue. Did switching to the direct OpenAI API or routing through OpenRouter get Codex back up for you? Happy to help tune the config if you're still hitting the block.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-17] ---
+Lead: @Countjump | Platform: GitHub | Day: 1
+Their original ask: Dreaming/session-memory creates sessions but never cleans them up on 2026.4.11 (Linux/WSL2) — unbounded session accumulation causes gateway performance degradation.
+Draft:
+Hey @Countjump — just checking in on the dreaming session leak. Did the `find ~/.openclaw/sessions/ -name "dream-*" -mmin +120 -delete` cron workaround help hold things stable? Let me know if gateway perf is still degrading — happy to help you get a proper cleanup hook in place.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-17] ---
+Lead: @robin-crow | Platform: GitHub | Day: 1
+Their original ask: interactiveReplies Slack button clicks not waking agent session on 2026.4.14 (macOS) — Slack workflow buttons 100% broken.
+Draft:
+Hey @robin-crow — just checking in on the interactiveReplies issue. Were you able to set up the webhook re-injection workaround to wake agent sessions from button clicks? If Slack buttons are still dead, I can walk you through the exact implementation — happy to help.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-17] ---
+Lead: @sanchezm86 | Platform: GitHub | Day: 1
+Their original ask: Security audit found per-agent models.json embeds plaintext OAuth credentials — enterprise compliance concern.
+Draft:
+Hey @sanchezm86 — following up on the models.json credential leak. Were you able to get a post-generation scrub hook in place as a stopgap? Let me know if you need help tightening the SecretRef migration — happy to assist.
+---
+
+--- FOLLOW-UP DRAFT [2026-04-17] ---
+Lead: @clawdieclawdita | Platform: GitHub | Day: 1
+Their original ask: Cron sessions with deleteAfterRun: true not being deleted on 2026.4.x — accumulated sessions cause context overflow on subsequent runs.
+Draft:
+Hey @clawdieclawdita — quick check-in on the deleteAfterRun bug. Did adding explicit session cleanup in your cron config help keep the context overflow in check? Still here if you need help locking down a robust cleanup flow.
+---
+
+### SHIFT 2 SEND PRIORITY — April 17, 2026
+
+1. **@Lairdd** (Day 1 — Codex/Cloudflare, production broken) — send today
+2. **@robin-crow** (Day 1 — Slack buttons 100% broken) — send today
+3. **@Countjump** (Day 1 — session leak, gateway degradation) — send today
+4. **@sanchezm86** (Day 1 — security audit, enterprise concern) — send today
+5. **@clawdieclawdita** (Day 1 — cron sessions overflowing) — send today
+6. **Apr 17 Shift 1 DMs** (@MarkLiddle, @GigaSwarm, @Kasun1Don, @entrehuihui, @yzh3533, @Lewis-404) — still unsent, URGENT
+
+⚠️ ACTION REQUIRED: Mohammed to send Shift 2 Day-1 check-ins above + all 6 Shift 1 Apr 17 DM drafts. Growing backlog: Day-1 check-ins + 6 fresh DMs = 11 unsent messages. Post Twitter Thread 19 (OpenRouter regression). Apr 14 batch is now Day 3 — no new drafts, but assess response rates when you send.
+
+---
