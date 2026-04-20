@@ -1,7 +1,88 @@
 # Mission Control Board
 
-**Last Updated:** April 18, 2026 at 07:05 AM PDT (48-Hour Sync)
-**Source:** 48-Hour Audit — Archtrack eng resumed (2 new commits on Apr 17), tracker finally running (100% productivity today), Debugger pipeline grew to 110 leads (+17), clawoneloke #55030 still unanswered, no Fiverr activity
+**Last Updated:** April 20, 2026 at 07:10 AM PDT (48-Hour Sync)
+**Source:** 48-Hour Audit — Archtrack eng quiet again (0 commits since Apr 17), tracker REGRESSED dark (Apr 19 + Apr 20 daily summaries both 0%), Debugger pipeline unchanged at 110 leads, send backlog still 11+ unsent, clawoneloke #55030 now 6 days overdue, weekend had zero shift runs
+
+---
+
+## ✅ 48-HOUR SYNC — 2026-04-20 07:10 PDT
+
+### What Happened
+- **ArchTrack tracker REGRESSED dark over the weekend:** Apr 18 was a one-day spike, not a new baseline. Apr 19 daily summary = **0% productivity, 0 tracked time**. Apr 20 daily summary = **0% productivity, 0 tracked time**. Live dashboard at archtrack.live also shows 0% today. Tracker appears to have been shut off or uninstalled after Apr 18 — the "RESOLVED" call in the Apr 18 sync was premature.
+- **Archtrack eng quiet again:** Zero new commits on `maximizeGPT/Archtrack` since `b1da4a6` on Apr 17 15:25 UTC. Three days of silence. 0 open issues, 0 open PRs, 0 closed. The Apr 17 setup/onboarding polish mini-sprint is the last activity.
+- **No new Debugger shifts over the weekend:** Memory directory ends at `2026-04-17-shift2.md`. No Apr 18, Apr 19, or Apr 20 shift reports exist. Pipeline totals, drafts, and send backlog are all unchanged from Apr 17 EOD. Weekend schedule likely paused the agent.
+- **Send backlog is UNCHANGED — now critical:** The 11 fresh DMs from Apr 17 (6 Shift 1 HOT + 5 Shift 2 Day-1 check-ins) are now 3 days old and losing urgency fast. The 20 Day-14 final-nudges drafted Apr 14 are now 6 days overdue. No evidence any of these were sent.
+- **clawoneloke #55030 now 6+ days overdue:** Apr 14 16:05 PDT dual-bug re-engagement (WhatsApp heartbeat + v2026.4.12 model switching) still has no Mohammed reply. Highest-signal lead in pipeline going cold.
+- **GitHub notifications are flowing again:** `notifications@github.com` surfaced 2 real emails this window — `#44611` (gateway model config on restart) was **closed as completed** Apr 19 14:29 UTC (one of our DRAFTS.md "Reply 10" cold leads — openclaw team shipped a fix), and `#37813` (unrecognised model IDs fallback bypass) marked **stale by openclaw-barnacle bot** Apr 20 04:38 UTC. Means the PAT / email-subscription stream is healthy; the Apr 18 "silence" was real absence of activity, not a token issue.
+- **Twitter Thread 19 still unposted:** OpenRouter streaming regression cluster thread drafted Apr 17, never pushed. 3-day-old draft, peak-visibility window passed.
+- **No Fiverr activity:** 0 new orders, 0 inbound messages. gianni_e1dkyat5 fraud hold maintained.
+- **No meaningful inbound:** Gmail last 48h is receipts (Uber trip × 3, Uber Eats $56 Indian restaurant Apr 18, DoorDash promo), TikTok video 106 likes, and 2 ArchTrack 0%-summary emails. No client responses, no Fiverr, no Messenger replies from Tony An (still unread from Apr 15).
+- **Calendar past + next 7 days: empty.** `list_events` returned no scheduled items from Apr 18 through Apr 27. Weekend had no commitments.
+- **Autopush healthy:** Log mtime `2026-04-20 07:02:07 PDT` — latest tick 8 min before this sync. Scheduled launchd job running clean every 5 min. 2 successful pushes landed in window: `7c344941` (Apr 18 07:13:45) and `a424d555` (Apr 19 20:06:20). Low commit count matches the low shift activity.
+
+### GitHub Activity
+- **maximizeGPT/Archtrack:** **0 commits** | 0 open issues | 0 closed issues | 0 open PRs
+  - Last commit still `b1da4a6` "fix setup token not displaying" (Apr 17 15:25 UTC) — unchanged from prior sync
+- **mohltbot/mission-control:** 2 commits in window — both scoped autopush syncs
+  - `a424d555` chore(auto): sync workspace changes [2026-04-19 20:06:20]
+  - `7c344941` chore(auto): sync workspace changes [2026-04-18 07:13:45]
+- **PRs:** None open on either repo
+- **openclaw/openclaw inbound (email-only, informational):**
+  - `#44611` Gateway model config on restart — **CLOSED** Apr 19 14:29 UTC (cold lead from our DRAFTS.md Reply 10 — openclaw shipped a fix, no action needed on our side)
+  - `#37813` Unrecognised model IDs fallback bypass — openclaw-barnacle bot marked stale Apr 20 04:38 UTC
+
+### Pipeline (OpenClaw Debugger)
+- 🔥 Hot: **18** | 🟡 Warm: **20** | 🔵 Cold: **72** | **Total: 110 leads** | **Potential: $2,350+** (18h × $75 + 20w × $50)
+- **Last updated:** April 17, 2026 (Mohlt Shift 2) — unchanged, no weekend shift runs
+- **Send backlog unchanged and aging:**
+  - Apr 17 Shift 1 (6 fresh HOT DMs, now 3 days old): @MarkLiddle, @GigaSwarm, @Kasun1Don, @entrehuihui, @yzh3533, @Lewis-404
+  - Apr 17 Shift 2 (5 Day-1 check-ins, now 3 days old): @Lairdd, @Countjump, @robin-crow, @sanchezm86, @clawdieclawdita
+  - Apr 14 Day-14 final nudges (20 drafts, now 6 days overdue): vmkkumar ($2K–10K), khadari197, @Artyomkun, u/Particular-Tie-6807 (wants to BUY), full Mar 21 GitHub batch + Mar 31 Reddit batch
+- **Apr 14 HOT batch → Day-7 window opens Apr 21 (tomorrow):** @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210 — if still silent by Apr 21, trigger Day-7 follow-up drafts. Day-2 check-ins sent Apr 16 (assuming they were actually sent).
+- **clawoneloke:** 🔥 Still HOT on paper, but 6 days overdue on reply — realistically decaying fast. Highest-signal lead if revived.
+
+### Comms
+- **No new inbound leads or client responses** in the 48h window
+- **GitHub email subscriptions working again:** `notifications@github.com` delivering real events (#44611 close, #37813 stale comment) — confirms PAT / subscription stream is healthy
+- **Gmail housekeeping only:** Uber trips × 2 (Apr 19 AM + PM, $9.85 + $9.18), Uber Eats Favorite Indian Restaurant Apr 18 ($56.03), DoorDash promo, TikTok Golf video (106 likes), 2 ArchTrack daily 0%-summary emails
+- **No Fiverr emails** — 0 orders, gianni fraud hold maintained
+- **Tony An (Facebook Messenger)** — still unread from Apr 15; now 5 days stale
+
+### Calendar (next 7 days)
+- **Apr 20 (today) – Apr 27:** **No events scheduled** (list_events returned empty for both past 48h and next 7d windows)
+- Recent history: Apr 17 Virtual Lunch w/ Juvraj (6–7 PM EDT, FaceTime, completed). No events Apr 18–19.
+
+### ArchTrack
+- Status: ✅ **ONLINE** at https://archtrack.live (admin dashboard renders, Connected banner green)
+- **Tracker DARK AGAIN:**
+  - Apr 19 daily summary: **0% team productivity, 0 tracked time, 0 focus**
+  - Apr 20 daily summary: **0% team productivity, 0 tracked time, 0 focus**
+  - Live dashboard (Apr 20 AM): 0% productivity, 0% utilization, 0 focus time, 0 idle
+- **Apr 18 was a one-day spike** — the Apr 17 install evidently stopped persisting. Tracker was either quit, uninstalled, or failed to auto-start.
+- **Action:** Mohammed needs to reopen the ArchTrack desktop app, confirm it's signed in + auto-starts on login, and keep it running. The tracker-running milestone needs to survive a full work-week before we call it resolved.
+
+### Budget Tracker
+- Estimated this cycle: +~$0.15 (claude-opus-4-7 Cowork run — one session, ~25 tool calls, ~80k input tokens estimated)
+- Running total: ~**$7.09** / $200 (3.5%) — healthy
+
+### Autopush Health
+- Last log tick: `=== 2026-04-20 07:02:07 ===` (8 min before this sync — log mtime confirms active writes)
+- Last successful push: `a424d555` at `2026-04-19 20:06:20` — "chore(auto): sync workspace changes"
+- Between pushes: continuous `(no changes)` entries on 5-min schedule
+- 2 successful pushes in 48h window (vs. 6 in prior window — low count reflects low activity, not breakage)
+- Verdict: **HEALTHY**
+
+### Blockers & Decisions Needed
+- ⚠️ **ArchTrack tracker regressed dark** — Apr 18 was a one-off. Reinstall/relaunch + verify auto-start. Apr 19 + Apr 20 summaries both 0%; Apr 21 summary will be the next signal.
+- ⚠️ **Send backlog: 31 total unsent DMs** — 11 fresh Apr 17 (3 days old) + 20 Apr 14 final-nudges (6 days overdue). Highest-value: vmkkumar, u/Particular-Tie-6807 (wants to BUY), khadari197.
+- ⚠️ **clawoneloke #55030 reply + DM** — 6 days overdue on dual-bug re-engagement. Highest-signal active lead.
+- ⚠️ **Apr 14 HOT batch Day-7 window opens tomorrow (Apr 21)** — 7 leads need Day-7 drafts if still silent: @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210.
+- ⚠️ **Twitter Thread 19 unposted** — 3-day-old draft, peak-visibility window on the OpenRouter streaming regression is over; post anyway for search-archive value or shelve.
+- ⚠️ **Archtrack eng 3-day silence** — post-setup-token-fix quiet. No desktop tracker polish, no installer auto-start fix. Is Mohammed blocked on something?
+- ⚠️ **Tony An Messenger (Apr 15)** — 5 days unread; triage.
+- 🔒 **GitHub PAT regenerate** — *likely no longer blocking*, since notifications@github.com is delivering again (#44611, #37813). Confirm by attempting a PAT-authenticated git operation; otherwise close this blocker.
+- 🔒 **Ben's Bites Discord token** — still blocked.
+- 🔒 **Mission Control Dashboard restart** — still pending verification via `./scripts/mc-dashboard-recovery.sh`.
 
 ---
 
