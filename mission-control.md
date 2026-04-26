@@ -1,7 +1,104 @@
 # Mission Control Board
 
-**Last Updated:** April 24, 2026 at 07:05 AM PDT (48-Hour Sync)
-**Source:** 48-Hour Audit — Quiet cycle: 0 Archtrack eng commits (3-day silence since v1.0.1 ship), 2 fresh mission-control PRs opened (#44 acceptmarkdown-check, #45 ui-wireframe-then-implement skill), Debugger pipeline still frozen at 110 leads (7 consecutive days no shift runs), send backlog now 7–10 days stale, Gmail connector auth lapsed this cycle, calendar empty through May 1
+**Last Updated:** April 26, 2026 at 07:10 AM PDT (48-Hour Sync)
+**Source:** 48-Hour Audit — Massive openclaw repo cleanup pass landed Apr 24–25 (steipete + clawsweeper bot closed 12+ of our cold-lead bug threads as completed/not-planned, including #51012, #50496, #49882, #49873, #49871, #47103, #46100, #45504, #45232, #41871, #41673, #40931, #38336 — entire DRAFTS.md "Reply 8/9/10/11/14/15/16/17/19/20/22/23" plus DM 4/9/11 batch is officially obsolete). Archtrack eng now 5 days silent post-v1.0.1. Mission-control 0 new PRs in window (still #44 + #45 open). Debugger paused 9 days. Apr 14 HOT batch hits Day-14 cliff in 2 days (Apr 28). Pancake "Autonomous Company w/ OpenClaw — Workshop & Pizza #2" event invitation arrived Apr 24. ArchTrack tracker running (5381 events) but classifying everything as Communication → daily summaries still 0% productive.
+
+---
+
+## ✅ 48-HOUR SYNC — 2026-04-26 07:10 PDT
+
+### What Happened
+- **🟠 Massive openclaw cleanup pass — 12+ of our cold leads' bugs officially closed:** steipete + clawsweeper[bot] ran a Codex-assisted triage sweep Apr 24–25 that closed a wave of issues we were tracking in `LEADS.md` / `DRAFTS.md`:
+  - **Closed as completed (fixed in main):** `#51012` (DM 11 / @easyvaru-hue WhatsApp relink), `#50496` (Reply 21 trashed-session re-delivery), `#49882` (Reply 19 tool-error routing), `#49873` (DM 4 / @lilith-the-dear custom skills), `#49871` (Reply 20 / @llzzww316 Windows gateway restart), `#47103` (Reply 14 gateway closed 1000), `#46100` (Reply 17 loopback diagnostics), `#45504` (Reply 8 devices list), `#45232` (Reply 16 Control UI pairing), `#41871` (Reply 11 Ollama hang), `#40931` (gateway after plugin install), `#53769`, `#56738`, `#56763`, `#57133`
+  - **Closed as not-planned / not-reproducible:** `#41673` (Reply 4 LLM timeout), `#38336` (OAuth renewal — was our March-era observable thread)
+  - **Kept open by clawsweeper:** `#38204` (Grok 4.2 Multi Model — Apr 26 01:34 UTC), `#37813` (Reply 23 unrecognised model IDs — Apr 26 01:33 UTC), `#17876` (Apr 26 00:40 UTC)
+  - Net effect: ~13 cold leads in the pipeline are now formally stale — the "we can help / DM with workaround" angle is gone for any lead whose underlying bug just shipped a fix. Pipeline math needs a rebase next debugger shift.
+- **Archtrack eng silence extended to 5 days post-v1.0.1.** Last commit still `303a590` "release v1.0.1: zero-friction device activation" (Apr 21 15:43 UTC). 0 commits Apr 22–26. 0 open issues, 0 open PRs. The post-release polish phase has not started; the longest Archtrack-quiet stretch since the v1.0 sprint kicked off.
+- **mohltbot/mission-control: 0 new PRs in window.** Still 16 open total. The two opened in last cycle (#44 acceptmarkdown-check Apr 22, #45 ui-wireframe-then-implement Apr 24 06:21 PDT) are still open with no review activity. No new BensBites scaffolding pushed.
+- **Autopush: 2 commits in window, both Apr 24 morning** (`f56d78d1` at 07:13:41 PDT and `8f564c3d` at 06:28:36 PDT). Since `f56d78d1` (Apr 24), every 5-min tick has been `(no changes)` — autopush is healthy but there's no workspace activity to push. The reset-Archtrack-changes filter is working correctly (scoped autopush keeps Archtrack edits out of mission-control commits).
+- **Debugger agent paused 9 days running.** Memory directory still ends at `2026-04-17-shift2.md`. No Apr 18–25 shift reports. Pipeline frozen at 18 hot / 20 warm / 72 cold / 110 total / $2,350+ — and now also outdated, since ~13 of those cold leads' underlying bugs were closed yesterday.
+- **Send backlog: 31 unsent DMs, all decayed past usable.** Apr 17 fresh HOT batch is now 9 days stale. Apr 14 Day-14 nudges are 12 days overdue. Several drafts (those targeting issues just closed) are now actively counterproductive — sending a "here's a workaround for #51012" DM after the bug got fixed yesterday would burn credibility. Recommend: stop sends, force a fresh-source pass next debugger shift.
+- **Apr 14 HOT batch Day-14 cliff is Apr 28 (2 days out).** 7 leads still uncontacted past Day-7 — @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210. After Apr 28 they auto-graduate to COLD.
+- **clawoneloke #55030: 12 days overdue.** WhatsApp heartbeat + model switching dual-bug. Last lead-side comment was Apr 14 23:05 UTC. Issue itself is still open (not part of the Apr 24–25 close-wave). Realistically dead absent a fresh hook.
+- **Gmail connector authenticated this cycle** — `search_threads` returned full data (last cycle's auth lapse is auto-resolved). Gmail stream is back, intel restored.
+- **Pancake event invitation, Apr 24 21:15 UTC:** "Creating an autonomous company with OpenClaw — Workshop & Pizza #2" via getpancake@user.luma-mail.com. *Potentially relevant networking event — sender is a luma org doing OpenClaw workshops.* No date/location parsed yet; would need to follow the link to confirm. Flagged for triage, not auto-actioned.
+- **Wasif Hasan Facebook Messenger Apr 25 14:02 PDT** — new inbound message; unread.
+- **Tony An Messenger** — still unread from Apr 15; now 11 days stale.
+- **No Fiverr activity.** 0 inbound, 0 orders. gianni_e1dkyat5 fraud hold maintained.
+- **Calendar past + next 7 days: empty.** `list_events` Apr 24 → May 3 returned no items on primary calendar. Past 48h also empty.
+- **🟡 ArchTrack tracker IS running, but daily summaries report 0% — classifier issue, not tracker death.** Live dashboard at archtrack.live shows live activity feed with **5381 events** logged; recent events from Apr 25 evening (10:26 PM, 10:27 PM) recorded as "Messages / Communication". **However**, both the Apr 24 and Apr 25 daily-summary emails reported 0% productivity / 0 tracked / 0 productive. So the tracker is persistent — it's the productivity classifier that's mislabeling everything as Communication (which counts 0% toward productive). Different failure mode from the Apr 19–20 tracker-dark regression. The Apr 20–21 "two clean 100% days" recovery streak is officially broken.
+- **Autopush healthy:** Latest log tick `=== 2026-04-26 07:01:52 ===` — 9 min before this sync — 5-min cadence intact through window. 2 actual pushes both landed Apr 24 morning; the rest of the window is `(no changes)` matching the workspace-frozen state.
+
+### GitHub Activity
+- **maximizeGPT/Archtrack:** **0 commits** | 0 open issues | 0 closed issues | 0 open PRs | last commit still `303a590` (Apr 21 15:43 UTC) — **5 days silent**
+- **mohltbot/mission-control:** 2 autopush commits in window
+  - `f56d78d1` chore(auto): sync workspace changes [2026-04-24 07:13:41]
+  - `8f564c3d` chore(auto): sync workspace changes [2026-04-24 06:28:36]
+- **mohltbot/mission-control PRs:** 16 open, 29 closed; **0 new PRs opened in window**. Still pending: #45 ui-wireframe-then-implement (Apr 24), #44 acceptmarkdown-check (Apr 22), #41/#42/#43 BensBites batch (Apr 14), #34–40 older docs PRs.
+- **openclaw/openclaw inbound (Gmail observable):** **massive Apr 24–25 close-wave** — see "What Happened". 13+ of our pipeline-tracked issues either closed-as-completed or closed-as-not-planned via steipete + clawsweeper bot Codex review. 3 still open and watched (#38204, #37813, #17876).
+
+### Pipeline (OpenClaw Debugger)
+- 🔥 Hot: **18** | 🟡 Warm: **20** | 🔵 Cold: **72** | **Total: 110 leads** | **Potential: $2,350+** *(stale — needs rebase)*
+- **Last updated:** April 17, 2026 (Mohlt Shift 2) — **unchanged 9 days running**
+- **⚠️ Pipeline math needs rebase:** ~13 cold leads' underlying bugs were closed Apr 24–25. DRAFTS targeting those issues are now obsolete or actively harmful to send. Affected drafts: Reply 4, 8, 9, 10, 11, 14, 15, 16, 17, 19, 20, 21, 22, 23, DM 4, DM 9 (likely), DM 11 (confirmed), and any others targeting issues now closed. Next debugger shift must reconcile.
+- **Aged send backlog (31 total unsent DMs):** Apr 17 Shift 1 (6 HOT, 9 days old) + Apr 17 Shift 2 (5 Day-1 check-ins, 9 days old) + Apr 14 Day-14 final nudges (20 drafts, 12 days overdue). Recommend: abandon wholesale, re-source from fresh post-Apr-25 issues only.
+- **Apr 14 HOT batch Day-14 cliff Apr 28 (2 days):** @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210 — auto-cold in 2 days.
+- **clawoneloke #55030:** 12 days overdue. Issue still open (not closed in Apr 24–25 wave).
+
+### Comms
+- **Gmail connector restored** — auth lapse from last cycle auto-resolved this window.
+- **Inbound surfaced this window:**
+  - **Apr 25 14:02 PDT — Wasif Hasan Facebook Messenger** — unread, new contact this cycle.
+  - **Apr 24 21:15 UTC — Pancake "Autonomous Company w/ OpenClaw — Workshop & Pizza #2"** event invitation via getpancake@user.luma-mail.com. Potential networking value; needs link review before action.
+  - **GitHub close-wave Apr 24–25** (covered in detail above) — 12+ tracked issue closes from steipete + clawsweeper bot.
+  - 2 ArchTrack daily-summary emails (Apr 24 + Apr 25, both 0% / 0 tracked).
+  - Routine: DoorDash promo, Meetup promo, Snapchat memory, Facebook login alerts.
+- **No Fiverr emails, no Fiverr inbound.** gianni fraud hold maintained.
+- **Tony An (Facebook Messenger)** — still unread from Apr 15; now 11 days stale.
+
+### Calendar (next 7 days)
+- **Apr 26 (today) – May 3:** **No events scheduled** (`list_events` returned no items on primary calendar)
+- Past 48h also empty — no completed meetings, no event-scout bookings landed
+- Pancake workshop invite (above) is the only forward-looking event signal, but it's not on the calendar yet — needs a manual triage to decide attendance + add.
+
+### ArchTrack
+- Status: ✅ **ONLINE** at https://archtrack.live — admin dashboard renders, Connected banner green, Mohammed signed in as "Mohammed Rayed Wasif / Genesis Design Studios"
+- **Live dashboard at 07:10 AM PDT:** 0% / 0 today (expected — pre-work hours)
+- **🟡 Tracker is alive but classifier is mislabeling:** Live Activity Feed shows **5381 events** logged, with recent events from Apr 25 evening recorded as "Messages / Communication". So tracking IS persisting across sessions. **However**, both Apr 24 + Apr 25 daily summary emails reported 0% productivity / 0 tracked / 0 productive — the classifier is bucketing everything as Communication (which counts 0% productive). This is a different failure mode from the earlier "tracker dark" regression.
+- **Apr 20 + Apr 21 recovery streak is broken** — Apr 22–25 daily summaries all 0%. The "two clean 100% days" was a 2-day blip, not a sustained recovery.
+- **No new eng activity:** 0 commits on Archtrack in window; v1.0.1 (Apr 21) still last ship — 5 days silent.
+- **Next milestone:** classifier fix would unblock the productivity-tracking objective. Needs Archtrack eng attention.
+
+### Budget Tracker
+- Estimated this cycle: +~$0.20 (claude-opus-4-7 Cowork run — one session, ~30–35 tool calls, ~110k input tokens)
+- Running total: ~**$7.69** / $200 (3.8%) — healthy
+- Current model: claude-sonnet-4-6 per task spec (this run is opus-4-7)
+
+### Autopush Health
+- Last log tick: `=== 2026-04-26 07:01:52 ===` (9 min before this sync — live)
+- Last successful push: `f56d78d1` "chore(auto): sync workspace changes [2026-04-24 07:13:41]"
+- Prior push: `8f564c3d` at `2026-04-24 06:28:36 PDT` — 2 pushes total in 48h window
+- Since Apr 24 07:13, every 5-min tick has been `(no changes)` — workspace is frozen, matches debugger-paused state
+- Verdict: **HEALTHY**
+
+### Blockers & Decisions Needed
+- ⚠️ **Pipeline rebase needed urgently** — *new blocker this cycle*. ~13 cold-lead bugs closed Apr 24–25; DRAFTS targeting them are obsolete. Decision: run a debugger reconciliation shift to mark closed leads as ✅ resolved (and their drafts as voided) before any further sends.
+- ⚠️ **ArchTrack productivity classifier broken** — *new blocker this cycle*. Tracker captures events fine (5381 logged), but everything classifies as "Communication" → 0% productive on daily summaries. Needs Archtrack eng attention to fix the classifier rules.
+- ⚠️ **Archtrack eng 5-day silence post-v1.0.1** — longest quiet stretch in 6 weeks. Is Mohammed blocked, on something else, or just resting after the ship?
+- ⚠️ **Debugger agent paused 9 days running** — even longer than last cycle's 7-day silence. Pipeline rotting + now stale due to upstream closes.
+- ⚠️ **Apr 14 HOT batch Day-14 cliff Apr 28 (2 days)** — last window for @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210 before auto-cold.
+- ⚠️ **Send backlog: 31 unsent DMs, several now actively harmful.** Drafts targeting just-closed bugs would damage credibility if sent. Recommend: abandon all 31 wholesale, re-source.
+- ⚠️ **Pancake "Autonomous Company w/ OpenClaw — Workshop & Pizza #2" invitation** — Apr 24 21:15 UTC arrival. Triage decision needed: review event, attend, ignore?
+- ⚠️ **Wasif Hasan Facebook Messenger Apr 25** — new unread; triage.
+- ⚠️ **Tony An Messenger (Apr 15)** — 11 days unread; triage or formally drop.
+- ⚠️ **Twitter Thread 19 still unposted** — now 9 days old; archive-value only.
+- 🔒 **Ben's Bites Discord token** — still blocked.
+- 🔒 **Mission Control Dashboard restart** — still pending verification via `./scripts/mc-dashboard-recovery.sh`.
+- 🟡 **16 open mission-control PRs with no review activity** — #41–45 from this/last cycle plus #34–40 from earlier April. Triage: merge, close, or mark stale.
+
+**Auto-resolved since last sync:**
+- ✅ **Gmail connector authentication lapse** (last cycle's blocker) — auth restored this cycle, full inbox intel pulled.
+- ✅ **Last cycle's "Comms leg lost"** — restored with Gmail.
 
 ---
 
