@@ -1,7 +1,107 @@
 # Mission Control Board
 
-**Last Updated:** April 26, 2026 at 07:10 AM PDT (48-Hour Sync)
-**Source:** 48-Hour Audit — Massive openclaw repo cleanup pass landed Apr 24–25 (steipete + clawsweeper bot closed 12+ of our cold-lead bug threads as completed/not-planned, including #51012, #50496, #49882, #49873, #49871, #47103, #46100, #45504, #45232, #41871, #41673, #40931, #38336 — entire DRAFTS.md "Reply 8/9/10/11/14/15/16/17/19/20/22/23" plus DM 4/9/11 batch is officially obsolete). Archtrack eng now 5 days silent post-v1.0.1. Mission-control 0 new PRs in window (still #44 + #45 open). Debugger paused 9 days. Apr 14 HOT batch hits Day-14 cliff in 2 days (Apr 28). Pancake "Autonomous Company w/ OpenClaw — Workshop & Pizza #2" event invitation arrived Apr 24. ArchTrack tracker running (5381 events) but classifying everything as Communication → daily summaries still 0% productive.
+**Last Updated:** April 28, 2026 at 07:10 AM PDT (48-Hour Sync)
+**Source:** 48-Hour Audit — **Apr 14 HOT batch Day-14 cliff is TODAY** (7 leads auto-cold by EOD: @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210). Archtrack eng silence now 7 days post-v1.0.1 (zero commits since Apr 21). However, **scoped-autopush diff shows heavy local Archtrack work in progress** — modifications to `classifier.ts`, `main.ts`, `tracker.ts`, `Dashboard.tsx`, `database.ts`, `websocket.ts`, plus deletions of GenesisAI / AIChatPanel components and AI-routes consolidation — Mohammed IS developing locally, just not pushing. **🟢 ArchTrack live-feed classifier looks fixed:** events at 8:00–8:02 PM PDT yesterday correctly bucket Claude Code as "Core Work" and Messages as "Communication" (was 100% Communication-mislabel last cycle). But Apr 26 + Apr 27 daily summary emails STILL reported 0% — fix hasn't propagated to summary calc yet. Event count: 5389 (only +8 from 5381 last sync — workdays were near-idle). Debugger paused 11 days (memory still ends 2026-04-17-shift2). Mission-control 0 new PRs in window. Pipeline frozen + post-Apr-25 close-wave still unreconciled.
+
+---
+
+## ✅ 48-HOUR SYNC — 2026-04-28 07:10 PDT
+
+### What Happened
+- **🚨 Apr 14 HOT batch Day-14 cliff is TODAY (Apr 28).** 7 leads auto-cold by EOD if no touch: @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210. Last salvage window. No drafts written or sends executed in this 48h window — pipeline-paused state continues into the cliff.
+- **🟢 ArchTrack live-feed classifier looks fixed — partial recovery.** Live activity feed at archtrack.live now correctly buckets recent events: Claude Code → "Core Work", Messages → "Communication", with proper time-of-day routing (events visible at 8:00–8:02 PM PDT Apr 27 with correct categories). Last sync flagged "everything classifying as Communication → 0% productive"; that mislabel pattern is gone in the live view. **However**, the Apr 26 + Apr 27 daily summary emails (`onboarding@resend.dev`) BOTH still reported 0% productivity / 0 tracked / 0 productive. The fix is in the live classifier path but hasn't propagated to the summary aggregator yet — partial fix.
+- **🟢 Heavy local Archtrack development in progress (not pushed).** Scoped-autopush log shows substantial unstaged Archtrack changes the filter is correctly excluding from mission-control commits. Modified: `desktop/src/classifier.ts`, `desktop/src/main.ts`, `desktop/src/tracker.ts`, `admin/server/database.ts`, `admin/server/index.ts`, `admin/server/routes.ts`, `admin/server/websocket.ts`, `admin/src/client/pages/{Dashboard,Employees,Projects,Reports,Tasks}.tsx`, `admin/src/client/contexts/WebSocketContext.tsx`, plus `package-lock.json`, `scripts/package-app.sh`. Deleted: `admin/src/client/components/AIChatPanel.tsx`, `GenesisAI.tsx`, `GenesisAIChat.tsx`, `GenesisAI.css`, `admin/server/ai-analytics.ts`, `ai-routes.ts`, `ai-routes-llm.ts`, `owner-queries.ts`, `shared-types.ts`, `desktop/simple-tracker.js`, `desktop/src/config.ts`, `shared/index.ts`, plus root scripts (`deploy-enterprise.sh`, `install.sh`, `start.sh`, `stop.sh`). The shape: AI-feature consolidation + classifier work + onboarding cleanup. The classifier modification likely IS the live-feed fix that landed.
+- **Archtrack eng silence (public repo): 7 days post-v1.0.1.** Last commit on `maximizeGPT/Archtrack` still `303a590` (Apr 21 15:43 UTC). 0 new commits, 0 open issues, 0 closed issues, 0 open PRs. The "5 days silent" call from last sync extends 2 more days. **But** combined with the local-changes signal above, this is "Mohammed working privately, not yet shipping" rather than "dead silence" — re-classifying from BLOCKED to IN-FLIGHT.
+- **mohltbot/mission-control: 0 new PRs in window.** PR count: 16 open / 23 closed (closed dropped from 29 last sync — possible reopens or recount; flagging for follow-up). Top open PRs unchanged: #45 ui-wireframe-then-implement (Apr 24), #44 acceptmarkdown-check (Apr 22), #41–43 BensBites batch (Apr 14), #34–40 older docs PRs.
+- **Autopush: 2 commits in window, both Apr 26.** `a39750fe` (Apr 26 07:11:53 PDT — last sync's mission-control update) and `c5005ea7` (Apr 26 20:12:46 PDT — small follow-on, +42/-1 lines). Since `c5005ea7` (Apr 26 evening), every 5-min tick has been `(no changes)` — workspace mostly frozen mission-control-side for ~42 hours.
+- **Debugger agent paused 11 days running.** Memory directory still ends at `2026-04-17-shift2.md`. No Apr 18–27 shift reports. Pipeline stuck at 18 hot / 20 warm / 72 cold / 110 total / $2,350+ — and still hasn't been rebased after the Apr 24–25 openclaw close-wave.
+- **Send backlog: 31 unsent DMs, all decayed; several actively counterproductive to send.** Drafts targeting issues the openclaw team closed Apr 24–25 (Reply 4/8/9/10/11/14/15/16/17/19/20/21/22/23, DM 4/9/11) would damage credibility if sent now.
+- **GitHub openclaw inbound this window:** clawsweeper[bot] closed `#54535` (browser CLI Chrome 146 / Playwright connectOverCDP crash) as completed/implemented Apr 27 — Codex unified the standalone browser CLI with the gateway/browser. Not a tracked lead, but extends the Apr 24–25 close-wave one more day. `#43735` (skills not loading) marked stale by openclaw-barnacle bot Apr 27 04:41 UTC (was DRAFTS.md "Reply 3"; can be voided).
+- **Personal-email signal — Siegfried-side workflow leak.** Apr 27 03:12 UTC: `mwasif@siegfriedgroup.com` → `rayedwasif@gmail.com` + hotmail, subject "Claude Tips/Tricks", sharing AI Advisory team tips. Apr 27 03:05 UTC: `rayedwasif@hotmail.com` → both addresses, "Lead Origin Notes" — references AgencyAnalytics sub-accounts, Dylan + VAs SOP, "Claude that connects to AFRefs, 15 opportunities found, etc." Both look like legitimate self-sent workflow/idea capture. Not a client lead but interesting context for what Mohammed is doing day-job-side.
+- **No Fiverr activity.** 0 inbound, 0 orders. gianni_e1dkyat5 fraud hold maintained.
+- **Calendar past + next 7 days: empty.** `list_events` Apr 26 → May 5 returned no items on primary calendar. Past 48h also empty.
+- **No Pancake event update.** Last cycle's Apr 24 21:15 UTC "Autonomous Company w/ OpenClaw — Workshop & Pizza #2" invite still untriaged in Gmail (no follow-up emails, no calendar add).
+- **Tony An Messenger** — still unread from Apr 15; now 13 days stale.
+- **Wasif Hasan Facebook Messenger Apr 25** — last cycle's new inbound; still unread, now 3 days stale.
+- **Routine Gmail noise:** 2 ArchTrack daily summaries (Apr 26 + Apr 27, both 0%), 3 Uber trip receipts ($52.67 + $5.81 + $12.66 over Apr 26 — heavy travel day), DoorDash promo, BensBites Substack issue Apr 28 ("GPT-5.5 is a good model" — informational), PLANTAQueen restaurant promo, sevenrooms NYC.
+- **Autopush healthy:** Latest log tick `=== 2026-04-28 07:05:03 ===` — 5 min before this sync — 5-min cadence intact through full window. Last actual push was Apr 26 20:12; the rest of the window is `(no changes)` matching the workspace-frozen state on the mission-control side.
+
+### GitHub Activity
+- **maximizeGPT/Archtrack:** **0 commits in public repo** | 0 open issues | 0 closed issues | 0 open PRs | last commit still `303a590` (Apr 21 15:43 UTC) — **7 days public-silence**
+  - **Local-side signal (NOT in repo yet):** scoped-autopush diff shows ~25 modified/deleted files spanning desktop classifier, admin server, admin client pages, AI-feature consolidation. Active development confirmed; ship pending.
+- **mohltbot/mission-control:** 2 autopush commits in window
+  - `c5005ea7` chore(auto): sync workspace changes [2026-04-26 20:12:46]
+  - `a39750fe` chore(auto): sync workspace changes [2026-04-26 07:11:53]
+- **mohltbot/mission-control PRs:** 16 open, 23 closed (closed count dropped from 29 last sync — likely reopens or counter-discrepancy; flag); **0 new PRs opened in window**. Pending: #45 ui-wireframe-then-implement, #44 acceptmarkdown-check, #41–43 BensBites, #34–40 older docs.
+- **openclaw/openclaw inbound (Gmail observable):** `#54535` browser CLI Chrome 146 crash closed-as-completed by clawsweeper[bot] Apr 27 (extends Apr 24–25 close-wave). `#43735` (Reply 3 cold lead) marked stale by openclaw-barnacle Apr 27 — can void DRAFTS.md "Reply 3".
+
+### Pipeline (OpenClaw Debugger)
+- 🔥 Hot: **18** | 🟡 Warm: **20** | 🔵 Cold: **72** | **Total: 110 leads** | **Potential: $2,350+** *(stale 11 days, plus unreconciled close-wave)*
+- **Last updated:** April 17, 2026 (Mohlt Shift 2) — **unchanged 11 days running**
+- **⚠️ Pipeline math STILL needs rebase** — same as last cycle, plus #54535 (not a tracked lead, but in adjacent space) and #43735 stale-bot (Reply 3 voidable). Debugger reconciliation shift required before any further sends.
+- **🚨 Apr 14 HOT batch Day-14 cliff IS TODAY:** 7 leads auto-cold by EOD — @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210. Last call.
+- **clawoneloke #55030:** 14 days overdue. Open issue, not in close-wave. Realistically dead absent fresh hook.
+- **Aged send backlog (31 unsent DMs):** Apr 17 Shift 1 (6 HOT, 11 days old) + Apr 17 Shift 2 (5 Day-1 check-ins, 11 days old) + Apr 14 Day-14 final nudges (20 drafts, 14 days overdue and now PAST cliff).
+
+### Comms
+- **Gmail connector healthy this cycle** — `search_threads` returned full results.
+- **Inbound surfaced this window:**
+  - **Apr 27 03:12 UTC — `mwasif@siegfriedgroup.com` → "Claude Tips/Tricks"** — self-sent (work address → personal). AI Advisory team Claude tips.
+  - **Apr 27 03:05 UTC — `rayedwasif@hotmail.com` → "Lead Origin Notes"** — self-sent. AgencyAnalytics, Dylan + VAs SOP, "Claude that connects to AFRefs, 15 opportunities found, etc." — captures workflow ideas.
+  - **Apr 27 — `clawsweeper[bot]` closed openclaw/openclaw#54535** as completed (browser CLI / Chrome 146 / Playwright crash).
+  - **Apr 27 — `openclaw-barnacle[bot]` marked openclaw/openclaw#43735 stale** (was Reply 3 cold lead).
+  - 2 ArchTrack daily-summary emails (Apr 26 + Apr 27, both 0% / 0 tracked).
+  - Uber receipts × 3 (heavy Apr 26 travel: $52.67 + $5.81 + $12.66).
+  - Routine: DoorDash promo, BensBites Substack ("GPT-5.5 is a good model"), PLANTAQueen NYC restaurant.
+- **No new client responses, no Fiverr inbound, no @-mentions on tracked GitHub repos.**
+- **Tony An (Facebook Messenger)** — still unread from Apr 15; now 13 days stale.
+- **Wasif Hasan Facebook Messenger Apr 25** — still unread, 3 days stale.
+
+### Calendar (next 7 days)
+- **Apr 28 (today) – May 5:** **No events scheduled** (`list_events` returned no items on primary calendar)
+- Past 48h also empty — no completed meetings, no event-scout bookings landed
+- Pancake workshop invite (Apr 24) still untriaged — no calendar add, no follow-up emails this cycle
+
+### ArchTrack
+- Status: ✅ **ONLINE** at https://archtrack.live — admin dashboard renders, Connected banner green, Mohammed signed in as "Mohammed Rayed Wasif / Genesis Design Studios"
+- **Live dashboard at 07:10 AM PDT today:** 0% / 0 today (expected — pre-work hours)
+- **🟢 Live-feed classifier appears fixed:** Recent events at 8:00–8:02 PM PDT Apr 27 correctly bucket Claude Code as "Core Work" and Messages as "Communication" — distinct from last sync's "everything Communication" failure mode. Event count up to **5389** from 5381 last sync (only +8 — quiet window).
+- **🟡 BUT daily summary still broken:** Apr 26 + Apr 27 EOD summary emails both reported 0% productivity / 0 tracked / 0 productive. Fix landed in the live-classifier path but hasn't propagated to the summary aggregator yet. Partial recovery.
+- **Public repo: 0 commits in window** — but local-side scoped-autopush diff shows extensive in-progress work including `desktop/src/classifier.ts` modifications. The live-feed classifier fix likely came from this in-flight branch. Push pending.
+- **Apr 20 + Apr 21 "two clean 100% days" recovery streak still officially broken** — Apr 22–27 all 0% on summary emails (6 zeros in a row).
+- **Next milestone:** ship the in-flight Archtrack changes so the summary aggregator picks up the new classifier rules.
+
+### Budget Tracker
+- Estimated this cycle: +~$0.20 (claude-opus-4-7 Cowork run — one session, ~30 tool calls, ~110k input tokens)
+- Running total: ~**$7.89** / $200 (3.9%) — healthy
+- Current model: claude-sonnet-4-6 per task spec (this run is opus-4-7)
+
+### Autopush Health
+- Last log tick: `=== 2026-04-28 07:05:03 ===` (5 min before this sync — live)
+- Last successful push: `c5005ea7` "chore(auto): sync workspace changes [2026-04-26 20:12:46]"
+- Prior push: `a39750fe` at `2026-04-26 07:11:53 PDT` — 2 pushes total in 48h window
+- Since Apr 26 20:12, every 5-min tick has been `(no changes)` (~42 hrs straight idle on the mission-control side) — matches debugger-paused state
+- Scoped filter is working as intended: heavy unstaged Archtrack edits in working tree but they're correctly being reset out of mission-control commits
+- Verdict: **HEALTHY**
+
+### Blockers & Decisions Needed
+- 🚨 **Apr 14 HOT batch Day-14 cliff TODAY** — last salvage window for @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210. Decision: send Day-14 nudges in next few hours, or accept auto-cold.
+- ⚠️ **Pipeline rebase STILL needed** — Apr 24–25 close-wave plus Apr 27 #54535 close + #43735 stale-bot all unreconciled. Drafts targeting closed bugs would damage credibility. Run debugger reconciliation shift before any further sends.
+- 🟡 **ArchTrack daily-summary aggregator still broken** — *partially-resolved blocker.* Live classifier looks fixed (Core Work bucketing visible), but summary emails still 0%. Needs the in-flight Archtrack branch to ship before this fully resolves.
+- 🟢 **Archtrack eng "silence" reframed** — the public repo is silent 7 days, but local-tree shows ~25 files of active development (classifier, admin pages, AI-feature consolidation). Re-classify from "is Mohammed blocked?" to "Mohammed has unpushed work — what's gating the ship?"
+- ⚠️ **Debugger agent paused 11 days** — pipeline rotting + stale due to upstream closes. Restart shift or formally pause and re-plan.
+- ⚠️ **Send backlog: 31 unsent DMs, several actively harmful.** Same recommendation as last cycle: abandon wholesale, re-source from fresh post-Apr-27 issues only.
+- ⚠️ **Pancake "Autonomous Company w/ OpenClaw — Workshop & Pizza #2" invitation untriaged** — 4 days unaddressed; decide attend / ignore.
+- ⚠️ **Wasif Hasan Facebook Messenger Apr 25** — 3 days unread; triage.
+- ⚠️ **Tony An Messenger (Apr 15)** — 13 days unread; formally drop.
+- ⚠️ **Twitter Thread 19 still unposted** — 11 days old; archive-value only.
+- 🔒 **Ben's Bites Discord token** — still blocked.
+- 🔒 **Mission Control Dashboard restart** — still pending verification via `./scripts/mc-dashboard-recovery.sh`.
+- 🟡 **16 open mission-control PRs with no review activity** — same triage decision as last cycle: merge, close, or mark stale.
+- 🔍 **PR closed-count dropped 29 → 23** — investigate; possible reopens or counter glitch.
+
+**Auto-resolved since last sync:**
+- 🟢 **ArchTrack live-feed classifier mislabel** (last cycle's blocker) — *partial resolution.* Live feed now correctly buckets Claude Code as Core Work and Messages as Communication. Daily summary calc still broken; full resolution pending Archtrack ship.
 
 ---
 
