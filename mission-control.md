@@ -1,7 +1,129 @@
 # Mission Control Board
 
-**Last Updated:** April 28, 2026 at 07:10 AM PDT (48-Hour Sync)
-**Source:** 48-Hour Audit — **Apr 14 HOT batch Day-14 cliff is TODAY** (7 leads auto-cold by EOD: @harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210). Archtrack eng silence now 7 days post-v1.0.1 (zero commits since Apr 21). However, **scoped-autopush diff shows heavy local Archtrack work in progress** — modifications to `classifier.ts`, `main.ts`, `tracker.ts`, `Dashboard.tsx`, `database.ts`, `websocket.ts`, plus deletions of GenesisAI / AIChatPanel components and AI-routes consolidation — Mohammed IS developing locally, just not pushing. **🟢 ArchTrack live-feed classifier looks fixed:** events at 8:00–8:02 PM PDT yesterday correctly bucket Claude Code as "Core Work" and Messages as "Communication" (was 100% Communication-mislabel last cycle). But Apr 26 + Apr 27 daily summary emails STILL reported 0% — fix hasn't propagated to summary calc yet. Event count: 5389 (only +8 from 5381 last sync — workdays were near-idle). Debugger paused 11 days (memory still ends 2026-04-17-shift2). Mission-control 0 new PRs in window. Pipeline frozen + post-Apr-25 close-wave still unreconciled.
+**Last Updated:** May 4, 2026 at 08:15 PM PDT (48-Hour Sync — actually 6-day gap since prior cycle)
+**Source:** 48-Hour Audit — **Pipeline frozen 17 days** (memory still ends `2026-04-17-shift2.md`; debugger never restarted post-Apr 28 cliff). Apr 14 HOT batch already auto-cold per the Apr 28 cliff — formally graduate them next debugger shift. **🚨 PERSONAL FRAUD ALERT — May 4: PayPal receipt for €52.94 EUR sent to "Truee Golf"** + same-day Etsy deposit from "HipHopGolfShop" CA$0.64 — sender name pattern + the recurring golf-shop-themed micro-payment cluster (last sync's gianni_e1dkyat5 fraud, royalweston.com Mar 31, "Truee Golf" today) is now showing up against Mohammed's actual PayPal balance, not just inbound DMs. **Verify if Mohammed authorized this payment** — if not, file with PayPal immediately. **🟢 mohltbot/mission-control resumed after 4-day idle:** 3 commits in 6-day window (`0292a80` Apr 28 mc-sync, then `19bc3ec` + `de55739` Apr 29 morning — last commits before 5-day current-idle stretch). New PR opened: **#46 portfolio-research.mjs** (Ben's Bites webpull tool, Apr 29). **Archtrack public repo silence now 13 days** post-v1.0.1 — extends last cycle's 7 days. Local-tree still has the same in-flight ArchTrack classifier/admin-page rework unstaged from last cycle (no shape change). **🟡 ArchTrack daily-summary aggregator still broken** — 7 consecutive 0% / 0-tracked summary emails (Apr 28 → May 4). Live feed event count UNCHANGED at 5389 (was also 5389 last cycle) → desktop tracker has stopped capturing events for 6+ days even though admin dashboard is online. **GitHub close-wave continues:** openclaw#37813 closed-completed Apr 29 (was DRAFTS Reply 23) and #57139 closed-duplicate Apr 28 — pipeline rebase even more overdue. **Pancake "AI Cofounder launches May 5"** — that's literally TOMORROW; the Apr 28 promo email surfaced again with countdown. **Henry (meethenry.ai)** beta opening ~2 weeks — added to networking watch. **Saira Jafri Facebook Messenger May 3** — new inbound, unread.
+
+---
+
+## ✅ 48-HOUR SYNC — 2026-05-04 20:15 PDT
+
+### What Happened
+- **🚨 Personal-finance fraud signal — May 4 22:10 UTC, PayPal "You sent a €52.94 EUR payment" to "Truee Golf" (txn 0UB62923U3972414V).** This is a sent-payment receipt, not a phishing email — it hit Mohammed's actual account. Same day Etsy deposited CA$0.64 from "HipHopGolfShop" to TD account 8657. The "golf shop" cluster pattern (gianni_e1dkyat5 Fiverr fraud Mar 31 / royalweston.com / now "Truee Golf" / "HipHopGolfShop") is suspicious. **Decision needed in next few hours**: did Mohammed authorize €52.94 to Truee Golf? If not, dispute via PayPal Resolution Center within 180-day window. Flagging this as the highest-priority blocker this cycle — it's a real money movement out of his account.
+- **mohltbot/mission-control resumed briefly Apr 28–29, then idle 5 days.** 3 autopush commits in window: `0292a80` (Apr 28 07:15 — last cycle's mc-update), `19bc3ec` (Apr 29 06:16), `de55739` (Apr 29 06:36). Since `de55739` (Apr 29 morning), every 5-min tick is `(no changes)` for ~5 days straight on mc-side.
+- **🆕 PR #46 opened Apr 29** — `scripts: add portfolio-research.mjs (Ben's Bites 2026-04-28: webpull)`. mohltbot author. Still open, no review activity. Open PR count is now 17 (up 1 from last cycle's 16).
+- **PR closed-count back to 29** (last sync had it at 23, dropped from 29 the cycle before that). Either reopens, or the api was throttled and undercount last cycle. Treating as counter-glitch resolved; back to baseline.
+- **maximizeGPT/Archtrack: 0 commits, 13 days silent.** Last commit still `303a590` (Apr 21 15:43 UTC) — the v1.0.1 release tag. 0 open issues, 0 open PRs.
+- **Local Archtrack tree unchanged shape from last cycle.** `git status` still shows the same ~30 modified/deleted files in `desktop/`, `admin/server/`, `admin/src/client/` — `classifier.ts`, `tracker.ts`, `main.ts`, `Dashboard.tsx`, `database.ts`, `websocket.ts`, plus the GenesisAI / AIChatPanel / ai-routes deletions. Mohammed's in-flight branch hasn't been touched in 6 days — neither pushed nor reverted. Stalled.
+- **🟡 ArchTrack desktop tracker has gone silent.** Live activity feed event count is **5389** — exact same number as last cycle's 5389. So the live feed froze around Apr 27 evening; no new events have been captured for 6+ days. Admin dashboard still serves at https://archtrack.live, but the desktop tracker isn't pushing events anymore. **This is a different failure mode** from the Apr 24–25 "tracker dark" or the Apr 26 "classifier mislabel" cycle — the tracker has just stopped. Likely related to Mohammed's local desktop-side dev work on `tracker.ts` / `main.ts` (build broken on his laptop?).
+- **🟡 ArchTrack daily summaries: 7 zeros in a row.** Apr 28, 29, 30, May 1, 2, 3, 4 daily-summary emails all "0% / 0 tracked / 0 productive". Consistent with desktop-tracker being silent — and aggregator obviously can't produce non-zero from no events.
+- **GitHub close-wave continues 1 more cycle:** openclaw/openclaw#37813 (was DRAFTS Reply 23 — "Unrecognised model IDs silently fall back to primary default") **closed-as-completed Apr 29 03:51 UTC**. openclaw/openclaw#57139 (sessions_history) **closed-as-duplicate Apr 28 14:43 UTC**. openclaw/openclaw#56733 (gateway event-loop frozen) was marked stale Apr 30 04:39 by openclaw-barnacle, then clawsweeper restarted review 43 minutes later. openclaw/openclaw#52421 (was DM 27 / @joesinvestments — tool_use_id race) had a clawsweeper "keep open for maintainer follow-up" comment Apr 28 22:14. The Apr 24–25 close-wave has now extended into a full 12-day rolling triage sweep.
+- **Debugger agent: paused 17 days.** Memory directory still ends at `2026-04-17-shift2.md`. No shifts Apr 18–May 4. Pipeline still 18 hot / 20 warm / 72 cold / $2,350+, but the Apr 14 HOT batch Day-14 cliff was Apr 28 — those 7 leads (@harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210) need formal demotion to COLD. Apr 16 batch (5 leads) is now 18 days old, also past Day-14. Apr 17 batch (6 hot + 4 warm) is now Day-17, also past Day-14. **Effectively all hot leads are now Day-14+ stale.**
+- **🆕 Pancake "AI Cofounder launches May 5" countdown email — Apr 28 15:02 UTC** from francois@getpancake.ai. "We're launching our AI cofounder on Tuesday, May 5. 8 days out. Early bird users are getting access a bit early, this week. We're 500+ signups in." That launch is **tomorrow**. Decision: sign up / attend / ignore. The Apr 24 Pancake Pizza #2 workshop invite remains untriaged.
+- **🆕 Henry (meethenry.ai) — beta in ~2 weeks.** May 1 15:50 UTC email: "We're planning to open the first beta in approximately 2 weeks. Henry is a swarm of AI agents that finds business opportunities for you and builds [proposals]." Adjacent to lead-gen; worth waiting and signing up when beta drops.
+- **🆕 Saira Jafri Facebook Messenger — May 3 09:12 AM.** Unread, new contact. Triage.
+- **🆕 Anthropic invoice — Apr 30 06:09 UTC**, receipt #2737-7213-0308 (amount not parsed in snippet — likely the monthly Cowork/API bill). Need to log to budget tracker.
+- **No Fiverr activity.** 0 inbound, 0 orders. gianni_e1dkyat5 fraud hold maintained (and now sits in a worsening fraud-cluster pattern with the May 4 PayPal/Etsy events).
+- **No Pancake-event-2 follow-up.** Apr 24 Pizza #2 workshop invite still untriaged — 10 days unaddressed.
+- **Tony An Messenger** — still unread from Apr 15; now 19 days stale. Formally drop.
+- **Wasif Hasan Facebook Messenger Apr 25** — still unread, 9 days stale.
+- **Calendar past 48h + next 7 days: empty.** `list_events` returned no items on primary calendar. May 5 (tomorrow, Pancake launch day) has nothing on calendar. The Apr 24 Pancake Pizza #2 invite never made it to a calendar add either.
+- **Routine Gmail noise this window:** 7 ArchTrack daily summaries (all 0%), 3 PLANTAQueen NYC restaurant promos, 4 DoorDash promos, 2 BensBites Substack issues ("GPT-5.5 is a good model", "Building gets easier"), Streak × 2, Bond AI SF events digest, Intuit Developer News Apr 2026, Water Project × 2, Etsy receipt, PayPal receipt, Anthropic invoice.
+- **Autopush HEALTHY:** Latest log tick `=== 2026-05-04 20:15:08 ===` — live, 5-min cadence intact through full window. 3 actual pushes Apr 28–29; the rest of the window (Apr 29 morning → now, ~5 days) is `(no changes)` matching the workspace-frozen state on the mc-side. Scoped filter still correctly resetting Archtrack-tree edits out of mc commits.
+
+### GitHub Activity
+- **maximizeGPT/Archtrack:** **0 commits in window** | 0 open issues | 0 closed issues | 0 open PRs | last commit `303a590` (Apr 21 15:43 UTC) — **13 days public-silence**
+  - **Local-side signal (NOT in repo yet, unchanged from last cycle):** ~30 modified/deleted files in `desktop/`, `admin/server/`, `admin/src/client/`. No new edits this cycle — branch stalled.
+- **mohltbot/mission-control:** 3 autopush commits in window
+  - `de55739` chore(auto): sync workspace changes [2026-04-29 06:36:39]
+  - `19bc3ec` chore(auto): sync workspace changes [2026-04-29 06:16:36]
+  - `0292a80` chore(auto): sync workspace changes [2026-04-28 07:15:04] *(was last cycle's mc-update)*
+- **mohltbot/mission-control PRs:** **17 open (+1)**, 29 closed; **1 new PR opened in window**
+  - **🆕 #46** scripts: add portfolio-research.mjs (Ben's Bites 2026-04-28: webpull) — opened Apr 29 13:30 UTC by mohltbot
+  - Pending: #45 ui-wireframe-then-implement (Apr 24), #44 acceptmarkdown-check (Apr 22), #43 BensBites Claude Managed Agents, #42 BensBites OpenRouter Spawn, #41 BensBites batch (all Apr 14), #34–40 older docs
+- **openclaw/openclaw inbound (Gmail observable):**
+  - **#37813 closed-as-completed Apr 29 03:51 UTC** — was DRAFTS.md "Reply 23". Lead voidable.
+  - **#57139 closed-as-duplicate Apr 28 14:43 UTC** — sessions_history archived/reset reading. Not a tracked lead but in adjacent space.
+  - **#56733 stale Apr 30 04:39, then clawsweeper restart 05:22** — gateway event-loop frozen.
+  - **#52421 clawsweeper "keep open" Apr 28 22:14** — was DM 27 / @joesinvestments tool_use_id race.
+  - **#17876 clawsweeper "keep open" Apr 29 16:50** — Feature ticket; was last sync's still-open watch item.
+
+### Pipeline (OpenClaw Debugger)
+- 🔥 Hot: **18** | 🟡 Warm: **20** | 🔵 Cold: **72** | **Total: 110 leads** | **Potential: $2,350+** *(stale 17 days; effectively ALL hot leads are now Day-14+ past their cliff)*
+- **Last updated:** April 17, 2026 (Mohlt Shift 2) — **unchanged 17 days running**
+- **⚠️ Pipeline math STILL needs rebase** — Apr 24–25 close-wave + Apr 27 #54535 + Apr 28 #57139 + Apr 29 #37813 + #56733 stale-bot + #43735 stale-bot all unreconciled. Drafts targeting any of these issues would be obsolete or counterproductive.
+- **🚨 Apr 14 HOT batch Day-14 cliff PASSED Apr 28** — 7 leads (@harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210) need formal demotion to COLD next debugger shift. No salvage attempt was made; cliff is now 6 days behind us.
+- **Apr 16 + Apr 17 batches also past Day-14** — every single hot lead is now Day-14+ stale. The pipeline is functionally cold-frozen pending a debugger restart and a fresh-source pass.
+- **clawoneloke #55030:** 19 days overdue. Realistically dead.
+- **Aged send backlog (31 unsent DMs):** every draft is now 17–22 days old. Recommend: abandon all 31 wholesale, re-source from fresh post-Apr-29 issues only.
+
+### Comms
+- **Gmail connector healthy this cycle** — `search_threads` returned full results.
+- **🚨 Inbound this window — financial:**
+  - **May 4 22:10 UTC — `service@paypal.com` "You sent a €52.94 EUR payment to Truee Golf"** (txn `0UB62923U3972414V`). **Verify authorization.**
+  - **May 4 11:38 UTC — `support@etsy.com` "Your funds of $0.64 CAD are on the way!"** from HipHopGolfShop, deposit to TD 8657.
+  - **Apr 30 06:09 UTC — `invoice+statements@mail.anthropic.com` receipt #2737-7213-0308** — log to budget.
+- **Inbound this window — networking / opportunity:**
+  - **Apr 28 15:02 UTC — `francois@getpancake.ai` "AI Cofounder launches May 5"** — 500+ signups, launch is tomorrow.
+  - **May 1 15:50 UTC — `hello@updates.meethenry.ai` "Quick Henry update"** — beta in ~2 weeks.
+  - **May 3 09:12 PDT — Saira Jafri (Facebook Messenger)** — new inbound, unread.
+  - **Apr 30 14:44 UTC — Bond AI SF events digest** — networking.
+- **Inbound this window — GitHub auto-triage** (covered above): #37813 closed-completed, #57139 closed-dup, #56733 stale+restart, #52421 clawsweeper review, #17876 clawsweeper review.
+- **No new client responses, no Fiverr inbound, no @-mentions on tracked GitHub repos.**
+- **Tony An (Facebook Messenger)** — unread Apr 15; 19 days stale. Formally drop.
+- **Wasif Hasan Facebook Messenger Apr 25** — unread, 9 days stale.
+
+### Calendar (next 7 days)
+- **May 4 (today) – May 11:** **No events scheduled** (`list_events` returned no items on primary calendar)
+- **🚨 May 5 (tomorrow):** Pancake AI Cofounder launch — NOT on calendar; manual triage needed
+- Past 48h also empty — no completed meetings, no event-scout bookings landed
+- Pancake Pizza #2 workshop invite (Apr 24) **still untriaged 10 days later** — likely overlaps the May 5 launch
+
+### ArchTrack
+- Status: ✅ **ONLINE** at https://archtrack.live — admin dashboard renders, Connected banner green, Mohammed signed in as "Mohammed Rayed Wasif / Genesis Design Studios"
+- **Live dashboard at 20:15 PDT today:** 0% / 0 today
+- **🟡 Live activity feed event count UNCHANGED at 5389** — same as last cycle's 5389. **Desktop tracker has stopped capturing events for ~6+ days.** Most-recent visible events still time-stamped 8:00–8:02 PM (presumably Apr 27 evening, the same set last sync surfaced). Live classifier still labels those events correctly (Claude Code → Core Work; Messages → Communication) — the bucket fix from last cycle is intact, but with no new data flowing through, that's now moot.
+- **🟡 Daily summaries: 7 zeros in a row.** Apr 28 → May 4 all "0% productivity / 0 tracked / 0 productive". Consistent with desktop-tracker silence.
+- **Public repo: 0 commits in 13-day window.** v1.0.1 (Apr 21) still last ship.
+- **Local in-flight branch: stalled.** Same ~30 modified/deleted files as last cycle, 0 new edits this window.
+- **Hypothesis:** Mohammed's local Archtrack dev work broke the desktop tracker on his own laptop (likely a `tracker.ts` / `main.ts` build error from the in-flight rework). The deployed admin still serves the old data; nothing's coming in from the client. Restoring tracker capture is now the gating item before the daily-summary fix matters.
+- **Next milestone:** unstall the in-flight branch — either ship it or revert it — to get the desktop tracker capturing again.
+
+### Budget Tracker
+- Estimated this cycle: +~$0.20 (claude-opus-4-7 Cowork run — one session, ~30 tool calls, ~120k input tokens)
+- **🆕 Anthropic invoice received Apr 30** (receipt #2737-7213-0308) — amount not in email snippet; needs Read on the message body to log accurately. Approximately a monthly bill.
+- Running total: ~**$8.09** / $200 (4.0%) — healthy
+- Current model: claude-sonnet-4-6 per task spec (this run is opus-4-7)
+- **Action:** open the Apr 30 Anthropic receipt to confirm the actual charge and update running total properly.
+
+### Autopush Health
+- Last log tick: `=== 2026-05-04 20:15:08 ===` (live, 5 min before this sync)
+- Last successful push: `de55739` "chore(auto): sync workspace changes [2026-04-29 06:36:39]"
+- 3 pushes in window (`0292a80`, `19bc3ec`, `de55739`) — all clustered Apr 28–29
+- Since `de55739` (Apr 29 06:36 PDT), every 5-min tick has been `(no changes)` (~5 days straight idle on the mc-side) — matches debugger-paused + dev-stalled state
+- Scoped filter is working as intended: heavy unstaged Archtrack edits in working tree, correctly being reset out of mission-control commits
+- Verdict: **HEALTHY**
+
+### Blockers & Decisions Needed
+- 🚨 **PayPal €52.94 EUR to "Truee Golf" — May 4 22:10 UTC** — verify Mohammed authorized this payment. If not, dispute via PayPal Resolution Center within 180-day window. Highest-priority item this cycle.
+- 🚨 **ArchTrack desktop tracker silent ~6 days** — event count frozen at 5389. The deployed admin is fine; the desktop client isn't capturing. Likely build-broken on Mohammed's laptop from the in-flight `tracker.ts` rework. Decision: ship or revert the local branch.
+- ⚠️ **Pipeline rebase STILL urgent and now even more overdue** — Apr 24–25 close-wave + Apr 27 #54535 + Apr 28 #57139 + Apr 29 #37813 + #56733 stale + #43735 stale all unreconciled. Run debugger reconciliation shift before any further sends.
+- ⚠️ **All hot leads are now Day-14+ past cliff** — pipeline is functionally cold. Apr 14 batch (7 leads) cliff Apr 28 — never salvaged. Apr 16 batch (5) and Apr 17 batch (6 hot + 4 warm) are also past their windows. Recommend: formally demote to cold next debugger shift, re-source from post-Apr-29 issues.
+- ⚠️ **Debugger agent paused 17 days running** — memory directory ends `2026-04-17-shift2.md`. Restart shift or formally retire the role.
+- ⚠️ **Send backlog: 31 unsent DMs, all 17–22 days stale, several actively harmful.** Same recommendation as the last 2 cycles: abandon wholesale, re-source.
+- 🚨 **Pancake AI Cofounder launches May 5 (TOMORROW)** — Apr 28 promo email (500+ signups). Decision in next ~24h: sign up early-bird, attend launch, or ignore. Not on calendar.
+- ⚠️ **Pancake Pizza #2 workshop invite (Apr 24)** — 10 days untriaged. Decide attend / ignore (likely overlaps May 5 launch).
+- 🆕 **Henry (meethenry.ai) beta opening ~2 weeks** — adjacent to lead-gen / opportunity discovery. Worth signing up when it drops.
+- ⚠️ **Saira Jafri Facebook Messenger May 3** — new unread; triage.
+- ⚠️ **Wasif Hasan Facebook Messenger Apr 25** — 9 days unread; triage.
+- ⚠️ **Tony An Messenger (Apr 15)** — 19 days unread; formally drop.
+- ⚠️ **Twitter Thread 19 still unposted** — 17 days old; archive-value only.
+- 🟡 **17 open mission-control PRs (+1 #46) with no review activity** — same triage decision: merge, close, or mark stale. PR #46 portfolio-research is fresh (Apr 29) so don't expedite.
+- 🟡 **Anthropic invoice Apr 30 not yet logged to budget** — open receipt #2737-7213-0308 and update running total.
+- 🔒 **Ben's Bites Discord token** — still blocked.
+- 🔒 **Mission Control Dashboard restart** — still pending verification via `./scripts/mc-dashboard-recovery.sh`.
+
+**Auto-resolved since last sync:**
+- ✅ **PR closed-count discrepancy** (last cycle's flagged 29→23 drop) — count is back at 29, treating as transient API counter glitch resolved.
 
 ---
 
