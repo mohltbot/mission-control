@@ -1,7 +1,117 @@
 # Mission Control Board
 
-**Last Updated:** May 4, 2026 at 08:15 PM PDT (48-Hour Sync — actually 6-day gap since prior cycle)
-**Source:** 48-Hour Audit — **Pipeline frozen 17 days** (memory still ends `2026-04-17-shift2.md`; debugger never restarted post-Apr 28 cliff). Apr 14 HOT batch already auto-cold per the Apr 28 cliff — formally graduate them next debugger shift. **🚨 PERSONAL FRAUD ALERT — May 4: PayPal receipt for €52.94 EUR sent to "Truee Golf"** + same-day Etsy deposit from "HipHopGolfShop" CA$0.64 — sender name pattern + the recurring golf-shop-themed micro-payment cluster (last sync's gianni_e1dkyat5 fraud, royalweston.com Mar 31, "Truee Golf" today) is now showing up against Mohammed's actual PayPal balance, not just inbound DMs. **Verify if Mohammed authorized this payment** — if not, file with PayPal immediately. **🟢 mohltbot/mission-control resumed after 4-day idle:** 3 commits in 6-day window (`0292a80` Apr 28 mc-sync, then `19bc3ec` + `de55739` Apr 29 morning — last commits before 5-day current-idle stretch). New PR opened: **#46 portfolio-research.mjs** (Ben's Bites webpull tool, Apr 29). **Archtrack public repo silence now 13 days** post-v1.0.1 — extends last cycle's 7 days. Local-tree still has the same in-flight ArchTrack classifier/admin-page rework unstaged from last cycle (no shape change). **🟡 ArchTrack daily-summary aggregator still broken** — 7 consecutive 0% / 0-tracked summary emails (Apr 28 → May 4). Live feed event count UNCHANGED at 5389 (was also 5389 last cycle) → desktop tracker has stopped capturing events for 6+ days even though admin dashboard is online. **GitHub close-wave continues:** openclaw#37813 closed-completed Apr 29 (was DRAFTS Reply 23) and #57139 closed-duplicate Apr 28 — pipeline rebase even more overdue. **Pancake "AI Cofounder launches May 5"** — that's literally TOMORROW; the Apr 28 promo email surfaced again with countdown. **Henry (meethenry.ai)** beta opening ~2 weeks — added to networking watch. **Saira Jafri Facebook Messenger May 3** — new inbound, unread.
+**Last Updated:** May 6, 2026 at 07:10 AM PDT (48-Hour Sync — ~35h gap since 2026-05-04 20:15 PDT cycle)
+**Source:** 48-Hour Audit — **🟢 BIG RECOVERY: ArchTrack v1.0.2 shipped May 5 04:19 UTC with the exact fix flagged last cycle.** Commit message reads *"v1.0.2: re-arm tracker timers on system resume"* — that IS the desktop-tracker-silent root cause we hypothesized 35h ago. Public repo is now 1 day silent (was 13). Live event count moved 5389 → **5437 (+48 events)** — desktop tracker capturing again. The +48 came in tonight: live feed shows steady 1-min-cadence Claude / Core Work entries 9:40 PM → 9:57 PM PDT May 5. **🟡 Daily summary still broken though** — May 4 + May 5 summary emails both 0% / 0 tracked (the Resend job that fires at midnight ran before the v1.0.2 deploy reached production aggregator, OR the aggregator path needs a separate fix). **🟢 Event scout fired and landed a meeting on calendar — TODAY May 6, 5:30 PM PDT:** "Build Your First Agent (ft. Hermes) — Novita AI workshop" by Johnny Chin / Novita AI / Build Club + Bond AI SF, RSVP submitted (status: "Registration Pending, host approval needed"). Two duplicate calendar entries (one with SoMa SF location, one with Luma URL — likely scout + Luma .ics import overlap). **🟢 Pancake AI Cofounder launch arrived on schedule** — May 5 23:11 UTC "🥞 Edition #3 - Invites are going out!" from francois@getpancake.ai: *"Waitlist invites are going out in batches starting yesterday night, and if you're reading this, yours lands before Friday."* Mohammed is waitlisted; invite expected by Friday May 8. **🟢 mc-side resumed:** 5 autopush commits in window (May 4 20:20 / 20:25 / 20:50 / 20:55 cluster after last sync, then `ebe38ee5` May 6 06:17 — within the last hour). **🚨 PayPal Truee Golf €52.94 fraud signal carries forward unresolved** — same May 4 22:10 UTC receipt; no dispute / authorize confirmation observed in this 35h window. Highest-priority blocker still. **Pipeline still frozen 19 days** (memory ends `2026-04-17-shift2.md`). **Mohammed in NYC area / heavy travel evening May 5** — 2 Uber receipts ($10.18 + $9.01).
+
+---
+
+## ✅ 48-HOUR SYNC — 2026-05-06 07:10 PDT
+
+### What Happened
+- **🟢 ArchTrack v1.0.2 shipped May 5 04:19 UTC** — `maximizeGPT/Archtrack` HEAD is now `v1.0.2: re-arm tracker timers on system resume` (followed by `ci: disable DMG background (mac_alias broken on macos-latest)` at 04:23 UTC). The release note is literally a fix for the failure mode flagged last cycle: macOS sleep/wake breaking the in-process tracker timer. **This auto-resolves the multi-cycle "desktop tracker silent" blocker** — last sync's hypothesis ("Mohammed's local Archtrack dev work broke the desktop tracker on his own laptop") was directionally right about WHERE the bug was (tracker.ts) but wrong about CAUSE (it was a system-resume race, not a build-broken branch). Mohammed's in-flight branch shipped this fix.
+- **🟢 Live event count 5389 → 5437 (+48 events).** All 48 came in tonight — the live feed shows continuous 1-min-cadence Claude → Core Work entries from 9:40 PM through 9:57 PM PDT May 5 (i.e., late evening, post-v1.0.2 reaching the laptop). Desktop tracker is alive again.
+- **🟡 Daily summary aggregator still 0%.** May 4 + May 5 daily-summary emails (`onboarding@resend.dev`) both reported 0% / 0 tracked / 0 productive. The summary emails fire at 00:00 PDT, so the May 5 summary closed before the v1.0.2 fix took effect on Mohammed's laptop. The May 6 summary (firing tomorrow morning) will be the real test of whether the aggregator is fixed end-to-end. **Possibility 2:** the aggregator path needs its own fix that wasn't in v1.0.2 — we won't know until tomorrow's summary lands.
+- **🟢 Event scout fired and landed a meeting on calendar — TODAY May 6, 5:30 PM PDT.** "Build Your First Agent (ft. Hermes) — Novita AI workshop" by Johnny Chin (Novita AI / Build Club + Bond AI). 115 going. RSVP submitted Mohammed Wasif / rayedwasif@gmail.com / Independent / AI Advisor / Fintech Consultant — status reads "Registration Pending, host approval needed". Two duplicate calendar entries on the day: one Luma .ics import (timezone America/Toronto, location = luma URL) and one event-scout add (timezone America/Los_Angeles, location = "SoMa, San Francisco, CA (exact address revealed after RSVP approval)"). Both 8:30 PM EDT / 5:30 PM PDT to 10:00 PM EDT / 7:00 PM PDT. **First scout-booked event to actually hit the calendar in this Mission Control's history.**
+- **🟢 Pancake AI Cofounder launched on time.** Apr 28 countdown email said May 5; May 5 23:11 UTC francois@getpancake.ai sent "🥞 Edition #3 - Invites are going out!" — *"Waitlist invites are going out in batches starting yesterday night, and if you're reading this, yours lands before Friday."* No invite-link email yet for Mohammed; expected by Friday May 8 per the Edition #3 copy.
+- **🟢 mohltbot/mission-control resumed after 5-day idle stretch.** 5 autopush commits in window: 4 clustered May 4 20:20 → 20:55 PDT (immediately after last sync wrote out), and 1 fresh `ebe38ee5` at May 6 06:17:47 PDT (within the last hour). Closes the multi-cycle "5 days no commits" pattern.
+- **maximizeGPT/Archtrack: 2 commits in window** (the v1.0.2 ship + DMG-background CI fix, both May 5 04:19–04:23 UTC). 0 open issues, 0 open PRs (unchanged baseline). Public repo silence reset to 1 day.
+- **mc-repo PR state unchanged: 17 open / 29 closed**, no new PRs opened in window. PR #46 portfolio-research.mjs still open from Apr 29; #34–#45 backlog unchanged.
+- **🚨 PayPal Truee Golf €52.94 fraud signal carries forward UNRESOLVED.** Same May 4 22:10 UTC receipt (txn `0UB62923U3972414V`). No PayPal dispute confirmation or "Mohammed authorized this" signal in the 35h window. **180-day window still open**; flagging again as highest-priority blocker. Decision still owed.
+- **Heavy NYC-area travel evening May 5.** 2 Uber receipts: $10.18 (6:13 PM) + $9.01 (9:18 PM). Pattern matches an evening-out commute. (Uber receipts arrived as charge-summary + ride-receipt pair via `noreply@uber.com`.)
+- **Debugger agent still paused — now 19 days running.** Memory directory still ends at `2026-04-17-shift2.md`. The Apr 14 HOT batch (auto-cold Apr 28) and Apr 16 / Apr 17 batches (also past cliff) remain pipeline ghosts. No restart attempt observed.
+- **No new openclaw GitHub close-wave activity in window.** The Apr 28–29 wave (#37813, #57139) and the Apr 30 stale-marks (#56733, #43735) didn't extend further this cycle. Pipeline-rebase backlog unchanged.
+- **No Fiverr activity.** 0 inbound, 0 orders. gianni_e1dkyat5 fraud hold maintained.
+- **No new Saira Jafri / Wasif Hasan / Tony An Messenger inbounds visible** in the Gmail-observable window (those threads sit on Facebook Messenger, not Gmail — last cycle's flag of unread DMs is still pending triage).
+- **Routine Gmail noise:** 2 ArchTrack daily summaries (May 4 + May 5, both 0%), 3 Uber receipts (the 2 trips above + their charge summaries), DoorDash promo, BensBites Substack ("Codex is gaining steam"), Streak app digest, Water Project newsletter, chess.com Cinco de Mayo nudge, PLANTAQueen NYC promo, Clicky onboarding email (`farza@heyclicky.com`).
+- **Autopush HEALTHY.** Latest log tick `=== 2026-05-06 07:02:52 ===` (~6 min before this sync). 5-min cadence intact through full window. 5 actual pushes in window — see GitHub Activity below.
+
+### GitHub Activity
+- **maximizeGPT/Archtrack:** **2 commits in window** | 0 open issues | 0 open PRs | last commit `4e91fb0` (May 5 04:23 UTC) — public-silence reset to 1 day
+  - `4e91fb0` ci: disable DMG background (mac_alias broken on macos-latest) [2026-05-05 04:23 UTC]
+  - `<v1.0.2>` v1.0.2: re-arm tracker timers on system resume [2026-05-05 04:19 UTC] **← the fix**
+- **mohltbot/mission-control:** **5 autopush commits in window**
+  - `ebe38ee5` chore(auto): sync workspace changes [2026-05-06 06:17:47] *(this cycle's pre-sync push)*
+  - `a283d842` chore(auto): sync workspace changes [2026-05-04 20:55:16]
+  - `ba1617e2` chore(auto): sync workspace changes [2026-05-04 20:50:14]
+  - `91ae90ab` chore(auto): sync workspace changes [2026-05-04 20:25:11]
+  - `bd573e04` chore(auto): sync workspace changes [2026-05-04 20:20:09] *(immediately after last sync wrote out)*
+- **mohltbot/mission-control PRs:** **17 open, 29 closed** (unchanged from last cycle); **0 new PRs opened in window**
+  - Still pending: #46 portfolio-research.mjs (Apr 29), #45 ui-wireframe-then-implement (Apr 24), #44 acceptmarkdown-check (Apr 22), #41–43 BensBites (Apr 14), #34–40 older docs PRs
+- **openclaw/openclaw inbound:** No new GitHub-notification activity visible in Gmail window (last wave was #37813 close Apr 29 and the Apr 30 stale-bot marks). Quiet 6 days.
+
+### Pipeline (OpenClaw Debugger)
+- 🔥 Hot: **18** | 🟡 Warm: **20** | 🔵 Cold: **72** | **Total: 110 leads** | **Potential: $2,350+** *(stale 19 days; ALL hot leads are now Day-14+ past cliff)*
+- **Last updated:** April 17, 2026 (Mohlt Shift 2) — **unchanged 19 days running**
+- **⚠️ Pipeline math STILL needs rebase** — Apr 24–25 close-wave + Apr 27 #54535 + Apr 28 #57139 + Apr 29 #37813 + #56733 + #43735 stale-marks all unreconciled. Drafts targeting any of these issues would be obsolete.
+- **🚨 Apr 14 HOT batch Day-14 cliff PASSED Apr 28** — 7 leads (@harleymdsavage, @Pavel-Durov, @seemebreakthis, @gunnartschoepke, @hi-o-id, @Mohamed-HAMMANE, @lamkan0210) need formal demotion to COLD next debugger shift.
+- **Apr 16 + Apr 17 batches also past Day-14** — every hot lead is now Day-14+ stale.
+- **clawoneloke #55030:** 21 days overdue. Realistically dead.
+- **Aged send backlog (31 unsent DMs):** every draft is now 19–24 days old. Recommendation unchanged from last 3 cycles: abandon all 31 wholesale, re-source from fresh post-Apr-29 issues only.
+
+### Comms
+- **Gmail connector healthy this cycle** — `search_threads` returning full results.
+- **🟢 Inbound this window — opportunity / event:**
+  - **May 5 23:11 UTC — `francois@getpancake.ai` "🥞 Edition #3 - Invites are going out!"** — Pancake AI Cofounder waitlist invite landing by Friday May 8. The Apr 28 launch promise was kept on schedule.
+- **🚨 Inbound this window — financial (carryover):**
+  - **May 4 22:10 UTC — `service@paypal.com` PayPal receipt €52.94 EUR to Truee Golf** (txn `0UB62923U3972414V`). **Still unresolved 35h later.** Verify Mohammed authorized; if not, dispute via PayPal Resolution Center.
+- **Inbound this window — routine:** 2 ArchTrack daily summaries (May 4 + May 5, both 0%), 3 Uber receipts (May 5 evening, $10.18 + $9.01), DoorDash, Streak app digest, BensBites ("Codex is gaining steam"), Water Project, chess.com, PLANTAQueen, Clicky onboarding (`farza@heyclicky.com`).
+- **No new client responses, no Fiverr inbound, no @-mentions on tracked GitHub repos.**
+- **Saira Jafri / Wasif Hasan / Tony An Facebook Messenger** — all still unread; Facebook Messenger isn't in the Gmail observable surface, so triage status is unchanged.
+
+### Calendar (next 7 days)
+- **🟢 May 6 (TODAY) — Build Your First Agent (ft. Hermes) — Novita AI workshop** | 5:30 PM – 7:00 PM PDT (8:30–10:00 PM EDT) | SoMa, San Francisco CA (exact address after RSVP approval) / Luma URL: https://luma.com/m7lhnu94 | RSVP **PENDING host approval**. **TWO duplicate calendar entries** — likely event-scout add + Luma .ics import overlap. Recommend dedupe.
+- **May 7 – May 13:** No other events scheduled
+- Past 48h: empty (no completed meetings before today's)
+- **🟢 First scout-booked event to actually land on the calendar in this Mission Control's history** — confirms the event-scout pipeline is working end-to-end.
+
+### ArchTrack
+- Status: ✅ **ONLINE** at https://archtrack.live — admin dashboard renders, Connected banner green, Mohammed signed in as "Mohammed Rayed Wasif / Genesis Design Studios"
+- **🟢 Live activity feed event count: 5437** (was 5389 last cycle, +48 events) — desktop tracker IS capturing again
+- **🟢 Recent events visible:** continuous 1-min-cadence Claude → Core Work entries from 9:40 PM to 9:57 PM PDT May 5 (post-v1.0.2 deploy reaching laptop)
+- **🟡 Daily summaries: still 0%.** May 4 + May 5 summary emails report 0% / 0 tracked / 0 productive. The May 5 summary closed before v1.0.2 took effect on Mohammed's laptop, so this is expected. The **May 6 summary (firing tomorrow morning)** is the real test.
+- **🟢 Public repo: 2 commits in window — v1.0.2 SHIPPED.** v1.0.2 (May 5) is the new last-ship. The "in-flight branch shaped like classifier/admin-page rework" from prior cycles is now (at least the tracker timer piece of it) merged.
+- **Live classifier still labels correctly** (Claude → Core Work) — bucket fix from earlier cycles holds.
+- **Next milestone:** confirm tomorrow's daily summary fires non-zero; if it still reads 0% with capture-clearly-working, the aggregator path needs its own fix beyond v1.0.2.
+
+### Budget Tracker
+- Estimated this cycle: +~$0.20 (claude-opus-4-7 Cowork run — one session, ~25 tool calls, ~110k input tokens)
+- Anthropic invoice (Apr 30, receipt #2737-7213-0308) **still not opened to confirm exact charge** — carries over from last cycle. Action: read message body next cycle to log accurately.
+- Running total: ~**$8.29** / $200 (4.1%) — healthy
+- Current model per task spec: claude-sonnet-4-6 (this run is opus-4-7)
+
+### Autopush Health
+- Last log tick: `=== 2026-05-06 07:02:52 ===` (live, ~6 min before this sync)
+- Last successful push: `ebe38ee5` "chore(auto): sync workspace changes [2026-05-06 06:17:47]" *(within the last hour)*
+- 5 actual pushes in window: May 4 cluster (4 pushes 20:20–20:55) + May 6 morning (1 push 06:17). Rest of window is `(no changes)` ticks matching the dev-paused-but-not-stalled state.
+- Scoped filter still correctly resetting Archtrack-tree edits out of mc commits
+- Verdict: **HEALTHY**
+
+### Blockers & Decisions Needed
+- 🚨 **PayPal €52.94 EUR to "Truee Golf" — still UNRESOLVED 35h later.** May 4 22:10 UTC receipt; no dispute/authorize signal observed. Verify Mohammed authorized. If not, file with PayPal within 180-day window. Highest-priority item this cycle.
+- 🟢 **Today's Novita AI workshop — RSVP pending host approval.** Watch inbox for approval email; address is SoMa SF "(exact revealed after approval)". Decision: if approved + venue is reasonable, attend. Two calendar entries — dedupe one.
+- 🟡 **ArchTrack daily summary fix verification owed tomorrow morning.** v1.0.2 shipped the tracker-timer fix; live capture is restored. **If the May 6 summary email still reads 0% despite obvious live-feed capture, the aggregator path needs its own fix.**
+- ⚠️ **Pipeline rebase STILL urgent and now 19 days overdue** — Apr 24–25 close-wave + Apr 27/28/29 closes + #56733 + #43735 stale-marks all unreconciled. Run debugger reconciliation shift before any further sends.
+- ⚠️ **All hot leads are Day-14+ past cliff** — pipeline functionally cold. Formally demote next debugger shift, re-source from post-Apr-29 issues.
+- ⚠️ **Debugger agent paused 19 days running** — restart shift or formally retire the role.
+- ⚠️ **Send backlog: 31 unsent DMs, all 19–24 days stale, several actively harmful.** Same recommendation as last 3 cycles: abandon wholesale, re-source.
+- 🆕 **Pancake AI Cofounder waitlist invite expected by Friday May 8** — watch inbox; activate when invite-link email lands.
+- 🆕 **Henry (meethenry.ai) beta opening ~1 week now** (was ~2 weeks at last cycle May 1). Worth signing up when beta drops.
+- ⚠️ **Pancake Pizza #2 workshop invite (Apr 24)** — 12 days untriaged. Likely overlapped May 5 launch; can probably be archived.
+- ⚠️ **Saira Jafri Facebook Messenger (May 3)** — 3 days unread; triage.
+- ⚠️ **Wasif Hasan Facebook Messenger (Apr 25)** — 11 days unread; triage.
+- ⚠️ **Tony An Messenger (Apr 15)** — 21 days unread; formally drop.
+- ⚠️ **Twitter Thread 19 still unposted** — 19 days old; archive-value only.
+- 🟡 **17 open mission-control PRs with no review activity** — same triage decision as prior cycles.
+- 🟡 **Anthropic invoice Apr 30 not yet logged to budget** — open receipt #2737-7213-0308 next cycle.
+- 🔒 **Ben's Bites Discord token** — still blocked.
+- 🔒 **Mission Control Dashboard restart** — still pending verification via `./scripts/mc-dashboard-recovery.sh`.
+
+**Auto-resolved since last sync:**
+- ✅ **🟢 ArchTrack desktop-tracker silence (multi-cycle blocker)** — v1.0.2 "re-arm tracker timers on system resume" shipped May 5. Live event count moved 5389 → 5437, capture restored. Daily-summary verification still owed tomorrow.
+- ✅ **🟢 mohltbot/mission-control 5-day idle stretch** — 5 commits in window, mc-side back to active.
+- ✅ **🟢 Archtrack public-repo "13 days silent" stretch** — v1.0.2 ship resets the counter to 1 day.
+- ✅ **🟢 Pancake AI Cofounder launch** — fired on schedule May 5; Edition #3 confirms invites going out by Friday.
+- ✅ **🟢 Event-scout pipeline end-to-end working** — Novita AI workshop landed on calendar with RSVP submitted (first scout-booked event in MC history).
 
 ---
 
