@@ -1485,3 +1485,52 @@ Last commit on `main` was **April 21, 2026** — now **13 days stale**. No new p
 ---
 
 *Last Updated: May 4, 2026 — ArchTrack Journey Documenter (automated)*
+
+---
+
+## May 10, 2026 — Automated Weekly Check (ArchTrack Journey Documenter)
+
+### Deployment Health: 🟢 HEALTHY
+- **`https://archtrack.live/`** → 200 OK · title: "ArchTrack Admin" · dashboard renders with full nav (Dashboard, Employees, Projects, Tasks, Reports, Daily Summary, Screenshots, Overrides, Team) signed in as "Mohammed Rayed Wasif" — "Connected" status banner showing.
+- **`https://archtrack.live/admin`** → 200 OK · admin panel loads cleanly.
+- **`https://archtrack.live/api/health`** → 200 OK · `{"status":"ok","database":"connected","employees":7,"version":"1.0.0","timestamp":"2026-05-11T03:04:54.402Z"}`
+- archtrack.live canonical fully stable; nginx reverse proxy continues to front the Node origin without issues. No fallback to bare IP `165.227.78.107` needed.
+- Employee count steady at **7** (unchanged since at least April 26 — confirmed new baseline).
+- All productivity counters reading 0% / 0 (Team Productivity, Utilization, Focus Time, Idle/Wasted Time, Suspicious Activity) — consistent with checking at ~03:04 UTC (off-hours, no tracker events expected).
+
+### GitHub Triage (maximizeGPT/Archtrack)
+- **Open issues**: 0 · **Closed issues**: 0 · (no new tickets filed; zero backlog)
+- **Open PRs**: 0 · **Closed PRs**: 0 · (direct-to-`main` workflow continues; "Welcome to pull requests!" placeholder still shown — no PR has ever been opened on this repo)
+- No triage action needed.
+
+### Commits in Last 24h: **None**
+Last commits on `main` were **May 4, 2026** — now **6 days stale**. The two May 4 commits were:
+- `4e91fb0` — ci: disable DMG background (mac_alias broken on macos-latest)
+- `4b7fb12` — v1.0.2: re-arm tracker timers on system resume
+
+The v1.0.2 release was cut on May 4 (a +1 patch over v1.0.1 from Apr 21). No further pushes since. Prior commits:
+- `303a590` — release v1.0.1 (Apr 21) · `a27d0b8` — zero-friction device activation (Apr 21)
+- `b142cce` — fix daily summary firing at midnight (Apr 20)
+- `b1da4a6` — fix setup token (Apr 17) · `b0ad205` — optional employee email (Apr 17)
+
+### P1 Action Items
+1. ⚠️ **v1.0.2 release verification still pending** — `main` has the "re-arm tracker timers on system resume" fix shipped May 4, but JOURNEY shows no record of end-to-end validation that the system-resume re-arm behaves correctly on a real Mac (sleep → wake → confirm tracker timers fire). Worth a smoke test before the next employee onboarding.
+2. **Stale `main` (6 days)** — slower than the April pace but normal for a post-release week. Not a blocker; flag again if quiet stretches past 14 days.
+3. **Employee onboarding flow validation still open** — carry-over from May 4 entry. The v1.0.1 zero-friction Downloads-handoff path has still not been verified end-to-end with a real new hire on record.
+4. **No P0/P1 production outages** — health check is clean across all three endpoints.
+
+### Next Priorities (carry-over + new)
+1. **Smoke-test v1.0.2 system-resume re-arm** (NEW) — sleep test on a real installation, verify tracker timers re-arm and post events after wake.
+2. **Employee onboarding flow validation** — v1.0.1 Downloads-handoff path with a real new employee (still open since Apr 26).
+3. **Genesis AI proactive alerts** — still pending from March 29 plan.
+4. **Weekly auto-report email** — still pending from March 29 plan.
+5. **Define next sprint milestone** — alerts? weekly reports? employee #8 reactivation? same prompt as last week.
+
+### Notes
+- Sandbox `date` at run: 2026-05-11 03:04 UTC ≈ 2026-05-10 evening PT (matches the scheduled "Sundays 8 PM" cadence).
+- Discord report posted via Chrome MCP → `#mission-control-updates` (no `archtrack-content`-specific webhook URL is documented in workspace memory; STACK.md only catalogs `#openclaw-debugger` and `#mission-control-updates`. Continuing prior precedent of using `#mission-control-updates` for journey-style updates).
+- Decision made autonomously per scheduled-task rules: no clarifying questions asked, no AskUserQuestion / request_cowork_directory calls.
+
+---
+
+*Last Updated: May 10, 2026 — ArchTrack Journey Documenter (automated)*
