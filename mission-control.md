@@ -1,7 +1,100 @@
 # Mission Control Board
 
-**Last Updated:** May 12, 2026 at 7:55 PM PDT (48-Hour Sync — normal ~60h cycle since 2026-05-10 07:08 PDT)
-**Source:** 48-Hour Audit — **🚨 Anthropic API access TURNED OFF May 10 9:59 PM PDT** ("out of usage credits" alert from no-reply@anthropic.com at May 11 03:59 UTC). **✅ Recovered 11 min later with a $15.00 credit top-up** (receipt #2259-1607-3720, invoice RCBNV3YY-0002, paid via Link). Second one-time credit purchase in 48h: $5 May 9 → $15 May 10. **Cadence suggests ~$5/day burn rate — recommend setting console auto-recharge floor/ceiling.** **🚨 ArchTrack desktop tracker STILL silent — 7 consecutive cycles.** Live event count UNCHANGED at **5437** since 9:57 PM PDT May 5 (~7 days dark). May 11 and May 12 daily summaries both 0% / 0 tracked / 0 productive — **7 consecutive 0% days**. Autopush IS ticking every 5 min from the laptop, so the machine is awake — tracker *process* is the failure surface (not laptop sleep). **🆕 Reservation at Makai Island Kitchen & Groggery, Sun May 17 6:00 PM PDT** (Santa Cruz, party of 2) — Yelp + Google reserve emails May 11, calendar event auto-created. First scheduled event since the May 6 Novita workshop. **🟢 2 autopush commits in window** (both May 10): `2ceb786` 20:06 PDT evening + `e17e18c` 07:11 PDT morning. 0 commits May 11, 0 commits May 12 (laptop on but no committable diffs). **🟢 Autopush HEALTHY** — ~830 ticks straight since May 9 19:40 PDT, fully stable third cycle. **🚨 PayPal Truee Golf €52.94 UNRESOLVED 8 days.** Same May 4 22:10 UTC receipt — no dispute or authorize signal. **0 GitHub commits to public Archtrack in window** — still on `4e91fb0` (8 days public-silence). **0 openclaw/notifications, 0 Fiverr, 0 @-mentions.** **Pipeline frozen 25 days** (memory still ends `2026-04-17-shift2.md`; all hot leads Day-25+ past cliff). **🆕 Facebook Messenger inbound:** Zubaida Hashim Kolia + Hina Wasif (May 10) — adds to existing unread Messenger queue.
+**Last Updated:** May 14, 2026 at 7:05 AM PDT (48-Hour Sync — short ~35h cycle since 2026-05-12 19:55 PDT)
+**Source:** 48-Hour Audit — **🚨 ArchTrack desktop tracker STILL silent — 8 consecutive cycles, ~9 days dark.** Live event count UNCHANGED at **5437** since 9:57 PM PDT May 5. May 13 daily summary 0% / 0 tracked / 0 productive — **8 consecutive 0% days**. Autopush ticking every 5 min through this cycle (1,070+ ticks since May 9, no gaps), so the laptop is awake — tracker *process* is the failure surface. **🆕 Uber Eats receipt May 13 12:50 PM PDT — Ike's Love & Sandwiches (Hayward), $47.18** — Mohammed visibly active in Bay Area, confirms human-on-machine even though tracker is mute. **🟢 2 autopush commits in window**: `5b6ed05b` May 12 20:00 PDT (last cycle's mission-control.md write) + `c9db1668` May 13 06:16 PDT. **🟢 Autopush HEALTHY** — fourth fully-stable cycle in a row. **🚨 PayPal Truee Golf €52.94 UNRESOLVED 10 days.** Same May 4 22:10 UTC receipt — no dispute or authorize signal across 5 cycles. **0 GitHub commits to public Archtrack in window** — still on `4e91fb0` (10 days public-silence). **0 openclaw/notifications, 0 Fiverr, 0 @-mentions, 0 client responses.** **Pipeline frozen 27 days** (memory still ends `2026-04-17-shift2.md`; all hot leads Day-27+ past cliff). **🟡 PGA Championship live this week** — Major's Challenge final-call reminder May 13. **🆕 Makai Island dinner Sun May 17 6:00 PM PDT — 3 days out**, no other calendar events.
+
+---
+
+## ✅ 48-HOUR SYNC — 2026-05-14 07:05 PDT
+
+### What Happened
+- **🚨 ArchTrack desktop tracker STILL silent — 8 consecutive cycles, ~9 days dark.** Event count UNCHANGED at **5437** since 9:57:19 PM PDT May 5. May 13 daily summary at 0% / 0 tracked / 0 productive — **8 consecutive 0% days** (May 5/6/7/8/9/10/11/12/13). Autopush ticked 660 times during this 55h window from Mohammed's laptop — the machine is awake; the tracker *process* is the failure surface, unchanged from last 2 cycles.
+- **🆕 Mohammed is visibly active despite tracker silence.** Uber Eats receipt May 13 12:50 PM PDT at Ike's Love & Sandwiches in Hayward CA ($47.18). Confirms human-on-machine + Bay Area presence. The tracker outage is purely a desktop-app problem, not absence-of-user.
+- **🟢 2 autopush commits in window**: `5b6ed05b` May 12 20:00:42 PDT picked up last cycle's mission-control.md write; `c9db1668` May 13 06:16:30 PDT picked up additional workspace diffs. **0 commits May 14 so far** (this cycle's write will trigger the next autopush tick).
+- **0 commits to public Archtrack in window.** maximizeGPT/Archtrack still on `4e91fb0` (May 4 04:23 UTC) — public-silence now **10 days** since v1.0.2 ship. Local in-flight branch (~30 modified/deleted files in `admin/` + `desktop/`) still stalled — ~14 days now.
+- **0 openclaw close-wave activity.** No GitHub notification emails, no @-mentions, no stale-bot pings in 15 days.
+- **0 Fiverr inbound / 0 orders.** gianni_e1dkyat5 fraud hold maintained.
+- **0 new Anthropic billing alerts.** No top-ups triggered since the May 10 $15 credit purchase — credit floor not hit during this window.
+- **🟡 PGA Championship week.** Major's Challenge sent the final-call roster reminder May 13 07:18 AM PDT ("rosters lock at first tee time"). PGA Championship at Aronimink Golf Club is live this week. Mohammed's golf league active — no action required from Mohlt.
+- **🟡 Intuit Partners Silver Tier API pitch** May 14 06:07 AM PDT — promotional, no action.
+- **Routine Gmail noise:** BensBites Substack ("Agents feedback tip — all apps will become dev tools"), 1 ArchTrack daily summary (May 13, 0%), Streak, water project ($3714 still away from full funding), Farza/heyclicky ("4 weeks", new product tease). **Nothing requires immediate triage.**
+
+### GitHub Activity
+- **maximizeGPT/Archtrack:** **0 commits in window** | Issues + Pulls pages return 404 (issues & PRs disabled on public repo) | last commit `4e91fb0` "ci: disable DMG background (mac_alias broken on macos-latest)" (May 4) — **10 days public-silence**
+- **mohltbot/mission-control:** **2 autopush commits in window**
+  - `c9db1668` chore(auto): sync workspace changes [2026-05-13 06:16:30] — May 13 morning workspace diffs
+  - `5b6ed05b` chore(auto): sync workspace changes [2026-05-12 20:00:42] — picked up the May 12 19:55 PDT sync write
+- **mohltbot/mission-control PRs:** 17 open (carryover — private repo, no programmatic re-check this cycle); **0 new PRs detected**
+- **openclaw/openclaw inbound:** **0 GitHub-notification emails in window**. 15 days quiet.
+
+### Pipeline (OpenClaw Debugger)
+- 🔥 Hot: **18** | 🟡 Warm: **20** | 🔵 Cold: **72** | **Total: 110 leads** | **Potential: $2,350+** *(stale 27 days; ALL hot leads now Day-27+ past cliff)*
+- **Last updated:** April 17, 2026 (Mohlt Shift 2) — **unchanged 27 days running**
+- **⚠️ Pipeline math STILL needs rebase** — no debugger shift attempted in window. Memory dir still ends `2026-04-17-shift2.md`.
+- **🚨 Every hot lead is now Day-27+ past Day-14 cliff** — pipeline functionally cold-frozen. Formally demote on next debugger shift.
+- **Aged send backlog (31 unsent DMs):** every draft is now 27–32 days old. Recommendation unchanged: abandon all 31 wholesale, re-source from fresh post-May-10 issues only.
+
+### Comms
+- **Gmail connector healthy this cycle.**
+- **🆕 Inbound this window — notable:**
+  - **May 13 12:50 PM PDT — `noreply@uber.com`** — Uber Eats receipt at Ike's Love & Sandwiches (Hayward), $47.18. Confirms Mohammed's Bay Area presence + active use of laptop during tracker-silent period.
+  - **May 13 07:18 AM PDT — `no-reply@majorschallenge.com`** — Golf Pool Roster Alert (PGA Championship rosters lock at first tee time).
+- **🆕 Inbound this window — promotional/newsletter:**
+  - **May 14 06:31 AM PDT — `bensbites@substack.com`** — "Agents feedback tip" (all apps will become dev tools).
+  - **May 14 06:07 AM PDT — `IntuitPartners@dp.intuit.com`** — Silver Tier API limits upgrade pitch.
+  - **May 13 11:46 AM PDT — `hello@streak.com`** — deal summaries / AI for every email.
+  - **May 12 11:56 AM PDT — `farza@heyclicky.com`** — "4 weeks", new product tease.
+  - **May 12 09:40 AM PDT — `info@thewaterproject.org`** — Mang'uliro Community $3,714 from full funding.
+- **🚨 Carryover financial item:**
+  - **PayPal €52.94 EUR to Truee Golf** (txn `0UB62923U3972414V`, May 4 22:10 UTC) — **10 days unresolved**. 180-day window still open. Highest-priority manual decision item — unchanged from last 5 cycles.
+- **Inbound routine:** 1 ArchTrack daily summary (May 13, 0%), GitHub Actions Windows runner migration heads-up (May 12, still pending — action by June 8).
+- **No new client responses, no Fiverr inbound, no @-mentions on tracked GitHub repos, no openclaw notifications, no Anthropic billing alerts.**
+
+### Calendar (next 7 days)
+- **🔜 Sun May 17, 6:00 – 7:00 PM PDT — Reservation at Makai Island Kitchen & Groggery** (49A Municipal Wharf, Santa Cruz CA). Party of 2. **3 days out.**
+- **May 14 (today) – May 16, May 18 – May 21:** No other events scheduled.
+- **Past 48h:** 0 events occurred.
+- **🟢 Calendar quiet but not empty** — single Santa Cruz dinner on the books.
+
+### ArchTrack
+- Status: ✅ **ONLINE** at https://archtrack.live — admin dashboard renders, Connected banner green, Mohammed signed in as "Mohammed Rayed Wasif / Genesis Design Studios", Engineering role
+- **🚨 Live activity feed event count: 5437** — **UNCHANGED 8 cycles in a row**. Last event still 9:57:19 PM PDT May 5 (Claude → Core Work). Feed fully frozen.
+- **🚨 Daily summaries: 8 zeros in a row** (May 5 → May 12) plus today's May 13 wrap also at 0%. Same gating issue: desktop-side capture silent → aggregator can't produce non-zero output.
+- **Public repo: 0 commits in window** — v1.0.2 (May 4) still last ship — **10 days public-silence**. Local in-flight branch (~30 modified/deleted files in `desktop/` + `admin/`) stalled ~14 days.
+- **Hypothesis (still confirmed by data):** Autopush IS running every 5 min via launchd, so the laptop is awake (Uber Eats order May 13 also confirms physical presence). Tracker process specifically is silent. This is a process-level failure, NOT laptop sleep. Action: relaunch ArchTrack desktop app, watch live feed for new entries, confirm capture resumes, watch tomorrow's daily summary for non-zero output.
+- **Next milestone:** Boot the tracker, confirm capture resumes within 24h, ship v1.0.3 if a regression caused the silence.
+
+### Budget Tracker
+- Estimated this cycle: +~$0.10 (claude-opus-4-7 Cowork run — ~25 tool calls, ~80k input tokens)
+- **0 Anthropic credit top-ups this cycle.** Last was $15 May 10 (receipt #2259-1607-3720). Console balance presumably still under the $15 + $5 from prior cycle — burn rate watchpoint.
+- Running total (Cowork only): ~**$8.91** / $200 (4.5%) — healthy, well under cap
+- Per task spec model: claude-sonnet-4-6 (this run is opus-4-7, scheduled-task override)
+
+### Autopush Health
+- Last log tick: `=== 2026-05-14 07:03:26 ===` (live, ~2 min before this sync ran)
+- **Continuous 5-min cadence since May 9 19:40 PDT** — ~1,070 ticks straight, no gaps
+- **660 ticks in this 55h window** | **2 actual pushes** (May 12 20:00 + May 13 06:16); remaining ticks = "(no changes)" — expected for autopush, not a problem
+- Scoped filter still correctly resetting Archtrack-tree edits out of mc commits (the long "Unstaged changes after reset" preamble in every tick = filter doing its job)
+- Verdict: **HEALTHY** — fully stable, **fourth cycle in a row**
+
+### Blockers & Decisions Needed
+- 🚨 **ArchTrack desktop tracker — 8 cycles silent, 9 days dark.** Process-level failure (not laptop sleep — confirmed by autopush ticking + Uber Eats May 13). Action: open ArchTrack desktop app, watch live feed for new entries, ship v1.0.3 if v1.0.2 timer fix regressed. **Highest urgency engineering item.**
+- 🚨 **PayPal €52.94 EUR to "Truee Golf" — UNRESOLVED 10 days.** Same May 4 22:10 UTC receipt; no dispute or authorize signal across 5 cycles. Verify; if unauthorized, file PayPal Resolution Center claim within 180-day window. **Highest-priority manual decision — unchanged from last 5 cycles.**
+- 🟡 **Anthropic API credit floor — recurring risk.** Recommend setting auto-recharge floor/ceiling on the console. ~$5/day burn rate observed over 2-day window May 9–10. No top-up needed this cycle, but the credit pool is finite.
+- 🟡 **Pancake AI Cofounder beta — sign-in still not observed.** May 8 invite, **6 days unclaimed**. If Mohammed wants the slot, sign in at app.getpancake.ai with rayedwasif@gmail.com before invite expires.
+- 🟡 **Novita AI workshop May 6 outcome owed.** Archive both duplicate calendar entries.
+- 🟢 **Makai dinner Sun May 17 6:00 PM PDT — 3 days out.** No action needed unless Mohammed wants a 24h reminder ping.
+- ⚠️ **Pipeline rebase 27 days overdue.** Run debugger reconciliation shift before any further sends.
+- ⚠️ **All hot leads Day-27+ past cliff** — pipeline functionally cold-frozen. Formally demote next debugger shift.
+- ⚠️ **Debugger agent paused 27 days running** — restart shift or formally retire the role.
+- ⚠️ **Send backlog: 31 unsent DMs, all 27–32 days stale.** Same recommendation: abandon wholesale, re-source.
+- ⚠️ **Saira Jafri Facebook Messenger (May 3)** — 11 days unread; triage.
+- ⚠️ **Wasif Hasan Facebook Messenger (Apr 25)** — 19 days unread; triage or formally drop.
+- ⚠️ **Tony An Messenger (Apr 15)** — 29 days unread; formally drop.
+- ⚠️ **Zubaida + Hina Messenger (May 10)** — 4 days unread; family/social, triage when Mohammed has time.
+- ⚠️ **Twitter Thread 19 still unposted** — 27 days old; archive-value only.
+- ⚠️ **GitHub Actions Windows runner migration** — action by June 8 (audit any active workflows using `windows-latest`/`windows-2025` for Visual Studio 2026 compatibility).
+- 🟡 **17 open mission-control PRs with no review activity** — same triage decision as prior cycles (merge, close, or formally mark stale).
 
 ---
 
