@@ -73,7 +73,7 @@
   - Adds `/scheduled-task-patches/bens-bites-implementation.md` proposing the swap of the task's "CONTEXT FIRST" three explicit `Read` calls for a single `@/Users/main/openclaw archive/workspace/AGENTS.md` reference.
   - Net effect on next Wed/Fri 6 AM run (after Mohammed pastes the patch into the task editor): -3 Read tool calls per run, +1 doc loaded (PROTOCOL.md, currently not in this task's context), reduced missed-context bugs.
 - **Follow-up wiring:** If the @-include pattern works in Cowork, the same swap applies to the other 7 scheduled tasks (debugger-shift-1/2, inbox-monitor, relationship-ninja-crm, event-scout, mission-control-update, archtrack-journey-documenter). One pattern, applied 7 places — compounds.
-- **PR link:** _filled in below_
+- **PR link:** https://github.com/mohltbot/mission-control/pull/47 (DRAFT)
 
 ### PR 2 — skills/video-to-html
 - **Tier:** 1 (project advanced: **VC SaaS Portfolio Agentification** + **Dad's Middle East Accounting-Automation Firm** + **ArchTrack build logs**)
@@ -84,7 +84,7 @@
   - Same applies to dad's firm pitch Looms and ArchTrack build-log demos.
 - **Token budget:** <$0.10/video using Whisper + Haiku — well within $200/mo cap.
 - **Follow-up wiring:** Mohammed should test on the next VC SaaS Loom (he's 1 of 16 done) and tell us whether the HTML version actually improves replies. If yes, this becomes the default deliverable shape for that project.
-- **PR link:** _filled in below_
+- **PR link:** https://github.com/mohltbot/mission-control/pull/48 (DRAFT)
 
 ## Pattern-watch (themes that didn't individually qualify but warrant a future tracking task)
 
