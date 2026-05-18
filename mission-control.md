@@ -1,7 +1,93 @@
 # Mission Control Board
 
-**Last Updated:** May 16, 2026 at 7:10 AM PDT (48-Hour Sync — clean 48h cycle since 2026-05-14 07:05 PDT)
-**Source:** 48-Hour Audit — **🚨 ArchTrack desktop tracker STILL silent — 9 consecutive cycles, ~11 days dark.** May 14 + May 15 daily summaries both 0% / 0 tracked / 0 productive — **10 consecutive 0% days** (May 5 → May 15). Autopush ticking every 5 min through this cycle (no gaps; ~576 ticks). **🟢 3 autopush commits in window**: `3b97d52` May 14 07:13 PDT (carried last cycle's mission-control.md write) + `0c37a0c` May 15 06:20 PDT + `c71cc74` May 15 06:25 PDT. **🟢 Autopush HEALTHY** — fifth fully-stable cycle in a row. **🚨 PayPal Truee Golf €52.94 UNRESOLVED 12 days.** Same May 4 22:10 UTC receipt — no dispute or authorize signal across 6 cycles. **0 GitHub commits to public Archtrack in window** — still on `4e91fb0` (12 days public-silence). **0 openclaw/notifications, 0 Fiverr, 0 @-mentions, 0 client responses.** **🆕 2 new draft PRs on mohltbot/mission-control** this window: **#48** (Bens Bites May 14 — skills/video-to-html) + **#47** (Bens Bites May 15 — AGENTS.md @-auto-load + task patch Tier 2). **19 open mc PRs total** (up from 17). **Pipeline frozen 29 days** (memory still ends `2026-04-17-shift2.md`; all hot leads Day-29+ past cliff). **🔜 Makai Island dinner Sun May 17 6:00 PM PDT — TOMORROW**, no other calendar events.
+**Last Updated:** May 18, 2026 at 7:05 AM PDT (48-Hour Sync — clean 48h cycle since 2026-05-16 07:10 PDT)
+**Source:** 48-Hour Audit — **🟢 BIG WIN: ArchTrack v1.0.3 SHIPPED to `main` on May 16** (`a013adc` "hidden keep-alive window + watchdog to defeat App Nap" — co-authored). This directly targets the App Nap regression that's been freezing the desktop tracker for 10+ cycles. **12-day public-silence on maximizeGPT/Archtrack BROKEN.** ❌ However — **daily summaries for May 16 + May 17 are STILL 0%** (12 consecutive 0% days, May 5 → May 17). Fix is shipped but local tracker has not yet been upgraded/relaunched; the v1.0.3 binary needs to install on Mohammed's machine before the silence ends. **🟢 ArchTrack Journey Documenter ran Sun May 17 ~8 PM PT** and appended a full v1.0.3 entry to `arch-firm-dashboard/JOURNEY.md` (+52 lines) — autopush picked it up as commit `68aa614` May 17 20:09:53 PDT. **🟢 2 autopush commits in window**: `a1f8435` May 16 07:12 PDT (carried last cycle's mission-control.md write) + `68aa614` May 17 20:09 PDT. Autopush ticking every 5 min through entire cycle — last tick `=== 2026-05-18 14:00:38 UTC ===` (~5 min before this sync). **🟢 Autopush HEALTHY** — sixth fully-stable cycle in a row. **🚨 PayPal Truee Golf €52.94 STILL UNRESOLVED — now 14 days** (May 4 22:10 UTC receipt unchanged across 7 cycles). **0 openclaw notifications, 0 Fiverr inbound, 0 @-mentions, 0 client responses.** **0 new mc PRs this cycle** — backlog steady at **19 open**. **Pipeline frozen 31 days** (LEADS.md still ends 2026-04-17; memory dir still ends `2026-04-17-shift2.md`; all hot leads Day-31+ past cliff). **🟢 Makai dinner happened Sun May 17 6 PM** (Yelp reminder + Uber receipt confirm). **Calendar empty for next 7 days.** Mohammed visibly active — Uber rides Fri May 15, Sat May 16 ($17.51), Sun May 17 ($45.70 post-Makai).
+
+---
+
+## ✅ 48-HOUR SYNC — 2026-05-18 07:05 PDT
+
+### What Happened
+- **🟢 ArchTrack v1.0.3 SHIPPED on May 16 — public-silence broken after 12 days.** `a013adc` "v1.0.3: hidden keep-alive window + watchdog to defeat App Nap" landed on `maximizeGPT/Archtrack:main` co-authored. This is the **third sleep/idle fix in a row** (v1.0.2 re-armed timers on system resume May 4 → `5e49d79` backfilled break_idle rows when setInterval was suspended → v1.0.3 now adds a pre-emptive App Nap defense via a hidden keep-alive window + watchdog). Pattern strongly suggests the same root cause that's been frosting the tracker for 12 consecutive 0% summary days. **Customer-quality fix — but it doesn't help until the local binary is upgraded.**
+- **❌ But May 16 + May 17 daily summaries still 0% / 0 tracked / 0 productive.** That makes **12 consecutive 0% days** (May 5 → May 17 inclusive). The v1.0.3 fix shipped May 16 18:00 PDT-ish; Mohammed has not yet downloaded/installed the new build, so the local tracker is still running the broken v1.0.2 (or earlier). **Highest-priority action this cycle:** install v1.0.3 on Mohammed's Mac, relaunch, watch tonight's daily summary for non-zero output.
+- **🟢 ArchTrack Journey Documenter scheduled task ran Sun May 17 ~8 PM PT.** Appended a clean v1.0.3 entry to `arch-firm-dashboard/JOURNEY.md` (+52 lines): logged the release, ran health checks (all 200 OK), noted employee count steady at 7, flagged the `api/health` `version` field still reporting `1.0.0` despite three releases shipped (cosmetic drift — release-checklist gap). Autopush picked it up as commit `68aa614` May 17 20:09:53 PDT.
+- **🟢 Makai Island dinner happened Sun May 17 6 PM PDT** (party of 2, 49A Municipal Wharf, Santa Cruz). Yelp reminder fired May 17 00:50 UTC; Uber receipts show $17.51 Sat May 16 9:27 PM (warm-up) and $45.70 Sun May 17 9:50 PM (post-dinner return) — both consistent with the planned Santa Cruz outing. **No action items from the calendar.**
+- **0 commits to mc-content/openclaw/openclaw close-wave activity.** No GitHub-notification emails, no @-mentions, no stale-bot pings. Inbox basically silent except routine: ArchTrack daily summaries, Uber receipts, DoorDash promo, Yelp reminder, Uber One renewal notice (May 17 23:05 UTC — auto-renewal heads-up only, no action required).
+- **0 Fiverr inbound / 0 orders.** gianni_e1dkyat5 fraud hold maintained. No new buyer inquiries.
+- **0 Anthropic billing alerts.** No top-ups triggered this window. The $5 May 9 + $15 May 10 credits presumably still sustaining usage; watch for the next floor-hit notice.
+- **0 PayPal / Truee Golf activity.** Same May 4 22:10 UTC €52.94 receipt — **14 days unresolved across 7 cycles**. 180-day window still open; this remains the highest-priority manual decision item.
+
+### GitHub Activity
+- **maximizeGPT/Archtrack:** **1 commit in window** — **`a013adc`** "v1.0.3: hidden keep-alive window + watchdog to defeat App Nap" (May 16) | **0 open issues** | **0 open PRs** | trunk-based workflow continues, no PRs ever created on this repo. **12-day public-silence officially broken.**
+- **mohltbot/mission-control:** **2 autopush commits in window**
+  - `68aa614` chore(auto): sync workspace changes [2026-05-17 20:09:53] — picked up the ArchTrack Journey Documenter's +52-line JOURNEY.md entry
+  - `a1f8435` chore(auto): sync workspace changes [2026-05-16 07:12:13] — picked up last cycle's mission-control.md write
+- **mohltbot/mission-control PRs:** **19 open** (unchanged from last cycle — no new drafts this window) — same triage decision still pending: merge, close, or formally mark stale. Carryover backlog: #48 skills/video-to-html, #47 AGENTS.md @-auto-load, #46 portfolio-research.mjs, #45 ui-wireframe-then-implement, #44 acceptmarkdown-check, #41–43 BensBites trio, #30–40 older docs PRs
+- **openclaw/openclaw inbound:** **0 GitHub-notification emails in window**. 19 days quiet.
+
+### Pipeline (OpenClaw Debugger)
+- 🔥 Hot: **18** | 🟡 Warm: **20** | 🔵 Cold: **72** | **Total: 110 leads** | **Potential: $2,350+** *(stale 31 days; ALL hot leads now Day-31+ past their cliff)*
+- **Last updated:** April 17, 2026 (Mohlt Shift 2) — **unchanged 31 days running**
+- **⚠️ Pipeline math STILL needs rebase** — no debugger shift attempted in window. Memory dir still ends `2026-04-17-shift2.md`.
+- **🚨 Every hot lead is now Day-31+ past Day-14 cliff** — pipeline functionally cold-frozen. Formally demote on next debugger shift.
+- **Aged send backlog (31 unsent DMs):** every draft is now 31–36 days old. Recommendation unchanged: abandon all 31 wholesale, re-source from fresh post-May-16 issues only.
+
+### Comms
+- **Gmail connector healthy this cycle.**
+- **Inbound this window — routine only:**
+  - **May 18 01:00 UTC — `onboarding@resend.dev`** — ArchTrack Daily Summary for Genesis Design Studios · 2026-05-17 (0% productive / 0 tracked).
+  - **May 17 01:00 UTC — `onboarding@resend.dev`** — ArchTrack Daily Summary for Genesis Design Studios · 2026-05-16 (0% productive / 0 tracked).
+  - **May 17 00:50 UTC — `no-reply@yelp.com`** — Makai Island reservation reminder (fired ~17h before the dinner; cleanly delivered).
+  - **May 17 23:05 UTC — `noreply@uber.com`** — Uber One membership auto-renewal heads-up (no action required, no surprise charge).
+  - **Uber receipt cluster:** May 15 7:59 PM ($6.93) + 9:43 PM ($17.19) + May 16 9:27 PM ($17.51) + May 17 9:50 PM ($45.70). Total ~$87 across 4 trips — confirms Mohammed has been physically active each evening of this cycle.
+  - **DoorDash:** May 16 promo email only (no order placed).
+- **🚨 Carryover financial item:**
+  - **PayPal €52.94 EUR to Truee Golf** (txn `0UB62923U3972414V`, May 4 22:10 UTC) — **14 days unresolved**. 180-day window still open. Highest-priority manual decision item — unchanged from last 7 cycles.
+- **No new client responses, no Fiverr inbound, no @-mentions on tracked GitHub repos, no openclaw notifications, no Anthropic billing alerts, no calendar invites.**
+
+### Calendar (next 7 days)
+- **May 18 (today) → May 25:** **No events scheduled.** Calendar fully empty for the upcoming week.
+- **Past 48h:** 1 event occurred — **Sun May 17 6:00 PM PDT Makai Island Kitchen & Groggery reservation** (party of 2, Santa Cruz). Confirmed by Yelp reminder + return Uber at 9:50 PM ($45.70).
+- **🟢 Calendar clear** — open runway for engineering work this week.
+
+### ArchTrack
+- Status: ✅ **ONLINE** at https://archtrack.live — admin dashboard renders, title "ArchTrack Admin", h1 "Genesis Design Studios", signed in as Mohammed Rayed Wasif, "Connected" status banner.
+- **`/api/health` LIVE** (just polled): `{"status":"ok","database":"connected","employees":7,"version":"1.0.0","timestamp":"2026-05-18T14:07:30.730Z"}`. Employee count steady at **7** (unchanged since Apr 26). **Version field still reports `1.0.0` despite v1.0.1 → v1.0.2 → v1.0.3 shipped** — release-checklist gap, server constant isn't being bumped on release. Cosmetic but it makes the health endpoint useless for verifying which release is in prod.
+- **🟢 v1.0.3 LANDED on `main` May 16** — "hidden keep-alive window + watchdog to defeat App Nap" — third sleep/idle fix in two months. **Public-silence stretch BROKEN at 12 days.** Local in-flight branch (~30 modified/deleted files in `desktop/` + `admin/`) appears to have been the v1.0.3 source — that local diff probably collapsed into this release.
+- **🚨 Daily summaries: 12 zeros in a row** (May 5 → May 17). Fix is shipped to `main` but the **local tracker binary has not been upgraded** — Mohammed needs to download the v1.0.3 build, install it, relaunch, and watch tonight's daily summary (May 18) for non-zero output. This is the **single highest-leverage action this week**.
+- **Next milestones:**
+  1. Install v1.0.3 on Mohammed's Mac and verify capture resumes (smoke test: idle the machine 30–60 min with screen locked, confirm tracker keeps posting events).
+  2. Bump `api/health.version` field as part of the release process (so prod can be verified externally).
+  3. Validate the v1.0.1 zero-friction Downloads-handoff path end-to-end with a real new employee (open since Apr 26 — now 22 days).
+
+### Budget Tracker
+- Estimated this cycle: +~$0.10 (claude-opus-4-7 Cowork run — ~30 tool calls; plus ~$0.00 for the ArchTrack Journey Documenter scheduled task May 17 evening)
+- **0 Anthropic credit top-ups this cycle.** Last was $15 May 10 (receipt #2259-1607-3720). Watch the credit floor.
+- Running total (Cowork only): ~**$9.11** / $200 (4.6%) — healthy, well under cap
+- Per task spec model: claude-sonnet-4-6 (this run is opus-4-7, scheduled-task override)
+
+### Autopush Health
+- Last log tick: `=== 2026-05-18 14:00:38 UTC ===` (live, ~5 min before this sync ran)
+- **Continuous 5-min cadence since May 9 19:40 PDT** — no gaps observed across this 48h window
+- **~576 ticks in this 48h window** | **2 actual pushes** (May 16 07:12 + May 17 20:09); remaining ticks = "(no changes)" — expected for autopush, not a problem
+- Scoped filter still correctly resetting Archtrack-tree edits out of mc commits (the long "Unstaged changes after reset" preamble in every tick = filter doing its job)
+- Verdict: **HEALTHY** — fully stable, **sixth cycle in a row**
+
+### Blockers & Decisions Needed
+- 🟢 **HIGHEST-LEVERAGE ACTION:** Install ArchTrack v1.0.3 on Mohammed's Mac (the App Nap fix shipped May 16 but the local binary isn't upgraded — that's why daily summaries are still 0%). Relaunch the tracker, idle the machine 30–60 min as a smoke test, watch tomorrow's daily summary (May 19 01:00 UTC) for non-zero output. **If May 18 summary is still 0%, the fix didn't work — bug-bash and consider v1.0.4.**
+- 🚨 **PayPal €52.94 EUR to "Truee Golf" — UNRESOLVED 14 days.** Same May 4 22:10 UTC receipt; no dispute or authorize signal across 7 cycles. Verify; if unauthorized, file PayPal Resolution Center claim within 180-day window.
+- 🟡 **mohltbot/mission-control PR backlog: 19 open, unchanged.** All drafts, no review activity, no new drafts this cycle. Same triage decision: merge, close, or formally mark stale. The lack of new drafts this cycle is a small positive — Bens Bites firehose may be slowing.
+- 🟡 **`/api/health.version` drift** — server still reports `1.0.0` despite v1.0.3 shipped. Add a release-checklist item: bump `version` constant in server response on every release. Small but high-leverage for verifying deployments externally.
+- 🟡 **Anthropic API credit floor — recurring risk.** Still recommend setting auto-recharge floor/ceiling on the console. No new floor hit this window, but credit pool finite.
+- ⚠️ **Pipeline rebase 31 days overdue.** Run debugger reconciliation shift before any further sends.
+- ⚠️ **All hot leads Day-31+ past cliff** — pipeline functionally cold-frozen. Formally demote next debugger shift.
+- ⚠️ **Debugger agent paused 31 days running** — restart shift or formally retire the role.
+- ⚠️ **Send backlog: 31 unsent DMs, all 31–36 days stale.** Same recommendation: abandon wholesale, re-source.
+- ⚠️ **Messenger backlog carries over:** Zubaida + Hina (8d), Saira Jafri (15d), Wasif Hasan (23d), Tony An (33d).
+- ⚠️ **Twitter Thread 19 still unposted** — 31 days old; archive-value only.
+- ⚠️ **GitHub Actions Windows runner migration** — action by June 8 (audit any active workflows using `windows-latest`/`windows-2025` for Visual Studio 2026 compatibility).
+- 🟡 **Pancake AI Cofounder beta — still no sign-in observed** (May 8 invite, 10 days unclaimed). If Mohammed wants the slot, sign in at app.getpancake.ai with rayedwasif@gmail.com before invite expires.
+- ✅ **CLEARED:** Makai Island dinner (Sun May 17 6 PM PDT) — completed, no follow-up needed.
 
 ---
 
