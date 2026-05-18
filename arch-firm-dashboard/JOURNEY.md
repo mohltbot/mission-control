@@ -1534,3 +1534,55 @@ The v1.0.2 release was cut on May 4 (a +1 patch over v1.0.1 from Apr 21). No fur
 ---
 
 *Last Updated: May 10, 2026 — ArchTrack Journey Documenter (automated)*
+
+---
+
+## May 17, 2026 — Automated Weekly Check (ArchTrack Journey Documenter)
+
+### Deployment Health: 🟢 HEALTHY
+- **`https://archtrack.live/`** → 200 OK · title: "ArchTrack Admin" · admin dashboard renders fully with sidebar nav (Dashboard, Employees, Projects, Tasks, Reports, Daily Summary, Screenshots, Overrides, Team) signed in as "Mohammed Rayed Wasif"; "Connected" status banner visible. Org shown as "Genesis Design Studios".
+- **`https://archtrack.live/admin`** → 200 OK · admin panel loads cleanly.
+- **`https://archtrack.live/api/health`** → 200 OK · `{"status":"ok","database":"connected","employees":7,"version":"1.0.0","timestamp":"2026-05-18T03:01:06.733Z"}`
+- archtrack.live canonical fully stable; nginx reverse proxy continues to front the Node origin without issues. No fallback to bare IP `165.227.78.107` needed.
+- Employee count steady at **7** (unchanged since at least April 26 — confirmed long-running baseline).
+- All productivity counters reading 0% / 0 (Team Productivity, Utilization, Focus Time, Idle/Wasted Time, Suspicious Activity) — consistent with checking at ~03:01 UTC (off-hours, no tracker events expected).
+- Note: the `api/health` `version` field still reports `1.0.0` despite `v1.0.3` being released — looks like the version constant in the server isn't being bumped on release. Cosmetic but worth fixing (already a known drift since prior releases).
+
+### GitHub Triage (maximizeGPT/Archtrack)
+- **Open issues**: 0 · **Closed issues**: 0 · (zero backlog; no new tickets filed this week)
+- **Open PRs**: 0 · **Closed PRs**: 0 · (direct-to-`main` workflow continues; "Welcome to pull requests!" placeholder still shown — no PR has ever been opened on this repo)
+- No triage action needed.
+
+### Commits in Last 24h: **1 commit (v1.0.3 release)**
+A new patch release was cut on **May 16, 2026** — `a013adc` "v1.0.3: hidden keep-alive window + watchdog to defeat App Nap" (co-authored). This is the second sleep/wake-related fix in two weeks: v1.0.2 (May 4) re-armed tracker timers on system resume, and v1.0.3 now adds a hidden keep-alive window + watchdog to prevent macOS App Nap from suspending the tracker process in the first place. End-to-end, this is the third sleep/wake/idle issue addressed (v1.0.2's "re-arm tracker timers on system resume" + the earlier `5e49d79` "backfill break_idle rows when setInterval was suspended (lunch/AppNap)" + now v1.0.3's pre-emptive App Nap defense). Pattern suggests a real customer/user reported lost-tracking-during-idle issues, prompting the deeper fix.
+
+Most recent commits on `main`:
+- `a013adc` — **v1.0.3: hidden keep-alive window + watchdog to defeat App Nap** (May 16) ← NEW
+- `4e91fb0` — ci: disable DMG background (mac_alias broken on macos-latest) (May 4)
+- `4b7fb12` — v1.0.2: re-arm tracker timers on system resume (May 4)
+- `303a590` — release v1.0.1 (Apr 21)
+- `a27d0b8` — zero-friction device activation via Downloads handoff (Apr 21)
+
+### P1 Action Items
+1. ⚠️ **v1.0.3 release verification pending** — `main` ships the "hidden keep-alive window + watchdog to defeat App Nap" fix as of May 16, but there's no JOURNEY record of end-to-end validation on a real Mac (idle for 30+ min with App Nap pressure, confirm tracker keeps posting events). Given this is the third sleep/idle fix in a row, the smoke test matters more than usual — if v1.0.3 also misses an App Nap edge case, you'll only learn about it from a customer.
+2. ⚠️ **`api/health` version stuck at `1.0.0`** — health JSON reports `version: "1.0.0"` even though `main` has shipped 1.0.1 → 1.0.2 → 1.0.3. Trivial fix (bump the constant in the server response on release) but it makes the health endpoint useless for verifying which release is actually running in prod. Worth adding to the release checklist.
+3. **Employee onboarding flow validation still open** — carry-over since Apr 26. The v1.0.1 zero-friction Downloads-handoff path still hasn't been verified end-to-end with a real new hire on record. Three releases later, this is overdue.
+4. **No P0/P1 production outages** — health check is clean across all three endpoints; nginx + Node origin both stable.
+
+### Next Priorities (carry-over + new)
+1. **Smoke-test v1.0.3 App Nap defense** (NEW) — leave a Mac installation idle for 30–60 min with screen locked, confirm tracker continues to post events without gaps.
+2. **Bump `api/health` `version` field on release** (NEW) — small but high-leverage; without it, you can't tell from outside which release is deployed.
+3. **Backfill verification for v1.0.2 system-resume re-arm** — carry-over from May 10; sleep/wake smoke test still hasn't been recorded in JOURNEY.
+4. **Employee onboarding flow validation** — v1.0.1 Downloads-handoff path with a real new employee (open since Apr 26 — now 21 days old).
+5. **Genesis AI proactive alerts** — still pending from March 29 plan.
+6. **Weekly auto-report email** — still pending from March 29 plan.
+7. **Define next sprint milestone** — the recent string of releases is reactive (sleep/idle bugfixes); pick a proactive milestone (alerts? weekly reports? employee #8 reactivation?) for the next two weeks.
+
+### Notes
+- Sandbox `date` at run: 2026-05-18 03:05 UTC ≈ 2026-05-17 evening PT (matches the scheduled "Sundays 8 PM" cadence).
+- Discord report posted via Chrome MCP → `#mission-control-updates` (STACK.md still only catalogs `#openclaw-debugger` and `#mission-control-updates`; no `archtrack-content`-specific webhook URL is documented anywhere in workspace memory. Continuing prior precedent of using `#mission-control-updates` for journey-style updates, consistent with the Apr 26 / May 4 / May 10 entries).
+- Decision made autonomously per scheduled-task rules: no clarifying questions asked, no `AskUserQuestion` / `request_cowork_directory` calls.
+
+---
+
+*Last Updated: May 17, 2026 — ArchTrack Journey Documenter (automated)*
